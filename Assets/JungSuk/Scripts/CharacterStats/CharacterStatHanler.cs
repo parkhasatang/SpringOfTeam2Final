@@ -8,7 +8,7 @@ public class CharacterStatHanler : MonoBehaviour
     [SerializeField] private PlayerStats playerBaseStats;
 
     public PlayerStats CurrentStats { get; private set; }
-    public List<PlayerStats> statsModifiers = new List<PlayerStats>();
+   
 
     private void Awake()
     {
@@ -17,12 +17,18 @@ public class CharacterStatHanler : MonoBehaviour
 
     private void UpdateCharacterStats()
     {
-        BaseStatsSO baseStats = null;
+        BaseStatsSO baseStatsSO = null;
         if(playerBaseStats.playerBaseStatsSO != null)
         {
-            baseStats = Instantiate(playerBaseStats.playerBaseStatsSO);
+            baseStatsSO = Instantiate(playerBaseStats.playerBaseStatsSO);
         }
 
-        CurrentStats = new PlayerStats { playerBaseStatsSO = baseStats };
+        CurrentStats = new PlayerStats { playerBaseStatsSO = baseStatsSO };
+        CurrentStats.statsChangeType = playerBaseStats.statsChangeType;
+        CurrentStats.hunger = playerBaseStats.hunger;
+        CurrentStats.decreaseHungerTime = playerBaseStats.decreaseHungerTime;
+        CurrentStats.useCoolTime= playerBaseStats.useCoolTime;
     }
+
+    
 }

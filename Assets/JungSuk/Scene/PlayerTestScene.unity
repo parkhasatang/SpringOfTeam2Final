@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 1484199390}
   - component: {fileID: 1484199389}
   - component: {fileID: 1484199391}
+  - component: {fileID: 1484199392}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -459,6 +460,24 @@ MonoBehaviour:
   weaponPivot: {fileID: 853484361}
   characterRenderer: {fileID: 796066821}
   playertransfrom: {fileID: 1484199386}
+--- !u!114 &1484199392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484199385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ea3f434f5503a40aa7d2192e8cfc23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBaseStats:
+    statsChangeType: 2
+    hunger: 100
+    decreaseHungerTime: 30
+    useCoolTime: 5
+    playerBaseStatsSO: {fileID: 11400000, guid: 4bddf49a7417a1341905c9a6237958d0, type: 2}
 --- !u!1 &1556929542
 GameObject:
   m_ObjectHideFlags: 0
