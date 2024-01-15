@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "BaseStatsData", menuName = "CharacterController/BaseStats", order = 0)]
-public class BaseStats : ScriptableObject
+public class BaseStatsSO : ScriptableObject
 {
     [Header("BaseStats")]
     public string name;

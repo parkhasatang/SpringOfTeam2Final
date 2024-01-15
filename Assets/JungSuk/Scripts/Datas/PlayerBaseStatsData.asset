@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a3fb812ec5b7b044bbc3a79a404dffb, type: 3}
-  m_Name: BaseStatsData
+  m_Name: PlayerBaseStatsData
   m_EditorClassIdentifier: 
-  name: 
-  speed: 0
-  maxHP: 0
-  attackDamage: 0
-  defense: 0
-  miningAttack: 0
-  attackDelay: 0
+  name: "\uBBFC\uADDC\uC9F1"
+  speed: 5
+  maxHP: 40
+  attackDamage: 10
+  defense: 1
+  miningAttack: 5
+  attackDelay: 0.5
