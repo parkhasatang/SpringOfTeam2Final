@@ -6,8 +6,9 @@ using UnityEngine;
 public class RotateAim : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer weaponRenderer;
-    [SerializeField] private Transform armPivot;
+    [SerializeField] private Transform weaponPivot;
     [SerializeField] private SpriteRenderer characterRenderer;
+    [SerializeField] private Transform playertransfrom;
 
     private CharacterController _controller;
 
@@ -27,7 +28,27 @@ public class RotateAim : MonoBehaviour
 
     private void RotateCharacter(Vector2 value)
     {
-        
+        float angle = Mathf.Atan2(value.y, value.x)*Mathf.Rad2Deg;
+        weaponPivot.rotation = Quaternion.Euler(playertransfrom.position.x, playertransfrom.position.y, angle);
+        if( -45f< angle && angle < 45f)
+        {
+            characterRenderer.color = Color.white;
+        }
+
+        if(45f<= angle && angle < 135f)
+        {
+            characterRenderer.color = Color.yellow;
+        }
+
+        if(135f <= angle && angle <= 180f || -180f < angle && angle < -135f)
+        {
+            characterRenderer.color = Color.black;
+        }
+
+        if(-135f < angle && angle <= -45f)
+        {
+            characterRenderer.color = Color.blue;
+        }
     }
 
   
