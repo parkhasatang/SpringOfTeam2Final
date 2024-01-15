@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     private CharacterController _controller;
     private Vector2 _moveValue = Vector2.zero; // 매게변수 값 넣어줘서 이 클래스 내에서 사용할 벡터값
     private Rigidbody2D _rigidbody;
-
+    
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();       

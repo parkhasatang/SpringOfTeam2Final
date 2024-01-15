@@ -9,7 +9,7 @@ public class CharacterController : MonoBehaviour
     public event Action<Vector2> OnLookEvent;
     public event Action OnAttackEvent;
     public event Action OnSetEvent;
-
+    public event Action OnInteractEvent;
     public bool IsAttacking { get; set; }
     public bool IsSetting {  get; set; }
 
@@ -31,5 +31,10 @@ public class CharacterController : MonoBehaviour
     public void CallSetEvent()
     {
         OnSetEvent?.Invoke();
+    }
+
+    public void CallInteractEvent()
+    {
+        OnInteractEvent?.Invoke();
     }
 }
