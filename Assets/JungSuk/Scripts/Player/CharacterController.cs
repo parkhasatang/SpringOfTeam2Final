@@ -19,12 +19,16 @@ public class CharacterController : MonoBehaviour
 
     public bool IsInteracting { get; set; }
 
+    public bool CanControllCharacter { get; set; }
+
     protected virtual void Awake()
     {
         statsHandler = GetComponent<CharacterStatHandler>();
+        CanControllCharacter = true;
     }
     protected virtual void Update()
     {
+        
         AttackDelay();
         CanInteract();
         CanSet();
@@ -50,6 +54,7 @@ public class CharacterController : MonoBehaviour
     {
         if (IsInteracting)
         {
+            Debug.Log(IsInteracting);
             CallInteractEvent();
         }
     }

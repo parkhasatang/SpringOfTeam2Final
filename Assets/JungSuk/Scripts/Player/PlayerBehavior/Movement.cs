@@ -5,36 +5,36 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private CharacterController _controller;
-    private Vector2 _moveValue = Vector2.zero; // 매게변수 값 넣어줘서 이 클래스 내에서 사용할 벡터값
-    private Rigidbody2D _rigidbody;
+    private CharacterController controller;
+    private Vector2 moveValue = Vector2.zero; // 매게변수 값 넣어줘서 이 클래스 내에서 사용할 벡터값
+    private Rigidbody2D rigidbody;
     private CharacterStatHandler statsHandler;
     private void Awake()
     {
-        _controller = GetComponent<CharacterController>();       
-        _rigidbody = GetComponent<Rigidbody2D>();
+        controller = GetComponent<CharacterController>();       
+        rigidbody = GetComponent<Rigidbody2D>();
         statsHandler = GetComponent<CharacterStatHandler>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        _controller.OnMoveEvent += Move;
+        controller.OnMoveEvent += Move;
     }
 
     private void Move(Vector2 value)
     {
-        _moveValue = value;
+        moveValue = value;
     }
 
     private void ApplyMovement(Vector2 value)
     {
         value = value * statsHandler.CurrentStats.baseStatsSO.speed; // 나중에 캐릭터 스피드 변수로 교체 예정(완료)
-        _rigidbody.velocity = value;
+        rigidbody.velocity = value;
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        ApplyMovement(_moveValue);
+        ApplyMovement(moveValue);
     }
 }

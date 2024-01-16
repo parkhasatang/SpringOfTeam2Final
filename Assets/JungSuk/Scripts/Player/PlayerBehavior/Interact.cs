@@ -8,7 +8,6 @@ public class Interact : MonoBehaviour
 {
     private CharacterController controller;
     public Collider2D rangebox;
-    private bool InteractionUIOn = false;
     private Dictionary<string, GameObject> interactiveUIs = new Dictionary<string, GameObject>();
     private void Awake()
     {
@@ -16,26 +15,34 @@ public class Interact : MonoBehaviour
         
     }
     // Start is called before the first frame update
-    private void Start()
+    //private void Start()
+    //{
+    //    controller.OnInteractEvent += PlayerInteract;
+    //}
+
+    private void Update()
     {
-        controller.OnInteractEvent += PlayerInteract;
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            CancelUI();
+        }
     }
 
-    private void PlayerInteract()
-    {
-        OnTriggerStay2D(rangebox);
-    }
+    //private void PlayerInteract()
+    //{
+    //    OnTriggerStay2D(rangebox);
+    //}
 
     private void OnTriggerStay2D(Collider2D collision)
     {       
-         if (controller.IsInteracting && collision.CompareTag("InteractionObject") && InteractionUIOn == false)
+         if (controller.IsInteracting && collision.CompareTag("InteractionObject"))
         {
-            InteractionUIOn=true;
             string Name = collision.gameObject.name;
 
             if(interactiveUIs.ContainsKey(Name))
             {
                 interactiveUIs[Name].SetActive(true);
+                controller.CanControllCharacter = false;
             }
             else
             {
@@ -48,7 +55,7 @@ public class Interact : MonoBehaviour
                     if(instantiatedUI != null)
                     {
                         instantiatedUI.SetActive(true);
-
+                        controller.CanControllCharacter = false;
                         interactiveUIs.Add(Name, instantiatedUI);
                     }
                 }
@@ -56,17 +63,13 @@ public class Interact : MonoBehaviour
             }                               
         }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
+   
+    public void CancelUI()
     {
-        CancelnteractiveUI(collision.gameObject.name);
-    }
-    public void CancelnteractiveUI(string name)
-    {
-        InteractionUIOn = false;
-        if(interactiveUIs.ContainsKey(name))
+       foreach(var ui in  interactiveUIs)
         {
-            interactiveUIs[name].SetActive(false);
+            ui.Value.SetActive(false);
         }
+        controller.CanControllCharacter = true;
     }
 }
