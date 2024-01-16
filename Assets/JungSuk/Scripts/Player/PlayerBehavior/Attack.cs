@@ -11,23 +11,17 @@ public class Attack : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
-        controller.OnAttackEvent += OnAttack;
-    }
-
-    private void OnAttack()
-    {
         
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        controller.OnAttackEvent += PlayerAttack;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void PlayerAttack()
     {
-        
+        Debug.Log("°ø°ÝÀÌ´å");
     }
 }

@@ -44,4 +44,9 @@ public class PlayerInputController : CharacterController
     {
         IsSetting = value.isPressed;
     }
+
+    public void OnInteract(InputValue value)
+    {
+        IsInteracting = value.isPressed;
+    }
 }
