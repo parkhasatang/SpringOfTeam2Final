@@ -17,5 +17,5 @@ public class PlayerStats
     public float decreaseHungerTime;
     public float useCoolTime;
 
-    public BaseStatsSO playerBaseStatsSO;
+    public BaseStatsSO baseStatsSO;
 }

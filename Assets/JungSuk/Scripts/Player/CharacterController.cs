@@ -32,11 +32,14 @@ public class CharacterController : MonoBehaviour
 
     private void AttackDelay() // 공격 딜레이 효과 
     {
-        if(timeSinceLastAttack <= statsHandler.CurrentStats.playerBaseStatsSO.attackDelay)
+        if (statsHandler.CurrentStats.baseStatsSO == null)
+            return;
+
+        if(timeSinceLastAttack <= statsHandler.CurrentStats.baseStatsSO.attackDelay)
         {
             timeSinceLastAttack += Time.deltaTime;
         }
-        if(IsAttacking && timeSinceLastAttack > statsHandler.CurrentStats.playerBaseStatsSO.attackDelay)
+        if(IsAttacking && timeSinceLastAttack > statsHandler.CurrentStats.baseStatsSO.attackDelay)
         {
             timeSinceLastAttack = 0;
             CallAttackEvent();
