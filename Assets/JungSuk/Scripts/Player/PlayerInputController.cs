@@ -8,8 +8,9 @@ public class PlayerInputController : CharacterController
     private Camera _camera; // OnLook에서 마우스 위치 벡터를 알수 있도록 가져온다.
 
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _camera = Camera.main;
     }
 
@@ -42,5 +43,10 @@ public class PlayerInputController : CharacterController
     public void OnSet(InputValue value)
     {
         IsSetting = value.isPressed;
+    }
+
+    public void OnInteract(InputValue value)
+    {
+        IsInteracting = value.isPressed;
     }
 }
