@@ -19,7 +19,7 @@ public class PlayerControlWall : MonoBehaviour
                 // 새롭게 생성해준 Tile을 Dictionary에 추가.
                 TilemapManager.instance.wallDictionary[new Vector3Int(Mathf.FloorToInt(mousPosition.x), Mathf.FloorToInt(mousPosition.y), 0)] = new TileInfo
                 {
-                    tile = tileMapControl.newTile,
+                    tile = tileMapControl.wallTile,
                     HP = 100f
                 };
                 Debug.Log("딕셔너리에 추가");
