@@ -12,6 +12,7 @@ public class CharacterController : MonoBehaviour
     public event Action OnAttackEvent;
     public event Action OnSetEvent;
     public event Action OnInteractEvent;
+    public event Action<int> OnEquipEvent;
 
     private float timeSinceLastAttack = float.MaxValue;
     public bool IsAttacking { get; set; }
@@ -20,6 +21,7 @@ public class CharacterController : MonoBehaviour
     public bool IsInteracting { get; set; }
 
     public bool CanControllCharacter { get; set; }
+
 
     protected virtual void Awake()
     {
@@ -90,5 +92,10 @@ public class CharacterController : MonoBehaviour
     public void CallInteractEvent()
     {
         OnInteractEvent?.Invoke();
+    }
+
+    public void CallEquipEvent(int number)
+    {
+        OnEquipEvent?.Invoke(number);
     }
 }

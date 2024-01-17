@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
@@ -22,19 +23,24 @@ public class Movement : MonoBehaviour
     }
 
     private void Move(Vector2 value)
-    {
-        moveValue = value;
+    {        
+            moveValue = value;
     }
 
     private void ApplyMovement(Vector2 value)
     {
-        value = value * statsHandler.CurrentStats.baseStatsSO.speed; // 나중에 캐릭터 스피드 변수로 교체 예정(완료)
+            value = value * statsHandler.CurrentStats.baseStatsSO.speed; // 나중에 캐릭터 스피드 변수로 교체 예정(완료)
         rigidbody.velocity = value;
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        ApplyMovement(moveValue);
+        if (controller.CanControllCharacter)
+        {
+            ApplyMovement(moveValue);
+        }
+        else
+            ApplyMovement(Vector2.zero);
     }
 }

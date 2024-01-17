@@ -1,3 +1,4 @@
+using Microsoft.Win32.SafeHandles;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,13 +18,15 @@ public class PlayerInputController : CharacterController
     public void OnMove(InputValue value)
     {
         Vector2 InputMoveValue;
-        InputMoveValue = value.Get<Vector2>().normalized;
 
         if (CanControllCharacter == false)
-            return;
+            InputMoveValue = Vector2.zero;
+
         else
-        CallMoveEvent(InputMoveValue);
-       
+        {
+            InputMoveValue = value.Get<Vector2>().normalized;
+            CallMoveEvent(InputMoveValue);
+        }
     }
     
     public void OnLook(InputValue value)
@@ -64,5 +67,20 @@ public class PlayerInputController : CharacterController
     public void OnInteract(InputValue value)
     {        
         IsInteracting = value.isPressed;
+    }
+
+    public void OnEquip(InputAction.CallbackContext context)
+    {
+        Debug.Log("Ãâ·Â");
+        if (CanControllCharacter == false)
+            return;
+        else
+        {
+            if (context.performed)
+            {
+                int pressedNumber = context.ReadValue<int>();
+                CallEquipEvent(pressedNumber);
+            }
+        }
     }
 }
