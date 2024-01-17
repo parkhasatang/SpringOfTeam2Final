@@ -69,18 +69,13 @@ public class PlayerInputController : CharacterController
         IsInteracting = value.isPressed;
     }
 
-    public void OnEquip(InputAction.CallbackContext context)
-    {
-        Debug.Log("Ãâ·Â");
+    public void OnEquip(InputValue value)
+    {       
         if (CanControllCharacter == false)
             return;
         else
         {
-            if (context.performed)
-            {
-                int pressedNumber = context.ReadValue<int>();
-                CallEquipEvent(pressedNumber);
-            }
+            CallEquipEvent();
         }
     }
 }

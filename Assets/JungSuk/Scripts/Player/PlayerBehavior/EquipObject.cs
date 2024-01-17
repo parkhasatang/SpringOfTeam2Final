@@ -8,6 +8,7 @@ public class EquipObject : MonoBehaviour
     private CharacterController controller;
     public GameObject[] quitSlots;
     public GameObject heldItem;
+    public Transform SpawnTrans;
 
     private void Awake()
     {
@@ -17,16 +18,32 @@ public class EquipObject : MonoBehaviour
     void Start()
     {
         controller.OnEquipEvent += EquipItemInQuitSlot;
+
     }
 
-    private void EquipItemInQuitSlot(int obj)
+    private void EquipItemInQuitSlot()
     {
-        Debug.Log(obj + "¿‘¥œ¥Ÿ.");
-    }
+        for (int i = 1; i <= 8; i++)
+        {
+            KeyCode key = KeyCode.Alpha0 + i;
 
-    // Update is called once per frame
-    void Update()
-    {
+            if (Input.GetKeyDown(key))
+            {
+                Debug.Log(i);
+                Vector3 currentPostion = heldItem.transform.position;
+                Quaternion currentRotation = heldItem.transform.rotation;
+                
+
+                GameObject newGameObj = Instantiate(quitSlots[i - 1], currentPostion, currentRotation, SpawnTrans);
+
+                heldItem.SetActive(false);
+            }
+        }
+    }
+            // Update is called once per frame
+     private void Update()
+     {
+        EquipItemInQuitSlot();
+     }
         
     }
-}

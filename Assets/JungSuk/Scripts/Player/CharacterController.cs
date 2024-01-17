@@ -12,7 +12,7 @@ public class CharacterController : MonoBehaviour
     public event Action OnAttackEvent;
     public event Action OnSetEvent;
     public event Action OnInteractEvent;
-    public event Action<int> OnEquipEvent;
+    public event Action OnEquipEvent;
 
     private float timeSinceLastAttack = float.MaxValue;
     public bool IsAttacking { get; set; }
@@ -94,8 +94,8 @@ public class CharacterController : MonoBehaviour
         OnInteractEvent?.Invoke();
     }
 
-    public void CallEquipEvent(int number)
+    public void CallEquipEvent()
     {
-        OnEquipEvent?.Invoke(number);
+        OnEquipEvent?.Invoke();
     }
 }
