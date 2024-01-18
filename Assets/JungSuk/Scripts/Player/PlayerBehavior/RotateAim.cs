@@ -10,15 +10,15 @@ public class RotateAim : MonoBehaviour
     [SerializeField] private SpriteRenderer characterRenderer;
     [SerializeField] private Transform playertransfrom;
 
-    private CharacterController _controller;
+    private CharacterController controller;
 
     private void Awake()
     {
-        _controller = GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
     }
     void Start()
     {
-        _controller.OnLookEvent += OnAim;
+        controller.OnLookEvent += OnAim;
     }
 
     private void OnAim(Vector2 value)
