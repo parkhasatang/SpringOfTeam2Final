@@ -1,3 +1,4 @@
+using Microsoft.Win32.SafeHandles;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,9 +18,15 @@ public class PlayerInputController : CharacterController
     public void OnMove(InputValue value)
     {
         Vector2 InputMoveValue;
-        InputMoveValue = value.Get<Vector2>().normalized;
-        CallMoveEvent(InputMoveValue);
-       
+
+        if (CanControllCharacter == false)
+            InputMoveValue = Vector2.zero;
+
+        else
+        {
+            InputMoveValue = value.Get<Vector2>().normalized;
+            CallMoveEvent(InputMoveValue);
+        }
     }
     
     public void OnLook(InputValue value)
@@ -28,25 +35,47 @@ public class PlayerInputController : CharacterController
         Vector2 worldPos = _camera.ScreenToWorldPoint(InputLookValue);
         InputLookValue = (worldPos - (Vector2)transform.position).normalized;
 
-        if(InputLookValue.magnitude >= 0.0f)
+        if (CanControllCharacter == false)
         {
-            CallLookEvent(InputLookValue);
+            return;
         }
-        
+        else
+        {
+            if (InputLookValue.magnitude >= 0.0f)
+            {
+                CallLookEvent(InputLookValue);
+            }
+        }
     }
 
     public void OnAttack(InputValue value)
     {
+        if (CanControllCharacter == false)
+            return;
+        else
         IsAttacking = value.isPressed;
     }
 
     public void OnSet(InputValue value)
     {
+        if (CanControllCharacter == false)
+            return;
+        else
         IsSetting = value.isPressed;
     }
 
     public void OnInteract(InputValue value)
-    {
+    {        
         IsInteracting = value.isPressed;
+    }
+
+    public void OnEquip(InputValue value)
+    {       
+        if (CanControllCharacter == false)
+            return;
+        else
+        {
+            CallEquipEvent();
+        }
     }
 }

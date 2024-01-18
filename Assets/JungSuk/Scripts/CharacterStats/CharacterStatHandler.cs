@@ -18,12 +18,12 @@ public class CharacterStatHandler : MonoBehaviour
     private void UpdateCharacterStats()
     {
         BaseStatsSO baseStatsSO = null;
-        if(playerBaseStats.playerBaseStatsSO != null)
+        if(playerBaseStats.baseStatsSO != null)
         {
-            baseStatsSO = Instantiate(playerBaseStats.playerBaseStatsSO);
+            baseStatsSO = Instantiate(playerBaseStats.baseStatsSO);
         }
 
-        CurrentStats = new PlayerStats { playerBaseStatsSO = baseStatsSO };
+        CurrentStats = new PlayerStats { baseStatsSO = baseStatsSO };
         CurrentStats.statsChangeType = playerBaseStats.statsChangeType;
         CurrentStats.hunger = playerBaseStats.hunger;
         CurrentStats.decreaseHungerTime = playerBaseStats.decreaseHungerTime;

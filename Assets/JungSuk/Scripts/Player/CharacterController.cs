@@ -12,6 +12,7 @@ public class CharacterController : MonoBehaviour
     public event Action OnAttackEvent;
     public event Action OnSetEvent;
     public event Action OnInteractEvent;
+    public event Action OnEquipEvent;
 
     private float timeSinceLastAttack = float.MaxValue;
     public bool IsAttacking { get; set; }
@@ -19,12 +20,17 @@ public class CharacterController : MonoBehaviour
 
     public bool IsInteracting { get; set; }
 
+    public bool CanControllCharacter { get; set; }
+
+
     protected virtual void Awake()
     {
         statsHandler = GetComponent<CharacterStatHandler>();
+        CanControllCharacter = true;
     }
     protected virtual void Update()
     {
+        
         AttackDelay();
         CanInteract();
         CanSet();
@@ -32,11 +38,14 @@ public class CharacterController : MonoBehaviour
 
     private void AttackDelay() // 공격 딜레이 효과 
     {
-        if(timeSinceLastAttack <= statsHandler.CurrentStats.playerBaseStatsSO.attackDelay)
+        if (statsHandler.CurrentStats.baseStatsSO == null)
+            return;
+
+        if(timeSinceLastAttack <= statsHandler.CurrentStats.baseStatsSO.attackDelay)
         {
             timeSinceLastAttack += Time.deltaTime;
         }
-        if(IsAttacking && timeSinceLastAttack > statsHandler.CurrentStats.playerBaseStatsSO.attackDelay)
+        if(IsAttacking && timeSinceLastAttack > statsHandler.CurrentStats.baseStatsSO.attackDelay)
         {
             timeSinceLastAttack = 0;
             CallAttackEvent();
@@ -47,6 +56,7 @@ public class CharacterController : MonoBehaviour
     {
         if (IsInteracting)
         {
+            Debug.Log(IsInteracting);
             CallInteractEvent();
         }
     }
@@ -82,5 +92,10 @@ public class CharacterController : MonoBehaviour
     public void CallInteractEvent()
     {
         OnInteractEvent?.Invoke();
+    }
+
+    public void CallEquipEvent()
+    {
+        OnEquipEvent?.Invoke();
     }
 }
