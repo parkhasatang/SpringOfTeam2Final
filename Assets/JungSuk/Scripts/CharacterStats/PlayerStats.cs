@@ -16,6 +16,8 @@ public class PlayerStats
     public float hunger;
     public float decreaseHungerTime;
     public float useCoolTime;
+    public float followDistance;
+    public float attackRange;
 
     public BaseStatsSO baseStatsSO;
 }

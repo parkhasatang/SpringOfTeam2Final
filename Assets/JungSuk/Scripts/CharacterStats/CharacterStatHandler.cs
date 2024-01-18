@@ -22,12 +22,14 @@ public class CharacterStatHandler : MonoBehaviour
         {
             baseStatsSO = Instantiate(playerBaseStats.baseStatsSO);
         }
-
+        // 플레이어
         CurrentStats = new PlayerStats { baseStatsSO = baseStatsSO };
         CurrentStats.statsChangeType = playerBaseStats.statsChangeType;
         CurrentStats.hunger = playerBaseStats.hunger;
         CurrentStats.decreaseHungerTime = playerBaseStats.decreaseHungerTime;
         CurrentStats.useCoolTime= playerBaseStats.useCoolTime;
+
+        // 몬스터
     }
 
     
