@@ -17,6 +17,7 @@ public class TilemapManager : MonoBehaviour
     public static TilemapManager instance;
 
     public Tilemap tilemap;
+    public Tilemap ceilingTile;
     public Dictionary<Vector3Int, TileInfo> wallDictionary = new Dictionary<Vector3Int, TileInfo>();
     public Tilemap groundBound;
 
@@ -24,7 +25,7 @@ public class TilemapManager : MonoBehaviour
     {
         instance = this;
     }
-    void Start()
+    public void Start()
     {
         // Bounds는 구조체
         // 해당 Tile의 크기만큼 싹 for문을 돌린다. tile이 있으면 Dictionary에 추가. 각각 TileInfo의 값을 받는다.
@@ -47,7 +48,7 @@ public class TilemapManager : MonoBehaviour
             }
         }
     }
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         BoundsInt bounds = tilemap.cellBounds;
         Gizmos.color = Color.green;
@@ -60,5 +61,5 @@ public class TilemapManager : MonoBehaviour
                 Gizmos.DrawWireCube(cellCenter, tilemap.cellSize);
             }
         }
-    }
+    }*/
 }

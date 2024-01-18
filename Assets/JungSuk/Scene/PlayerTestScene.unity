@@ -340,6 +340,9 @@ GameObject:
   - component: {fileID: 1484199389}
   - component: {fileID: 1484199391}
   - component: {fileID: 1484199392}
+  - component: {fileID: 1484199393}
+  - component: {fileID: 1484199395}
+  - component: {fileID: 1484199394}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -478,6 +481,42 @@ MonoBehaviour:
     decreaseHungerTime: 30
     useCoolTime: 5
     playerBaseStatsSO: {fileID: 11400000, guid: 4bddf49a7417a1341905c9a6237958d0, type: 2}
+--- !u!114 &1484199393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484199385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19705298f3eede445acc12b2eca50f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1484199394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484199385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe0de7301e651543b12a5ba787d964f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1484199395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484199385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85636f698c7bee04d96245ec3f12e037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1556929542
 GameObject:
   m_ObjectHideFlags: 0
