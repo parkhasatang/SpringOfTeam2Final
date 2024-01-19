@@ -3138,13 +3138,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ea3f434f5503a40aa7d2192e8cfc23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBaseStats:
-    statsChangeType: 2
-    hunger: 100
-    decreaseHungerTime: 30
-    useCoolTime: 5
-    followDistance: 0
-    attackRange: 0
+  characterBaseStats:
+    statsChangeType: 0
+    name: 
+    speed: 0
+    maxHP: 0
+    attackDamage: 0
+    defense: 0
+    miningAttack: 0
+    attackDelay: 0
     baseStatsSO: {fileID: 11400000, guid: 4bddf49a7417a1341905c9a6237958d0, type: 2}
 --- !u!114 &1484199393
 MonoBehaviour:
@@ -3415,13 +3417,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ea3f434f5503a40aa7d2192e8cfc23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBaseStats:
+  characterBaseStats:
     statsChangeType: 0
-    hunger: 0
-    decreaseHungerTime: 0
-    useCoolTime: 0
-    followDistance: 5
-    attackRange: 5
+    name: 
+    speed: 0
+    maxHP: 0
+    attackDamage: 0
+    defense: 0
+    miningAttack: 0
+    attackDelay: 0
     baseStatsSO: {fileID: 0}
 --- !u!4 &1724511712
 Transform:

@@ -4,15 +4,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BaseStatsData", menuName = "CharacterController/BaseStats", order = 0)]
 public class BaseStatsSO : ScriptableObject
 {
-    [Header("BaseStats")]
-    public string name;
-    public float speed;
-    public float maxHP;
+    [Header ("PlayerInfo")]
+    public float hunger;
+    public float decreaseHungerTime;
+    public float useCoolTime;
 
+    [Header("MonsterInfo")]
+    public float followDistance;
+    public float attackRange;
 
-    [Header ("Battle Info")]
-    public float attackDamage;
-    public float defense;
-    public float miningAttack;
-    public float attackDelay;
+    
 }

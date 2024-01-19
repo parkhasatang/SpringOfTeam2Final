@@ -41,11 +41,11 @@ public class CharacterController : MonoBehaviour
         if (statsHandler.CurrentStats.baseStatsSO == null)
             return;
 
-        if(timeSinceLastAttack <= statsHandler.CurrentStats.baseStatsSO.attackDelay)
+        if(timeSinceLastAttack <= statsHandler.CurrentStats.attackDelay)
         {
             timeSinceLastAttack += Time.deltaTime;
         }
-        if(IsAttacking && timeSinceLastAttack > statsHandler.CurrentStats.baseStatsSO.attackDelay)
+        if(IsAttacking && timeSinceLastAttack > statsHandler.CurrentStats.attackDelay)
         {
             timeSinceLastAttack = 0;
             CallAttackEvent();

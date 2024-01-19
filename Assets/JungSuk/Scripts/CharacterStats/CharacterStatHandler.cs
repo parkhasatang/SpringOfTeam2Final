@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class CharacterStatHandler : MonoBehaviour
 {
-    [SerializeField] private PlayerStats playerBaseStats;
+    [SerializeField] private CharacterStats characterBaseStats;
 
-    public PlayerStats CurrentStats { get; private set; }
+    public CharacterStats CurrentStats { get; private set; }
    
 
     private void Awake()
@@ -18,18 +18,20 @@ public class CharacterStatHandler : MonoBehaviour
     private void UpdateCharacterStats()
     {
         BaseStatsSO baseStatsSO = null;
-        if(playerBaseStats.baseStatsSO != null)
+        if(characterBaseStats.baseStatsSO != null)
         {
-            baseStatsSO = Instantiate(playerBaseStats.baseStatsSO);
+            baseStatsSO = Instantiate(characterBaseStats.baseStatsSO);
         }
         // 플레이어
-        CurrentStats = new PlayerStats { baseStatsSO = baseStatsSO };
-        CurrentStats.statsChangeType = playerBaseStats.statsChangeType;
-        CurrentStats.hunger = playerBaseStats.hunger;
-        CurrentStats.decreaseHungerTime = playerBaseStats.decreaseHungerTime;
-        CurrentStats.useCoolTime= playerBaseStats.useCoolTime;
+        CurrentStats = new CharacterStats { baseStatsSO = baseStatsSO };
+        CurrentStats.statsChangeType = characterBaseStats.statsChangeType;
+        CurrentStats.name = characterBaseStats.name;
+        CurrentStats.maxHP = characterBaseStats.maxHP;
+        CurrentStats.attackDamage = characterBaseStats.attackDamage;
+        CurrentStats.defense = characterBaseStats.defense;
+        CurrentStats.miningAttack = characterBaseStats.miningAttack;
+        CurrentStats.attackDelay = characterBaseStats.attackDelay;
 
-        // 몬스터
     }
 
     

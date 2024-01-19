@@ -8,6 +8,4 @@ public class MonsterStatsSO : ScriptableObject
     public float followDistance;
     public float attackRange;
 
-    [Header("Base Stats")]
-    public BaseStatsSO monsterBaseStats; // BaseStatsSO¸¦ ÂüÁ¶
 }
