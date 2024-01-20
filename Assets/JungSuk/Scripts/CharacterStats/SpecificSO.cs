@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "BaseStatsData", menuName = "CharacterController/BaseStats", order = 0)]
-public class BaseStatsSO : ScriptableObject
+public class SpecificSO : ScriptableObject
 {
     [Header ("PlayerInfo")]
     public float hunger;

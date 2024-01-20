@@ -20,7 +20,7 @@ public class MonsterController : MonoBehaviour
     {
         float distanceToTarget = Vector3.Distance(target.position, transform.position);
 
-        if (distanceToTarget <= statHandler.CurrentStats.baseStatsSO.attackRange)
+        if (distanceToTarget <= statHandler.CurrentStats.specificSO.attackRange)
         {
             if (Time.time - lastAttackTime >= statHandler.CurrentStats.attackDelay)
             {

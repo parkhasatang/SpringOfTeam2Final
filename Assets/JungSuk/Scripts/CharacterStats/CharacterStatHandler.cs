@@ -17,15 +17,17 @@ public class CharacterStatHandler : MonoBehaviour
 
     private void UpdateCharacterStats()
     {
-        BaseStatsSO baseStatsSO = null;
-        if(characterBaseStats.baseStatsSO != null)
+        SpecificSO specificSO = null;
+        if(characterBaseStats.specificSO != null)
         {
-            baseStatsSO = Instantiate(characterBaseStats.baseStatsSO);
+            specificSO = Instantiate(characterBaseStats.specificSO);
         }
         // 플레이어
-        CurrentStats = new CharacterStats { baseStatsSO = baseStatsSO };
+        CurrentStats = new CharacterStats { specificSO = specificSO };
         CurrentStats.statsChangeType = characterBaseStats.statsChangeType;
+        CurrentStats.objectType = characterBaseStats.objectType;        
         CurrentStats.name = characterBaseStats.name;
+        CurrentStats.speed = characterBaseStats.speed;
         CurrentStats.maxHP = characterBaseStats.maxHP;
         CurrentStats.attackDamage = characterBaseStats.attackDamage;
         CurrentStats.defense = characterBaseStats.defense;

@@ -2505,7 +2505,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3140,14 +3140,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterBaseStats:
     statsChangeType: 0
+    objectType: 0
     name: 
-    speed: 0
-    maxHP: 0
-    attackDamage: 0
-    defense: 0
-    miningAttack: 0
-    attackDelay: 0
-    baseStatsSO: {fileID: 11400000, guid: 4bddf49a7417a1341905c9a6237958d0, type: 2}
+    speed: 5
+    maxHP: 100
+    attackDamage: 20
+    defense: 4
+    miningAttack: 20
+    attackDelay: 0.5
+    specificSO: {fileID: 11400000, guid: 4bddf49a7417a1341905c9a6237958d0, type: 2}
 --- !u!114 &1484199393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3419,6 +3420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterBaseStats:
     statsChangeType: 0
+    objectType: 0
     name: 
     speed: 0
     maxHP: 0
@@ -3426,7 +3428,7 @@ MonoBehaviour:
     defense: 0
     miningAttack: 0
     attackDelay: 0
-    baseStatsSO: {fileID: 0}
+    specificSO: {fileID: 0}
 --- !u!4 &1724511712
 Transform:
   m_ObjectHideFlags: 0

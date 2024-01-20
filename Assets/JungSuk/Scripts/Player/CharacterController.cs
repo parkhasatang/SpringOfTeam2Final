@@ -38,7 +38,7 @@ public class CharacterController : MonoBehaviour
 
     private void AttackDelay() // 공격 딜레이 효과 
     {
-        if (statsHandler.CurrentStats.baseStatsSO == null)
+        if (statsHandler.CurrentStats.specificSO == null)
             return;
 
         if(timeSinceLastAttack <= statsHandler.CurrentStats.attackDelay)

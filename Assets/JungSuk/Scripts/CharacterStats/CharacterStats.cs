@@ -9,10 +9,24 @@ public enum StatsChangeType
     Multiple,
     Override,
 }
+
+public enum ObjectType
+{
+    Player,
+    Monster,
+    CanectWeapon,
+    RangeWeapon,
+    MineWeapon,
+    HPPotion,
+    HungerPotion,
+    InstalltionItem,
+    InteractionItem,
+}
 [Serializable]
 public class CharacterStats 
 {
     public StatsChangeType statsChangeType;
+    public ObjectType objectType;
 
     public string name;
     public float speed;
@@ -24,5 +38,5 @@ public class CharacterStats
     public float miningAttack;
     public float attackDelay;
 
-    public BaseStatsSO baseStatsSO;
+    public SpecificSO specificSO;
 }
