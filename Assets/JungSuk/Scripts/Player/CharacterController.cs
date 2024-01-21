@@ -26,7 +26,7 @@ public class CharacterController : MonoBehaviour
     protected virtual void Awake()
     {
         statsHandler = GetComponent<CharacterStatHandler>();
-        CanControllCharacter = true;
+        CanControllCharacter = true;        
     }
     protected virtual void Update()
     {
