@@ -39,4 +39,5 @@ public class CharacterStats
     public float attackDelay;
 
     public SpecificSO specificSO;
+
 }
