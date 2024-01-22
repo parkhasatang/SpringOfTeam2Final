@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
             SlotData slot = new SlotData();
             slot.isEmpty = true;
             slot.slotObj = invenSlot[i].gameObject;
+            slot.item = null;
             slots.Add(slot);
         }
     }

@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,5 +16,11 @@ public class SlotNum : MonoBehaviour
     public void OnOffImage(bool isOn)
     {
         itemImage.gameObject.SetActive(isOn);
+    }
+
+    public void QuickSlotItemChoose(float value)
+    {
+        Color imageComponent = gameObject.GetComponent<Image>().color;
+        imageComponent.a = value;
     }
 }

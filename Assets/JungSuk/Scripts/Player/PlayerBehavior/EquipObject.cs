@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EquipObject : MonoBehaviour
 {
     private CharacterController controller;
-    public GameObject[] quitSlots; // 민규님이 만들어 주실 큇슬롯으로 변경
-    public GameObject heldItem;
+    public Image[] quitSlots; // 민규님이 만들어 주실 큇슬롯으로 변경
+    public SpriteRenderer heldItem;
     public Transform SpawnTrans;
     private CharacterStatHandler statHandler;
 
@@ -26,48 +27,33 @@ public class EquipObject : MonoBehaviour
         controller.OnEquipEvent += EquipItemInQuitSlot;
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        EquipItemInQuitSlot();
-    }
-
     private void EquipItemInQuitSlot()
     {
         for (int i = 1; i <= 8; i++)
-        {           
-                KeyCode key = KeyCode.Alpha0 + i;
+        {
+            KeyCode key = KeyCode.Alpha0 + i;
 
-                if (Input.GetKeyDown(key))
+            if (Input.GetKeyDown(key))
+            {
+                equippedSlotIndex = i - 1;
+                Debug.Log(i);
+                if (!IsEquipedItem)
                 {
-                    if (quitSlots[i - 1] != null)
-                    {
-                         equippedSlotIndex = i - 1;
-                        if (heldItem == null)
-                        {
-                            EquipItem(i - 1);
-                        }
-                        else
-                        {   
-                            UnequipItem();
-                            EquipItem(i - 1);
-                        }
-                    }
-                    else
-                    {
-                        Debug.Log("등록된 아이템이 없습니다.");
-                        return;
-                    }
+                    EquipItem(i - 1);
+                }
+                else
+                {
+                    UnequipItem();
+                    EquipItem(i - 1);
                 }
             }
+        }
     }
 
     private void EquipItem(int slotIndex)
     {
-        Vector3 currentPosition = SpawnTrans.position;
-        Quaternion currentRotation = SpawnTrans.rotation;
-
-        heldItem = Instantiate(quitSlots[slotIndex], currentPosition, currentRotation, SpawnTrans);
+        heldItem.sprite = quitSlots[slotIndex].sprite;
+        Debug.Log(slotIndex);
         IsEquipedItem = true;
        //ChangeStatByItem(slotIndex);
         
@@ -75,11 +61,8 @@ public class EquipObject : MonoBehaviour
 
     private void UnequipItem()
     {
-        if(heldItem != null)
-        {
-            Destroy(heldItem);
-            IsEquipedItem = false;
-        }
+        heldItem.sprite = null;
+        IsEquipedItem = false;
     }
 
     private void ChangeStatByItem(int Index)

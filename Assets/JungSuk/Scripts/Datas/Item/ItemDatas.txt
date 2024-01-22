@@ -4,3 +4,4 @@ WeaponMine	곡갱이	자원채취용 도구	0	0	10	0	0	1	0	1	FALSE
 Potion	체력포션	HP 회복해준다.	20	0	0	0	0	0	0	20	FALSE
 InstalltionObject	제작대	장비를 제작할 수있는 제작대	30	0	0	0	0	0	0	1	FALSE
 LootItem	슬라임 액체	슬라임을 처치시 얻을 수 있는 재료	0	0	0	0	0	0	0	99	FALSE
+Wall	진흙 벽	진흙 벽	100	0	0	0	0	0	0	99	FALSE
