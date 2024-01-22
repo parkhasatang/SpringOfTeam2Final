@@ -3312,7 +3312,7 @@ GameObject:
   - component: {fileID: 1801723847}
   - component: {fileID: 1801723846}
   - component: {fileID: 1801723845}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}

@@ -17,5 +17,5 @@ MonoBehaviour:
   maxHP: 40
   attackDamage: 10
   defense: 1
-  miningAttack: 5
+  miningAttack: 50
   attackDelay: 0.5
