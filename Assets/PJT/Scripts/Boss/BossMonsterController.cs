@@ -3,7 +3,6 @@ using UnityEngine.AI;
 
 public class BossMonsterController : MonoBehaviour
 {
-    public NavMeshAgent agent;
     public Transform target;
     public CharacterStatHandler statHandler;
     public HealthSystem healthSystem;
@@ -14,7 +13,7 @@ public class BossMonsterController : MonoBehaviour
     protected float currentSpecialAttackCooldown;
     private HealthSystem targetHealthSystem;
 
-    protected void Start()
+    protected virtual void Start()
     {
         InitializeBoss();
     }
@@ -39,10 +38,6 @@ public class BossMonsterController : MonoBehaviour
         {
             Attack();
         }
-        else
-        {
-            ChaseTarget();
-        }
 
         if (ShouldPerformSpecialAttack())
         {
@@ -52,14 +47,17 @@ public class BossMonsterController : MonoBehaviour
 
     private bool ShouldAttack()
     {
+        if (target == null)
+        {
+            // 타겟이 없을 때 대기
+            return false;
+        }
+
         return Vector3.Distance(target.position, transform.position) <= statHandler.CurrentStats.specificSO.attackRange
             && Time.time - lastAttackTime >= statHandler.CurrentStats.attackDelay;
     }
 
-    private void ChaseTarget()
-    {
-        agent.SetDestination(target.position);
-    }
+
 
     private void Attack()
     {

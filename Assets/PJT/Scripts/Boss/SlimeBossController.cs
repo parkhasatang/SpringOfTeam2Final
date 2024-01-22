@@ -3,6 +3,8 @@ using UnityEngine;
 public class SlimeBossController : BossMonsterController
 {
     private bool isEnraged = false; // 광폭화 상태 플래그
+    private float lastJumpAttackTime = 0f;
+    private float jumpAttackCooldown = 5.0f; // 점프 공격 쿨타임
 
     private void Update()
     {
@@ -11,11 +13,18 @@ public class SlimeBossController : BossMonsterController
 
     protected virtual void PerformActions()
     {
-        // 슬라임 보스의 특수 공격 로직
-        StartCoroutine(SpecialAttacks.JumpAndDamage(transform, target, statHandler.CurrentStats.attackDamage, 5.0f, () =>
+        // 쿨타임 체크
+        if (Time.time - lastJumpAttackTime >= jumpAttackCooldown)
         {
-            DealDamageAtPosition(target.position, statHandler.CurrentStats.attackDamage);
-        }));
+            // 점프 공격 실행
+            StartCoroutine(SpecialAttacks.JumpAndDamage(transform, target, statHandler.CurrentStats.attackDamage, 5.0f, () =>
+            {
+                DealDamageAtPosition(target.position, statHandler.CurrentStats.attackDamage);
+            }));
+
+            // 쿨타임 리셋
+            lastJumpAttackTime = Time.time;
+        }
     }
 
     private void DealDamageAtPosition(Vector3 position, float damage)
