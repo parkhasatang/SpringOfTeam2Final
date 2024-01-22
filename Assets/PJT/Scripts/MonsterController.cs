@@ -14,7 +14,9 @@ public class MonsterController : MonoBehaviour
     {
         targetHealthSystem = target.GetComponent<HealthSystem>();
         statHandler = GetComponent<CharacterStatHandler>();
+        GetComponent<HealthSystem>().OnDeath += OnDeath;
     }
+
 
     private void Update()
     {
@@ -46,5 +48,10 @@ public class MonsterController : MonoBehaviour
             targetHealthSystem.ChangeHealth(statHandler.CurrentStats.attackDamage);
             Debug.Log("공격!");
         }
+    }
+    private void OnDeath()
+    {
+        Debug.Log("몬스터 사망");
+        Destroy(gameObject);
     }
 }
