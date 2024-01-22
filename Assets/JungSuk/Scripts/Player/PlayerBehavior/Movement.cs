@@ -43,4 +43,5 @@ public class Movement : MonoBehaviour
         else
             ApplyMovement(Vector2.zero);
     }
+    
 }
