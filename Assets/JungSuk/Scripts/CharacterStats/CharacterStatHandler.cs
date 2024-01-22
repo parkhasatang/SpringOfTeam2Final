@@ -34,6 +34,7 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStats.miningAttack = characterBaseStats.miningAttack;
         CurrentStats.attackDelay = characterBaseStats.attackDelay;
 
+        
     }
 
     
