@@ -22,7 +22,7 @@ public class Slot : MonoBehaviour
     {
         itemCount += _itemCount;
         item = _item;
-        slotImage = item.Image;
+        /*slotImage = item.Image;*/
     }
 
     public void UpdateItemCount(int _count)// 아이템의 카운트만 올려줌.
