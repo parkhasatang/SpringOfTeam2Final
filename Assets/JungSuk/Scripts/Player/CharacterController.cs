@@ -26,7 +26,12 @@ public class CharacterController : MonoBehaviour
     protected virtual void Awake()
     {
         statsHandler = GetComponent<CharacterStatHandler>();
-        CanControllCharacter = true;        
+        CanControllCharacter = true;
+        HealthSystem healthSystem = GetComponent<HealthSystem>();
+        if (healthSystem != null)
+        {
+            healthSystem.OnDeath += OnDeath;
+        }
     }
     protected virtual void Update()
     {
@@ -68,6 +73,12 @@ public class CharacterController : MonoBehaviour
             CallSetEvent();
         }
     }
+    private void OnDeath()
+    {
+        Debug.Log("캐릭터 사망");
+        //캐릭터 사망하면 다시 스폰 지점에서 부활하는거 추가
+    }
+
 
     public void CallMoveEvent(Vector2 value)
     {
