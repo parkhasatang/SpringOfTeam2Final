@@ -26,7 +26,7 @@ public class CharacterController : MonoBehaviour
     protected virtual void Awake()
     {
         statsHandler = GetComponent<CharacterStatHandler>();
-        CanControllCharacter = true;
+        CanControllCharacter = true;        
     }
     protected virtual void Update()
     {
@@ -38,14 +38,14 @@ public class CharacterController : MonoBehaviour
 
     private void AttackDelay() // 공격 딜레이 효과 
     {
-        if (statsHandler.CurrentStats.baseStatsSO == null)
+        if (statsHandler.CurrentStats.specificSO == null)
             return;
 
-        if(timeSinceLastAttack <= statsHandler.CurrentStats.baseStatsSO.attackDelay)
+        if(timeSinceLastAttack <= statsHandler.CurrentStats.attackDelay)
         {
             timeSinceLastAttack += Time.deltaTime;
         }
-        if(IsAttacking && timeSinceLastAttack > statsHandler.CurrentStats.baseStatsSO.attackDelay)
+        if(IsAttacking && timeSinceLastAttack > statsHandler.CurrentStats.attackDelay)
         {
             timeSinceLastAttack = 0;
             CallAttackEvent();

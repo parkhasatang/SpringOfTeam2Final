@@ -5,7 +5,7 @@ public class MonsterController : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform target;
-    public MonsterStatsSO monsterStats;
+    public CharacterStatHandler statHandler;
 
     private float lastAttackTime;
     private HealthSystem targetHealthSystem;
@@ -13,15 +13,16 @@ public class MonsterController : MonoBehaviour
     private void Start()
     {
         targetHealthSystem = target.GetComponent<HealthSystem>();
+        statHandler = GetComponent<CharacterStatHandler>();
     }
 
     private void Update()
     {
         float distanceToTarget = Vector3.Distance(target.position, transform.position);
 
-        if (distanceToTarget <= monsterStats.attackRange)
+        if (distanceToTarget <= statHandler.CurrentStats.specificSO.attackRange)
         {
-            if (Time.time - lastAttackTime >= monsterStats.monsterBaseStats.attackDelay)
+            if (Time.time - lastAttackTime >= statHandler.CurrentStats.attackDelay)
             {
                 Attack();
                 lastAttackTime = Time.time;
@@ -42,7 +43,7 @@ public class MonsterController : MonoBehaviour
     {
         if (targetHealthSystem != null)
         {
-            targetHealthSystem.ChangeHealth(-monsterStats.monsterBaseStats.attackDamage);
+            targetHealthSystem.ChangeHealth(statHandler.CurrentStats.attackDamage);
             Debug.Log("АјАн!");
         }
     }

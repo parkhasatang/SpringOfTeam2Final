@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class CharacterStatHandler : MonoBehaviour
 {
-    [SerializeField] private PlayerStats playerBaseStats;
+    [SerializeField] private CharacterStats characterBaseStats;
 
-    public PlayerStats CurrentStats { get; private set; }
+    public CharacterStats CurrentStats { get; private set; }
    
 
     private void Awake()
@@ -17,17 +17,23 @@ public class CharacterStatHandler : MonoBehaviour
 
     private void UpdateCharacterStats()
     {
-        BaseStatsSO baseStatsSO = null;
-        if(playerBaseStats.baseStatsSO != null)
+        SpecificSO specificSO = null;
+        if(characterBaseStats.specificSO != null)
         {
-            baseStatsSO = Instantiate(playerBaseStats.baseStatsSO);
+            specificSO = Instantiate(characterBaseStats.specificSO);
         }
+        // 플레이어
+        CurrentStats = new CharacterStats { specificSO = specificSO };
+        CurrentStats.statsChangeType = characterBaseStats.statsChangeType;
+        CurrentStats.objectType = characterBaseStats.objectType;        
+        CurrentStats.name = characterBaseStats.name;
+        CurrentStats.speed = characterBaseStats.speed;
+        CurrentStats.maxHP = characterBaseStats.maxHP;
+        CurrentStats.attackDamage = characterBaseStats.attackDamage;
+        CurrentStats.defense = characterBaseStats.defense;
+        CurrentStats.miningAttack = characterBaseStats.miningAttack;
+        CurrentStats.attackDelay = characterBaseStats.attackDelay;
 
-        CurrentStats = new PlayerStats { baseStatsSO = baseStatsSO };
-        CurrentStats.statsChangeType = playerBaseStats.statsChangeType;
-        CurrentStats.hunger = playerBaseStats.hunger;
-        CurrentStats.decreaseHungerTime = playerBaseStats.decreaseHungerTime;
-        CurrentStats.useCoolTime= playerBaseStats.useCoolTime;
     }
 
     

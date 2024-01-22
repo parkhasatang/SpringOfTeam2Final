@@ -47,7 +47,7 @@ public class Attack : MonoBehaviour
             {
                 if (TilemapManager.instance.wallDictionary[cellPosition].HP > 0f)
                 {
-                    TilemapManager.instance.wallDictionary[cellPosition].HP -= statsHandler.CurrentStats.baseStatsSO.miningAttack;
+                    TilemapManager.instance.wallDictionary[cellPosition].HP -= statsHandler.CurrentStats.miningAttack;
                     Debug.Log(TilemapManager.instance.wallDictionary[cellPosition].HP);
                     if (TilemapManager.instance.wallDictionary[cellPosition].HP <= 0f)
                     {
