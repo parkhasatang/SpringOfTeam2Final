@@ -28,6 +28,13 @@ public class EquipObject : MonoBehaviour
 
     private void SelectItemInQuitSlot()
     {
+        Debug.Log("오키오키");
+        for (int i = 0; i < 8; i++)
+        {
+            inventory.invenSlot[i].QuickSlotItemChoose(false);
+            inventory.slots[i].isChoose = false;
+        }
+
         for (int i = 1; i <= 8; i++)
         {
             KeyCode key = KeyCode.Alpha0 + i;
@@ -37,6 +44,7 @@ public class EquipObject : MonoBehaviour
                 if (inventory.slots[i - 1].isChoose == false) // isChoose로 두번 눌러도 안에 있는 메서드는 실행안댐.
                 {
                     EquipItem(i - 1); // 아이템 들기
+                    break;
                 }
                 // 여기 else를 써주면 같은 키를 두번 눌렀을 때 실행됌.
             }
