@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class PickUp : MonoBehaviour
 {
     public int itemIndex;
-    public ItemManager itemManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,7 +22,8 @@ public class PickUp : MonoBehaviour
                     inven.invenSlot[i].ChangeInventoryImage(gameObject.GetComponent<SpriteRenderer>());
                     inven.invenSlot[i].OnOffImage(true);
                     inven.slots[i].isEmpty = false;
-                    inven.slots[i].item = itemManager.items[itemIndex];
+                    inven.slots[i].item = ItemManager.instacne.items[itemIndex];
+                    //inven.slots[i].item = itemManager.items[itemIndex];
                     //inven.slots[i].item = UIManager.Instance.items[1001];                  
                     /*inven.slots[i].item = new Item(SetItemInfo(itemIndex));*/
                     gameObject.SetActive(false);

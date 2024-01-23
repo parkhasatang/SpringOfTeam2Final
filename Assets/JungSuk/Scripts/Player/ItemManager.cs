@@ -18,9 +18,38 @@ public class Item
 
 public class ItemManager : MonoBehaviour
 {
+    private static ItemManager _instance;
+
+    public static ItemManager instacne 
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<ItemManager>();
+
+                if (_instance == null)
+                {
+                    GameObject ItemManager = new GameObject("ItemManager");
+                    _instance = ItemManager.AddComponent<ItemManager>();
+                }
+            }
+            return _instance;
+        }
+    }
+
     public TextAsset ItemDatas;
     public Dictionary<int, Item> items = new Dictionary<int, Item>() { };
 
+
+    private void Awake()
+    {
+        if(_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        _instance = this;
+    }
 
     void Start()
     {
@@ -30,6 +59,7 @@ public class ItemManager : MonoBehaviour
             string[] row = line[i].Split('\t');
             items.Add(int.Parse(row[0]), new Item(row[0], row[1], row[2], row[3], (row[4]), (row[5]), (row[6]), 
                 (row[7]), (row[8]), (row[9]), (row[10]), row[11], row[12] == "TRUE"));
+            Debug.Log(items[1001].Speed);
         }
     }
 

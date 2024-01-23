@@ -541,10 +541,6 @@ PrefabInstance:
       propertyPath: itemIndex
       value: 1101
       objectReference: {fileID: 0}
-    - target: {fileID: 3379974024668302014, guid: c8988b975dfcb7c4c9ed2ac549c2b4e2, type: 3}
-      propertyPath: itemManager
-      value: 
-      objectReference: {fileID: 179791788}
     - target: {fileID: 6849437437513255306, guid: c8988b975dfcb7c4c9ed2ac549c2b4e2, type: 3}
       propertyPath: m_Name
       value: Item_Wall (2)
@@ -5390,14 +5386,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3379974024668302014, guid: c8988b975dfcb7c4c9ed2ac549c2b4e2, type: 3}
-      propertyPath: itemIndex
-      value: 1301
-      objectReference: {fileID: 0}
-    - target: {fileID: 3379974024668302014, guid: c8988b975dfcb7c4c9ed2ac549c2b4e2, type: 3}
-      propertyPath: itemManager
-      value: 
-      objectReference: {fileID: 179791788}
     - target: {fileID: 6849437437513255306, guid: c8988b975dfcb7c4c9ed2ac549c2b4e2, type: 3}
       propertyPath: m_Name
       value: Item_Wall
@@ -7156,10 +7144,6 @@ PrefabInstance:
       propertyPath: itemIndex
       value: 1001
       objectReference: {fileID: 0}
-    - target: {fileID: 3379974024668302014, guid: c8988b975dfcb7c4c9ed2ac549c2b4e2, type: 3}
-      propertyPath: itemManager
-      value: 
-      objectReference: {fileID: 179791788}
     - target: {fileID: 6849437437513255306, guid: c8988b975dfcb7c4c9ed2ac549c2b4e2, type: 3}
       propertyPath: m_Name
       value: Item_Wall (1)
