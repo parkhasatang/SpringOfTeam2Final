@@ -1,29 +1,14 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PickUp : MonoBehaviour
 {
     public int itemIndex;
-
-    public string 
-        itemType, 
-        itemName, 
-        itemDescription, 
-        itemHP, 
-        itemHunger, 
-        itemAttackDamage, 
-        itemAttackDelay, 
-        itemDefense, 
-        itemAttackRange, 
-        itemSpeed, 
-        itemStackNumber;
-
-    public bool isEquip;
-
-
+    public ItemManager itemManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,27 +23,13 @@ public class PickUp : MonoBehaviour
                     inven.invenSlot[i].ChangeInventoryImage(gameObject.GetComponent<SpriteRenderer>());
                     inven.invenSlot[i].OnOffImage(true);
                     inven.slots[i].isEmpty = false;
+                    inven.slots[i].item = itemManager.items[itemIndex];
+                    //inven.slots[i].item = UIManager.Instance.items[1001];                  
                     /*inven.slots[i].item = new Item(SetItemInfo(itemIndex));*/
                     gameObject.SetActive(false);
-                    break;
+                    break;                   
                 }
             }
         }
     }
-
-    private void SetItemInfo(int Index)
-    {
-        itemType = UIManager.Instance.AllItemList[Index].ItemType;
-        itemName = UIManager.Instance.AllItemList[Index].Name;
-        itemDescription = UIManager.Instance.AllItemList[Index].Description;
-        itemHP = UIManager.Instance.AllItemList[Index].HP;
-        itemHunger = UIManager.Instance.AllItemList[Index].Hunger;
-        itemAttackDamage = UIManager.Instance.AllItemList[Index].AttackDamage;
-        itemAttackDelay = UIManager.Instance.AllItemList[Index].AttackDelay;
-        itemDefense = UIManager.Instance.AllItemList[Index].Defense;
-        itemAttackRange = UIManager.Instance.AllItemList[Index].AttackRange;
-        itemSpeed = UIManager.Instance.AllItemList[Index].Speed;
-        itemStackNumber = UIManager.Instance.AllItemList[Index].StackNumber;
-    }
-
 }
