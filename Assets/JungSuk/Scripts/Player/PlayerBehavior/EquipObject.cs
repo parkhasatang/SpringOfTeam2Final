@@ -7,27 +7,26 @@ using UnityEngine.UI;
 public class EquipObject : MonoBehaviour
 {
     private CharacterController controller;
-    public Image[] quitSlots; // 민규님이 만들어 주실 큇슬롯으로 변경
+    public Image[] quitSlots;
     public SpriteRenderer heldItem;
     public Transform SpawnTrans;
     private CharacterStatHandler statHandler;
 
-    private bool IsEquipedItem = false;
-
-    private int equippedSlotIndex = -1;
+    private Inventory inventory;
 
     private void Awake()
     {        
         controller = GetComponent<CharacterController>();
         statHandler = GetComponent<CharacterStatHandler>();
+        inventory = GetComponent<Inventory>();
     }
-    // Start is called before the first frame update
+    
     void Start()
     {
-        controller.OnEquipEvent += EquipItemInQuitSlot;
+        controller.OnEquipEvent += SelectItemInQuitSlot;
     }
 
-    private void EquipItemInQuitSlot()
+    private void SelectItemInQuitSlot()
     {
         for (int i = 1; i <= 8; i++)
         {
@@ -35,17 +34,16 @@ public class EquipObject : MonoBehaviour
 
             if (Input.GetKeyDown(key))
             {
-                equippedSlotIndex = i - 1;
-                Debug.Log(i);
-                if (!IsEquipedItem)
+                if (inventory.slots[i - 1].isChoose == false) // isChoose로 두번 눌러도 안에 있는 메서드는 실행안댐.
                 {
-                    EquipItem(i - 1);
+                    EquipItem(i - 1); // 아이템 들기
                 }
-                else
-                {
-                    UnequipItem();
-                    EquipItem(i - 1);
-                }
+                // 여기 else를 써주면 같은 키를 두번 눌렀을 때 실행됌.
+            }
+            else
+            {
+                inventory.slots[i - 1].isChoose = false;
+                inventory.invenSlot[i - 1].QuickSlotItemChoose(false);
             }
         }
     }
@@ -53,19 +51,18 @@ public class EquipObject : MonoBehaviour
     private void EquipItem(int slotIndex)
     {
         heldItem.sprite = quitSlots[slotIndex].sprite;
-        Debug.Log(slotIndex);
-        IsEquipedItem = true;
-       //ChangeStatByItem(slotIndex);
-        
+        inventory.slots[slotIndex].isChoose = true;
+        inventory.invenSlot[slotIndex].QuickSlotItemChoose(true);
     }
 
-    private void UnequipItem()
-    {
+    private void UnEquipItem(int slotIndex)// todo 기존에 있던 아이템 정보를 빼고넣기.
+    {/*
         heldItem.sprite = null;
-        IsEquipedItem = false;
+        inventory.invenSlot[slotIndex].QuickSlotItemChoose(false);*/
     }
 
-    private void ChangeStatByItem(int Index)
+
+    /*private void ChangeStatByItem(int Index)
     {
         if (UIManager.Instance.AllItemList[Index - 1].ItemType == "WeaponRange")
         {
@@ -79,5 +76,5 @@ public class EquipObject : MonoBehaviour
         }
         else
             return;        
-    }
+    }*/
 }

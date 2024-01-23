@@ -7,6 +7,7 @@ using UnityEngine;
 public class SlotData
 {
     public bool isEmpty;
-    public GameObject slotObj; // 이미지 변경을 위한
+    public bool isChoose;
+    /*public GameObject slotObj; // 이미지 변경을 위한*/
     public Item item;
 }
