@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class PickUp : MonoBehaviour
 {
     public int itemIndex;
-
     public Item item;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,6 +24,7 @@ public class PickUp : MonoBehaviour
                     inven.slots[i].isEmpty = false;
                     inven.slots[i].item = item; // 정해준 아이템의 데이터를 넣어준다.
                     gameObject.SetActive(false);
+                   
                     break;
                 }
             }
@@ -33,6 +33,6 @@ public class PickUp : MonoBehaviour
 
     private void SetItemInfo(int Index)
     {
-        item = UIManager.Instance.AllItemList[Index];
+        item = ItemManager.instacne.items[Index];
     }
 }

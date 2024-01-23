@@ -15,11 +15,12 @@ public class CharacterController : MonoBehaviour
     public event Action OnEquipEvent;
 
     private float timeSinceLastAttack = float.MaxValue;
+    private float timeSinceLastEquip = float.MaxValue;
     public bool IsAttacking { get; set; }
     public bool IsSetting { get; set; }
 
     public bool IsInteracting { get; set; }
-
+    public bool IsEquiping {  get; set; }
     public bool CanControllCharacter { get; set; }
 
 
@@ -37,7 +38,7 @@ public class CharacterController : MonoBehaviour
     {
         AttackDelay();
         CanInteract();
-        CanSet();
+        CanSet();       
     }
 
     private void AttackDelay() // 공격 딜레이 효과 
@@ -55,6 +56,7 @@ public class CharacterController : MonoBehaviour
             CallAttackEvent();
         }
     }
+   
 
     private void CanInteract() // 여기서 상호작용 가능 오브젝트 체크하고 거리 설정까지
     {

@@ -75,7 +75,8 @@ public class PlayerInputController : CharacterController
             return;
         else
         {
-            CallEquipEvent();
+
+            CallEquipEvent(); 
         }
     }
 }
