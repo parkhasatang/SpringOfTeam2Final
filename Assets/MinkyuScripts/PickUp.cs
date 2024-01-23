@@ -8,26 +8,11 @@ public class PickUp : MonoBehaviour
 {
     public int itemIndex;
 
-    public string 
-        itemType, 
-        itemName, 
-        itemDescription, 
-        itemHP, 
-        itemHunger, 
-        itemAttackDamage, 
-        itemAttackDelay, 
-        itemDefense, 
-        itemAttackRange, 
-        itemSpeed, 
-        itemStackNumber;
-
-    public bool isEquip;
-
-
+    public Item item;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*SetItemInfo(itemIndex);*/
+        SetItemInfo(itemIndex); // itemIndex로 아이템이 무엇인지 정해준다.
         if (collision.CompareTag("Player"))
         {
             Inventory inven = collision.GetComponent<Inventory>();
@@ -38,7 +23,7 @@ public class PickUp : MonoBehaviour
                     inven.invenSlot[i].ChangeInventoryImage(gameObject.GetComponent<SpriteRenderer>());
                     inven.invenSlot[i].OnOffImage(true);
                     inven.slots[i].isEmpty = false;
-                    /*inven.slots[i].item = new Item(SetItemInfo(itemIndex));*/
+                    inven.slots[i].item = item; // 정해준 아이템의 데이터를 넣어준다.
                     gameObject.SetActive(false);
                     break;
                 }
@@ -48,17 +33,6 @@ public class PickUp : MonoBehaviour
 
     private void SetItemInfo(int Index)
     {
-        itemType = UIManager.Instance.AllItemList[Index].ItemType;
-        itemName = UIManager.Instance.AllItemList[Index].Name;
-        itemDescription = UIManager.Instance.AllItemList[Index].Description;
-        itemHP = UIManager.Instance.AllItemList[Index].HP;
-        itemHunger = UIManager.Instance.AllItemList[Index].Hunger;
-        itemAttackDamage = UIManager.Instance.AllItemList[Index].AttackDamage;
-        itemAttackDelay = UIManager.Instance.AllItemList[Index].AttackDelay;
-        itemDefense = UIManager.Instance.AllItemList[Index].Defense;
-        itemAttackRange = UIManager.Instance.AllItemList[Index].AttackRange;
-        itemSpeed = UIManager.Instance.AllItemList[Index].Speed;
-        itemStackNumber = UIManager.Instance.AllItemList[Index].StackNumber;
+        item = UIManager.Instance.AllItemList[Index];
     }
-
 }

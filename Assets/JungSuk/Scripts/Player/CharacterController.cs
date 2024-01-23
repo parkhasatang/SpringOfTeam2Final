@@ -35,7 +35,6 @@ public class CharacterController : MonoBehaviour
     }
     protected virtual void Update()
     {
-        
         AttackDelay();
         CanInteract();
         CanSet();

@@ -13,7 +13,7 @@ public class QuickSlot : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            inventory.invenSlot[0].QuickSlotItemChoose(1f);
+            /*inventory.invenSlot[0].QuickSlotItemChoose(1f);*/
         }
     }
 
