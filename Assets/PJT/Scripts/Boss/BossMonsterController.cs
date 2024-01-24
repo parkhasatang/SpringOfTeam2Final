@@ -26,7 +26,13 @@ public class BossMonsterController : MonoBehaviour
 
     private void InitializeBoss()
     {
-        targetHealthSystem = target.GetComponent<HealthSystem>();
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            target = playerObject.transform;
+            targetHealthSystem = playerObject.GetComponent<HealthSystem>();
+        }
+
         statHandler = GetComponent<CharacterStatHandler>();
         healthSystem = GetComponent<HealthSystem>();
         currentSpecialAttackCooldown = initialSpecialAttackCooldown;

@@ -4,11 +4,31 @@ public class MonsterSpawner : MonoBehaviour
 {
     public GameObject monsterPrefab;
     public Transform playerTransform;
-    public float spawnRadius = 10f; // 나중에 플레이어 화면 밖에서만 생성할지 정해야함
-    public void SpawnMonsterNearPlayer()
+    public Camera mainCamera;
+    public float spawnRadius = 10f;
+    public int maxMonsters = 5;
+    private float spawnDelay = 5f;
+    private float lastSpawnTime;
+
+    private void Update()
     {
-        Vector3 spawnPosition = playerTransform.position + Random.insideUnitSphere * spawnRadius;
-        spawnPosition.y = 0;
-        Instantiate(monsterPrefab, spawnPosition, Quaternion.identity);
+        if (Time.time > lastSpawnTime + spawnDelay && CountMonsters() < maxMonsters)
+        {
+            SpawnMonsterNearPlayer();
+            lastSpawnTime = Time.time;
+        }
+    }
+    private int CountMonsters()
+    {
+        return GameObject.FindGameObjectsWithTag("Monster").Length;
+    }
+
+    private void SpawnMonsterNearPlayer()
+    {
+        Vector3 spawnDirection = Random.onUnitSphere;
+        spawnDirection.y = 0;
+        Vector3 spawnPoint = playerTransform.position + spawnDirection * spawnRadius;
+        Debug.Log("생성");
+        Instantiate(monsterPrefab, spawnPoint, Quaternion.identity);
     }
 }
