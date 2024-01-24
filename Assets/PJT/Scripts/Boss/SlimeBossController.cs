@@ -10,7 +10,6 @@ public class SlimeBossController : BossMonsterController
     public float attackDistanceThreshold = 10f;
     public float idleDistanceThreshold = 15f;
     [SerializeField] private float damageRadius = 5.0f;
-    private Vector3 fixedPosition;
     private float returnDelay = 5.0f;
     private Vector3 originalPosition;
 
@@ -18,6 +17,8 @@ public class SlimeBossController : BossMonsterController
     {
         base.Start();
         originalPosition = transform.position;
+
+        healthSystem.OnDeath += Death;
     }
 
     private void Update()
@@ -105,5 +106,10 @@ public class SlimeBossController : BossMonsterController
             isEnraged = true;
             currentSpecialAttackCooldown /= 2; // ±¤ÆøÈ­ È¿°ú·Î Æ¯¼ö °ø°Ý ÄðÅ¸ÀÓ Àý¹Ý
         }
+    }
+
+    private void Death()
+    {
+        Destroy(gameObject);
     }
 }

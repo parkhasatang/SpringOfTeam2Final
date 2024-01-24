@@ -9,6 +9,8 @@ public class Attack : MonoBehaviour
     private CharacterController controller;
     private CharacterStatHandler statsHandler;
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private float attackRange = 5.0f;
+
 
     private void Awake()
     {
@@ -23,11 +25,30 @@ public class Attack : MonoBehaviour
         controller.OnAttackEvent += PlayerAttack;
         controller.OnAttackEvent += PlayerMining;
     }
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlayerAttack();
+        }
+    }
 
     private void PlayerAttack()
     {
-               
+        Vector2 playerPosition = transform.position;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerPosition, attackRange);
+
+        foreach (Collider2D collider in colliders)
+        {
+            HealthSystem enemyHealth = collider.GetComponent<HealthSystem>();
+
+            if (enemyHealth != null)
+            {
+                enemyHealth.ChangeHealth(-10f);
+            }
+        }
     }
+
 
     private void PlayerMining()
     {
