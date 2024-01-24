@@ -23,12 +23,11 @@ public class EquipObject : MonoBehaviour
     
     void Start()
     {
-        controller.OnEquipEvent += SelectItemInQuitSlot;
+        controller.OnEquipEvent += SelectItemInQuikSlot;
     }
 
-    private void SelectItemInQuitSlot()
+    private void SelectItemInQuikSlot()
     {
-        Debug.Log("오키오키");
         for (int i = 0; i < 8; i++)
         {
             inventory.invenSlot[i].QuickSlotItemChoose(false);

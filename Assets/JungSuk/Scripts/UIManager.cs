@@ -8,8 +8,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager instance;
-  
+    public static UIManager Instance;
 
     public GameObject Player;
     [SerializeField] private Slider HPSlider;
@@ -18,7 +17,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI HpTxt;
     [SerializeField] private TextMeshProUGUI HungerTxt;
 
-    private string Traget = "Player";
     private HealthSystem playerHealthSystem;
 
     // 인벤토리 데이터
@@ -27,33 +25,22 @@ public class UIManager : MonoBehaviour
     public Item takeTemporaryItemData;
     public Sprite temporaryItemImg;
 
-    //private void Awake()
-    //{
-
-    //    playerHealthSystem = Player.GetComponent<HealthSystem>();
-    //    playerHealthSystem.OnDamage += UpdateUI;
-    //    playerHealthSystem.OnHeal += UpdateUI;
-    //}
-
-    //private void UpdateUI()
-    //{
-    //    HPSlider.value = playerHealthSystem.CurrentHealth / playerHealthSystem.MaxHealth;
-    //    HpTxt.text = playerHealthSystem.CurrentHealth.ToString() + "/" + playerHealthSystem.MaxHealth.ToString();
-
-    //    HungerSilder.value = playerHealthSystem.CurrentHunger / playerHealthSystem.MaxHunger;
-    //    HungerTxt.text = playerHealthSystem.CurrentHunger.ToString() + "/" + playerHealthSystem.MaxHealth.ToString();
-
-    //}
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        Instance = this;
+
+        playerHealthSystem = Player.GetComponent<HealthSystem>();
+        playerHealthSystem.OnDamage += UpdateUI;
+        playerHealthSystem.OnHeal += UpdateUI;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateUI()
     {
-        
+        HPSlider.value = playerHealthSystem.CurrentHealth / playerHealthSystem.MaxHealth;
+        HpTxt.text = playerHealthSystem.CurrentHealth.ToString() + "/" + playerHealthSystem.MaxHealth.ToString();
+
+        HungerSilder.value = playerHealthSystem.CurrentHunger / playerHealthSystem.MaxHunger;
+        HungerTxt.text = playerHealthSystem.CurrentHunger.ToString() + "/" + playerHealthSystem.MaxHealth.ToString();
+
     }
 }

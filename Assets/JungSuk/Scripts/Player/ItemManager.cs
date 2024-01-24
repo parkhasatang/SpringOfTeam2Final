@@ -20,7 +20,7 @@ public class ItemManager : MonoBehaviour
 {
     private static ItemManager _instance;
 
-    public static ItemManager instacne 
+    public static ItemManager instacne
     {
         get
         {
@@ -44,7 +44,7 @@ public class ItemManager : MonoBehaviour
 
     private void Awake()
     {
-        if(_instance != null && _instance != this)
+        if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
         }
