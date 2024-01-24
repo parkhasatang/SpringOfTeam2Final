@@ -1,25 +1,36 @@
 using UnityEngine;
+using System.Collections;
 
 public class SlimeBossController : BossMonsterController
 {
-    private bool isEnraged = false; // 광폭화 상태 플래그
+    private bool isEnraged = false;
     private float lastJumpAttackTime = 0f;
-    private float jumpAttackCooldown = 5.0f; // 점프 공격 쿨타임
-    public float maxChaseDistance = 15f; // 플레이어 추적 최대 거리
-    [SerializeField] private float damageRadius = 5.0f; // 인스펙터 창에서 조절 가능한 데미지 범위
-    private Rigidbody2D rb;
+    private float jumpAttackCooldown = 5.0f;
+    public float maxChaseDistance = 15f;
+    public float attackDistanceThreshold = 10f;
+    public float idleDistanceThreshold = 15f;
+    [SerializeField] private float damageRadius = 5.0f;
+    private Vector3 fixedPosition;
+    private float returnDelay = 5.0f;
+    private Vector3 originalPosition;
 
     protected override void Start()
     {
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
+        originalPosition = transform.position;
     }
 
     private void Update()
     {
-        if (IsPlayerWithinChaseDistance())
+        float distanceToPlayer = Vector3.Distance(target.position, transform.position);
+
+        if (distanceToPlayer <= attackDistanceThreshold)
         {
             PerformSpecialAttack();
+        }
+        else if (distanceToPlayer <= idleDistanceThreshold)
+        {
+            StopChaseAndWait();
         }
         else
         {
@@ -49,10 +60,28 @@ public class SlimeBossController : BossMonsterController
 
     private void StopChaseAndWait()
     {
-        rb.velocity = Vector2.zero;
+        StartCoroutine(ReturnOriginalPosition(returnDelay));
+    }
 
-        //animator.SetTrigger("Idle");  이후 애니메이션 추가 하면됨
-        Debug.Log("보스가 대기 상태로 전환");
+    private IEnumerator ReturnOriginalPosition(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        float startTime = Time.time;
+        Vector3 startPosition = transform.position;
+        float journeyLength = Vector3.Distance(startPosition, originalPosition);
+        float journeyDuration = journeyLength / statHandler.CurrentStats.speed;
+
+        while (Time.time - startTime < journeyDuration)
+        {
+            float distanceCovered = (Time.time - startTime) * statHandler.CurrentStats.speed;
+            float fractionOfJourney = distanceCovered / journeyLength;
+            transform.position = Vector3.Lerp(startPosition, originalPosition, fractionOfJourney);
+            yield return null;
+        }
+
+        // 최종 위치 설정 (originalPosition)
+        transform.position = originalPosition;
     }
 
     private void DealDamageAtPosition(Vector3 position, float damage)
