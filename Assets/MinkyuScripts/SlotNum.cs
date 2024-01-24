@@ -15,7 +15,19 @@ public class SlotNum : MonoBehaviour
 
     public void OnOffImage(bool isOn)
     {
-        itemImage.gameObject.SetActive(isOn);
+        if (isOn)
+        {
+            Color imageColor = itemImage.gameObject.GetComponent<Image>().color;
+            imageColor.a = 1f;
+            itemImage.gameObject.GetComponent<Image>().color = imageColor;
+        }
+        else
+        {
+            Color imageColor = itemImage.gameObject.GetComponent<Image>().color;
+            imageColor.a = 0f;
+            itemImage.gameObject.GetComponent<Image>().color = imageColor;
+        }
+        
     }
 
     public void QuickSlotItemChoose(bool isOn)

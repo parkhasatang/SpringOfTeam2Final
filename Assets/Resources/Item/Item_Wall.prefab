@@ -144,3 +144,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIndex: 1301
+  item:
+    Name: 
+    Description: 
+    HP: 
+    Hunger: 
+    AttackDamage: 
+    AttackDelay: 
+    Defense: 
+    AttackRange: 
+    Speed: 
+    ItemCode: 
+    ItemType: 
+    StackNumber: 
+    IsEquip: 0
