@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
+  
 
     public GameObject Player;
     [SerializeField] private Slider HPSlider;
@@ -26,24 +27,23 @@ public class UIManager : MonoBehaviour
     public Item takeTemporaryItemData;
     public Sprite temporaryItemImg;
 
-    private void Awake()
-    {
-        instance = this;
+    //private void Awake()
+    //{
 
-        playerHealthSystem = Player.GetComponent<HealthSystem>();
-        playerHealthSystem.OnDamage += UpdateUI;
-        playerHealthSystem.OnHeal += UpdateUI;
-    }
+    //    playerHealthSystem = Player.GetComponent<HealthSystem>();
+    //    playerHealthSystem.OnDamage += UpdateUI;
+    //    playerHealthSystem.OnHeal += UpdateUI;
+    //}
 
-    private void UpdateUI()
-    {
-        HPSlider.value = playerHealthSystem.CurrentHealth / playerHealthSystem.MaxHealth;
-        HpTxt.text = playerHealthSystem.CurrentHealth.ToString() + "/" + playerHealthSystem.MaxHealth.ToString();
+    //private void UpdateUI()
+    //{
+    //    HPSlider.value = playerHealthSystem.CurrentHealth / playerHealthSystem.MaxHealth;
+    //    HpTxt.text = playerHealthSystem.CurrentHealth.ToString() + "/" + playerHealthSystem.MaxHealth.ToString();
 
-        HungerSilder.value = playerHealthSystem.CurrentHunger / playerHealthSystem.MaxHunger;
-        HungerTxt.text = playerHealthSystem.CurrentHunger.ToString() + "/" + playerHealthSystem.MaxHealth.ToString();
+    //    HungerSilder.value = playerHealthSystem.CurrentHunger / playerHealthSystem.MaxHunger;
+    //    HungerTxt.text = playerHealthSystem.CurrentHunger.ToString() + "/" + playerHealthSystem.MaxHealth.ToString();
 
-    }
+    //}
 
     // Start is called before the first frame update
     void Start()
