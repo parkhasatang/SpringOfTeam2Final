@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager instance;
+
     public GameObject Player;
     [SerializeField] private Slider HPSlider;
     [SerializeField] private Slider HungerSilder;
@@ -18,8 +20,16 @@ public class UIManager : MonoBehaviour
     private string Traget = "Player";
     private HealthSystem playerHealthSystem;
 
+    // 인벤토리 데이터
+    public Inventory playerInventoryData;
+    public Item giveTemporaryItemData;
+    public Item takeTemporaryItemData;
+    public Sprite temporaryItemImg;
+
     private void Awake()
     {
+        instance = this;
+
         playerHealthSystem = Player.GetComponent<HealthSystem>();
         playerHealthSystem.OnDamage += UpdateUI;
         playerHealthSystem.OnHeal += UpdateUI;

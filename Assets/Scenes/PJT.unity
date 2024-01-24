@@ -540,6 +540,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1070987211}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: maxMonsters
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: spawnRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 2030180486}
@@ -6524,7 +6532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe0de7301e651543b12a5ba787d964f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 1070987211}
   tileMapControl: {fileID: 58153075}
 --- !u!114 &2030180491
 MonoBehaviour:
@@ -6551,7 +6559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19705298f3eede445acc12b2eca50f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 1070987211}
+  attackRange: 5
 --- !u!114 &2030180493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6570,6 +6579,7 @@ MonoBehaviour:
     name: 
     speed: 10
     maxHP: 100
+    HP: 0
     attackDamage: 20
     defense: 4
     miningAttack: 20

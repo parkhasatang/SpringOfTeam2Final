@@ -28,8 +28,8 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         transform.SetAsLastSibling();
 
         // 데이터 임시로 맡겨두기.
-        MinUIManager.instance.giveTemporaryItemData = MinUIManager.instance.playerInventoryData.slots[inventoryIndex].item;
-        MinUIManager.instance.playerInventoryData.slots[inventoryIndex].item = null;
+        UIManager.instance.giveTemporaryItemData = UIManager.instance.playerInventoryData.slots[inventoryIndex].item;
+        UIManager.instance.playerInventoryData.slots[inventoryIndex].item = null;
 
         itemImg.alpha = 0.6f;
         itemImg.blocksRaycasts = false;
@@ -55,18 +55,18 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             eventData.pointerDrag.GetComponent<Image>().color = imageColor;
 
             // 데이터 비었는지 bool값 설정.
-            MinUIManager.instance.playerInventoryData.slots[inventoryIndex].isEmpty = true;
+            UIManager.instance.playerInventoryData.slots[inventoryIndex].isEmpty = true;
         }
         else if (eventData.pointerDrag.GetComponent<Image>().sprite == eventData.pointerDrag.GetComponent<Image>().sprite)
         {
             // 다른 곳에 놓았을 때, 그대로라면 다시 가져오기.
-            MinUIManager.instance.playerInventoryData.slots[inventoryIndex].item = MinUIManager.instance.giveTemporaryItemData;
-            MinUIManager.instance.giveTemporaryItemData = null;
+            UIManager.instance.playerInventoryData.slots[inventoryIndex].item = UIManager.instance.giveTemporaryItemData;
+            UIManager.instance.giveTemporaryItemData = null;
         }
         else
         {
-            MinUIManager.instance.playerInventoryData.slots[inventoryIndex].item = MinUIManager.instance.takeTemporaryItemData;
-            MinUIManager.instance.takeTemporaryItemData = null;
+            UIManager.instance.playerInventoryData.slots[inventoryIndex].item = UIManager.instance.takeTemporaryItemData;
+            UIManager.instance.takeTemporaryItemData = null;
         }
     }
 }
