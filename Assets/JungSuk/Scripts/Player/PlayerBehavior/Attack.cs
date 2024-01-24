@@ -35,8 +35,10 @@ public class Attack : MonoBehaviour
 
     private void PlayerAttack()
     {
+        Quaternion playerRotation = transform.rotation;
+        Vector2 forwardDirection = playerRotation * Vector3.up;
         Vector2 playerPosition = transform.position;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerPosition, attackRange);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerPosition + forwardDirection * attackRange, attackRange);
 
         foreach (Collider2D collider in colliders)
         {

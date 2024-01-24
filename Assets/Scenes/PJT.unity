@@ -6560,7 +6560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1070987211}
-  attackRange: 5
+  attackRange: 1
 --- !u!114 &2030180493
 MonoBehaviour:
   m_ObjectHideFlags: 0
