@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager instance;
+    public static UIManager Instance;
 
     public GameObject Player;
     [SerializeField] private Slider HPSlider;
@@ -17,7 +17,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI HpTxt;
     [SerializeField] private TextMeshProUGUI HungerTxt;
 
-    private string Traget = "Player";
     private HealthSystem playerHealthSystem;
 
     // 인벤토리 데이터
@@ -28,7 +27,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
 
         playerHealthSystem = Player.GetComponent<HealthSystem>();
         playerHealthSystem.OnDamage += UpdateUI;
@@ -43,17 +42,5 @@ public class UIManager : MonoBehaviour
         HungerSilder.value = playerHealthSystem.CurrentHunger / playerHealthSystem.MaxHunger;
         HungerTxt.text = playerHealthSystem.CurrentHunger.ToString() + "/" + playerHealthSystem.MaxHealth.ToString();
 
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

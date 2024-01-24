@@ -23,8 +23,14 @@ public class PickUp : MonoBehaviour
                     inven.invenSlot[i].OnOffImage(true);
                     inven.slots[i].isEmpty = false;
                     inven.slots[i].item = item; // 정해준 아이템의 데이터를 넣어준다.
+                    if (inven.slots[i].isChoose)
+                    {
+                        // 빈 곳으로 아이템이 들어가면 이미지 나타나게 해줌.
+                        collision.GetComponent<EquipObject>().heldItem.sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+                        // 퀵슬롯에서 아이템 선택했을 때 플레이어한테 데이터 넣어주는 작업을 시작하면 여기에서는 바로 플레이어에게 아이템 데이터 더해주기.
+                        // 작업 아직 시작안함.
+                    }
                     gameObject.SetActive(false);
-                   
                     break;
                 }
             }
