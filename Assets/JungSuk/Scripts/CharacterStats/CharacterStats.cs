@@ -31,6 +31,7 @@ public class CharacterStats
     public string name;
     public float speed;
     public float maxHP;
+    public float HP;
 
     [Header("Battle Info")]
     public float attackDamage;
