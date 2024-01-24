@@ -52,12 +52,12 @@
                 },
                 {
                     "name": "Equip",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "888cc3f8-a897-4af5-91d2-bebc2eef05ce",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [

@@ -37,8 +37,7 @@ public class EquipObject : MonoBehaviour
 
         for (int i = 1; i <= 8; i++)
         {
-            KeyCode key = KeyCode.Alpha0 + i;
-
+            KeyCode key = KeyCode.Alpha0 + i;            
             if (Input.GetKeyDown(key))
             {
                 if (inventory.slots[i - 1].isChoose == false) // isChoose로 두번 눌러도 안에 있는 메서드는 실행안댐.
