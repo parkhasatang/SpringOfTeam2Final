@@ -76,9 +76,8 @@ public class BossMonsterController : MonoBehaviour
         return Time.time - lastSpecialAttackTime >= currentSpecialAttackCooldown;
     }
 
-    private void PerformSpecialAttack()
+    protected virtual void PerformSpecialAttack()
     {
-        // 특수 공격 로직
         lastSpecialAttackTime = Time.time;
     }
 
