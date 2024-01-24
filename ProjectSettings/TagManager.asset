@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InteractionObject
   - Wall
+  - Monster
   layers:
   - Default
   - TransparentFX
