@@ -9,7 +9,9 @@ public class HealthSystem : MonoBehaviour
     private float _healthLastChange = float.MaxValue;
 
     public float CurrentHealth { get; private set; }
+    public float CurrentHunger { get; private set; }
     public float MaxHealth => _statusHandler.CurrentStats.maxHP;
+    public float MaxHunger => _statusHandler.CurrentStats.specificSO.hunger;
 
     public event Action OnDamage;
     public event Action OnHeal;
@@ -23,6 +25,7 @@ public class HealthSystem : MonoBehaviour
     private void Start()
     {
         CurrentHealth = MaxHealth;
+        CurrentHunger = MaxHunger;
     }
 
     private void Update()

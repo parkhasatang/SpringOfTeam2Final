@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3fb812ec5b7b044bbc3a79a404dffb, type: 3}
   m_Name: PlayerBaseStatsData
   m_EditorClassIdentifier: 
+  maxHunger: 100
   hunger: 100
   decreaseHungerTime: 30
   useCoolTime: 5
