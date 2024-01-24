@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[System.Serializable]
 public class Item
 {
     public Item(string itemCode, string itemType, string name, string description, string Hp, string hunger, string attackDamage, string attackDelay, string denfense,
@@ -59,7 +59,6 @@ public class ItemManager : MonoBehaviour
             string[] row = line[i].Split('\t');
             items.Add(int.Parse(row[0]), new Item(row[0], row[1], row[2], row[3], (row[4]), (row[5]), (row[6]), 
                 (row[7]), (row[8]), (row[9]), (row[10]), row[11], row[12] == "TRUE"));
-            Debug.Log(items[1001].Speed);
         }
     }
 
