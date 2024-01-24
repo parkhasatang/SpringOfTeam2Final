@@ -47,11 +47,11 @@ public class EquipObject : MonoBehaviour
                 }
                 // 여기 else를 써주면 같은 키를 두번 눌렀을 때 실행됌.
             }
-            else
+            /*else
             {
                 inventory.slots[i - 1].isChoose = false;
                 inventory.invenSlot[i - 1].QuickSlotItemChoose(false);
-            }
+            }*/
         }
     }
 

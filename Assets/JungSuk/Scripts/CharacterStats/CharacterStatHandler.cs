@@ -29,6 +29,7 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStats.name = characterBaseStats.name;
         CurrentStats.speed = characterBaseStats.speed;
         CurrentStats.maxHP = characterBaseStats.maxHP;
+        CurrentStats.HP= characterBaseStats.HP;
         CurrentStats.attackDamage = characterBaseStats.attackDamage;
         CurrentStats.defense = characterBaseStats.defense;
         CurrentStats.miningAttack = characterBaseStats.miningAttack;
