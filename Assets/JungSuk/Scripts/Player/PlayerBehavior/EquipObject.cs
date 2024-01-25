@@ -61,11 +61,11 @@ public class EquipObject : MonoBehaviour
         inventory.invenSlot[slotIndex].QuickSlotItemChoose(true);
     }
 
-    private void UnEquipItem(int slotIndex)// todo 기존에 있던 아이템 정보를 빼고넣기.
-    {/*
+    /*private void UnEquipItem(int slotIndex)// todo 기존에 있던 아이템 정보를 빼고넣기.
+    {*//*
         heldItem.sprite = null;
-        inventory.invenSlot[slotIndex].QuickSlotItemChoose(false);*/
-    }
+        inventory.invenSlot[slotIndex].QuickSlotItemChoose(false);*//*
+    }*/
 
 
     /*private void ChangeStatByItem(int Index)

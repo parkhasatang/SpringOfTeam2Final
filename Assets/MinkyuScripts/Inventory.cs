@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<SlotData> slots= new List<SlotData>();// SlotData를 리스트로 만들어주자.
+    public List<SlotData> slots = new();// SlotData를 리스트로 만들어주자.
     public SlotNum[] invenSlot;
 
     public void Start()
     {
         for(int i = 0; i < invenSlot.Length; i++)
         {
-            SlotData slot = new SlotData();
-            slot.isEmpty = true;
-            slot.isChoose = false;
-            /*slot.slotObj = invenSlot[i].gameObject;*/
-            slot.item = null;
+            SlotData slot = new()// 객체 초기화 단순화
+            {
+                isEmpty = true,
+                isChoose = false,
+                /*slot.slotObj = invenSlot[i].gameObject;*/
+                item = null,
+                stack = 0
+            };
             slots.Add(slot);
         }
     }
