@@ -3,13 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IEquipedItem
+{
+    void EquipItemForChangeStats(Item item);
+    void UnEquipItemForChangeStats(Item item);
+}
 public class CharacterStatHandler : MonoBehaviour
 {
     [SerializeField] private CharacterStats characterBaseStats;
 
     public CharacterStats CurrentStats { get; private set; }
 
-    public CharacterStats ChangeStats;
+    public CharacterStats ChangeStats1;
+    public CharacterStats ChangeStats2;
     private void Awake()
     {
         UpdateCharacterStats();
@@ -34,9 +40,6 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStats.defense = characterBaseStats.defense;
         CurrentStats.miningAttack = characterBaseStats.miningAttack;
         CurrentStats.attackDelay = characterBaseStats.attackDelay;
-
-        ChangeStats = CurrentStats;
+        Debug.Log(CurrentStats.attackDamage);
     }
-
-    
 }
