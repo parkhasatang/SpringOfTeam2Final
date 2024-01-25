@@ -21,9 +21,11 @@ public class UIManager : MonoBehaviour
 
     // 인벤토리 데이터
     public Inventory playerInventoryData;
-    public Item giveTemporaryItemData;
     public Item takeTemporaryItemData;
+    public Item giveTemporaryItemData;
     public Sprite temporaryItemImg;
+    public int takeTemporaryItemStack;
+    public int giveTemporaryItemStack;
 
     private void Awake()
     {

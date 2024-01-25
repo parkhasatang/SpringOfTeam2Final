@@ -18,7 +18,7 @@ public class TilemapManager : MonoBehaviour
 
     public Tilemap tilemap;
     public Tilemap ceilingTile;
-    public Dictionary<Vector3Int, TileInfo> wallDictionary = new Dictionary<Vector3Int, TileInfo>();
+    public Dictionary<Vector3Int, TileInfo> wallDictionary = new();
 
     public void Awake()
     {
@@ -33,7 +33,7 @@ public class TilemapManager : MonoBehaviour
         {
             for (int y = bounds.y; y < bounds.y + bounds.size.y; y++)
             {
-                Vector3Int cellPosition = new Vector3Int(x, y, 0);
+                Vector3Int cellPosition = new(x, y, 0);
                 TileBase tile = tilemap.GetTile(cellPosition);
 
                 if (tile != null)

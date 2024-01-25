@@ -17,12 +17,23 @@ public class PickUp : MonoBehaviour
             Inventory inven = collision.GetComponent<Inventory>();
             for (int i = 0; i < inven.invenSlot.Length; i++)
             {
-                if (inven.slots[i].isEmpty)
+                // 인벤토리에 같은 아이템 코드의 아이템이 있다면, stack을 올려주고 꺼짐.
+                if (!inven.slots[i].isEmpty && (int.Parse(inven.slots[i].item.ItemCode) == itemIndex))
                 {
-                    inven.invenSlot[i].ChangeInventoryImage(gameObject.GetComponent<SpriteRenderer>());
+                    inven.slots[i].stack++;
+                    inven.invenSlot[i].ItemStackUIRefresh(inven.slots[i].stack);
+                    gameObject.SetActive(false);
+                    break;
+                }
+                else if (inven.slots[i].isEmpty)
+                {
+                    inven.invenSlot[i].ChangeInventoryImage(gameObject.GetComponent<SpriteRenderer>().sprite);
                     inven.invenSlot[i].OnOffImage(true);
                     inven.slots[i].isEmpty = false;
                     inven.slots[i].item = item; // 정해준 아이템의 데이터를 넣어준다.
+                    inven.slots[i].stack = 1;
+                    inven.invenSlot[i].ItemStackUIRefresh(inven.slots[i].stack);
+
                     if (inven.slots[i].isChoose)
                     {
                         // 빈 곳으로 아이템이 들어가면 이미지 나타나게 해줌.

@@ -43,11 +43,16 @@ public class DroppableUI : MonoBehaviour, IDropHandler
 
                 // 데이터 임시저장소에 올리기.
                 UIManager.Instance.takeTemporaryItemData = UIManager.Instance.playerInventoryData.slots[inventoryIndex].item;
+                UIManager.Instance.takeTemporaryItemStack = UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack;
                 UIManager.Instance.playerInventoryData.slots[inventoryIndex].item = null;
+                UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = 0;
 
                 // 데이터 받아오기.
                 UIManager.Instance.playerInventoryData.slots[inventoryIndex].item = UIManager.Instance.giveTemporaryItemData;
+                UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = UIManager.Instance.giveTemporaryItemStack;
                 UIManager.Instance.giveTemporaryItemData = null;
+                UIManager.Instance.giveTemporaryItemStack = 0;
+                UIManager.Instance.playerInventoryData.invenSlot[inventoryIndex].ItemStackUIRefresh(UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack);
             }
         }
     }
