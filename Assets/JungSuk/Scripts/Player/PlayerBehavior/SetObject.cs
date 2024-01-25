@@ -34,18 +34,18 @@ public class SetObject : MonoBehaviour
             {
                 
                 // charactercontroller에서 설치가능한 아이템인지 판단하는게 있는가? 있으면 위에 ItemType으로 구별해주었던 것을 지우고 아래에 판별가능한 bool값을 설정
-                if (int.Parse(inventorySlot[i].item.ItemType) == 1) // 우클릭을 사용할 수 있는 아이템인가
+                if (inventorySlot[i].item.ItemType == 1) // 우클릭을 사용할 수 있는 아이템인가
                 {
                     // 갯수가 0이상이면.
                     if (inventorySlot[i].stack > 0)
                     {
                         // 벽이라면
-                        if (int.Parse(inventorySlot[i].item.ItemCode) == 2101)
+                        if (inventorySlot[i].item.ItemCode == 2101)
                         {
                             SetWall(i);
                         }
                         // 물약이라면
-                        else if (int.Parse(inventorySlot[i].item.ItemCode) == 1701)
+                        else if (inventorySlot[i].item.ItemCode == 1701)
                         {
                             // 플레이어 체력 회복
                             /*StackUpdate(i);*///쓸때 조심.

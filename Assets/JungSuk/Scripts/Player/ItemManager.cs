@@ -5,14 +5,15 @@ using UnityEngine;
 [System.Serializable]
 public class Item
 {
-    public Item(string itemCode, string itemType, string name, string description, string Hp, string hunger, string attackDamage, string attackDelay, string denfense,
-        string attackRange, string speed, string stackNumber, bool isEquip)
+    public Item(int itemCode, int itemType, string name, string description, float Hp, float hunger, float attackDamage, float attackDelay, float denfense,
+        float attackRange, float speed, int stackNumber, bool isEquip)
     {
         ItemCode = itemCode; ItemType = itemType; Name = name; Description = description; HP = Hp; Hunger = hunger; AttackDamage = attackDamage; AttackRange = attackDelay;
         Defense = denfense; Speed = speed; StackNumber = stackNumber; IsEquip = isEquip;
     }
- 
-    public string Name, Description, HP, Hunger, AttackDamage, AttackDelay, Defense, AttackRange, Speed, ItemCode, ItemType, StackNumber;
+    public int ItemCode, ItemType, StackNumber;
+    public float HP, Hunger, AttackDamage, AttackDelay, Defense, AttackRange, Speed;
+    public string Name, Description;
     public bool IsEquip;
 }
 
@@ -57,14 +58,8 @@ public class ItemManager : MonoBehaviour
         for (int i = 0; i < line.Length; i++)
         {
             string[] row = line[i].Split('\t');
-            items.Add(int.Parse(row[0]), new Item(row[0], row[1], row[2], row[3], (row[4]), (row[5]), (row[6]), 
-                (row[7]), (row[8]), (row[9]), (row[10]), row[11], row[12] == "TRUE"));
+            items.Add(int.Parse(row[0]), new Item(int.Parse(row[0]), int.Parse(row[1]), row[2], row[3], float.Parse(row[4]), float.Parse(row[5]), float.Parse(row[6]), 
+                float.Parse(row[7]), float.Parse(row[8]), float.Parse(row[9]),float.Parse(row[10]), int.Parse(row[11]), row[12] == "TRUE"));
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

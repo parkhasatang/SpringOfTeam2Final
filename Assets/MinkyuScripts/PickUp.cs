@@ -18,7 +18,7 @@ public class PickUp : MonoBehaviour
             for (int i = 0; i < inven.invenSlot.Length; i++)
             {
                 // 인벤토리에 같은 아이템 코드의 아이템이 있다면, stack을 올려주고 꺼짐.
-                if (!inven.slots[i].isEmpty && (int.Parse(inven.slots[i].item.ItemCode) == itemIndex))
+                if (!inven.slots[i].isEmpty && inven.slots[i].item.ItemCode == itemIndex)
                 {
                     inven.slots[i].stack++;
                     inven.invenSlot[i].ItemStackUIRefresh(inven.slots[i].stack);
