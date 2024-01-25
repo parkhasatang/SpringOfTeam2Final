@@ -29,9 +29,9 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
 
-        playerHealthSystem = Player.GetComponent<HealthSystem>();
-        playerHealthSystem.OnDamage += UpdateUI;
-        playerHealthSystem.OnHeal += UpdateUI;
+        //playerHealthSystem = Player.GetComponent<HealthSystem>();
+        //playerHealthSystem.OnDamage += UpdateUI;
+        //playerHealthSystem.OnHeal += UpdateUI;
     }
 
     private void UpdateUI()

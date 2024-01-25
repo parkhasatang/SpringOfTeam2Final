@@ -59,6 +59,7 @@ public class EquipObject : MonoBehaviour
         heldItem.sprite = quitSlots[slotIndex].sprite;
         inventory.slots[slotIndex].isChoose = true;
         inventory.invenSlot[slotIndex].QuickSlotItemChoose(true);
+        
     }
 
     private void UnEquipItem(int slotIndex)// todo 기존에 있던 아이템 정보를 빼고넣기.

@@ -8,8 +8,8 @@ public class CharacterStatHandler : MonoBehaviour
     [SerializeField] private CharacterStats characterBaseStats;
 
     public CharacterStats CurrentStats { get; private set; }
-   
 
+    public CharacterStats ChangeStats;
     private void Awake()
     {
         UpdateCharacterStats();
@@ -35,7 +35,7 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStats.miningAttack = characterBaseStats.miningAttack;
         CurrentStats.attackDelay = characterBaseStats.attackDelay;
 
-        
+        ChangeStats = CurrentStats;
     }
 
     
