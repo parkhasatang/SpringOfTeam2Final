@@ -9,12 +9,14 @@ public class RotateAim : MonoBehaviour
     [SerializeField] private Transform weaponPivot;
     [SerializeField] private SpriteRenderer characterRenderer;
     [SerializeField] private Transform playertransfrom;
+    private Animator playerAnimator;
 
     private CharacterController controller;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        playerAnimator = GetComponentInChildren<Animator>();
     }
     void Start()
     {
@@ -32,22 +34,22 @@ public class RotateAim : MonoBehaviour
         weaponPivot.rotation = Quaternion.Euler(playertransfrom.position.x, playertransfrom.position.y, angle);
         if( -45f< angle && angle < 45f)
         {
-            characterRenderer.color = Color.white;
+            playerAnimator.SetInteger("AimLotation", 3);            
         }
 
         if(45f<= angle && angle < 135f)
-        {
-            characterRenderer.color = Color.yellow;
+        {           
+            playerAnimator.SetInteger("AimLotation", 1);
         }
 
         if(135f <= angle && angle <= 180f || -180f < angle && angle < -135f)
-        {
-            characterRenderer.color = Color.black;
+        {          
+            playerAnimator.SetInteger("AimLotation", 2);
         }
 
         if(-135f < angle && angle <= -45f)
-        {
-            characterRenderer.color = Color.blue;
+        {            
+            playerAnimator.SetInteger("AimLotation", 0);
         }
     }
 
