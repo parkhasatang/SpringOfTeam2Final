@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &530986016035763986
 SpriteRenderer:
@@ -143,18 +143,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032565c5b54288d41a65fc3f84ff155f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIndex: 1301
+  itemIndex: 2101
   item:
+    ItemCode: 0
+    ItemType: 0
+    StackNumber: 0
+    HP: 0
+    Hunger: 0
+    AttackDamage: 0
+    AttackDelay: 0
+    Defense: 0
+    AttackRange: 0
+    Speed: 0
     Name: 
     Description: 
-    HP: 
-    Hunger: 
-    AttackDamage: 
-    AttackDelay: 
-    Defense: 
-    AttackRange: 
-    Speed: 
-    ItemCode: 
-    ItemType: 
-    StackNumber: 
     IsEquip: 0

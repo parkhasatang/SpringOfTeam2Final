@@ -539,7 +539,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3379974024668302014, guid: c8988b975dfcb7c4c9ed2ac549c2b4e2, type: 3}
       propertyPath: itemIndex
-      value: 1101
+      value: 2101
       objectReference: {fileID: 0}
     - target: {fileID: 6849437437513255306, guid: c8988b975dfcb7c4c9ed2ac549c2b4e2, type: 3}
       propertyPath: m_Name
@@ -1450,7 +1450,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 582119056}
-  - component: {fileID: 582119055}
+  - component: {fileID: 582119057}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1458,20 +1458,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &582119055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582119054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 022f2fd01ca25bd46b7ca211196a7cc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemDatas: {fileID: 4900000, guid: fd14f16382ce2824184386c156b29a3d, type: 3}
-  AllItemList: []
 --- !u!4 &582119056
 Transform:
   m_ObjectHideFlags: 0
@@ -1487,6 +1473,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &582119057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582119054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c2e1315eb117445809082ae7aab7a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1944045923}
+  HPSlider: {fileID: 0}
+  HungerSilder: {fileID: 0}
+  HpTxt: {fileID: 0}
+  HungerTxt: {fileID: 0}
+  playerInventoryData: {fileID: 1944045924}
+  takeTemporaryItemData:
+    ItemCode: 0
+    ItemType: 0
+    StackNumber: 0
+    HP: 0
+    Hunger: 0
+    AttackDamage: 0
+    AttackDelay: 0
+    Defense: 0
+    AttackRange: 0
+    Speed: 0
+    Name: 
+    Description: 
+    IsEquip: 0
+  giveTemporaryItemData:
+    ItemCode: 0
+    ItemType: 0
+    StackNumber: 0
+    HP: 0
+    Hunger: 0
+    AttackDamage: 0
+    AttackDelay: 0
+    Defense: 0
+    AttackRange: 0
+    Speed: 0
+    Name: 
+    Description: 
+    IsEquip: 0
+  temporaryItemImg: {fileID: 0}
+  takeTemporaryItemStack: 0
+  giveTemporaryItemStack: 0
 --- !u!1 &701289452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,36 +1983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a16ce17108f5e459a5fa7d1667213b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInventoryData: {fileID: 1944045924}
-  giveTemporaryItemData:
-    Name: 
-    Description: 
-    HP: 
-    Hunger: 
-    AttackDamage: 
-    AttackDelay: 
-    Defense: 
-    AttackRange: 
-    Speed: 
-    ItemCode: 
-    ItemType: 
-    StackNumber: 
-    IsEquip: 0
-  takeTemporaryItemData:
-    Name: 
-    Description: 
-    HP: 
-    Hunger: 
-    AttackDamage: 
-    AttackDelay: 
-    Defense: 
-    AttackRange: 
-    Speed: 
-    ItemCode: 
-    ItemType: 
-    StackNumber: 
-    IsEquip: 0
-  temporaryItemImg: {fileID: 0}
 --- !u!4 &816413644
 Transform:
   m_ObjectHideFlags: 0
@@ -5461,6 +5466,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3379974024668302014, guid: c8988b975dfcb7c4c9ed2ac549c2b4e2, type: 3}
+      propertyPath: itemIndex
+      value: 2101
+      objectReference: {fileID: 0}
     - target: {fileID: 6849437437513255306, guid: c8988b975dfcb7c4c9ed2ac549c2b4e2, type: 3}
       propertyPath: m_Name
       value: Item_Wall
@@ -6654,6 +6663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 701289454}
+  attackRange: 5
 --- !u!114 &1944045930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6672,11 +6682,36 @@ MonoBehaviour:
     name: 
     speed: 5
     maxHP: 100
+    HP: 0
     attackDamage: 20
     defense: 4
     miningAttack: 20
     attackDelay: 0.5
     specificSO: {fileID: 11400000, guid: 4bddf49a7417a1341905c9a6237958d0, type: 2}
+  ChangeStats1:
+    statsChangeType: 0
+    objectType: 0
+    name: 
+    speed: 0
+    maxHP: 0
+    HP: 0
+    attackDamage: 0
+    defense: 0
+    miningAttack: 0
+    attackDelay: 0
+    specificSO: {fileID: 0}
+  ChangeStats2:
+    statsChangeType: 0
+    objectType: 0
+    name: 
+    speed: 0
+    maxHP: 0
+    HP: 0
+    attackDamage: 0
+    defense: 0
+    miningAttack: 0
+    attackDelay: 0
+    specificSO: {fileID: 0}
 --- !u!114 &1944045931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7245,7 +7280,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 680a6a26e8a3bb44a8b3738891dee179, type: 3}
     - target: {fileID: 3379974024668302014, guid: c8988b975dfcb7c4c9ed2ac549c2b4e2, type: 3}
       propertyPath: itemIndex
-      value: 1001
+      value: 2101
       objectReference: {fileID: 0}
     - target: {fileID: 6849437437513255306, guid: c8988b975dfcb7c4c9ed2ac549c2b4e2, type: 3}
       propertyPath: m_Name
