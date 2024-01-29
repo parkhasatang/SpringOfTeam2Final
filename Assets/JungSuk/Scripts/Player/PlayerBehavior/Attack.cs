@@ -10,13 +10,13 @@ public class Attack : MonoBehaviour
     private CharacterStatHandler statsHandler;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private float attackRange = 5.0f;
-
+    private Animator playerAnimator;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         statsHandler = GetComponent<CharacterStatHandler>();
-        
+        playerAnimator = GetComponentInChildren<Animator>();
     }
 
     // Start is called before the first frame update
@@ -27,10 +27,7 @@ public class Attack : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {            
-            PlayerAttack();
-        }
+            
     }
 
     private void PlayerAttack()
@@ -50,6 +47,8 @@ public class Attack : MonoBehaviour
                 enemyHealth.ChangeHealth(-10f);
             }
         }
+        playerAnimator.SetTrigger("Attack");
+
     }
 
 
