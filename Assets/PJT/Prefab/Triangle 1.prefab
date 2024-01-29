@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2515633003331456433}
   - component: {fileID: 9081683217206253370}
   - component: {fileID: -5348359485616301224}
+  - component: {fileID: 6135936229824973484}
   m_Layer: 7
   m_Name: Triangle 1
   m_TagString: Monster
@@ -34,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2240084562817489801
 SpriteRenderer:
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: -1502085271636959682, guid: 5ce6a3dd42e42f54cacf7cdb07854c01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,6 +105,10 @@ MonoBehaviour:
   statHandler: {fileID: 9081683217206253370}
   healthSystem: {fileID: 2515633003331456433}
   initialSpecialAttackCooldown: 10
+  maxChaseDistance: 15
+  attackDistanceThreshold: 10
+  idleDistanceThreshold: 15
+  damageRadius: 5
 --- !u!114 &2515633003331456433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +146,30 @@ MonoBehaviour:
     miningAttack: 0
     attackDelay: 1
     specificSO: {fileID: 11400000, guid: 7d0d7d030938a4044af2a05e26a86803, type: 2}
+  ChangeStats1:
+    statsChangeType: 0
+    objectType: 0
+    name: 
+    speed: 0
+    maxHP: 0
+    HP: 0
+    attackDamage: 0
+    defense: 0
+    miningAttack: 0
+    attackDelay: 0
+    specificSO: {fileID: 0}
+  ChangeStats2:
+    statsChangeType: 0
+    objectType: 0
+    name: 
+    speed: 0
+    maxHP: 0
+    HP: 0
+    attackDamage: 0
+    defense: 0
+    miningAttack: 0
+    attackDelay: 0
+    specificSO: {fileID: 0}
 --- !u!61 &-5348359485616301224
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,8 +205,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.21133333}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: -0.071428575}
+    oldSize: {x: 0.16, y: 0.14}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -186,3 +215,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &6135936229824973484
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74459829765035120}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: -2642888819727168741, guid: 5ce6a3dd42e42f54cacf7cdb07854c01, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
