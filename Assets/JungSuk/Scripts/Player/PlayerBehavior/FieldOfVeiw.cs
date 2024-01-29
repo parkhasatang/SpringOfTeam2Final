@@ -24,9 +24,7 @@ public class FieldOfView : MonoBehaviour
     }
 
     private void LateUpdate()
-    {
-        //Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        //transform.eulerAngles = new Vector3(0, 0, GetAngleFromVector(new Vector3(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y, 0)));
+    {       
         DrawFOV();
     }
 
