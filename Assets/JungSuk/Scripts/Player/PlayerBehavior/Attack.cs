@@ -73,9 +73,13 @@ public class Attack : MonoBehaviour
                 {
                     TilemapManager.instance.wallDictionary[cellPosition].HP -= statsHandler.CurrentStats.miningAttack;
                     Debug.Log(TilemapManager.instance.wallDictionary[cellPosition].HP);
+
+                    // 벽이 부서졌다면
                     if (TilemapManager.instance.wallDictionary[cellPosition].HP <= 0f)
                     {
                         TilemapManager.instance.tilemap.SetTile(TilemapManager.instance.tilemap.WorldToCell(cellPosition), null);
+                        ItemManager.instacne.itemPool.ItemSpawn(2101, cellPosition);
+                        // 타일의 지붕 없애기.
                         Vector3Int ceilingPosition = new Vector3Int(cellPosition.x, cellPosition.y + 1, 0);
                         if (TilemapManager.instance.ceilingTile.GetTile(ceilingPosition))
                         {
