@@ -41,6 +41,8 @@ public class ItemManager : MonoBehaviour
 
     public TextAsset ItemDatas;
     public Dictionary<int, Item> items = new Dictionary<int, Item>() { };
+    
+    public ItemPool itemPool;
 
 
     private void Awake()
