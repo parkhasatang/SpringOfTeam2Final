@@ -7,5 +7,6 @@ public class MonsterStatsSO : ScriptableObject
     public float currentHP;
     public float followDistance;
     public float attackRange;
-
+    public float speed;
+    public float attackDamage;
 }
