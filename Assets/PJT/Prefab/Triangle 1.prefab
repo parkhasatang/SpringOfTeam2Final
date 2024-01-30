@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6777545205909274488}
   - component: {fileID: 2240084562817489801}
-  - component: {fileID: 2895131340211689224}
   - component: {fileID: 2515633003331456433}
+  - component: {fileID: -7313541063848566425}
   - component: {fileID: 9081683217206253370}
   - component: {fileID: -5348359485616301224}
   - component: {fileID: 6135936229824973484}
@@ -89,26 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2895131340211689224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 74459829765035120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5498813f51d219419be811a8c15a3ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  statHandler: {fileID: 9081683217206253370}
-  healthSystem: {fileID: 2515633003331456433}
-  initialSpecialAttackCooldown: 10
-  maxChaseDistance: 15
-  attackDistanceThreshold: 10
-  idleDistanceThreshold: 15
-  damageRadius: 5
 --- !u!114 &2515633003331456433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +102,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
+--- !u!114 &-7313541063848566425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74459829765035120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5e4ba57c3ec0340b9e4e39ff33a662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterStats: {fileID: 11400000, guid: b88a27f21895d1441b0ffe6373176d2f, type: 2}
+  itemDetectionRange: 1
 --- !u!114 &9081683217206253370
 MonoBehaviour:
   m_ObjectHideFlags: 0
