@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.Tilemaps;
 
 
@@ -34,18 +35,34 @@ public class TilemapManager : MonoBehaviour
             for (int y = bounds.y; y < bounds.y + bounds.size.y; y++)
             {
                 Vector3Int cellPosition = new(x, y, 0);
-                TileBase tile = tilemap.GetTile(cellPosition);
-
+                TileBase tile = tilemap.GetTile(cellPosition);                
                 if (tile != null)
                 {
+                    float tileHP = GetTileHp(cellPosition);
                     wallDictionary[cellPosition] = new TileInfo
                     {
                         tile = tile,
-                        HP = 100f
+                        HP = tileHP
                     };
                 }
             }
         }
+    }
+
+
+    private float GetTileHp(Vector3Int position)
+    {
+        int tileHP = 150;
+        int Level2Point = 20;
+        if (Mathf.Abs(position.x) > Level2Point || Mathf.Abs(position.y) > Level2Point)
+        {
+            tileHP = 150;
+        }
+        else
+            tileHP = 100;
+
+        return tileHP;
+        
     }
     /*private void OnDrawGizmos()
     {
