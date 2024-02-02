@@ -53,7 +53,7 @@ public class TilemapManager : MonoBehaviour
     private float GetTileHp(Vector3Int position)
     {
         int tileHP = 150;
-        int Level2Point = 20;
+        int Level2Point = 32;
         if (Mathf.Abs(position.x) > Level2Point || Mathf.Abs(position.y) > Level2Point)
         {
             tileHP = 150;
