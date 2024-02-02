@@ -5,14 +5,25 @@ public class SlimeState : MonsterState
 {
     [SerializeField] private float itemDetectionRange = 5.0f;
     private List<int> swallowedItems = new List<int>();
-    private float idleMoveTime;
-    private float idleChangeDirectionTime;
+    private Vector2 currentDirection;
+    private float moveTimer;
+    private float moveDuration = 2f;
     private Collider2D myCollider;
+    private CharacterStatHandler stathandler;
 
     protected override void Start()
     {
         base.Start();
         myCollider = GetComponent<Collider2D>();
+        stathandler = GetComponent<CharacterStatHandler>();
+        if (stathandler == null)
+        {
+            Debug.LogError("스탯핸들러가없삼");
+        }
+        else
+        {
+            stathandler.UpdateCharacterStats();
+        }
     }
 
     protected override void Update()
@@ -23,14 +34,52 @@ public class SlimeState : MonsterState
 
     protected override void IdleBehavior()
     {
-        idleMoveTime += Time.deltaTime;
-
-        if (idleMoveTime >= idleChangeDirectionTime)
+        if (PlayerInDetectionRange())
         {
-            idleMoveTime = 0;
-            idleChangeDirectionTime = Random.Range(2f, 5f);
-            MoveInRandomDirection();
+            currentState = State.Chase;
+            Debug.Log("현재상태: " + currentState);
+            return;
+            
         }
+
+        if (!PlayerInDetectionRange())
+        {
+            currentState = State.Move;
+            Debug.Log("현재상태: " + currentState);
+            return;
+            
+        }
+    }
+    protected override void MoveBehavior()
+    {
+        if (currentDirection == Vector2.zero)
+        {
+            currentDirection = Random.insideUnitCircle.normalized;
+            moveTimer = 0f;
+        }
+
+        transform.position += (Vector3)currentDirection * stathandler.CurrentMonsterStats.speed * Time.deltaTime;
+
+        moveTimer += Time.deltaTime;
+        if (moveTimer >= moveDuration)
+        {
+            currentDirection = Vector2.zero;
+        }
+
+        if (PlayerInDetectionRange())
+        {
+            currentState = State.Chase;
+            Debug.Log("플레이어발견으로인한 상태변경: " + currentState);
+        }
+    }
+    private bool PlayerInDetectionRange()
+    {
+        if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.followDistance)
+        {
+            Debug.Log("플레이어 발견");
+            return true;
+        }
+        return false;
     }
 
     protected override void ChasePlayer()
@@ -56,7 +105,7 @@ public class SlimeState : MonsterState
     private void MoveInRandomDirection()
     {
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
-        transform.position += (Vector3)randomDirection * monsterStats.speed * Time.deltaTime;
+        transform.position += (Vector3)randomDirection * stathandler.CurrentMonsterStats.speed * Time.deltaTime;
     }
 
     private void DetectAndSwallowItems()

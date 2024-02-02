@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class MonsterState : MonoBehaviour
 {
-    public MonsterStatsSO monsterStats;
-    private GameObject player;
-    private Animator animator;
+    protected GameObject player;
+    protected Animator animator;
+    protected CharacterStatHandler statHandler;
     protected enum State
     {
         Idle,
+        Move,
         Chase,
         Attack,
         Death
@@ -20,14 +21,30 @@ public class MonsterState : MonoBehaviour
         animator = GetComponent<Animator>();
         currentState = State.Idle;
         player = GameObject.FindGameObjectWithTag("Player");
+
+        statHandler = GetComponent<CharacterStatHandler>();
+        if (statHandler == null)
+        {
+            statHandler = gameObject.AddComponent<CharacterStatHandler>();
+        }
+
+        statHandler.UpdateCharacterStats();
+
+        Debug.Log("현재상태: " + currentState);
+        Debug.Log("스탯 - Speed: " + statHandler.CurrentMonsterStats.speed);
+        Debug.Log("스탯 Stats - Max HP: " + statHandler.CurrentMonsterStats.maxHP);
     }
 
     protected virtual void Update()
     {
+        Debug.Log(currentState);
         switch (currentState)
         {
             case State.Idle:
                 IdleBehavior();
+                break;
+            case State.Move:
+                MoveBehavior();
                 break;
             case State.Chase:
                 ChasePlayer();
@@ -42,15 +59,20 @@ public class MonsterState : MonoBehaviour
 
     protected virtual void IdleBehavior()
     {
+
+    }
+
+    protected virtual void MoveBehavior()
+    {
         
     }
     protected virtual void ChasePlayer()
     {
-        if (Vector2.Distance(transform.position, player.transform.position) <= monsterStats.followDistance)
+        if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.followDistance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, monsterStats.speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, statHandler.CurrentMonsterStats.speed * Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, player.transform.position) <= monsterStats.attackRange)
+            if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.attackRange)
             {
                 currentState = State.Attack;
             }
@@ -58,31 +80,44 @@ public class MonsterState : MonoBehaviour
         else
         {
             currentState = State.Idle;
+            Debug.Log("플레이어 놓침으로인한 상태변경: " + currentState);
         }
     }
 
     protected virtual void AttackPlayer()
     {
-        animator.SetTrigger("Attack");
-        //실제 공격 로직은 애니메이션 이벤트에서 처리(공격 모션이 처리되는 시점에 밑에 OnAtrackHit 불러오기)
+        if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.followDistance)
+        {
+            currentState = State.Chase;
+        }
+        else
+        {
+            currentState = State.Idle;
+        }
+
+        OnAttackHit();
     }
 
     protected virtual void OnAttackHit()
     {
-        if (Vector2.Distance(transform.position, player.transform.position) <= monsterStats.attackRange)
+        if (player != null)
         {
-            player.GetComponent<HealthSystem>().ChangeHealth(-monsterStats.attackDamage);
+            if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.attackRange)
+            {
+                player.GetComponent<HealthSystem>().ChangeHealth(-statHandler.CurrentMonsterStats.attackDamage);
+            }
         }
     }
+
     protected virtual void TakeDamage(float damage)
     {
-
-        monsterStats.currentHP -= damage;
-        if (monsterStats.currentHP <= 0)
+        statHandler.CurrentMonsterStats.HP -= damage;
+        if (statHandler.CurrentMonsterStats.HP <= 0)
         {
             OnDeath();
         }
     }
+
     protected virtual void OnDeath()
     {
         currentState = State.Death;

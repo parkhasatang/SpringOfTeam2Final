@@ -13,6 +13,9 @@ public class SpecificSO : ScriptableObject
     [Header("MonsterInfo")]
     public float followDistance;
     public float attackRange;
+    public float currentHP;
+    public float speed;
+    public float attackDamage;
 
-    
+
 }

@@ -1,12 +1,20 @@
+using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MonsterStatsData", menuName = "CharacterController/MonsterStats", order = 1)]
-public class MonsterStatsSO : ScriptableObject
+[Serializable]
+public class MonsterStats
 {
+    public string name;
+    public float speed;
+    public float maxHP;
+    public float HP;
+
     [Header("Monster Specific Stats")]
-    public float currentHP;
     public float followDistance;
     public float attackRange;
-    public float speed;
     public float attackDamage;
+    public float defense;
+    public float attackDelay;
+
+    public SpecificSO specificSO;
 }
