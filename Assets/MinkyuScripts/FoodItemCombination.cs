@@ -14,6 +14,18 @@ public class FoodItemCombination : MonoBehaviour, IDragHandler, IDropHandler
     {
         StartCoroutine(FoodRecipe());
     }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("조합 검토");
+        CheckRecipe();
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        CheckRecipe();
+    }
+
     public void CheckRecipe()
     {
         // 음식 조합의 칸 두개의 Item데이터가 비어있지 않을 때
@@ -24,7 +36,6 @@ public class FoodItemCombination : MonoBehaviour, IDragHandler, IDropHandler
 
             Tuple<int, int> key = Tuple.Create(ingredient1, ingredient2);
 
-            Debug.Log(key);
 
             if (foodRecipe.ContainsKey(key))
             {
@@ -34,8 +45,9 @@ public class FoodItemCombination : MonoBehaviour, IDragHandler, IDropHandler
                 UIManager.Instance.playerInventoryData.slots[28].isEmpty = false;
                 // 등록된 데이터의 ItemCode로 이미지 불러오기.
                 UIManager.Instance.playerInventoryData.slots[28].stack++;
-                UIManager.Instance.StackUpdate(UIManager.Instance.playerInventoryData.slots[28].stack);
-                UIManager.Instance.playerInventoryData.invenSlot[28].ItemStackUIRefresh(UIManager.Instance.playerInventoryData.slots[28].stack);
+                UIManager.Instance.StackUpdate(28);
+
+                UIManager.Instance.playerInventoryData.invenSlot[28].GetComponentInChildren<CanvasGroup>().blocksRaycasts = true;
             }
             else
             {
@@ -48,6 +60,7 @@ public class FoodItemCombination : MonoBehaviour, IDragHandler, IDropHandler
         }
     }
 
+
     public IEnumerator FoodRecipe()
     {
         yield return new WaitForSeconds(1f);
@@ -56,16 +69,5 @@ public class FoodItemCombination : MonoBehaviour, IDragHandler, IDropHandler
         foodRecipe.Add(Tuple.Create(1703, 1713), ItemManager.instance.items[1723]);
         foodRecipe.Add(Tuple.Create(1713, 1703), ItemManager.instance.items[1723]);
         Debug.Log(foodRecipe[Tuple.Create(1713, 1703)]);
-    }
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        Debug.Log("조합 검토");
-        CheckRecipe();
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        CheckRecipe();
     }
 }

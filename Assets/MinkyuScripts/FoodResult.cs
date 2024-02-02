@@ -4,39 +4,57 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class FoodResult : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class FoodResult : MonoBehaviour
 {
-    [SerializeField] internal int inventoryIndex;
-
-    private Transform canvas;
-    private Transform previousParent;
-    private RectTransform uiItemTransform;
     private CanvasGroup itemImg;
-    
-    private int firstItem;
-    private int secondItem;
 
     private void Awake()
     {
-        canvas = FindObjectOfType<Canvas>().transform;
-        uiItemTransform = GetComponent<RectTransform>();
         itemImg = GetComponent<CanvasGroup>();
+    }
 
-        firstItem = UIManager.Instance.playerInventoryData.slots[26].item.ItemType;
-        secondItem = UIManager.Instance.playerInventoryData.slots[27].item.ItemType;
+    public void ClickButtonOnFood()
+    {
+        // 아이템 제작
+        MakeFood();
+
+        // 인벤토리로 보내기 시작. 데이터 임시보관소에 보내주기.
+        UIManager.Instance.giveTemporaryItemData = UIManager.Instance.playerInventoryData.slots[28].item;
+        UIManager.Instance.giveTemporaryItemStack = 1;
+
+        for (int i = 0; i < UIManager.Instance.playerInventoryData.invenSlot.Length - 3; i++)
+        {
+            // 비어있거나 아이템 코드가 같다면
+            if (UIManager.Instance.playerInventoryData.slots[i].isEmpty || UIManager.Instance.playerInventoryData.slots[i].item.ItemCode == UIManager.Instance.playerInventoryData.slots[28].item.ItemCode)
+            {
+                UIManager.Instance.playerInventoryData.slots[i].item = UIManager.Instance.giveTemporaryItemData;
+                UIManager.Instance.playerInventoryData.slots[i].stack += UIManager.Instance.giveTemporaryItemStack;
+                UIManager.Instance.StackUpdate(i);
+
+
+                UIManager.Instance.giveTemporaryItemData = null;
+                UIManager.Instance.giveTemporaryItemStack = 0;
+                break;
+                // 메서드가 종료되고싶은게 아니니깐 break;
+            }
+        }
+
+        if ((UIManager.Instance.playerInventoryData.slots[26].stack == 0) || (UIManager.Instance.playerInventoryData.slots[27].stack == 0))
+        {
+            itemImg.blocksRaycasts = false;
+            UIManager.Instance.playerInventoryData.slots[28].stack = 0;
+            UIManager.Instance.StackUpdate(28);
+        }
+        // 아직 재료들이 남았다면
+        else
+        {
+            itemImg.blocksRaycasts = true;
+        }
     }
 
 
-    public void OnBeginDrag(PointerEventData eventData)
+    /*public void OnBeginDrag(PointerEventData eventData)
     {
-        // DraggableUI에 있는 스크립트 일부만 사용.
-        previousParent = transform.parent;
-        transform.SetParent(canvas);
-        transform.SetAsLastSibling();
-
-        itemImg.alpha = 0.6f;
-        itemImg.blocksRaycasts = false;
-        // 여기까지 DraggableUI에 있는 스크립트 일부
 
 
         // 안에 데이터들이 들어있다면
@@ -66,66 +84,14 @@ public class FoodResult : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
                 }
             }
         }
-    }
+    }*/
 
-    public void OnDrag(PointerEventData eventData)
+    private void MakeFood()
     {
-        uiItemTransform.position = eventData.position;
-    }
+        UIManager.Instance.playerInventoryData.slots[26].stack--;
+        UIManager.Instance.playerInventoryData.slots[27].stack--;
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        transform.SetParent(previousParent);
-        uiItemTransform.position = previousParent.GetComponent<RectTransform>().position;
-
-        itemImg.alpha = 1f;
-        itemImg.blocksRaycasts = true;
-
-        if (eventData.pointerDrag.GetComponent<Image>().sprite == null)
-        {
-            Color imageColor = eventData.pointerDrag.GetComponent<Image>().color;
-            imageColor.a = 0f;
-            eventData.pointerDrag.GetComponent<Image>().color = imageColor;
-
-            // 데이터 비었는지 bool값 설정.
-            UIManager.Instance.playerInventoryData.slots[inventoryIndex].isEmpty = true;
-        }
-        // 다른 곳에 놓았을 때, 그대로라면 다시 가져오기.
-        else if (eventData.pointerDrag.GetComponent<Image>().sprite == eventData.pointerDrag.GetComponent<Image>().sprite)
-        {
-            UIManager.Instance.playerInventoryData.slots[inventoryIndex].item = UIManager.Instance.giveTemporaryItemData;
-            UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = UIManager.Instance.giveTemporaryItemStack;
-            UIManager.Instance.giveTemporaryItemData = null;
-            UIManager.Instance.giveTemporaryItemStack = 0;
-        }
-        // 옮겨졌다면 바꾸었던 데이터 가져오기.
-        else
-        {
-            UIManager.Instance.playerInventoryData.slots[inventoryIndex].item = UIManager.Instance.takeTemporaryItemData;
-            UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = UIManager.Instance.takeTemporaryItemStack;
-            UIManager.Instance.takeTemporaryItemData = null;
-            UIManager.Instance.giveTemporaryItemStack = 0;
-        }
-        UIManager.Instance.StackUpdate(inventoryIndex);
-    }
-
-    private void FoodResultStack(bool succes)
-    {
-        if (succes)
-        {
-            UIManager.Instance.playerInventoryData.slots[26].stack--;
-            UIManager.Instance.playerInventoryData.slots[27].stack--;
-
-            UIManager.Instance.StackUpdate(26);
-            UIManager.Instance.StackUpdate(27);
-        }
-        else
-        {
-            UIManager.Instance.playerInventoryData.slots[26].stack++;
-            UIManager.Instance.playerInventoryData.slots[27].stack++;
-
-            UIManager.Instance.StackUpdate(26);
-            UIManager.Instance.StackUpdate(27);
-        }
+        UIManager.Instance.StackUpdate(26);
+        UIManager.Instance.StackUpdate(27);
     }
 }
