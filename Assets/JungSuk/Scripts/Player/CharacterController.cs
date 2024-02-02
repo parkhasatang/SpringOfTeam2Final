@@ -22,7 +22,7 @@ public class CharacterController : MonoBehaviour
     public bool IsInteracting { get; set; }
     public bool IsEquiping {  get; set; }
     public bool CanControllCharacter { get; set; }
-
+    private Vector3 spawnPoint = Vector3.zero;
 
     protected virtual void Awake()
     {
@@ -74,12 +74,17 @@ public class CharacterController : MonoBehaviour
             CallSetEvent();
         }
     }
+
     private void OnDeath()
     {
-        Debug.Log("캐릭터 사망");
-        //캐릭터 사망하면 다시 스폰 지점에서 부활하는거 추가
+        transform.position = spawnPoint;
+        HealthSystem healthSystem = GetComponent<HealthSystem>();
+        if (healthSystem != null)
+        {
+            healthSystem.ChangeHealth(healthSystem.MaxHealth);
+            Debug.Log("회복");
+        }
     }
-
 
     public void CallMoveEvent(Vector2 value)
     {

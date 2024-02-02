@@ -40,15 +40,18 @@ public class Attack : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            HealthSystem enemyHealth = collider.GetComponent<HealthSystem>();
-
-            if (enemyHealth != null)
+            if (collider.gameObject.CompareTag("Monster"))
             {
-                enemyHealth.ChangeHealth(-10f);
+                HealthSystem enemyHealth = collider.GetComponent<HealthSystem>();
+
+                if (enemyHealth != null)
+                {
+                    enemyHealth.ChangeMHealth(-statsHandler.CurrentStats.attackDamage);
+                    Debug.Log(statsHandler.CurrentStats.attackDamage + " 데미지 입힘");
+                }
             }
         }
         playerAnimator.SetTrigger("Attack");
-
     }
 
 

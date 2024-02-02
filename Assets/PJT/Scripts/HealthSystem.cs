@@ -9,8 +9,10 @@ public class HealthSystem : MonoBehaviour
     private float _healthLastChange = float.MaxValue;
 
     public float CurrentHealth { get; private set; }
+    public float CurrentMHealth { get; private set; }
     public float CurrentHunger { get; private set; }
     public float MaxHealth => _statusHandler.CurrentStats.maxHP;
+    public float MosterMaxHealth => _statusHandler.CurrentMonsterStats.maxHP;
     public float MaxHunger => _statusHandler.CurrentStats.specificSO.hunger;
 
     public event Action OnDamage;
@@ -26,6 +28,7 @@ public class HealthSystem : MonoBehaviour
     {
         CurrentHealth = MaxHealth;
         CurrentHunger = MaxHunger;
+        CurrentMHealth = MosterMaxHealth;
     }
 
     private void Update()
@@ -54,6 +57,29 @@ public class HealthSystem : MonoBehaviour
         }
 
         if (CurrentHealth <= 0f)
+        {
+            OnDeath?.Invoke();
+        }
+        return true;
+    }
+    public bool ChangeMHealth(float change)
+    {
+        if (change == 0 || _healthLastChange < healthChangeDelay) return false;
+
+        _healthLastChange = 0f;
+        CurrentMHealth += change;
+        CurrentMHealth = Mathf.Clamp(CurrentMHealth, 0, MaxHealth);
+
+        if (change < 0 && CurrentMHealth > 0)
+        {
+            OnDamage?.Invoke();
+        }
+        else if (change > 0)
+        {
+            OnHeal?.Invoke();
+        }
+
+        if (CurrentMHealth <= 0f)
         {
             OnDeath?.Invoke();
         }

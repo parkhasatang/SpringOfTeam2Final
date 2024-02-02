@@ -122,7 +122,6 @@ public class SlimeState : MonsterState
             }
             else
             {
-                Debug.Log("¾Æ´Ï³×");
                 continue;
             }
         }
@@ -133,7 +132,7 @@ public class SlimeState : MonsterState
         PickUp pickUp = item.GetComponent<PickUp>();
         if (pickUp != null)
         {
-            swallowedItems.Add(pickUp.itemIndex);
+            swallowedItems.Add(pickUp.itemCode);
             Destroy(item);
         }
     }

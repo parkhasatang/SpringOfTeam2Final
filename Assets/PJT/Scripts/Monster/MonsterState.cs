@@ -29,15 +29,10 @@ public class MonsterState : MonoBehaviour
         }
 
         statHandler.UpdateCharacterStats();
-
-        Debug.Log("현재상태: " + currentState);
-        Debug.Log("스탯 - Speed: " + statHandler.CurrentMonsterStats.speed);
-        Debug.Log("스탯 Stats - Max HP: " + statHandler.CurrentMonsterStats.maxHP);
     }
 
     protected virtual void Update()
     {
-        Debug.Log(currentState);
         switch (currentState)
         {
             case State.Idle:
@@ -80,7 +75,6 @@ public class MonsterState : MonoBehaviour
         else
         {
             currentState = State.Idle;
-            Debug.Log("플레이어 놓침으로인한 상태변경: " + currentState);
         }
     }
 

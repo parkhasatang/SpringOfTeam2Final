@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4859621412613878509}
   - component: {fileID: 6300998204670962775}
   - component: {fileID: 4397795524537187754}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ MonoBehaviour:
     HP: 100
     followDistance: 5
     attackRange: 1
-    attackDamage: 5
+    attackDamage: 20
     defense: 0
     attackDelay: 5
     specificSO: {fileID: 11400000, guid: 7d0d7d030938a4044af2a05e26a86803, type: 2}
@@ -255,7 +255,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00045384467, y: 0.07}
+  m_Offset: {x: -0.00045384467, y: 0.057518966}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -266,5 +266,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16281429, y: 0.14}
+  m_Size: {x: 0.10528234, y: 0.090529695}
   m_EdgeRadius: 0
