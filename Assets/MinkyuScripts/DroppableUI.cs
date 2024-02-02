@@ -34,9 +34,7 @@ public class DroppableUI : MonoBehaviour, IDropHandler
             // 오브젝트의 이미지로 알파값 조절. 추가로 데이터도 옮김.
             if (inventoryImg.sprite != null)
             {
-                Color imageColor = inventoryImg.color;
-                imageColor.a = 1f;
-                inventoryImg.color = imageColor;
+                GetComponent<CanvasGroup>().alpha = 1.0f;
 
                 // 데이터 비었는지 bool값 설정.
                 UIManager.Instance.playerInventoryData.slots[inventoryIndex].isEmpty = false;
@@ -52,7 +50,7 @@ public class DroppableUI : MonoBehaviour, IDropHandler
                 UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = UIManager.Instance.giveTemporaryItemStack;
                 UIManager.Instance.giveTemporaryItemData = null;
                 UIManager.Instance.giveTemporaryItemStack = 0;
-                UIManager.Instance.playerInventoryData.invenSlot[inventoryIndex].ItemStackUIRefresh(UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack);
+                UIManager.Instance.StackUpdate(inventoryIndex);
             }
         }
     }

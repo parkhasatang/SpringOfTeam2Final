@@ -10,24 +10,20 @@ public class SlotNum : MonoBehaviour
     [SerializeField] private Image itemImage;
     [SerializeField] private TMP_Text itemStack;
 
-    public void ChangeInventoryImage(Sprite _image)
+    public void ChangeInventoryImage(int itemCode)
     {
-        itemImage.sprite = _image;
+        itemImage.sprite = ItemManager.instance.GetSpriteByItemCode(itemCode);
     }
 
     public void OnOffImage(bool isOn)
     {
         if (isOn)
         {
-            Color imageColor = itemImage.gameObject.GetComponent<Image>().color;
-            imageColor.a = 1f;
-            itemImage.gameObject.GetComponent<Image>().color = imageColor;
+            GetComponentInChildren<CanvasGroup>().alpha = 1f;
         }
         else
         {
-            Color imageColor = itemImage.gameObject.GetComponent<Image>().color;
-            imageColor.a = 0f;
-            itemImage.gameObject.GetComponent<Image>().color = imageColor;
+            GetComponentInChildren<CanvasGroup>().alpha = 0f;
         }
         
     }

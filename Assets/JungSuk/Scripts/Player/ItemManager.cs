@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 [System.Serializable]
 public class Item
@@ -86,12 +87,20 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    public Item SetItemData(int itemCode)
+    {
+        return items[itemCode];
+    }
+
     public void SpriteMapping()
     {
+        spriteDictionary.Add(1001, Resources.Load<Sprite>("ItemSprite/1001"));
         spriteDictionary.Add(2101, Resources.Load<Sprite>("ItemSprite/2101"));
         spriteDictionary.Add(1703, Resources.Load<Sprite>("ItemSprite/1703"));
         spriteDictionary.Add(1713, Resources.Load<Sprite>("ItemSprite/1713"));
         spriteDictionary.Add(1723, Resources.Load<Sprite>("ItemSprite/1723"));
+        spriteDictionary.Add(3101, Resources.Load<Sprite>("ItemSprite/3101"));
+        spriteDictionary.Add(3011, Resources.Load<Sprite>("ItemSprite/3011"));
         Debug.Log("이미지 로드 완료");
     }
 }
