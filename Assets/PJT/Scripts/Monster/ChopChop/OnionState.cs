@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OnionState : MonsterState
-{
-    protected override void Start()
+{   
+    private Collider2D myCollider;
+    private CharacterStatHandler stathandler;
+
+    private void Start()
     {
-        animator = GetComponent<Animator>();
-        currentState = State.Idle;
-        healthSystem = GetComponent<HealthSystem>();
-
-        statHandler = GetComponent<CharacterStatHandler>();
-        if (statHandler == null)
+        base.Start();
+        myCollider = GetComponent<Collider2D>();
+        stathandler = GetComponent<CharacterStatHandler>();
+        healthSystem.OnDeath += HandleMonsterDeath;
+        if (stathandler == null)
         {
-            statHandler = gameObject.AddComponent<CharacterStatHandler>();
+            Debug.LogError("½ºÅÈÇÚµé·¯°¡¾ø»ï");
         }
-
-        statHandler.UpdateCharacterStats();
+        else
+        {
+            stathandler.UpdateCharacterStats();
+        }
     }
+
     protected override void Update()
     {
         base.Update();
@@ -30,8 +35,8 @@ public class OnionState : MonsterState
     private void HandleMonsterDeath()
     {
         Vector3 originalPosition = transform.position;
+        if (ItemManager.instance != null && ItemManager.instance.itemPool != null)
+            ItemManager.instance.itemPool.ItemSpawn(1713, originalPosition);
         ItemManager.instance.itemPool.ItemSpawn(1723, originalPosition);
-        ItemManager.instance.itemPool.ItemSpawn(1713, originalPosition);
-        Debug.Log("À¸¾Æ¾Ç");
     }
 }

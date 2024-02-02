@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4069360144827868385
 SpriteRenderer:
@@ -137,7 +137,7 @@ MonoBehaviour:
     defense: 0
     miningAttack: 0
     attackDelay: 0
-    specificSO: {fileID: 0}
+    specificSO: {fileID: 11400000, guid: 7d0d7d030938a4044af2a05e26a86803, type: 2}
   monsterStats:
     name: 
     speed: 0

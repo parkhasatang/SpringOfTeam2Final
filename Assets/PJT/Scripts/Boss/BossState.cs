@@ -5,6 +5,7 @@ public class BossState : MonoBehaviour
     protected GameObject player;
     protected Animator animator;
     protected CharacterStatHandler statHandler;
+    protected HealthSystem healthSystem;
     protected enum State
     {
         Idle,
@@ -23,6 +24,7 @@ public class BossState : MonoBehaviour
         animator = GetComponent<Animator>();
         currentState = State.Idle;
         player = GameObject.FindGameObjectWithTag("Player");
+        healthSystem = GetComponent<HealthSystem>();
 
         statHandler = GetComponent<CharacterStatHandler>();
         if (statHandler == null)

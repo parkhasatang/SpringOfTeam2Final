@@ -21,6 +21,7 @@ public class SlimeBossState : BossState
         base.Start();
         myCollider = GetComponent<Collider2D>();
         stathandler = GetComponent<CharacterStatHandler>();
+        healthSystem.OnDeath += HandleMonsterDeath;
         if (stathandler == null)
         {
             Debug.LogError("½ºÅÈÇÚµé·¯°¡¾ø»ï");
@@ -119,9 +120,15 @@ public class SlimeBossState : BossState
     protected override void OnDeath()
     {
         base.OnDeath();
+        HandleMonsterDeath();
     }
-
-    private IEnumerator JumpAttack(float jumpHeight, System.Action onLanded)
+    private void HandleMonsterDeath()
+    {
+        Vector3 originalPosition = transform.position;
+        if (ItemManager.instance != null && ItemManager.instance.itemPool != null)
+            ItemManager.instance.itemPool.ItemSpawn(2101, originalPosition);
+    }
+private IEnumerator JumpAttack(float jumpHeight, System.Action onLanded)
     {
         Vector3 startPosition = transform.position;
         Vector3 targetPosition = player.transform.position;
