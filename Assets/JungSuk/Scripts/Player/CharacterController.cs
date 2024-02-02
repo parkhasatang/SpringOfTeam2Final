@@ -78,11 +78,17 @@ public class CharacterController : MonoBehaviour
     private void OnDeath()
     {
         transform.position = spawnPoint;
+        StartCoroutine(RecoverHealthAfterDelay(0.6f));
+    }
+
+    IEnumerator RecoverHealthAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         HealthSystem healthSystem = GetComponent<HealthSystem>();
         if (healthSystem != null)
         {
-            healthSystem.ChangeHealth(healthSystem.MaxHealth);
-            Debug.Log("È¸º¹");
+            float healthToRecover = healthSystem.MaxHealth - healthSystem.CurrentHealth;
+            healthSystem.ChangeHealth(healthToRecover);
         }
     }
 

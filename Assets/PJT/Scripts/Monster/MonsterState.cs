@@ -5,6 +5,8 @@ public class MonsterState : MonoBehaviour
     protected GameObject player;
     protected Animator animator;
     protected CharacterStatHandler statHandler;
+    protected HealthSystem healthSystem;
+
     protected enum State
     {
         Idle,
@@ -21,6 +23,7 @@ public class MonsterState : MonoBehaviour
         animator = GetComponent<Animator>();
         currentState = State.Idle;
         player = GameObject.FindGameObjectWithTag("Player");
+        healthSystem = GetComponent<HealthSystem>();
 
         statHandler = GetComponent<CharacterStatHandler>();
         if (statHandler == null)
@@ -48,6 +51,7 @@ public class MonsterState : MonoBehaviour
                 AttackPlayer();
                 break;
             case State.Death:
+                Destroy(gameObject);
                 break;
         }
     }
@@ -117,5 +121,6 @@ public class MonsterState : MonoBehaviour
         currentState = State.Death;
         animator.SetTrigger("Die");
         Destroy(gameObject);
+        Debug.Log("À¸¾Æ¾Ç");
     }
 }

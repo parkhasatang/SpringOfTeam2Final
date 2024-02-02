@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4245012985229846864, guid: 74f0f96991109b94ca1f61bde3ca8ef8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
     HP: 100
     followDistance: 5
     attackRange: 1
-    attackDamage: 20
+    attackDamage: 1
     defense: 0
     attackDelay: 5
     specificSO: {fileID: 11400000, guid: 7d0d7d030938a4044af2a05e26a86803, type: 2}
