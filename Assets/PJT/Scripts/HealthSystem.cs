@@ -12,7 +12,7 @@ public class HealthSystem : MonoBehaviour
     public float CurrentMHealth { get; private set; }
     public float CurrentHunger { get; private set; }
     public float MaxHealth => _statusHandler.CurrentStats.maxHP;
-    public float MosterMaxHealth => _statusHandler.CurrentMonsterStats.maxHP;
+    public float MonsterMaxHealth => _statusHandler.CurrentMonsterStats.maxHP;
     public float MaxHunger => _statusHandler.CurrentStats.specificSO.hunger;
 
     public event Action OnDamage;
@@ -28,7 +28,7 @@ public class HealthSystem : MonoBehaviour
     {
         CurrentHealth = MaxHealth;
         CurrentHunger = MaxHunger;
-        CurrentMHealth = MosterMaxHealth;
+        CurrentMHealth = MonsterMaxHealth;
     }
 
     private void Update()
@@ -68,11 +68,12 @@ public class HealthSystem : MonoBehaviour
 
         _healthLastChange = 0f;
         CurrentMHealth += change;
-        CurrentMHealth = Mathf.Clamp(CurrentMHealth, 0, MaxHealth);
+        CurrentMHealth = Mathf.Clamp(CurrentMHealth, 0, MonsterMaxHealth);
 
         if (change < 0 && CurrentMHealth > 0)
         {
             OnDamage?.Invoke();
+            Debug.Log("데미지를 입었다");
         }
         else if (change > 0)
         {
@@ -82,6 +83,8 @@ public class HealthSystem : MonoBehaviour
         if (CurrentMHealth <= 0f)
         {
             OnDeath?.Invoke();
+            Destroy(gameObject);
+            Debug.Log("죽었다.");
         }
         return true;
     }

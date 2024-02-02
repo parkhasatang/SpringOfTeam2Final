@@ -48,6 +48,7 @@ public class MonsterState : MonoBehaviour
                 AttackPlayer();
                 break;
             case State.Death:
+                Destroy(gameObject);
                 break;
         }
     }
