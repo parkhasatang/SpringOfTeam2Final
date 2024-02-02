@@ -76,6 +76,6 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             UIManager.Instance.takeTemporaryItemData = null;
             UIManager.Instance.giveTemporaryItemStack = 0;
         }
-        UIManager.Instance.playerInventoryData.invenSlot[inventoryIndex].ItemStackUIRefresh(UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack);
+        UIManager.Instance.StackUpdate(inventoryIndex);
     }
 }

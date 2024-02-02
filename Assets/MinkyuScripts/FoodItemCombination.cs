@@ -17,7 +17,7 @@ public class FoodItemCombination : MonoBehaviour, IDragHandler, IDropHandler
     public void CheckRecipe()
     {
         // 음식 조합의 칸 두개의 Item데이터가 비어있지 않을 때
-        if (UIManager.Instance.playerInventoryData.slots[26].item.ItemType == 8 && UIManager.Instance.playerInventoryData.slots[27].item.ItemType == 8)
+        if ((UIManager.Instance.playerInventoryData.slots[26].item.ItemType == 8) && (UIManager.Instance.playerInventoryData.slots[27].item.ItemType == 8))
         {
             int ingredient1 = UIManager.Instance.playerInventoryData.slots[26].item.ItemCode;
             int ingredient2 = UIManager.Instance.playerInventoryData.slots[27].item.ItemCode;
@@ -29,10 +29,13 @@ public class FoodItemCombination : MonoBehaviour, IDragHandler, IDropHandler
             if (foodRecipe.ContainsKey(key))
             {
                 Item resultFood = foodRecipe[key];
+                // 데이터 등록
                 UIManager.Instance.playerInventoryData.slots[28].item = resultFood;
                 UIManager.Instance.playerInventoryData.slots[28].isEmpty = false;
-                UIManager.Instance.playerInventoryData.invenSlot[28].GetComponent<Image>().sprite = ItemManager.instance.GetSpriteByItemCode(UIManager.Instance.playerInventoryData.slots[28].item.ItemCode);
-
+                // 등록된 데이터의 ItemCode로 이미지 불러오기.
+                UIManager.Instance.playerInventoryData.slots[28].stack++;
+                UIManager.Instance.StackUpdate(UIManager.Instance.playerInventoryData.slots[28].stack);
+                UIManager.Instance.playerInventoryData.invenSlot[28].ItemStackUIRefresh(UIManager.Instance.playerInventoryData.slots[28].stack);
             }
             else
             {

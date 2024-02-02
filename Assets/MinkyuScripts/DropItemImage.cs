@@ -6,6 +6,6 @@ public class DropItemImage : MonoBehaviour
 {
     private void Start()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = ItemManager.instance.GetSpriteByItemCode(GetComponent<PickUp>().itemIndex);
+        gameObject.GetComponent<SpriteRenderer>().sprite = ItemManager.instance.GetSpriteByItemCode(GetComponent<PickUp>().itemCode);
     }
 }

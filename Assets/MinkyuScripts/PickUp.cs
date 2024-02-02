@@ -6,19 +6,19 @@ using UnityEngine.UI;
 
 public class PickUp : MonoBehaviour
 {
-    public int itemIndex;
+    public int itemCode;
     public Item item;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SetItemInfo(itemIndex); // itemIndex로 아이템이 무엇인지 정해준다.
+        item = ItemManager.instance.SetItemData(itemCode); // itemIndex로 아이템이 무엇인지 정해준다.
         if (collision.CompareTag("Player"))
         {
             Inventory inven = collision.GetComponent<Inventory>();
-            for (int i = 0; i < inven.invenSlot.Length; i++)
+            for (int i = 0; i < inven.invenSlot.Length - 3; i++)
             {
                 // 인벤토리에 같은 아이템 코드의 아이템이 있다면, stack을 올려주고 꺼짐.
-                if (!inven.slots[i].isEmpty && inven.slots[i].item.ItemCode == itemIndex)
+                if (!inven.slots[i].isEmpty && inven.slots[i].item.ItemCode == itemCode)
                 {
                     inven.slots[i].stack++;
                     inven.invenSlot[i].ItemStackUIRefresh(inven.slots[i].stack);
@@ -27,7 +27,7 @@ public class PickUp : MonoBehaviour
                 }
                 else if (inven.slots[i].isEmpty)
                 {
-                    inven.invenSlot[i].ChangeInventoryImage(gameObject.GetComponent<SpriteRenderer>().sprite);
+                    inven.invenSlot[i].ChangeInventoryImage(itemCode);
                     inven.invenSlot[i].OnOffImage(true);
                     inven.slots[i].isEmpty = false;
                     inven.slots[i].item = item; // 정해준 아이템의 데이터를 넣어준다.
@@ -46,10 +46,5 @@ public class PickUp : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void SetItemInfo(int Index)
-    {
-        item = ItemManager.instance.items[Index];
     }
 }
