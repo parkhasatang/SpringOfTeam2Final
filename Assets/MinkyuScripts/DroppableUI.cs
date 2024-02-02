@@ -20,38 +20,23 @@ public class DroppableUI : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null)
         {
-            // 이미지 임시 저장소로 보내기.
-            UIManager.Instance.temporaryItemImg = inventoryImg.sprite;
+            // 데이터 임시저장소에 올리기.
+            UIManager.Instance.takeTemporaryItemData = UIManager.Instance.playerInventoryData.slots[inventoryIndex].item;
+            UIManager.Instance.takeTemporaryItemStack = UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack;
+            UIManager.Instance.playerInventoryData.slots[inventoryIndex].item = null;
+            UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = 0;
 
-            // 이미지 드래그 했던 것으로 바꾸어 주기.
-            inventoryImg.sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
+            // 데이터 비었는지 bool값 설정.
+            UIManager.Instance.playerInventoryData.slots[inventoryIndex].isEmpty = false;
 
-            // 드래그 했던 오브젝트의 이미지를 임시저장소에 있는 이미지로 바꾸어주기.
-            eventData.pointerDrag.GetComponent<Image>().sprite = UIManager.Instance.temporaryItemImg;
-            UIManager.Instance.temporaryItemImg = null;
+            // 데이터 받아오기.
+            UIManager.Instance.playerInventoryData.slots[inventoryIndex].item = UIManager.Instance.giveTemporaryItemData;
+            UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = UIManager.Instance.giveTemporaryItemStack;
+            UIManager.Instance.giveTemporaryItemData = null;
+            UIManager.Instance.giveTemporaryItemStack = 0;
 
-
-            // 오브젝트의 이미지로 알파값 조절. 추가로 데이터도 옮김.
-            if (inventoryImg.sprite != null)
-            {
-                GetComponent<CanvasGroup>().alpha = 1.0f;
-
-                // 데이터 비었는지 bool값 설정.
-                UIManager.Instance.playerInventoryData.slots[inventoryIndex].isEmpty = false;
-
-                // 데이터 임시저장소에 올리기.
-                UIManager.Instance.takeTemporaryItemData = UIManager.Instance.playerInventoryData.slots[inventoryIndex].item;
-                UIManager.Instance.takeTemporaryItemStack = UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack;
-                UIManager.Instance.playerInventoryData.slots[inventoryIndex].item = null;
-                UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = 0;
-
-                // 데이터 받아오기.
-                UIManager.Instance.playerInventoryData.slots[inventoryIndex].item = UIManager.Instance.giveTemporaryItemData;
-                UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = UIManager.Instance.giveTemporaryItemStack;
-                UIManager.Instance.giveTemporaryItemData = null;
-                UIManager.Instance.giveTemporaryItemStack = 0;
-                UIManager.Instance.StackUpdate(inventoryIndex);
-            }
+            // 이미지 처리
+            UIManager.Instance.StackUpdate(inventoryIndex);
         }
     }
 }

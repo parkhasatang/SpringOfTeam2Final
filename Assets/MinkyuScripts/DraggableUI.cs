@@ -48,34 +48,24 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         transform.SetParent(previousParent);
         uiItemTransform.position = previousParent.GetComponent<RectTransform>().position;
 
-        itemImg.alpha = 1f;
         itemImg.blocksRaycasts = true;
 
-        if (eventData.pointerDrag.GetComponent<Image>().sprite == null)
-        {
-            Color imageColor = eventData.pointerDrag.GetComponent<Image>().color;
-            imageColor.a = 0f;
-            eventData.pointerDrag.GetComponent<Image>().color = imageColor;
-
-            // 데이터 비었는지 bool값 설정.
-            UIManager.Instance.playerInventoryData.slots[inventoryIndex].isEmpty = true;
-        }
-        // 다른 곳에 놓았을 때, 그대로라면 다시 가져오기.
-        else if (eventData.pointerDrag.GetComponent<Image>().sprite == eventData.pointerDrag.GetComponent<Image>().sprite)
+        // 자기자신의 슬롯이 Empty가 아니고, 임시저장소에 스택이 0이 아니면 그냥 다른 바닥에 놓은거임
+        if (!UIManager.Instance.playerInventoryData.slots[inventoryIndex].isEmpty && UIManager.Instance.giveTemporaryItemStack != 0)
         {
             UIManager.Instance.playerInventoryData.slots[inventoryIndex].item = UIManager.Instance.giveTemporaryItemData;
             UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = UIManager.Instance.giveTemporaryItemStack;
             UIManager.Instance.giveTemporaryItemData = null;
             UIManager.Instance.giveTemporaryItemStack = 0;
         }
-        // 옮겨졌다면 바꾸었던 데이터 가져오기.
         else
         {
             UIManager.Instance.playerInventoryData.slots[inventoryIndex].item = UIManager.Instance.takeTemporaryItemData;
             UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = UIManager.Instance.takeTemporaryItemStack;
             UIManager.Instance.takeTemporaryItemData = null;
-            UIManager.Instance.giveTemporaryItemStack = 0;
+            UIManager.Instance.takeTemporaryItemStack = 0;
         }
+
         UIManager.Instance.StackUpdate(inventoryIndex);
     }
 }
