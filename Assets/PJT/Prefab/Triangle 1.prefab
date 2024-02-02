@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,6 +89,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
+=======
+--- !u!114 &2895131340211689224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74459829765035120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5498813f51d219419be811a8c15a3ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  statHandler: {fileID: 9081683217206253370}
+  healthSystem: {fileID: 2515633003331456433}
+  initialSpecialAttackCooldown: 10
+  maxChaseDistance: 15
+  attackDistanceThreshold: 10
+  idleDistanceThreshold: 15
+  damageRadius: 5
+>>>>>>> JungSuk12
 --- !u!114 &2515633003331456433
 MonoBehaviour:
   m_ObjectHideFlags: 0
