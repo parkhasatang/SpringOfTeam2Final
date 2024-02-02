@@ -80,26 +80,13 @@ public class SetObject : MonoBehaviour
                     tile = tileMapControl.wallTile,
                     HP = 100f
                 };
-                StackUpdate(i);
+                inventorySlot[i].stack--;
+                UIManager.Instance.StackUpdate(i);
+                // 들고있는 아이템 null로 만들기.
+                equipObject.heldItem.sprite = null;
                 // 벽의 타입이 바꿔지는 것에 따라 TileInfo를 바꿔주자.
                 Debug.Log("딕셔너리에 추가");
             }
         }
     }
-
-    private void StackUpdate(int indexOfInventory)
-    {
-        inventorySlot[indexOfInventory].stack--;
-        if (inventorySlot[indexOfInventory].stack == 0)
-        {
-            inventorySlot[indexOfInventory].item = null;
-            inventorySlot[indexOfInventory].isEmpty = true;
-            UIManager.Instance.playerInventoryData.invenSlot[indexOfInventory].ChangeInventoryImage(null);
-            UIManager.Instance.playerInventoryData.invenSlot[indexOfInventory].OnOffImage(false);
-            // 들고있는 아이템 null로 만들기.
-            equipObject.heldItem.sprite = null;
-        }
-        UIManager.Instance.playerInventoryData.invenSlot[indexOfInventory].ItemStackUIRefresh(inventorySlot[indexOfInventory].stack);
-    }
-
 }

@@ -45,4 +45,22 @@ public class UIManager : MonoBehaviour
         HungerTxt.text = playerHealthSystem.CurrentHunger.ToString() + "/" + playerHealthSystem.MaxHealth.ToString();
 
     }
+
+    public void StackUpdate(int indexOfInventory)
+    {
+        if (playerInventoryData.slots[indexOfInventory].stack == 0)
+        {
+            playerInventoryData.slots[indexOfInventory].item = null;
+            playerInventoryData.slots[indexOfInventory].isEmpty = true;
+            playerInventoryData.invenSlot[indexOfInventory].ChangeInventoryImage(0);
+            playerInventoryData.invenSlot[indexOfInventory].OnOffImage(false);
+        }
+        else if (playerInventoryData.slots[indexOfInventory].stack > 0)
+        {
+            playerInventoryData.slots[indexOfInventory].isEmpty = false;
+            playerInventoryData.invenSlot[indexOfInventory].ChangeInventoryImage(playerInventoryData.slots[indexOfInventory].item.ItemCode);
+            playerInventoryData.invenSlot[indexOfInventory].OnOffImage(true);
+        }
+        playerInventoryData.invenSlot[indexOfInventory].ItemStackUIRefresh(playerInventoryData.slots[indexOfInventory].stack);
+    }
 }
