@@ -5,9 +5,9 @@ public class MonsterSpawner : MonoBehaviour
 {
     public GameObject monsterPrefab;
     private bool playerEnteredZone = false;
-    private int maxMonsters = 4;
+    private int maxMonsters = 5;
     private int currentMonsterCount = 0;
-    public float spawnRadius = 4f;
+    public float spawnRadius = 3f;
     public float minSpawnInterval = 10f;
     public float maxSpawnInterval = 20f;
 
