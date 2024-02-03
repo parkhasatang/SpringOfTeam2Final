@@ -8,7 +8,12 @@ public class Interact : MonoBehaviour
 {
     private CharacterController controller;
     public Collider2D rangebox;
-    private Dictionary<string, GameObject> interactiveUIs = new Dictionary<string, GameObject>();
+    /*private Dictionary<string, GameObject> interactiveUIs = new Dictionary<string, GameObject>();*/
+
+    public GameObject inventoryObject;
+    public GameObject MakeUI;
+    public GameObject CookUI;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -26,6 +31,10 @@ public class Interact : MonoBehaviour
         {
             CancelUI();
         }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            ToggleInventory();
+        }
     }
 
     //private void PlayerInteract()
@@ -35,9 +44,23 @@ public class Interact : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {       
-         if (controller.IsInteracting && collision.CompareTag("InteractionObject"))
+        if (controller.IsInteracting && collision.CompareTag("InteractionObject"))
         {
-            string Name = collision.gameObject.name;
+            string ObjectName = collision.gameObject.name;
+
+            if (ObjectName == "Make")
+            {
+                MakeUI.SetActive(true);
+                inventoryObject.SetActive(true);
+                controller.CanControllCharacter = false;
+            }
+            else if (ObjectName == "Cook")
+            {
+                CookUI.SetActive(true);
+                inventoryObject.SetActive(true);
+                controller.CanControllCharacter = false;
+            }
+            /*string Name = collision.gameObject.name;
 
             if(interactiveUIs.ContainsKey(Name))
             {
@@ -60,16 +83,29 @@ public class Interact : MonoBehaviour
                     }
                 }
                 
-            }                               
+            }  */                             
         }
     }
    
     public void CancelUI()
     {
-       foreach(var ui in  interactiveUIs)
+        if (MakeUI.activeSelf || CookUI.activeSelf)
+        {
+            MakeUI.SetActive(false);
+            CookUI.SetActive(false);
+            inventoryObject.SetActive(false);
+            controller.CanControllCharacter = true;
+        }
+       /*foreach(var ui in  interactiveUIs)
         {
             ui.Value.SetActive(false);
         }
-        controller.CanControllCharacter = true;
+        controller.CanControllCharacter = true;*/
+    }
+
+    private void ToggleInventory()
+    {
+        // 인벤토리 오브젝트를 켜거나 끔
+        inventoryObject.SetActive(!inventoryObject.activeSelf);
     }
 }

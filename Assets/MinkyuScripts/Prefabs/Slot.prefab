@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3778196429670570437}
   - component: {fileID: 8088429944982912341}
   - component: {fileID: 1207112560231115980}
+  - component: {fileID: 1648212126868506436}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -62,7 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -92,6 +93,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemImage: {fileID: 1587603063748603995}
   itemStack: {fileID: 6205769760610139916}
+--- !u!114 &1648212126868506436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179053395726775938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607a77ee36e0e6648a587516d1ca23c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryIndex: {fileID: 1511352750693262067}
 --- !u!1 &1403584845781686766
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -180,7 +194,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403584845781686766}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -196,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a79755c888859478b4d136d7f7e7ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryIndex: 3
+  inventoryIndex: 0
 --- !u!114 &6433602341500811003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

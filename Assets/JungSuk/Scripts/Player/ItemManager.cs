@@ -95,12 +95,14 @@ public class ItemManager : MonoBehaviour
     public void SpriteMapping()
     {
         spriteDictionary.Add(1001, Resources.Load<Sprite>("ItemSprite/1001"));
+        spriteDictionary.Add(1301, Resources.Load<Sprite>("ItemSprite/1301"));
         spriteDictionary.Add(2101, Resources.Load<Sprite>("ItemSprite/2101"));
         spriteDictionary.Add(1703, Resources.Load<Sprite>("ItemSprite/1703"));
         spriteDictionary.Add(1713, Resources.Load<Sprite>("ItemSprite/1713"));
         spriteDictionary.Add(1723, Resources.Load<Sprite>("ItemSprite/1723"));
         spriteDictionary.Add(3101, Resources.Load<Sprite>("ItemSprite/3101"));
         spriteDictionary.Add(3011, Resources.Load<Sprite>("ItemSprite/3011"));
+        spriteDictionary.Add(3001, Resources.Load<Sprite>("ItemSprite/3001"));
         Debug.Log("이미지 로드 완료");
     }
 }
