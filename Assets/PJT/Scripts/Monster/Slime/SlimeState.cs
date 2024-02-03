@@ -159,6 +159,7 @@ public class SlimeState : MonsterState
 
         Vector3 originalPosition = transform.position;
         ItemManager.instance.itemPool.ItemSpawn(3101, originalPosition);
+        ItemManager.instance.itemPool.ItemSpawn(3011, originalPosition);
         foreach (int itemCode in swallowedItems)
         {
             ItemManager.instance.itemPool.ItemSpawn(itemCode, originalPosition);
