@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MonsterState : MonoBehaviour
@@ -6,6 +7,9 @@ public class MonsterState : MonoBehaviour
     protected Animator animator;
     protected CharacterStatHandler statHandler;
     protected HealthSystem healthSystem;
+    public static event Action<GameObject> OnMonsterDeath;
+    
+
 
     protected enum State
     {
@@ -120,7 +124,6 @@ public class MonsterState : MonoBehaviour
     {
         currentState = State.Death;
         animator.SetTrigger("Die");
-        Destroy(gameObject);
-        Debug.Log("À¸¾Æ¾Ç");
+        OnMonsterDeath?.Invoke(gameObject);
     }
 }

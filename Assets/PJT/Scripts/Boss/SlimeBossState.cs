@@ -5,10 +5,11 @@ using UnityEngine;
 public class SlimeBossState : BossState
 {
     private Vector2 currentDirection;
-    private float moveTimer;
-    private float moveDuration = 2f;
     private Collider2D myCollider;
     private CharacterStatHandler stathandler;
+    private float moveTimer;
+    private float moveDuration = 2f;
+    private float chaseMaxDistance = 10f;
     private float jumpHeight = 5f;
     private float jumpAttackCooldown = 5f;
     private float jumpDuration = 1.5f;
@@ -89,16 +90,21 @@ public class SlimeBossState : BossState
 
     protected override void ChasePlayer()
     {
-        if (currentState == State.Angry)
-        {
-            jumpDuration = 0.5f;
-        }
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
 
-        if (canJumpAttack)
+        if (distanceToPlayer <= stathandler.CurrentMonsterStats.followDistance)
         {
-            StartCoroutine(JumpAttack(jumpHeight, OnJumpAttackLanded));
-            canJumpAttack = false;
-            StartCoroutine(StartJumpAttackCooldown());
+            if (canJumpAttack)
+            {
+                StartCoroutine(JumpAttack(jumpHeight, OnJumpAttackLanded));
+                canJumpAttack = false;
+                StartCoroutine(StartJumpAttackCooldown());
+            }
+        }
+        else if (distanceToPlayer > chaseMaxDistance)
+        {
+            Debug.Log("플레이어가 너무 멀어져서 추격 중단");
+            currentState = State.Idle;
         }
     }
     private IEnumerator StartJumpAttackCooldown()

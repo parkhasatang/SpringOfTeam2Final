@@ -11,7 +11,7 @@ public class SlimeState : MonsterState
     private Collider2D myCollider;
     private CharacterStatHandler stathandler;
 
-    private void Start()
+    protected override void Start()
     {
         base.Start();
         myCollider = GetComponent<Collider2D>();
@@ -45,12 +45,9 @@ public class SlimeState : MonsterState
             {
                 SwallowItem(detectedObject.gameObject);
             }
-            else
-            {
-                continue;
-            }
         }
     }
+
     private void SwallowItem(GameObject item)
     {
         PickUp pickUp = item.GetComponent<PickUp>();
@@ -60,19 +57,26 @@ public class SlimeState : MonsterState
             Destroy(item);
         }
     }
+
     protected override void OnDeath()
     {
         base.OnDeath();
         HandleMonsterDeath();
     }
+
     private void HandleMonsterDeath()
     {
         Vector3 originalPosition = transform.position;
         if (ItemManager.instance != null && ItemManager.instance.itemPool != null)
-            ItemManager.instance.itemPool.ItemSpawn(3101, originalPosition);
-        foreach (int itemCode in swallowedItems)
         {
-            ItemManager.instance.itemPool.ItemSpawn(itemCode, originalPosition);
+            foreach (int itemCode in swallowedItems)
+            {
+                ItemManager.instance.itemPool.ItemSpawn(itemCode, originalPosition);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("ItemManager or itemPool is null.");
         }
     }
 }
