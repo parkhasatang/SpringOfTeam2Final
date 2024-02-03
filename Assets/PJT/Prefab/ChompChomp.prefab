@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5253677374758859589}
   - component: {fileID: 6287588909859867085}
   - component: {fileID: 1882476711554277642}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ChompChomp
   m_TagString: Monster
   m_Icon: {fileID: 0}
