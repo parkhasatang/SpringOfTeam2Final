@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class HUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI hungerText;
 
     private HealthSystem healthSystemInstance;
+
     private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
