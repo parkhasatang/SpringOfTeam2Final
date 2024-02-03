@@ -134,7 +134,7 @@ public class SlimeState : MonsterState
 
     private void OnDestroy()
     {
-        healthSystem.OnDeath -= HandleMonsterDeath; // 이벤트 구독 해제
+        healthSystem.OnDeath -= HandleMonsterDeath;
     }
     private void DetectAndSwallowItems()
     {
