@@ -140,7 +140,7 @@ MonoBehaviour:
     specificSO: {fileID: 11400000, guid: 7d0d7d030938a4044af2a05e26a86803, type: 2}
   monsterStats:
     name: 
-    speed: 0
+    speed: 1
     maxHP: 50
     HP: 50
     followDistance: 0
