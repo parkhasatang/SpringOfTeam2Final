@@ -19,11 +19,11 @@ public class SlotNum : MonoBehaviour
     {
         if (isOn)
         {
-            GetComponentInChildren<CanvasGroup>().alpha = 1f;
+            itemImage.GetComponent<CanvasGroup>().alpha = 1.0f;
         }
         else
         {
-            GetComponentInChildren<CanvasGroup>().alpha = 0f;
+            itemImage.GetComponent<CanvasGroup>().alpha = 0f;
         }
         
     }

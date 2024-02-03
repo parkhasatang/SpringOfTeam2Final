@@ -25,6 +25,11 @@ public class CraftItemDrag : MonoBehaviour
         itemImg = GetComponent<CanvasGroup>();
     }
 
+    private void Start()
+    {
+        gameObject.GetComponent<Image>().sprite = ItemManager.instance.GetSpriteByItemCode(itemCode);
+    }
+
     public void ClickButtonOnStore()
     {
         // 아이템 제작
@@ -88,6 +93,11 @@ public class CraftItemDrag : MonoBehaviour
             case 1001:
                 RemoveItemFromInventory(3011, 1);
                 RemoveItemFromInventory(3101, 1);
+                break;
+            case 1301:
+                RemoveItemFromInventory(3011, 1);
+                RemoveItemFromInventory(3101, 1);
+                RemoveItemFromInventory(3001, 1);
                 break;
         }
     }

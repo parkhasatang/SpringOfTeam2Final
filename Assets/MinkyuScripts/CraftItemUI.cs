@@ -38,8 +38,8 @@ public class CraftItemUI : MonoBehaviour
 
         for (int j = 0; j < craftItem.Length; j++)
         {
-            craftItem[0].alpha = 0.2f;
-            craftItem[0].blocksRaycasts = false;
+            craftItem[j].alpha = 0.2f;
+            craftItem[j].blocksRaycasts = false;
         }
         // 조건에 맞으면 제작대에 있는 아이템 켜주기.
         Debug.Log("초기화 완료");
@@ -58,6 +58,15 @@ public class CraftItemUI : MonoBehaviour
                 Debug.Log("검 활성화");
                 craftItem[0].alpha = 1f;
                 craftItem[0].blocksRaycasts = true;
+            }
+        }
+        if (stuffGather.Contains(3011) && stuffGather.Contains(3101) && stuffGather.Contains(3001))
+        {
+            if (CheckStackAmount(3011, 1) && CheckStackAmount(3101, 1) && CheckStackAmount(3001, 1))
+            {
+                Debug.Log("곡괭이 활성화");
+                craftItem[1].alpha = 1f;
+                craftItem[1].blocksRaycasts = true;
             }
         }
     }
