@@ -126,7 +126,16 @@ public class SlimeState : MonsterState
         currentDirection = Random.insideUnitCircle.normalized;
         moveTimer = 0f;
     }
+    protected override void OnDeath()
+    {
+        currentState = State.Death;
+        HandleMonsterDeath();
+    }
 
+    private void OnDestroy()
+    {
+        healthSystem.OnDeath -= HandleMonsterDeath; // 이벤트 구독 해제
+    }
     private void DetectAndSwallowItems()
     {
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(transform.position, itemDetectionRange);
