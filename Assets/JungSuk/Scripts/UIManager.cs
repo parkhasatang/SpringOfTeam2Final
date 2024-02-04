@@ -23,7 +23,6 @@ public class UIManager : MonoBehaviour
     public Inventory playerInventoryData;
     public Item takeTemporaryItemData;
     public Item giveTemporaryItemData;
-    public Sprite temporaryItemImg;
     public int takeTemporaryItemStack;
     public int giveTemporaryItemStack;
 
