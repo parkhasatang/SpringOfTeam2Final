@@ -132,7 +132,7 @@ public class SlimeBossState : BossState
     {
         Vector3 originalPosition = transform.position;
         if (ItemManager.instance != null && ItemManager.instance.itemPool != null)
-            ItemManager.instance.itemPool.ItemSpawn(2101, originalPosition);
+            ItemManager.instance.itemPool.ItemSpawn(3001, originalPosition);
     }
 private IEnumerator JumpAttack(float jumpHeight, System.Action onLanded)
     {
