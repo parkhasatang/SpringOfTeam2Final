@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class FoodItemCombination : MonoBehaviour, IDragHandler, IDropHandler
+public class FoodItemCombination : MonoBehaviour, IBeginDragHandler, IDropHandler, IEndDragHandler
 {
     private Dictionary<Tuple<int, int>, Item> foodRecipe;
 
@@ -21,42 +21,62 @@ public class FoodItemCombination : MonoBehaviour, IDragHandler, IDropHandler
         CheckRecipe();
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        UIManager.Instance.playerInventoryData.slots[28].item = null;
+        UIManager.Instance.playerInventoryData.slots[28].stack = 0;
+        UIManager.Instance.StackUpdate(28);
+        UIManager.Instance.playerInventoryData.invenSlot[28].GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
+    }
+    public void OnEndDrag(PointerEventData eventData)
     {
         CheckRecipe();
     }
 
     public void CheckRecipe()
     {
-        // 음식 조합의 칸 두개의 Item데이터가 비어있지 않을 때
-        if ((UIManager.Instance.playerInventoryData.slots[26].item.ItemType == 8) && (UIManager.Instance.playerInventoryData.slots[27].item.ItemType == 8))
+        if (UIManager.Instance.playerInventoryData.slots[26].item != null && UIManager.Instance.playerInventoryData.slots[26].item != null)
         {
-            int ingredient1 = UIManager.Instance.playerInventoryData.slots[26].item.ItemCode;
-            int ingredient2 = UIManager.Instance.playerInventoryData.slots[27].item.ItemCode;
-
-            Tuple<int, int> key = Tuple.Create(ingredient1, ingredient2);
-
-
-            if (foodRecipe.ContainsKey(key))
+            // 음식 조합의 칸 두개의 Item데이터가 비어있지 않을 때
+            if ((UIManager.Instance.playerInventoryData.slots[26].item.ItemType == 8) && (UIManager.Instance.playerInventoryData.slots[27].item.ItemType == 8))
             {
-                Item resultFood = foodRecipe[key];
-                // 데이터 등록
-                UIManager.Instance.playerInventoryData.slots[28].item = resultFood;
-                UIManager.Instance.playerInventoryData.slots[28].isEmpty = false;
-                // 등록된 데이터의 ItemCode로 이미지 불러오기.
-                UIManager.Instance.playerInventoryData.slots[28].stack++;
-                UIManager.Instance.StackUpdate(28);
+                int ingredient1 = UIManager.Instance.playerInventoryData.slots[26].item.ItemCode;
+                int ingredient2 = UIManager.Instance.playerInventoryData.slots[27].item.ItemCode;
 
-                UIManager.Instance.playerInventoryData.invenSlot[28].GetComponentInChildren<CanvasGroup>().blocksRaycasts = true;
+                Tuple<int, int> key = Tuple.Create(ingredient1, ingredient2);
+
+
+                if (foodRecipe.ContainsKey(key))
+                {
+                    Item resultFood = foodRecipe[key];
+                    // 데이터 등록
+                    UIManager.Instance.playerInventoryData.slots[28].item = resultFood;
+                    UIManager.Instance.playerInventoryData.slots[28].isEmpty = false;
+                    // 등록된 데이터의 ItemCode로 이미지 불러오기.
+                    UIManager.Instance.playerInventoryData.slots[28].stack++;
+                    UIManager.Instance.StackUpdate(28);
+
+                    UIManager.Instance.playerInventoryData.invenSlot[28].GetComponentInChildren<CanvasGroup>().blocksRaycasts = true;
+                }
+                else
+                {
+                    Debug.Log("레시피 없음");
+                }
             }
             else
             {
-                Debug.Log("레시피 없음");
+                UIManager.Instance.playerInventoryData.slots[28].item = null;
+                UIManager.Instance.playerInventoryData.slots[28].stack = 0;
+                UIManager.Instance.StackUpdate(28);
+                UIManager.Instance.playerInventoryData.invenSlot[28].GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
             }
         }
         else
         {
             UIManager.Instance.playerInventoryData.slots[28].item = null;
+            UIManager.Instance.playerInventoryData.slots[28].stack = 0;
+            UIManager.Instance.StackUpdate(28);
+            UIManager.Instance.playerInventoryData.invenSlot[28].GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
         }
     }
 
@@ -70,4 +90,5 @@ public class FoodItemCombination : MonoBehaviour, IDragHandler, IDropHandler
         foodRecipe.Add(Tuple.Create(1713, 1703), ItemManager.instance.items[1723]);
         Debug.Log(foodRecipe[Tuple.Create(1713, 1703)]);
     }
+
 }
