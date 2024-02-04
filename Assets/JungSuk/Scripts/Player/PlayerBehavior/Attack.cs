@@ -57,13 +57,11 @@ public class Attack : MonoBehaviour
 
     private void PlayerMining()
     {
-        Debug.Log("´ê¾Ò´Ù.");
         Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (Vector3)mousePosition - gameObject.transform.position;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1.5f, 1 << 6);
         if (hit)
         {
-            Debug.Log("´ê¾Ò´Ù2.");
             Vector3Int cellPosition = TilemapManager.instance.tilemap.WorldToCell(hit.point);
             if (cellPosition == null)
             {
