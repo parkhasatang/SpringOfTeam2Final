@@ -35,7 +35,7 @@ public class FoodItemCombination : MonoBehaviour, IBeginDragHandler, IDropHandle
 
     public void CheckRecipe()
     {
-        if (UIManager.Instance.playerInventoryData.slots[26].item != null && UIManager.Instance.playerInventoryData.slots[26].item != null)
+        if (UIManager.Instance.playerInventoryData.slots[26]?.item != null && UIManager.Instance.playerInventoryData.slots[27]?.item != null)
         {
             // 음식 조합의 칸 두개의 Item데이터가 비어있지 않을 때
             if ((UIManager.Instance.playerInventoryData.slots[26].item.ItemType == 8) && (UIManager.Instance.playerInventoryData.slots[27].item.ItemType == 8))
@@ -72,7 +72,7 @@ public class FoodItemCombination : MonoBehaviour, IBeginDragHandler, IDropHandle
             }
         }
         else
-        {
+        {            
             UIManager.Instance.playerInventoryData.slots[28].item = null;
             UIManager.Instance.playerInventoryData.slots[28].stack = 0;
             UIManager.Instance.StackUpdate(28);
