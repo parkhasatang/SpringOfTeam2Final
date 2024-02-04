@@ -10,6 +10,7 @@ public class TileInfo
 {
     public TileBase tile;
     public float HP;
+    public float minMiningAttack;
 
     // 다른 속성들을 필요에 따라 추가
 }
@@ -35,14 +36,17 @@ public class TilemapManager : MonoBehaviour
             for (int y = bounds.y; y < bounds.y + bounds.size.y; y++)
             {
                 Vector3Int cellPosition = new(x, y, 0);
-                TileBase tile = tilemap.GetTile(cellPosition);                
+                TileBase tile = tilemap.GetTile(cellPosition);  
+                
                 if (tile != null)
                 {
                     float tileHP = GetTileHp(cellPosition);
+                    float tileMinDamage = GetTileMinDamage(cellPosition);
                     wallDictionary[cellPosition] = new TileInfo
                     {
                         tile = tile,
-                        HP = tileHP
+                        HP = tileHP,
+                        minMiningAttack = tileMinDamage
                     };
                 }
             }
@@ -53,7 +57,7 @@ public class TilemapManager : MonoBehaviour
     private float GetTileHp(Vector3Int position)
     {
         int tileHP = 150;
-        int Level2Point = 32;
+        int Level2Point = 70;
         if (Mathf.Abs(position.x) > Level2Point || Mathf.Abs(position.y) > Level2Point)
         {
             tileHP = 150;
@@ -63,6 +67,19 @@ public class TilemapManager : MonoBehaviour
 
         return tileHP;
         
+    }
+
+    private float GetTileMinDamage(Vector3Int position)
+    {
+        int minDamage = 25;
+        int Level2Point = 70;
+        if (Mathf.Abs(position.x) > Level2Point || Mathf.Abs(position.y) > Level2Point)
+        {
+            minDamage = 25;
+        }
+        else
+            minDamage = 0;
+        return minDamage;
     }
     /*private void OnDrawGizmos()
     {

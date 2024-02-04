@@ -71,24 +71,31 @@ public class Attack : MonoBehaviour
             }
             else
             {
-                if (TilemapManager.instance.wallDictionary[cellPosition].HP > 0f)
+                if (TilemapManager.instance.wallDictionary[cellPosition].minMiningAttack < statsHandler.CurrentStats.miningAttack)
                 {
-                    TilemapManager.instance.wallDictionary[cellPosition].HP -= statsHandler.CurrentStats.miningAttack;
-                    Debug.Log(TilemapManager.instance.wallDictionary[cellPosition].HP);
 
-                    // 벽이 부서졌다면
-                    if (TilemapManager.instance.wallDictionary[cellPosition].HP <= 0f)
+
+                    if (TilemapManager.instance.wallDictionary[cellPosition].HP > 0f)
                     {
-                        TilemapManager.instance.tilemap.SetTile(TilemapManager.instance.tilemap.WorldToCell(cellPosition), null);
-                        ItemManager.instance.itemPool.ItemSpawn(2101, cellPosition);
-                        // 타일의 지붕 없애기.
-                        Vector3Int ceilingPosition = new Vector3Int(cellPosition.x, cellPosition.y + 1, 0);
-                        if (TilemapManager.instance.ceilingTile.GetTile(ceilingPosition))
+                        TilemapManager.instance.wallDictionary[cellPosition].HP -= statsHandler.CurrentStats.miningAttack;
+                        Debug.Log(TilemapManager.instance.wallDictionary[cellPosition].HP);
+
+                        // 벽이 부서졌다면
+                        if (TilemapManager.instance.wallDictionary[cellPosition].HP <= 0f)
                         {
-                            TilemapManager.instance.ceilingTile.SetTile(ceilingPosition, null);
+                            TilemapManager.instance.tilemap.SetTile(TilemapManager.instance.tilemap.WorldToCell(cellPosition), null);
+                            ItemManager.instance.itemPool.ItemSpawn(2101, cellPosition);
+                            // 타일의 지붕 없애기.
+                            Vector3Int ceilingPosition = new Vector3Int(cellPosition.x, cellPosition.y + 1, 0);
+                            if (TilemapManager.instance.ceilingTile.GetTile(ceilingPosition))
+                            {
+                                TilemapManager.instance.ceilingTile.SetTile(ceilingPosition, null);
+                            }
                         }
                     }
                 }
+                else
+                    return;
             }
         }
     }
