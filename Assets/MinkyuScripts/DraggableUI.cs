@@ -15,6 +15,8 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private RectTransform uiItemTransform;
     private CanvasGroup itemImg;
 
+    private Item previousItem;
+
     private void Awake()
     {
         canvas = FindObjectOfType<Canvas>().transform;
@@ -27,6 +29,7 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         previousParent = transform.parent;
         transform.SetParent(canvas);
         transform.SetAsLastSibling();
+        previousItem = UIManager.Instance.playerInventoryData.slots[inventoryIndex].item;
 
         // 데이터 임시로 맡겨두기.
         UIManager.Instance.giveTemporaryItemData = UIManager.Instance.playerInventoryData.slots[inventoryIndex].item;
@@ -50,9 +53,10 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         itemImg.blocksRaycasts = true;
 
-        // 자기자신의 슬롯이 Empty가 아니고, 임시저장소에 스택이 0이 아니면 그냥 다른 바닥에 놓은거임
-        if (!UIManager.Instance.playerInventoryData.slots[inventoryIndex].isEmpty && UIManager.Instance.giveTemporaryItemStack != 0)
+        // OnDrop이 먼저 발생하니, OnDrop이 발생하면 giveTemporaryItemData가 0이될거임.
+        if (previousItem == UIManager.Instance.giveTemporaryItemData)
         {
+            Debug.Log("원상복귀");
             UIManager.Instance.playerInventoryData.slots[inventoryIndex].item = UIManager.Instance.giveTemporaryItemData;
             UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = UIManager.Instance.giveTemporaryItemStack;
             UIManager.Instance.giveTemporaryItemData = null;
@@ -60,6 +64,7 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         }
         else
         {
+            Debug.Log("데이터 옮겨짐");
             UIManager.Instance.playerInventoryData.slots[inventoryIndex].item = UIManager.Instance.takeTemporaryItemData;
             UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = UIManager.Instance.takeTemporaryItemStack;
             UIManager.Instance.takeTemporaryItemData = null;
