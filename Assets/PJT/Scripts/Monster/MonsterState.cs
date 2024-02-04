@@ -7,9 +7,8 @@ public class MonsterState : MonoBehaviour
     protected Animator animator;
     protected CharacterStatHandler statHandler;
     protected HealthSystem healthSystem;
-    public static event Action<GameObject> OnMonsterDeath;
-    
 
+    public static event Action<GameObject> OnMonsterDeath;
 
     protected enum State
     {
@@ -28,14 +27,15 @@ public class MonsterState : MonoBehaviour
         currentState = State.Idle;
         player = GameObject.FindGameObjectWithTag("Player");
         healthSystem = GetComponent<HealthSystem>();
-
         statHandler = GetComponent<CharacterStatHandler>();
         if (statHandler == null)
         {
-            statHandler = gameObject.AddComponent<CharacterStatHandler>();
+            Debug.LogError("StatHandler component is missing.");
         }
-
-        statHandler.UpdateCharacterStats();
+        else
+        {
+            statHandler.UpdateCharacterStats();
+        }
     }
 
     protected virtual void Update()
@@ -55,7 +55,6 @@ public class MonsterState : MonoBehaviour
                 AttackPlayer();
                 break;
             case State.Death:
-                Destroy(gameObject);
                 break;
         }
     }
@@ -119,7 +118,10 @@ public class MonsterState : MonoBehaviour
             OnDeath();
         }
     }
-
+    protected void RaiseOnMonsterDeath()
+    {
+        OnMonsterDeath?.Invoke(this.gameObject);
+    }
     protected virtual void OnDeath()
     {
         currentState = State.Death;

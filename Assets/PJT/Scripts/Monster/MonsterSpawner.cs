@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+
 public class MonsterSpawner : MonoBehaviour
 {
     public GameObject monsterPrefab;
@@ -11,19 +12,25 @@ public class MonsterSpawner : MonoBehaviour
     public float minSpawnInterval = 10f;
     public float maxSpawnInterval = 20f;
 
+    private void OnEnable()
+    {
+        Debug.Log("µé¾î¿Ô´Ù");
+        MonsterState.OnMonsterDeath += MonsterRemoved;
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("³ª°¬´Ù");
+        MonsterState.OnMonsterDeath -= MonsterRemoved;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             playerEnteredZone = true;
-            Debug.Log("µé¾î¿È");
-            StartSpawning();
+            StartCoroutine(SpawnMonstersWithInterval());
         }
-    }
-
-    private void StartSpawning()
-    {
-        StartCoroutine(SpawnMonstersWithInterval());
     }
 
     private IEnumerator SpawnMonstersWithInterval()
@@ -33,10 +40,7 @@ public class MonsterSpawner : MonoBehaviour
             Vector3 spawnPoint = GetRandomSpawnPoint();
             Instantiate(monsterPrefab, spawnPoint, Quaternion.identity);
             currentMonsterCount++;
-            Debug.Log("¼ÒÈ¯µÆ´Ù");
-
-            float spawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
         }
     }
 
@@ -48,8 +52,9 @@ public class MonsterSpawner : MonoBehaviour
         return spawnPoint;
     }
 
-    public void MonsterRemoved()
+    public void MonsterRemoved(GameObject monster)
     {
         currentMonsterCount--;
+        Debug.Log("°¨¼ÒµÆ´Ù.");
     }
 }
