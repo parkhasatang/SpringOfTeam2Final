@@ -82,7 +82,7 @@ public class ItemManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("해당 키값에 이미지없음.");
+            Debug.Log("해당 키값에 이미지없음.");
             return null;
         }
     }
