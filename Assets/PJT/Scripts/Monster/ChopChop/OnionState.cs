@@ -102,7 +102,7 @@ public class OnionState : MonsterState
         if (ItemManager.instance != null && ItemManager.instance.itemPool != null)
         {
             ItemManager.instance.itemPool.ItemSpawn(1713, originalPosition);
-            ItemManager.instance.itemPool.ItemSpawn(1723, originalPosition);
+            ItemManager.instance.itemPool.ItemSpawn(1703, originalPosition);
         }
         else
         {
