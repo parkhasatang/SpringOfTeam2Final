@@ -20,7 +20,7 @@ public class HealthSystem : MonoBehaviour
     public event Action OnDamage;
     public event Action OnHeal;
     public event Action OnDeath;
-
+    public event Action OnZeroHunger;
     private void Awake()
     {
         _statusHandler = GetComponent<CharacterStatHandler>();
@@ -31,7 +31,7 @@ public class HealthSystem : MonoBehaviour
         CurrentHealth = MaxHealth;
         CurrentHunger = MaxHunger;
         CurrentMHealth = MonsterMaxHealth;
-        StartCoroutine(ChangeCurrentHunger(-2));
+        StartCoroutine(ChangeCurrentHunger(-100));
     }
 
     private void Update()
@@ -69,7 +69,12 @@ public class HealthSystem : MonoBehaviour
     public void ChangeHunger(float change)
     {               
         CurrentHunger += change;
-        CurrentHunger = Mathf.Clamp(CurrentHunger, 0, MaxHunger);               
+        CurrentHunger = Mathf.Clamp(CurrentHunger, 0, MaxHunger);   
+        
+        if(CurrentHealth <= 0)
+        {
+            OnZeroHunger?.Invoke();
+        }
     }
 
     IEnumerator ChangeCurrentHunger(float change)
