@@ -1,0 +1,13 @@
+Characters will be provided in spritesheet format (5x19), with each frame being 80x80 pixels.
+These characters will also be fully customizable! 
+Clothing, accessories, and weapons will be their own sprite sheet so that you can mix-and-match items and overlay them within your game. 
+Because it's set up in a specific way, here's a little guide:
+
+- The spritesheets are organized in "layers", determined by the number on the respective folder
+- These layers are numbered 01-09, 01 being the very TOP layer, whilst 09 being the very BOTTOM
+- Layers are set up so that you can mix-and-match 1 of each layer (one from each folder) for ultimate customization!
+
+If you don't need this extra customization, I've exported Example Characters that you can use in your game.
+
+If you have any questions about which animation is which, I've provided a Spritesheet Guide in this folder!
+If you would like to modify any of these sprites, I've also included the Characters.aseprite file
