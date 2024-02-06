@@ -8,6 +8,11 @@ public interface IEquipedItem
     void EquipItemForChangeStats(Item item);
     void UnEquipItemForChangeStats(Item item);
 }
+
+public interface IUsePotion
+{
+    void UsePotionForChangeStats(int ItemNumver);
+}
 public class CharacterStatHandler : MonoBehaviour
 {
     [SerializeField] private CharacterStats characterBaseStats;

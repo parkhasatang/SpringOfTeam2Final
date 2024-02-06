@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] private float healthChangeDelay = .5f;
+    [SerializeField] private float healthChangeDelay = .5f;  
 
     private CharacterStatHandler _statusHandler;
     private float _healthLastChange = float.MaxValue;
@@ -29,6 +31,7 @@ public class HealthSystem : MonoBehaviour
         CurrentHealth = MaxHealth;
         CurrentHunger = MaxHunger;
         CurrentMHealth = MonsterMaxHealth;
+        StartCoroutine(ChangeCurrentHunger(-2));
     }
 
     private void Update()
@@ -36,7 +39,7 @@ public class HealthSystem : MonoBehaviour
         if (_healthLastChange < healthChangeDelay)
         {
             _healthLastChange += Time.deltaTime;
-        }
+        }       
     }
 
     public bool ChangeHealth(float change)
@@ -61,6 +64,23 @@ public class HealthSystem : MonoBehaviour
             OnDeath?.Invoke();
         }
         return true;
+    }
+
+    public void ChangeHunger(float change)
+    {               
+        CurrentHunger += change;
+        CurrentHunger = Mathf.Clamp(CurrentHunger, 0, MaxHunger);               
+    }
+
+    IEnumerator ChangeCurrentHunger(float change)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+            ChangeHunger(change);
+            Debug.Log(change);
+            Debug.Log(CurrentHunger);
+        }
     }
     public bool ChangeMHealth(float change)
     {
@@ -87,5 +107,5 @@ public class HealthSystem : MonoBehaviour
             Debug.Log("ав╬З╢ы.");
         }
         return true;
-    }
+    }   
 }
