@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using static UnityEditor.Progress;
 
@@ -94,6 +95,22 @@ public class ItemManager : MonoBehaviour
 
     public void SpriteMapping()
     {
+        // Resource폴더안 ItemSprite폴더안의 모든 파일을 긁어와서 배열에 저장.
+        Sprite[] itemSprite = Resources.LoadAll<Sprite>("ItemSprite");
+
+        for (int i = 0; i < itemSprite.Length; i++)
+        {
+            int itemCode = int.Parse(itemSprite[i].name);
+            spriteDictionary.Add(itemCode, itemSprite[i]);
+        }
+        Debug.Log("이미지 로드 완료");
+    }
+
+    
+
+    /*public void SpriteMapping() 리펙토링 전
+    {
+        for (int i = 0; i < )
         spriteDictionary.Add(1001, Resources.Load<Sprite>("ItemSprite/1001"));
         spriteDictionary.Add(1301, Resources.Load<Sprite>("ItemSprite/1301"));
         spriteDictionary.Add(2101, Resources.Load<Sprite>("ItemSprite/2101"));
@@ -104,5 +121,5 @@ public class ItemManager : MonoBehaviour
         spriteDictionary.Add(3011, Resources.Load<Sprite>("ItemSprite/3011"));
         spriteDictionary.Add(3001, Resources.Load<Sprite>("ItemSprite/3001"));
         Debug.Log("이미지 로드 완료");
-    }
+    }*/
 }

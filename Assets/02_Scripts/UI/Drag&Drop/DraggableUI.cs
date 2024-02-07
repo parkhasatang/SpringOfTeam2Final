@@ -53,7 +53,7 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         itemImg.blocksRaycasts = true;
 
-        // OnDrop이 먼저 발생하니, OnDrop이 발생하면 giveTemporaryItemData가 0이될거임.
+        // OnDrop이 먼저 발생하니, OnDrop이 발생하면 giveTemporaryItemData가 null이될거임.
         if (previousItem == UIManager.Instance.giveTemporaryItemData)
         {
             Debug.Log("원상복귀");

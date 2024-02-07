@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class SlotNum : MonoBehaviour
 {
-    [SerializeField] private Image itemImage;
+    [SerializeField] internal Image itemImage;
     [SerializeField] private TMP_Text itemStack;
 
     public void ChangeInventoryImage(int itemCode)
@@ -15,17 +15,9 @@ public class SlotNum : MonoBehaviour
         itemImage.sprite = ItemManager.instance.GetSpriteByItemCode(itemCode);
     }
 
-    public void OnOffImage(bool isOn)
+    public void OnOffImage(float value)
     {
-        if (isOn)
-        {
-            itemImage.GetComponent<CanvasGroup>().alpha = 1.0f;
-        }
-        else
-        {
-            itemImage.GetComponent<CanvasGroup>().alpha = 0f;
-        }
-        
+        itemImage.GetComponent<CanvasGroup>().alpha = value;
     }
 
     public void QuickSlotItemChoose(bool isOn)
@@ -53,7 +45,15 @@ public class SlotNum : MonoBehaviour
         }
         else if (stack > 0)
         {
-            itemStack.gameObject.SetActive(true);
+            // 1일 때는 아직 꺼주기만 하기.
+            if (stack == 1)
+            {
+                itemStack.gameObject.SetActive(false);
+            }
+            else
+            {
+                itemStack.gameObject.SetActive(true);
+            }
             itemStack.text = $"{stack}";
         }
         // stack이 음수가 될 수는 없음. 0이 되면 데이터를 없애줄 것이기 때문.

@@ -28,7 +28,7 @@ public class PickUp : MonoBehaviour
                 else if (inven.slots[i].isEmpty)
                 {
                     inven.invenSlot[i].ChangeInventoryImage(itemCode);
-                    inven.invenSlot[i].OnOffImage(true);
+                    inven.invenSlot[i].OnOffImage(1f);
                     inven.slots[i].isEmpty = false;
                     inven.slots[i].item = item; // 정해준 아이템의 데이터를 넣어준다.
                     inven.slots[i].stack = 1;

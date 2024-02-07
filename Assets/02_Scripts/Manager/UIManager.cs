@@ -52,13 +52,13 @@ public class UIManager : MonoBehaviour
             playerInventoryData.slots[indexOfInventory].item = null;
             playerInventoryData.slots[indexOfInventory].isEmpty = true;
             playerInventoryData.invenSlot[indexOfInventory].ChangeInventoryImage(0);
-            playerInventoryData.invenSlot[indexOfInventory].OnOffImage(false);
+            playerInventoryData.invenSlot[indexOfInventory].OnOffImage(0);
         }
         else if (playerInventoryData.slots[indexOfInventory].stack > 0)
         {
             playerInventoryData.slots[indexOfInventory].isEmpty = false;
             playerInventoryData.invenSlot[indexOfInventory].ChangeInventoryImage(playerInventoryData.slots[indexOfInventory].item.ItemCode);
-            playerInventoryData.invenSlot[indexOfInventory].OnOffImage(true);
+            playerInventoryData.invenSlot[indexOfInventory].OnOffImage(1f);
         }
         playerInventoryData.invenSlot[indexOfInventory].ItemStackUIRefresh(playerInventoryData.slots[indexOfInventory].stack);
     }

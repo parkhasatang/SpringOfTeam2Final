@@ -8,11 +8,13 @@ public class Interact : MonoBehaviour
 {
     private CharacterController controller;
     public Collider2D rangebox;
+    private bool deactiveTabKey;
     /*private Dictionary<string, GameObject> interactiveUIs = new Dictionary<string, GameObject>();*/
 
     public GameObject inventoryObject;
     public GameObject MakeUI;
     public GameObject CookUI;
+    public GameObject equipUI;
 
     private void Awake()
     {
@@ -33,7 +35,10 @@ public class Interact : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            ToggleInventory();
+            if (!deactiveTabKey)
+            {
+                ToggleInventory();
+            }
         }
     }
 
@@ -47,6 +52,7 @@ public class Interact : MonoBehaviour
         if (controller.IsInteracting && collision.CompareTag("InteractionObject"))
         {
             string ObjectName = collision.gameObject.name;
+            deactiveTabKey = true;
 
             if (ObjectName == "Make")
             {
@@ -83,7 +89,7 @@ public class Interact : MonoBehaviour
                     }
                 }
                 
-            }  */                             
+            }  */
         }
     }
    
@@ -95,6 +101,7 @@ public class Interact : MonoBehaviour
             CookUI.SetActive(false);
             inventoryObject.SetActive(false);
             controller.CanControllCharacter = true;
+            deactiveTabKey = false;
         }
        /*foreach(var ui in  interactiveUIs)
         {
@@ -107,5 +114,6 @@ public class Interact : MonoBehaviour
     {
         // 인벤토리 오브젝트를 켜거나 끔
         inventoryObject.SetActive(!inventoryObject.activeSelf);
+        equipUI.SetActive(!equipUI.activeSelf);
     }
 }
