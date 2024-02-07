@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class SlotNum : MonoBehaviour
 {
-    [SerializeField] private Image itemImage;
+    [SerializeField] internal Image itemImage;
     [SerializeField] private TMP_Text itemStack;
 
     public void ChangeInventoryImage(int itemCode)
