@@ -1,7 +1,9 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -17,11 +19,15 @@ public class HealthSystem : MonoBehaviour
     public float MonsterMaxHealth => _statusHandler.CurrentMonsterStats.maxHP;
     public float MaxHunger => _statusHandler.CurrentStats.specificSO.hunger;
 
+    [SerializeField] private GameObject damageTxt;
+    public Transform MonsterPos;
+
     public event Action OnDamage;
     public event Action OnHeal;
     public event Action OnDeath;
     public event Action OnZeroHunger;
     public event Action OnNoZeroHunger;
+
     private void Awake()
     {
         _statusHandler = GetComponent<CharacterStatHandler>();
@@ -53,6 +59,9 @@ public class HealthSystem : MonoBehaviour
 
         if (change < 0 && CurrentHealth > 0)
         {
+            GameObject attackTxt = Instantiate(damageTxt);
+            attackTxt.transform.position = MonsterPos.position;
+            attackTxt.GetComponent<PlayerDamageUI>().damage = -change;
             OnDamage?.Invoke();
         }
         else if (change > 0)
