@@ -1,6 +1,9 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Runtime.CompilerServices;
+using System;
+using Unity.VisualScripting;
 
 public class HUD : MonoBehaviour
 {
@@ -8,16 +11,39 @@ public class HUD : MonoBehaviour
     [SerializeField] private Slider hungerSlider;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI hungerText;
-
+    [SerializeField] private GameObject noHungerUI;
     private HealthSystem healthSystemInstance;
-
+    private CharacterStatHandler statHandler;
+    private float speed1;
+    private float speed2;
     private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
             healthSystemInstance = player.GetComponent<HealthSystem>();
-        }
+            statHandler = player.GetComponent<CharacterStatHandler>();
+        }        
+    }
+
+    private void Start()
+    {
+        speed1 = statHandler.CurrentStats.speed / 3 * 2;
+        speed2 = statHandler.CurrentStats.speed;
+        healthSystemInstance.OnZeroHunger += SetDeBuffUI;
+        healthSystemInstance.OnNoZeroHunger += CancleBuffUI;
+    }
+
+    private void CancleBuffUI()
+    {
+        noHungerUI.SetActive(false);
+        statHandler.CurrentStats.speed = speed2;
+    }
+
+    private void SetDeBuffUI()
+    {        
+        noHungerUI.SetActive(true);
+        statHandler.CurrentStats.speed = speed1;        
     }
 
     private void LateUpdate()
@@ -69,4 +95,6 @@ public class HUD : MonoBehaviour
             hungerText.text = $"{currentHunger}/{maxHunger}";
         }
     }
+
+
 }

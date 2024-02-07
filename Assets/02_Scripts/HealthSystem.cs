@@ -21,6 +21,7 @@ public class HealthSystem : MonoBehaviour
     public event Action OnHeal;
     public event Action OnDeath;
     public event Action OnZeroHunger;
+    public event Action OnNoZeroHunger;
     private void Awake()
     {
         _statusHandler = GetComponent<CharacterStatHandler>();
@@ -71,10 +72,12 @@ public class HealthSystem : MonoBehaviour
         CurrentHunger += change;
         CurrentHunger = Mathf.Clamp(CurrentHunger, 0, MaxHunger);   
         
-        if(CurrentHealth <= 0)
+        if(CurrentHunger <= 0)
         {
-            OnZeroHunger?.Invoke();
+            OnZeroHunger?.Invoke();           
         }
+        else
+            OnNoZeroHunger?.Invoke();
     }
 
     IEnumerator ChangeCurrentHunger(float change)
