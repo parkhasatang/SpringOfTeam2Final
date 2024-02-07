@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/05_Asset/UI/UGUI.meta
 guid: 785cff0663622d1429bb440b5e002e96
+========
+guid: 71a6cdf9f8f497948b3d4449058a3575
+>>>>>>>> Develope:Assets/05_Asset/UI/UGUI/GUI_TEST_1.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
