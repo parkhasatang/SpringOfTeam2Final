@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI HungerTxt;
 
     private HealthSystem playerHealthSystem;
+    public SpawnDamageUI spawnDamageUI;
 
     // 인벤토리 데이터
     public Inventory playerInventoryData;

@@ -102,7 +102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
-  damageTxt: {fileID: 8582275015783367808, guid: e0b3c2e4d8aaaf74f91b684fe4ba072c, type: 3}
 --- !u!114 &3468723882127415355
 MonoBehaviour:
   m_ObjectHideFlags: 0

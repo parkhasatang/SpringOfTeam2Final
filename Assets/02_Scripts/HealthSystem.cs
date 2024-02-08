@@ -17,10 +17,7 @@ public class HealthSystem : MonoBehaviour
     public float CurrentHunger { get; private set; }
     public float MaxHealth => _statusHandler.CurrentStats.maxHP;
     public float MonsterMaxHealth => _statusHandler.CurrentMonsterStats.maxHP;
-    public float MaxHunger => _statusHandler.CurrentStats.specificSO.hunger;
-
-    [SerializeField] private GameObject damageTxt;
-    public Transform MonsterPos;
+    public float MaxHunger => _statusHandler.CurrentStats.specificSO.hunger;    
 
     public event Action OnDamage;
     public event Action OnHeal;
@@ -38,7 +35,7 @@ public class HealthSystem : MonoBehaviour
         CurrentHealth = MaxHealth;
         CurrentHunger = MaxHunger;
         CurrentMHealth = MonsterMaxHealth;
-        StartCoroutine(ChangeCurrentHunger(-100));
+        StartCoroutine(ChangeCurrentHunger(-2));
     }
 
     private void Update()
@@ -59,9 +56,7 @@ public class HealthSystem : MonoBehaviour
 
         if (change < 0 && CurrentHealth > 0)
         {
-            GameObject attackTxt = Instantiate(damageTxt);
-            attackTxt.transform.position = MonsterPos.position;
-            attackTxt.GetComponent<PlayerDamageUI>().damage = -change;
+           
             OnDamage?.Invoke();
         }
         else if (change > 0)
