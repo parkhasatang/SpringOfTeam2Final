@@ -8,15 +8,15 @@ using static UnityEditor.Progress;
 public class Item
 {
     public Item(int itemCode, int itemType, string name, string description, float Hp, float hunger, float attackDamage, float attackDelay, float denfense,
-        float attackRange, float speed, int stackNumber, bool isEquip)
+        float attackRange, float speed, int stackNumber, bool isEquip, bool rightClick)
     {
         ItemCode = itemCode; ItemType = itemType; Name = name; Description = description; HP = Hp; Hunger = hunger; AttackDamage = attackDamage; AttackRange = attackDelay;
-        Defense = denfense; Speed = speed; StackNumber = stackNumber; IsEquip = isEquip;
+        Defense = denfense; Speed = speed; StackNumber = stackNumber; IsEquip = isEquip; RightClick = rightClick;
     }
     public int ItemCode, ItemType, StackNumber;
     public float HP, Hunger, AttackDamage, AttackDelay, Defense, AttackRange, Speed;
     public string Name, Description;
-    public bool IsEquip;
+    public bool IsEquip, RightClick;
 }
 
 public class ItemManager : MonoBehaviour
@@ -67,7 +67,7 @@ public class ItemManager : MonoBehaviour
         {
             string[] row = line[i].Split('\t');
             items.Add(int.Parse(row[0]), new Item(int.Parse(row[0]), int.Parse(row[1]), row[2], row[3], float.Parse(row[4]), float.Parse(row[5]), float.Parse(row[6]),
-                float.Parse(row[7]), float.Parse(row[8]), float.Parse(row[9]), float.Parse(row[10]), int.Parse(row[11]), row[12] == "TRUE"));
+                float.Parse(row[7]), float.Parse(row[8]), float.Parse(row[9]), float.Parse(row[10]), int.Parse(row[11]), row[12] == "TRUE", row[13] == "TRUE"));
         }
     }
 
