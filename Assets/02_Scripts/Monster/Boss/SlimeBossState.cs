@@ -12,7 +12,7 @@ public class SlimeBossState : BossState
     private float chaseMaxDistance = 10f;
     private float jumpHeight = 5f;
     private float jumpAttackCooldown = 5f;
-    private float jumpDuration = 1.5f;
+    private float jumpDuration = 1.0f;
     private bool canJumpAttack = true;
     
 
@@ -140,6 +140,8 @@ private IEnumerator JumpAttack(float jumpHeight, System.Action onLanded)
         Vector3 targetPosition = player.transform.position;
         float elapsedTime = 0;
 
+        animator.SetTrigger("JumpAttack");
+
         while (elapsedTime < jumpDuration)
         {
             float height = Mathf.Sin(Mathf.PI * elapsedTime / jumpDuration) * jumpHeight;
@@ -147,6 +149,8 @@ private IEnumerator JumpAttack(float jumpHeight, System.Action onLanded)
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
+        animator.SetTrigger("Idle");
 
         transform.position = targetPosition;
         onLanded?.Invoke();
