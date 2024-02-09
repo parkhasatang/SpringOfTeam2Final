@@ -6,7 +6,7 @@ public class Field : MonoBehaviour
 {
     public GameObject seed;
 
-    private bool isWatering;
+    [SerializeField]internal bool isWatering;
     private bool isSeed;
     private Item seedData;
 

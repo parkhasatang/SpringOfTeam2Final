@@ -68,7 +68,7 @@ public class SetObject : MonoBehaviour
                     // 물뿌리개
                     else if(inventorySlot[i].item.ItemType == 14)
                     {
-                        // 밭에 물주기.
+                        SetWater();
                     }
                 }
             }
@@ -117,18 +117,37 @@ public class SetObject : MonoBehaviour
 
         if (distance < 2)
         {
-            RaycastHit2D hit = Physics2D.Raycast(mousPosition, Vector2.zero);
-            Debug.Log(hit.collider.gameObject.GetComponent<Field>());
-            // 이부분 수정 필요
-            if (hit.collider.gameObject.GetComponent<Field>())
+            RaycastHit2D hit = Physics2D.Raycast(mousPosition, Vector2.zero, 0.1f, 1 << LayerMask.NameToLayer("Field") | 1 << LayerMask.NameToLayer("Wall"));
+            int layer = hit.collider.gameObject.layer;
+            if (layer == LayerMask.NameToLayer("Field"))
             {
                 return;
+                // 나중에 작물이 자라고 있지 않다면. = 자식오브젝트가 꺼져있다면으로 if문 조건 걸어주기.
             }
-            else
+            else if (layer == LayerMask.NameToLayer("Wall"))
             {
                 Debug.Log("생성완료");
                 Vector3 spawnPosition = new Vector3(Mathf.FloorToInt(mousPosition.x) + 0.5f, Mathf.FloorToInt(mousPosition.y) + 0.5f);
                 FarmManager.instance.FieldSpawn(spawnPosition);
+            }
+        }
+    }
+
+    private void SetWater()
+    {
+        Vector2 mousPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        float distance = Vector2.Distance(mousPosition, transform.position);
+
+        if (distance < 2)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(mousPosition, Vector2.zero, 0.1f, 1 << LayerMask.NameToLayer("Field"));
+            if (hit)
+            {
+                Field field = hit.collider.gameObject.GetComponent<Field>();
+                if (field.isWatering == false)
+                {
+                    field.isWatering = true;
+                }
             }
         }
     }

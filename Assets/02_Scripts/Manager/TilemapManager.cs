@@ -36,8 +36,8 @@ public class TilemapManager : MonoBehaviour
             for (int y = bounds.y; y < bounds.y + bounds.size.y; y++)
             {
                 Vector3Int cellPosition = new(x, y, 0);
-                TileBase tile = tilemap.GetTile(cellPosition);  
-                
+                TileBase tile = tilemap.GetTile(cellPosition);
+                Debug.Log(tile.name);
                 if (tile != null)
                 {
                     float tileHP = GetTileHp(cellPosition);
