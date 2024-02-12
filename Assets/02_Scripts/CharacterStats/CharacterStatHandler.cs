@@ -47,7 +47,7 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStats.defense = characterBaseStats.defense;
         CurrentStats.miningAttack = characterBaseStats.miningAttack;
         CurrentStats.attackDelay = characterBaseStats.attackDelay;
-        Debug.Log(CurrentStats.attackDamage);
+       
 
         if (monsterStats != null)
         {

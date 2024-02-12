@@ -40,7 +40,7 @@ public class Attack : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.gameObject.CompareTag("Monster"))
+            if (collider.gameObject.CompareTag("Monster") || collider.gameObject.CompareTag("Boss"))
             {
                 HealthSystem enemyHealth = collider.GetComponent<HealthSystem>();
 
