@@ -11,13 +11,20 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     public GameObject Player;
+    // 플레이어 상태 UI
     [SerializeField] private Slider HPSlider;
     [SerializeField] private Slider HungerSilder;
 
     [SerializeField] private TextMeshProUGUI HpTxt;
     [SerializeField] private TextMeshProUGUI HungerTxt;
 
+    // 보스 상태 UI
+    [SerializeField] private GameObject BossHPUI;
+    [SerializeField] private Slider BossHPBar;
+    [SerializeField] private TextMeshProUGUI BossName;
+
     private HealthSystem playerHealthSystem;
+    public SpawnDamageUI spawnDamageUI;
 
     // 인벤토리 데이터
     public Inventory playerInventoryData;

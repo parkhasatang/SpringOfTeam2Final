@@ -1,9 +1,13 @@
+using JetBrains.Annotations;
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] private float healthChangeDelay = .5f;
+    [SerializeField] private float healthChangeDelay = .5f;  
 
     private CharacterStatHandler _statusHandler;
     private float _healthLastChange = float.MaxValue;
@@ -13,11 +17,13 @@ public class HealthSystem : MonoBehaviour
     public float CurrentHunger { get; private set; }
     public float MaxHealth => _statusHandler.CurrentStats.maxHP;
     public float MonsterMaxHealth => _statusHandler.CurrentMonsterStats.maxHP;
-    public float MaxHunger => _statusHandler.CurrentStats.specificSO.hunger;
+    public float MaxHunger => _statusHandler.CurrentStats.specificSO.hunger;    
 
     public event Action OnDamage;
     public event Action OnHeal;
     public event Action OnDeath;
+    public event Action OnZeroHunger;
+    public event Action OnNoZeroHunger;
 
     private void Awake()
     {
@@ -29,6 +35,7 @@ public class HealthSystem : MonoBehaviour
         CurrentHealth = MaxHealth;
         CurrentHunger = MaxHunger;
         CurrentMHealth = MonsterMaxHealth;
+        StartCoroutine(ChangeCurrentHunger(-2));
     }
 
     private void Update()
@@ -36,7 +43,7 @@ public class HealthSystem : MonoBehaviour
         if (_healthLastChange < healthChangeDelay)
         {
             _healthLastChange += Time.deltaTime;
-        }
+        }       
     }
 
     public bool ChangeHealth(float change)
@@ -49,6 +56,7 @@ public class HealthSystem : MonoBehaviour
 
         if (change < 0 && CurrentHealth > 0)
         {
+           
             OnDamage?.Invoke();
         }
         else if (change > 0)
@@ -61,6 +69,30 @@ public class HealthSystem : MonoBehaviour
             OnDeath?.Invoke();
         }
         return true;
+    }
+
+    public void ChangeHunger(float change)
+    {               
+        CurrentHunger += change;
+        CurrentHunger = Mathf.Clamp(CurrentHunger, 0, MaxHunger);   
+        
+        if(CurrentHunger <= 0)
+        {
+            OnZeroHunger?.Invoke();           
+        }
+        else
+            OnNoZeroHunger?.Invoke();
+    }
+
+    IEnumerator ChangeCurrentHunger(float change)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+            ChangeHunger(change);
+            Debug.Log(change);
+            Debug.Log(CurrentHunger);
+        }
     }
     public bool ChangeMHealth(float change)
     {
@@ -87,5 +119,5 @@ public class HealthSystem : MonoBehaviour
             Debug.Log("ав╬З╢ы.");
         }
         return true;
-    }
+    }   
 }
