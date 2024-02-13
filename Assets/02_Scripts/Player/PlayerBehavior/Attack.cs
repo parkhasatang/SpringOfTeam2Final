@@ -40,13 +40,14 @@ public class Attack : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.gameObject.CompareTag("Monster"))
+            if (collider.gameObject.CompareTag("Monster") || collider.gameObject.CompareTag("Boss"))
             {
                 HealthSystem enemyHealth = collider.GetComponent<HealthSystem>();
 
                 if (enemyHealth != null)
                 {
                     enemyHealth.ChangeMHealth(-statsHandler.CurrentStats.attackDamage);
+                    UIManager.Instance.spawnDamageUI.SpawndamageTxt(collider.transform.position, statsHandler.CurrentStats.attackDamage);
                     Debug.Log(statsHandler.CurrentStats.attackDamage + " 데미지 입힘");
                 }
             }

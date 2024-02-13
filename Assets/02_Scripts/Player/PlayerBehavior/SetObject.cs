@@ -4,25 +4,34 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SetObject : MonoBehaviour
+public class SetObject : MonoBehaviour, IUsePotion
 {
     private CharacterController controller;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private TileMapControl tileMapControl;
     private EquipObject equipObject;
     private List<SlotData> inventorySlot;
+    private HealthSystem healthSystem;
 
+    float PotionCoolTime = 2f;
+    float MaxCoolTime = 10f;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         equipObject = GetComponent<EquipObject>();
         inventorySlot = UIManager.Instance.playerInventoryData.slots;
+        healthSystem = GetComponent<HealthSystem>();
     }
     // Start is called before the first frame update
     private void Start()
     {
-        controller.OnSetEvent += BuildObject;
+        controller.OnSetEvent += BuildObject;        
+    }
+
+    private void Update()
+    {
+        MaxCoolTime += Time.deltaTime;
     }
 
     private void BuildObject()
@@ -45,12 +54,17 @@ public class SetObject : MonoBehaviour
                             SetWall(i);
                         }
                         // 물약이라면
-                        else if (inventorySlot[i].item.ItemCode == 1701)
+                        else if (inventorySlot[i].item.ItemType == 8)
                         {
                             // 플레이어 체력 회복
-                            /*StackUpdate(i);*///쓸때 조심.
+                            /*StackUpdate(i);*///쓸때 조심.                           
+
                         }
                     }
+                }
+                else if(inventorySlot[i].item.ItemType == 8)
+                {
+                    UsePotionForChangeStats(i);                 
                 }
             }
             else
@@ -88,5 +102,17 @@ public class SetObject : MonoBehaviour
                 Debug.Log("딕셔너리에 추가");
             }
         }
+    }
+
+    public void UsePotionForChangeStats(int i)
+    {
+        if(PotionCoolTime < MaxCoolTime)
+        {
+            MaxCoolTime = 0;
+            healthSystem.ChangeHealth(inventorySlot[i].item.HP);
+            healthSystem.ChangeHunger(inventorySlot[i].item.Hunger);
+            UIManager.Instance.playerInventoryData.slots[i].stack--;
+            UIManager.Instance.StackUpdate(i);
+        }             
     }
 }

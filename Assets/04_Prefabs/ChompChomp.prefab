@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b222cef7ddb244e45ad15529481e97e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemDetectionRange: 5
+  fleeDistance: 5
 --- !u!114 &5253677374758859589
 MonoBehaviour:
   m_ObjectHideFlags: 0

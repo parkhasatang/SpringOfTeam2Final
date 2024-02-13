@@ -8,6 +8,11 @@ public interface IEquipedItem
     void EquipItemForChangeStats(Item item);
     void UnEquipItemForChangeStats(Item item);
 }
+
+public interface IUsePotion
+{
+    void UsePotionForChangeStats(int ItemNumver);
+}
 public class CharacterStatHandler : MonoBehaviour
 {
     [SerializeField] private CharacterStats characterBaseStats;
@@ -42,7 +47,7 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStats.defense = characterBaseStats.defense;
         CurrentStats.miningAttack = characterBaseStats.miningAttack;
         CurrentStats.attackDelay = characterBaseStats.attackDelay;
-        Debug.Log(CurrentStats.attackDamage);
+       
 
         if (monsterStats != null)
         {

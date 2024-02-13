@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
 
     private void ApplyMovement(Vector2 value)
     {
-        value = value * statsHandler.CurrentStats.speed; // 나중에 캐릭터 스피드 변수로 교체 예정(완료)
+        value = value * statsHandler.CurrentStats.speed; 
         rigidbody.velocity = value;
         playerAnimator.SetBool("Move", value.magnitude > 0);
     }
