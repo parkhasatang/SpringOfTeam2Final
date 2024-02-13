@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4859621412613878509}
   - component: {fileID: 6300998204670962775}
   - component: {fileID: 4397795524537187754}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Slime
   m_TagString: Monster
   m_Icon: {fileID: 0}

@@ -167,7 +167,7 @@ public class SlimeState : MonsterState
             Debug.LogWarning("Null NullÇØ¿ä");
             return;
         }
-
+            
         Vector3 originalPosition = transform.position;
         ItemManager.instance.itemPool.ItemSpawn(3101, originalPosition);
         ItemManager.instance.itemPool.ItemSpawn(3011, originalPosition);
