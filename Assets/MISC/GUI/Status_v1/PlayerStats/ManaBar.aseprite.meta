@@ -1,0 +1,584 @@
+fileFormatVersion: 2
+guid: 1b0a124108e32ea468c94ea1700dfa8c
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: ManaBar_Frame_0
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.225}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 370
+      width: 118
+      height: 40
+    spriteID: 3e601f57b323b4a4ab552b4a7a8073bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 370}
+  - name: ManaBar_Frame_1
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.225}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 418
+      width: 118
+      height: 40
+    spriteID: 3fcd0d7b592ca6848b87e5e2d867614d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 418}
+  - name: ManaBar_Frame_2
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.225}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 466
+      width: 118
+      height: 40
+    spriteID: c0edbab59ceb46e4da17cdc4935f4aec
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 466}
+  - name: ManaBar_Frame_3
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.225}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 4
+      width: 118
+      height: 40
+    spriteID: 030ed989f586b134a86517d99eb336dc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 4}
+  - name: ManaBar_Frame_4
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.225}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 52
+      width: 118
+      height: 40
+    spriteID: 91787f07fb241da4c9a8cb8ea37fc554
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 52}
+  - name: ManaBar_Frame_5
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.225}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 100
+      width: 118
+      height: 40
+    spriteID: 9a5d779ae25d9af4799250d73c6ba5d2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 100}
+  - name: ManaBar_Frame_6
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.225}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 148
+      width: 118
+      height: 40
+    spriteID: 4321f7f189397e647a94510c4d2c793c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 148}
+  - name: ManaBar_Frame_7
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.225}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 196
+      width: 118
+      height: 40
+    spriteID: 7cd5c665a48c7a54d9c17728f41172bf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 196}
+  - name: ManaBar_Frame_8
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.21428572}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 172
+      width: 118
+      height: 42
+    spriteID: 2c1ef15f7fb8bf5499b3631ab29ab873
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 172}
+  - name: ManaBar_Frame_9
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.2195122}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 272
+      width: 118
+      height: 41
+    spriteID: a38ca4eb373c5fb4c8a3fa67d9b6958d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 272}
+  - name: ManaBar_Frame_10
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.21428572}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 222
+      width: 118
+      height: 42
+    spriteID: b788e705e9f2c0345a35c24502587cdb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 222}
+  - name: ManaBar_Frame_11
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.225}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 244
+      width: 118
+      height: 40
+    spriteID: 20491f29d66ec7b4ba005a815582d8f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 244}
+  - name: ManaBar_Frame_12
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.2195122}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 321
+      width: 118
+      height: 41
+    spriteID: 24b7be31456eb8f47acb058a7cef3cf9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 321}
+  - name: ManaBar_Frame_13
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.19565219}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 118
+      width: 118
+      height: 46
+    spriteID: ba94b28020adcf243aac2d2647b9911d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 118}
+  - name: ManaBar_Frame_14
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.18367347}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 118
+      height: 49
+    spriteID: 430190edf73466f4ebc72e170162aafe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: ManaBar_Frame_15
+    originalName: 
+    pivot: {x: 0.62711865, y: -0.18367347}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 61
+      width: 118
+      height: 49
+    spriteID: 6317301d5d2f4294093c7ee41e7c3fd8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 61}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 595601826
+    name: ManaBar
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: ManaBar_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 40
+      spriteId: 3e601f57b323b4a4ab552b4a7a8073bb
+    - name: ManaBar_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 40
+      spriteId: 3fcd0d7b592ca6848b87e5e2d867614d
+    - name: ManaBar_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 40
+      spriteId: c0edbab59ceb46e4da17cdc4935f4aec
+    - name: ManaBar_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 40
+      spriteId: 030ed989f586b134a86517d99eb336dc
+    - name: ManaBar_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 40
+      spriteId: 91787f07fb241da4c9a8cb8ea37fc554
+    - name: ManaBar_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 40
+      spriteId: 9a5d779ae25d9af4799250d73c6ba5d2
+    - name: ManaBar_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 40
+      spriteId: 4321f7f189397e647a94510c4d2c793c
+    - name: ManaBar_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 40
+      spriteId: 7cd5c665a48c7a54d9c17728f41172bf
+    - name: ManaBar_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 42
+      spriteId: 2c1ef15f7fb8bf5499b3631ab29ab873
+    - name: ManaBar_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 41
+      spriteId: a38ca4eb373c5fb4c8a3fa67d9b6958d
+    - name: ManaBar_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 42
+      spriteId: b788e705e9f2c0345a35c24502587cdb
+    - name: ManaBar_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 40
+      spriteId: 20491f29d66ec7b4ba005a815582d8f7
+    - name: ManaBar_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 41
+      spriteId: 24b7be31456eb8f47acb058a7cef3cf9
+    - name: ManaBar_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 46
+      spriteId: ba94b28020adcf243aac2d2647b9911d
+    - name: ManaBar_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 49
+      spriteId: 430190edf73466f4ebc72e170162aafe
+    - name: ManaBar_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: -26
+        y: 9
+        width: 118
+        height: 49
+      spriteId: 6317301d5d2f4294093c7ee41e7c3fd8
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 96, y: 61}

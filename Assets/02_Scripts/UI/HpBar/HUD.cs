@@ -16,6 +16,7 @@ public class HUD : MonoBehaviour
     private CharacterStatHandler statHandler;
     private float speed1;
     private float speed2;
+    
     private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -32,6 +33,7 @@ public class HUD : MonoBehaviour
         speed2 = statHandler.CurrentStats.speed;
         healthSystemInstance.OnZeroHunger += SetDeBuffUI;
         healthSystemInstance.OnNoZeroHunger += CancleBuffUI;
+        
     }
 
     private void CancleBuffUI()
