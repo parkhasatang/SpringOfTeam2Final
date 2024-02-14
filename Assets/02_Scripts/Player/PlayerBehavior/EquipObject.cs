@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -73,35 +74,55 @@ public class EquipObject : MonoBehaviour, IEquipedItem
 
     public void EquipItemForChangeStats(int itemIndex)
     {
-        if (inventory.slots[itemIndex].isChoose == true)
+        if (inventory.slots[itemIndex] == null)
         {
-            if(inventory.slots[itemIndex].item.ItemType == 10 || inventory.slots[itemIndex].item.ItemType == 11)
+            return;            
+        }
+        else
+        {
+            if (inventory.slots[itemIndex].isChoose == true)
             {
-                statHandler.CurrentStats.attackDamage += inventory.slots[itemIndex].item.AttackDamage;
-            }
+                if (inventory.slots[itemIndex].item.ItemType == 10 || inventory.slots[itemIndex].item.ItemType == 11)
+                {
+                    statHandler.CurrentStats.attackDamage += inventory.slots[itemIndex].item.AttackDamage;
+                }
 
-            else if(inventory.slots[itemIndex].item.ItemType == 12)
-            {
-                statHandler.CurrentStats.miningAttack += inventory.slots[itemIndex].item.AttackDamage;
+                else if (inventory.slots[itemIndex].item.ItemType == 12)
+                {
+                    statHandler.CurrentStats.miningAttack += inventory.slots[itemIndex].item.AttackDamage;
+                }
+                else
+                {
+                    return;
+                }
             }
-            else
-            {
-                return;
-            }                              
         }
     }
 
     public void UnEquipItemForChangeStats(int itemIndex)
     {
-        if(inventory.slots[itemIndex].item.ItemType == 10 || inventory.slots[itemIndex].item.ItemType == 11)
+        if (inventory.slots[itemIndex] == null)
         {
-            statHandler.CurrentStats.attackDamage -= inventory.slots[itemIndex].item.AttackDamage;
+            return;
         }
-        else if (inventory.slots[itemIndex].item.ItemType == 12)
+        else
         {
-            statHandler.CurrentStats.miningAttack -= inventory.slots[itemIndex].item.AttackDamage;
-        }
-        return;
+            if (inventory.slots[itemIndex].isChoose == true)
+            {
+                if (inventory.slots[itemIndex].item.ItemType == 10)
+                {
+                    statHandler.CurrentStats.attackDamage -= inventory.slots[itemIndex].item.AttackDamage;
+                }
+                else if (inventory.slots[itemIndex].item.ItemType == 12)
+                {
+                    statHandler.CurrentStats.miningAttack -= inventory.slots[itemIndex].item.AttackDamage;
+                }
+                else
+                {
+                    return;
+                }
+            }          
+        }              
     }
 
     /*private void UnEquipItem(int slotIndex)// todo 기존에 있던 아이템 정보를 빼고넣기.

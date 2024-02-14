@@ -32,6 +32,7 @@ public class Field : MonoBehaviour
             isGrowing = true;
             seed.SetActive (true);
             seedAnimation.SetInteger("ItemCode", seedData.ItemCode);
+            Debug.Log(seedAnimation.ToString());
         }
     }
 

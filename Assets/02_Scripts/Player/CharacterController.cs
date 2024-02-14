@@ -16,6 +16,7 @@ public class CharacterController : MonoBehaviour
 
     private float timeSinceLastAttack = float.MaxValue;
     private float timeSinceLastEquip = float.MaxValue;
+    private float timeSinceLastSet = float.MaxValue;
     public bool IsAttacking { get; set; }
     public bool IsSetting { get; set; }
 
@@ -38,7 +39,8 @@ public class CharacterController : MonoBehaviour
     {
         AttackDelay();
         CanInteract();
-        CanSet();       
+        CanSet(); 
+        
     }
 
     private void AttackDelay() // 공격 딜레이 효과 
@@ -69,8 +71,13 @@ public class CharacterController : MonoBehaviour
 
     private void CanSet() // 여기서 설치 가능한 오브젝트 조건 등 처리 해야함
     {
-        if (IsSetting)
+        if (timeSinceLastSet <= 0.2f)
         {
+            timeSinceLastSet += Time.deltaTime;            
+        }
+        if(IsSetting && timeSinceLastSet > 0.2f)
+        {
+            timeSinceLastSet = 0;
             CallSetEvent();
         }
     }

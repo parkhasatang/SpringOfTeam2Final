@@ -119,7 +119,7 @@ public class SetObject : MonoBehaviour, IUsePotion
 
         if (distance < 2)
         {
-            RaycastHit2D hit = Physics2D.Raycast(mousPosition, Vector2.zero, 0.1f, 1 << LayerMask.NameToLayer("Field") | 1 << LayerMask.NameToLayer("Wall"));
+            RaycastHit2D hit = Physics2D.Raycast(mousPosition, Vector2.zero, 0.1f, 1 << LayerMask.NameToLayer("Field") | 1 << LayerMask.NameToLayer("Ground"));
             int layer = hit.collider.gameObject.layer;
             if (layer == LayerMask.NameToLayer("Field"))
             {
@@ -147,7 +147,7 @@ public class SetObject : MonoBehaviour, IUsePotion
                     hit.collider.gameObject.SetActive(false);
                 }
             }
-            else if (layer == LayerMask.NameToLayer("Wall"))
+            else if (layer == LayerMask.NameToLayer("Ground"))
             {
                 Debug.Log("생성완료");
                 Vector3 spawnPosition = new Vector3(Mathf.FloorToInt(mousPosition.x) + 0.5f, Mathf.FloorToInt(mousPosition.y) + 0.5f);
