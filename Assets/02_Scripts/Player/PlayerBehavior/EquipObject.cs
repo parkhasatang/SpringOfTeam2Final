@@ -35,7 +35,7 @@ public class EquipObject : MonoBehaviour, IEquipedItem
             inventory.slots[i].isChoose = false;
             if (inventory.slots[selectedIndexNum].item != null && inventory.slots[selectedIndexNum].item.IsEquip == true)
             {
-                UnEquipItemForChangeStats(inventory.slots[selectedIndexNum].item);
+                UnEquipItemForChangeStats(i);
             }
         }
 
@@ -49,7 +49,7 @@ public class EquipObject : MonoBehaviour, IEquipedItem
                     EquipItem(i - 1); // 아이템 들기
                     if (inventory.slots[i-1].item != null)
                     {
-                        EquipItemForChangeStats(inventory.slots[i - 1].item);
+                        EquipItemForChangeStats(i - 1);
                         selectedIndexNum = i - 1;
                     }
                     break;
@@ -71,19 +71,18 @@ public class EquipObject : MonoBehaviour, IEquipedItem
         inventory.invenSlot[slotIndex].QuickSlotItemChoose(true);
     }
 
-    public void EquipItemForChangeStats(Item item)
+    public void EquipItemForChangeStats(int itemIndex)
     {
-        item.IsEquip = true;
-        if (item.IsEquip == true)
+        if (inventory.slots[itemIndex].isChoose == true)
         {
-            if(item.ItemType == 10 || item.ItemType == 11)
+            if(inventory.slots[itemIndex].item.ItemType == 10 || inventory.slots[itemIndex].item.ItemType == 11)
             {
-                statHandler.CurrentStats.attackDamage += item.AttackDamage;
+                statHandler.CurrentStats.attackDamage += inventory.slots[itemIndex].item.AttackDamage;
             }
 
-            else if(item.ItemType == 12)
+            else if(inventory.slots[itemIndex].item.ItemType == 12)
             {
-                statHandler.CurrentStats.miningAttack += item.AttackDamage;
+                statHandler.CurrentStats.miningAttack += inventory.slots[itemIndex].item.AttackDamage;
             }
             else
             {
@@ -92,16 +91,15 @@ public class EquipObject : MonoBehaviour, IEquipedItem
         }
     }
 
-    public void UnEquipItemForChangeStats(Item item)
+    public void UnEquipItemForChangeStats(int itemIndex)
     {
-        item.IsEquip = false;
-        if(item.ItemType == 10 || item.ItemType == 11)
+        if(inventory.slots[itemIndex].item.ItemType == 10 || inventory.slots[itemIndex].item.ItemType == 11)
         {
-            statHandler.CurrentStats.attackDamage -= item.AttackDamage;
+            statHandler.CurrentStats.attackDamage -= inventory.slots[itemIndex].item.AttackDamage;
         }
-        else if (item.ItemType == 12)
+        else if (inventory.slots[itemIndex].item.ItemType == 12)
         {
-            statHandler.CurrentStats.miningAttack -= item.AttackDamage;
+            statHandler.CurrentStats.miningAttack -= inventory.slots[itemIndex].item.AttackDamage;
         }
         return;
     }

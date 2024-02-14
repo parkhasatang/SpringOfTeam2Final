@@ -86,8 +86,8 @@ public class FoodItemCombination : MonoBehaviour, IBeginDragHandler, IDropHandle
         yield return new WaitForSeconds(1f);
 
         foodRecipe = new Dictionary<Tuple<int, int>, Item>();
-        foodRecipe.Add(Tuple.Create(1703, 1713), ItemManager.instance.items[1723]);
-        foodRecipe.Add(Tuple.Create(1713, 1703), ItemManager.instance.items[1723]);
+        foodRecipe.Add(Tuple.Create(1703, 1713), ItemManager.instance.items[3723]);
+        foodRecipe.Add(Tuple.Create(1713, 1703), ItemManager.instance.items[3723]);
         Debug.Log(foodRecipe[Tuple.Create(1713, 1703)]);
     }
 

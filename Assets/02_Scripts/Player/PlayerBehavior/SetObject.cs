@@ -38,27 +38,19 @@ public class SetObject : MonoBehaviour, IUsePotion
     {
         for (int i = 0; i < 8; i++)
         {
-            // 퀵슬롯이 선택되었으면 안으로 진입.
+            // 퀵슬롯이 선택되었으면 안으로 진입, 우클릭을 사용할 수 있는 아이템인가
             if ((inventorySlot[i].isChoose == true) && (inventorySlot[i].item != null) && (inventorySlot[i].item.RightClick == true))
             {
-
-                // charactercontroller에서 설치가능한 아이템인지 판단하는게 있는가? 있으면 위에 ItemType으로 구별해주었던 것을 지우고 아래에 판별가능한 bool값을 설정
-                if (inventorySlot[i].stack > 0) // 우클릭을 사용할 수 있는 아이템인가
+                // 갯수가 0이상이면.
+                if (inventorySlot[i].stack > 0)
                 {
-                    // 갯수가 0이상이면.
+                    // 아이템 타입이 벽이라면
                     if (inventorySlot[i].item.ItemType == 1)
                     {
-                        // 벽이라면
-                        if (inventorySlot[i].item.ItemCode == 2101)
-                        {
-                            SetWall(i);
-                        }
-                        else if (inventorySlot[i].item.ItemCode == 2101)
-                        {
-
-                        }
+                        // TODO 나중에 벽마다 들어가는 타입을 다르게 설정.
+                        SetWall(i);
                     }
-                    // 마실 수 있는 것이라면
+                    // 먹을 수 있는 것이라면
                     else if (inventorySlot[i].item.ItemType == 8)
                     {
                         UsePotionForChangeStats(i);
@@ -75,18 +67,23 @@ public class SetObject : MonoBehaviour, IUsePotion
                     {
                         SetWater();
                     }
+                    // 씨앗이라면
+                    else if (inventorySlot[i].item.ItemType == 15)
+                    {
+                        SetSeed(i);
+                    }
                 }
+                break;
             }
             else
             {
-                // 브레이크하면 for문이 중간에 끝나는지?
-                break;
+                continue;
             }
         }
 
     }
 
-    private void SetWall(int i)
+    private void SetWall(int inventoryIndex)
     {
         Vector2 mousPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         float distance = Vector2.Distance(mousPosition, transform.position);
@@ -105,8 +102,8 @@ public class SetObject : MonoBehaviour, IUsePotion
                     tile = tileMapControl.wallTile,
                     HP = 100f
                 };
-                inventorySlot[i].stack--;
-                UIManager.Instance.StackUpdate(i);
+                inventorySlot[inventoryIndex].stack--;
+                UIManager.Instance.StackUpdate(inventoryIndex);
                 // 들고있는 아이템 null로 만들기.
                 equipObject.heldItem.sprite = null;
                 // 벽의 타입이 바꿔지는 것에 따라 TileInfo를 바꿔주자.
@@ -126,8 +123,29 @@ public class SetObject : MonoBehaviour, IUsePotion
             int layer = hit.collider.gameObject.layer;
             if (layer == LayerMask.NameToLayer("Field"))
             {
-                return;
+                Field field = hit.collider.gameObject.GetComponent<Field>();
                 // 나중에 작물이 자라고 있지 않다면. = 자식오브젝트가 꺼져있다면으로 if문 조건 걸어주기.
+                // 자라고 있다면
+                if (field.isGrowing == true)
+                {
+                    // 다 자랐다면
+                    if (field.isGrowFinish)
+                    {
+                        ItemManager.instance.itemPool.ItemSpawn(field.seedData.ItemCode - 40 , hit.point);
+                        field.ReadyHarvest();
+                    }
+                }
+                // 안자라고 있다면.
+                else
+                {
+                    //씨앗이 있다면
+                    if (field.isSeed)
+                    {
+                        ItemManager.instance.itemPool.ItemSpawn(field.seedData.ItemCode, hit.point);
+                    }
+                    // 밭 오브젝트 꺼주기.
+                    hit.collider.gameObject.SetActive(false);
+                }
             }
             else if (layer == LayerMask.NameToLayer("Wall"))
             {
@@ -152,6 +170,30 @@ public class SetObject : MonoBehaviour, IUsePotion
                 if (field.isWatering == false)
                 {
                     field.isWatering = true;
+                    field.CheckIsSeed();
+                }
+            }
+        }
+    }
+
+    private void SetSeed(int inventoryIndex)
+    {
+        Vector2 mousPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        float distance = Vector2.Distance(mousPosition, transform.position);
+
+        if (distance < 2)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(mousPosition, Vector2.zero, 0.1f, 1 << LayerMask.NameToLayer("Field"));
+            if (hit)
+            {
+                Field field = hit.collider.gameObject.GetComponent<Field>();
+                if (field.isSeed == false)
+                {
+                    field.isSeed = true;
+                    field.seedData = inventorySlot[inventoryIndex].item;
+                    inventorySlot[inventoryIndex].stack--;
+                    UIManager.Instance.StackUpdate(inventoryIndex);
+                    field.CheckIsSeed();
                 }
             }
         }

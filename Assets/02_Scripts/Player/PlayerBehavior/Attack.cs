@@ -25,10 +25,6 @@ public class Attack : MonoBehaviour
         controller.OnAttackEvent += PlayerAttack;
         controller.OnAttackEvent += PlayerMining;
     }
-    private void Update()
-    {
-            
-    }
 
     private void PlayerAttack()
     {
