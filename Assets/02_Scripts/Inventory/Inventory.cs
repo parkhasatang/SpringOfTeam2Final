@@ -15,7 +15,6 @@ public class Inventory : MonoBehaviour
             {
                 isEmpty = true,
                 isChoose = false,
-                /*slot.slotObj = invenSlot[i].gameObject;*/
                 item = null,
                 stack = 0
             };

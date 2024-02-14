@@ -5,8 +5,8 @@ using UnityEngine;
 
 public interface IEquipedItem
 {
-    void EquipItemForChangeStats(Item item);
-    void UnEquipItemForChangeStats(Item item);
+    void EquipItemForChangeStats(int itemIndex);
+    void UnEquipItemForChangeStats(int itemIndex);
 }
 
 public interface IUsePotion
