@@ -47,7 +47,7 @@ public class Attack : MonoBehaviour
                 if (enemyHealth != null)
                 {
                     enemyHealth.ChangeMHealth(-statsHandler.CurrentStats.attackDamage);
-                    UIManager.Instance.spawnDamageUI.SpawndamageTxt(collider.transform.position, statsHandler.CurrentStats.attackDamage);
+                    UIManager.Instance.spawnDamageUI.SpawndamageTxt(collider.transform.position, statsHandler.CurrentStats.attackDamage);   
                     Debug.Log(statsHandler.CurrentStats.attackDamage + " 데미지 입힘");
                 }
             }
