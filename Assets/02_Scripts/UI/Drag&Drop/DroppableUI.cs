@@ -18,7 +18,6 @@ public class DroppableUI : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag.GetComponent<Image>().sprite != null)
         {
-            Debug.Log("드롭일어남");
             // 데이터 임시저장소에 올리기.
             UIManager.Instance.takeTemporaryItemData = UIManager.Instance.playerInventoryData.slots[inventoryIndex].item;
             UIManager.Instance.takeTemporaryItemStack = UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack;

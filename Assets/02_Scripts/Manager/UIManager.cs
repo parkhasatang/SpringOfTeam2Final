@@ -33,6 +33,13 @@ public class UIManager : MonoBehaviour
     public int takeTemporaryItemStack;
     public int giveTemporaryItemStack;
 
+    //장비창 텍스트
+    public TextMeshProUGUI playerStatHP;
+    public TextMeshProUGUI playerStatATK;
+    public TextMeshProUGUI playerStatDEF;
+    public TextMeshProUGUI playerStatMOV;
+    public TextMeshProUGUI playerStatSight;
+
     private void Awake()
     {
         Instance = this;
@@ -68,5 +75,16 @@ public class UIManager : MonoBehaviour
             playerInventoryData.invenSlot[indexOfInventory].OnOffImage(1f);
         }
         playerInventoryData.invenSlot[indexOfInventory].ItemStackUIRefresh(playerInventoryData.slots[indexOfInventory].stack);
+    }
+
+    public void UpdatePlayerStatTxt()
+    {
+        CharacterStatHandler statHandler = Player.GetComponent<CharacterStatHandler>();
+        playerStatHP.text = statHandler.CurrentStats.maxHP.ToString();
+        playerStatATK.text = statHandler.CurrentStats.attackDamage.ToString();
+        playerStatDEF.text = statHandler.CurrentStats.defense.ToString();
+        playerStatMOV.text = statHandler.CurrentStats.speed.ToString();
+        playerStatSight.text = 1.ToString();
+        
     }
 }

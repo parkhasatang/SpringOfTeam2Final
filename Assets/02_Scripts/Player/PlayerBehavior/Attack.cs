@@ -27,8 +27,7 @@ public class Attack : MonoBehaviour
     }
 
     private void PlayerAttack()
-    {
-        Debug.Log(statsHandler.CurrentStats.attackDamage);
+    {       
         Quaternion playerRotation = transform.rotation;
         Vector2 forwardDirection = playerRotation * Vector3.up;
         Vector2 playerPosition = transform.position;

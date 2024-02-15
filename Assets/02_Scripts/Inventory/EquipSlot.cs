@@ -21,6 +21,8 @@ public class EquipSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
     private RectTransform uiItemTransform;
     private CanvasGroup itemImg;
 
+    public bool playerIsEquiped;
+
     private void Awake()
     {
         slotNum = GetComponentInParent<SlotNum>();
@@ -33,6 +35,7 @@ public class EquipSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
     private void Start()
     {
         SetEquipDefaultImg();
+        UIManager.Instance.UpdatePlayerStatTxt();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -75,7 +78,9 @@ public class EquipSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 
             itemImg.alpha = 1f;
             slotNum.ChangeInventoryImage(equipItemData.ItemCode);
-            slotNum.ItemStackUIRefresh(equipSlotStack);
+            slotNum.ItemStackUIRefresh(equipSlotStack);            
+            EquipManager.Instance.UpdatePlayerStat();    
+            UIManager.Instance.UpdatePlayerStatTxt();
         }
         // 맞는 타입의 아이템을 드롭안한다면.
         else
