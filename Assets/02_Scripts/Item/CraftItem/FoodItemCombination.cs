@@ -86,9 +86,22 @@ public class FoodItemCombination : MonoBehaviour, IBeginDragHandler, IDropHandle
         yield return new WaitForSeconds(1f);
 
         foodRecipe = new Dictionary<Tuple<int, int>, Item>();
-        foodRecipe.Add(Tuple.Create(1703, 1713), ItemManager.instance.items[3723]);
-        foodRecipe.Add(Tuple.Create(1713, 1703), ItemManager.instance.items[3723]);
-        Debug.Log(foodRecipe[Tuple.Create(1713, 1703)]);
+        foodRecipe.Add(Tuple.Create(1712, 1712), ItemManager.instance.items[3710]);
+        foodRecipe.Add(Tuple.Create(1713, 1712), ItemManager.instance.items[3709]);
+        foodRecipe.Add(Tuple.Create(1712, 1713), ItemManager.instance.items[3709]);
+        foodRecipe.Add(Tuple.Create(1713, 1713), ItemManager.instance.items[3708]);
+        foodRecipe.Add(Tuple.Create(1714, 1712), ItemManager.instance.items[3707]);
+        foodRecipe.Add(Tuple.Create(1712, 1714), ItemManager.instance.items[3707]);
+        foodRecipe.Add(Tuple.Create(1713, 1714), ItemManager.instance.items[3706]);
+        foodRecipe.Add(Tuple.Create(1714, 1713), ItemManager.instance.items[3706]);
+        foodRecipe.Add(Tuple.Create(1714, 1714), ItemManager.instance.items[3705]);
+        foodRecipe.Add(Tuple.Create(1715, 1712), ItemManager.instance.items[3704]);
+        foodRecipe.Add(Tuple.Create(1712, 1715), ItemManager.instance.items[3704]);
+        foodRecipe.Add(Tuple.Create(1713, 1715), ItemManager.instance.items[3703]);
+        foodRecipe.Add(Tuple.Create(1715, 1713), ItemManager.instance.items[3703]);
+        foodRecipe.Add(Tuple.Create(1715, 1714), ItemManager.instance.items[3702]);
+        foodRecipe.Add(Tuple.Create(1714, 1715), ItemManager.instance.items[3702]);
+        foodRecipe.Add(Tuple.Create(1715, 1715), ItemManager.instance.items[3701]);
     }
 
 }
