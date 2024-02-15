@@ -29,7 +29,7 @@ public class DroppableUI : MonoBehaviour, IDropHandler
             UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = UIManager.Instance.giveTemporaryItemStack;
             UIManager.Instance.giveTemporaryItemData = null;
             UIManager.Instance.giveTemporaryItemStack = 0;
-
+            EquipManager.Instance.UpdatePlayerStat();
         }
         // 이미지 처리
         UIManager.Instance.StackUpdate(inventoryIndex);
