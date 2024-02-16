@@ -6,6 +6,7 @@ public class CraftItemUI : MonoBehaviour
 {
     // CanvasGroup의 BlockRaycats를 활용하여 Drag & Drop으로 가져갈려고 BlockRaycats만 켜주면 가져갈 수 있게 해준다.
     [SerializeField] private CanvasGroup[] craftItem;
+    private Dictionary<int, CanvasGroup> craftItemOrder;
 
     internal List<int> stuffGather;
     internal int inventoryLength;
@@ -13,6 +14,12 @@ public class CraftItemUI : MonoBehaviour
     private void Awake()
     {
         inventoryLength = UIManager.Instance.playerInventoryData.invenSlot.Length - 3;
+        // CraftItemDrag.cs에서 인스펙터창에서 정해진 ItemCode를 키값에 저장하고 해당 인덱스의 CanvasGroup을 넣어준다.
+        for (int i = 0; i < craftItem.Length; i++)
+        {
+            int craftItemDragItemCode = craftItem[i].GetComponent<CraftItemDrag>().itemCode;
+            craftItemOrder.Add(craftItemDragItemCode, craftItem[i]);
+        }
     }
 
     private void OnEnable()
@@ -46,30 +53,6 @@ public class CraftItemUI : MonoBehaviour
         CraftingRecipe();
     }
 
-    public void CraftingRecipe()
-    {
-        Debug.Log("레시피 검토");
-        if (stuffGather.Contains(3011) && stuffGather.Contains(3101))
-        {
-            Debug.Log("레시피 있음.");
-            // 스택 필요도 보다 많을 때, 아이템 활성화
-            if (CheckStackAmount(3011, 1) && CheckStackAmount(3101, 1))
-            {
-                Debug.Log("검 활성화");
-                craftItem[0].alpha = 1f;
-                craftItem[0].blocksRaycasts = true;
-            }
-        }
-        if (stuffGather.Contains(3011) && stuffGather.Contains(3101) && stuffGather.Contains(3001))
-        {
-            if (CheckStackAmount(3011, 1) && CheckStackAmount(3101, 1) && CheckStackAmount(3001, 1))
-            {
-                Debug.Log("곡괭이 활성화");
-                craftItem[1].alpha = 1f;
-                craftItem[1].blocksRaycasts = true;
-            }
-        }
-    }
 
     // 스택 검사.
     public bool CheckStackAmount(int itemCode, int requiredStack)
@@ -87,5 +70,89 @@ public class CraftItemUI : MonoBehaviour
             }
         }
         return false;
+    }
+    public void CraftingRecipe()
+    {
+        Debug.Log("레시피 검토");
+        if (stuffGather.Contains(3011) && stuffGather.Contains(3101))
+        {
+            // 스택 필요도 보다 많을 때, 아이템 활성화
+            if (CheckStackAmount(3011, 1) && CheckStackAmount(3101, 2))
+            {
+                Debug.Log("검 활성화");
+                SetCraftItemImage(1001);
+            }
+        }
+        if (stuffGather.Contains(3011) && stuffGather.Contains(3101) && stuffGather.Contains(3001))
+        {
+            if (CheckStackAmount(3011, 1) && CheckStackAmount(3101, 3) && CheckStackAmount(3001, 1))
+            {
+                Debug.Log("곡괭이 활성화");
+                SetCraftItemImage(1301);
+            }
+        }
+        if (stuffGather.Contains(3101))
+        {
+            if (CheckStackAmount(3101, 4))
+            {
+                Debug.Log("구리 투구 활성화");
+                SetCraftItemImage(1401);
+            }
+            else if (CheckStackAmount(3101, 5))
+            {
+                Debug.Log("구리 갑옷 활성화");
+                SetCraftItemImage(1501);
+            }
+            else if (CheckStackAmount(3101, 3))
+            {
+                Debug.Log("구리 신발 활성화");
+                SetCraftItemImage(1601);
+            }
+        }
+        if (stuffGather.Contains(1001) && stuffGather.Contains(3102))
+        {
+            if (CheckStackAmount(1001, 1) && CheckStackAmount(3102, 4))
+            {
+                Debug.Log("철검 활성화");
+                SetCraftItemImage(1002);
+            }
+        }
+        if (stuffGather.Contains(1301) && stuffGather.Contains(3102))
+        {
+            if (CheckStackAmount(1301, 1) && CheckStackAmount(3102, 5))
+            {
+                Debug.Log("철곡괭이 활성화");
+                SetCraftItemImage(1302);
+            }
+        }
+        if (stuffGather.Contains(3102))
+        {
+            if (CheckStackAmount(3102, 4))
+            {
+                Debug.Log("철 투구 활성화");
+                SetCraftItemImage(1402);
+            }
+            else if (CheckStackAmount(3102, 5))
+            {
+                Debug.Log("철 갑옷 활성화");
+                SetCraftItemImage(1502);
+            }
+            else if (CheckStackAmount(3102, 3))
+            {
+                Debug.Log("철 신발 활성화");
+                SetCraftItemImage(1602);
+            }
+        }
+    }
+
+
+    private void SetCraftItemImage(int itemCode)
+    {
+        if (craftItemOrder.ContainsKey(itemCode))
+        {
+            craftItemOrder[itemCode].alpha = 1f;
+            craftItemOrder[itemCode].blocksRaycasts = true;
+        }
+        else Debug.Log("지원스승님 만세");
     }
 }
