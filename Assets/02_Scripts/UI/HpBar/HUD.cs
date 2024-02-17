@@ -9,11 +9,14 @@ public class HUD : MonoBehaviour
 {
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Slider hungerSlider;
+    [SerializeField] private Slider easeHealthSlider;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI hungerText;
     [SerializeField] private GameObject noHungerUI;
     private HealthSystem healthSystemInstance;
     private CharacterStatHandler statHandler;
+
+    private float lerfpSpeed = 0.05f;
     private float speed1;
     private float speed2;
     
@@ -57,7 +60,6 @@ public class HUD : MonoBehaviour
         UpdateHealthText();
         UpdateHungerText();
     }
-
     private void UpdateHealthSlider()
     {
         if (healthSlider != null && healthSystemInstance != null)
@@ -65,6 +67,11 @@ public class HUD : MonoBehaviour
             float maxHealth = healthSystemInstance.MaxHealth;
             float currentHealth = healthSystemInstance.CurrentHealth;
             healthSlider.value = currentHealth / maxHealth;
+            
+            if(healthSlider.value  != easeHealthSlider.value)
+            {
+                easeHealthSlider.value = Mathf.Lerp(easeHealthSlider.value, currentHealth / maxHealth, lerfpSpeed);
+            }
         }
     }
 
