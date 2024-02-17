@@ -14,7 +14,7 @@ public class SpawnDamageUI : MonoBehaviour
         damageTxtPools = new List<GameObject>();
         for(int i= 0; i<3; i++)
         {
-            GameObject damageTxt = Instantiate(damageTxtPrefab);
+            GameObject damageTxt = Instantiate(damageTxtPrefab);            
             damageTxt.SetActive(false);
             damageTxtPools.Add(damageTxt);
 
@@ -36,7 +36,7 @@ public class SpawnDamageUI : MonoBehaviour
             {
                 _damageTxt = Txt;
                 _damageTxt.GetComponent<PlayerDamageUI>().damage = change;
-                _damageTxt.transform.position = MonsterPos + new Vector3(0,1f,0);
+                _damageTxt.transform.position = MonsterPos + new Vector3(0,1f,0);                
                 Txt.SetActive(true);
                 Debug.Log("나타나기");
                 break;                
