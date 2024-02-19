@@ -37,7 +37,7 @@ public class Attack : MonoBehaviour
             HealthSystem enemyHealth = hit.collider.GetComponent<HealthSystem>();
             if(enemyHealth != null)
             {
-                enemyHealth.ChangeMHealth(statsHandler.CurrentStats.attackDamage);
+                enemyHealth.ChangeMHealth(-statsHandler.CurrentStats.attackDamage);
                 UIManager.Instance.spawnDamageUI.SpawndamageTxt(hit.collider.transform.position, statsHandler.CurrentStats.attackDamage);
             }
         }
