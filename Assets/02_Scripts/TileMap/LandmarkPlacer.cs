@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class LandmarkPlacer : MonoBehaviour
 {
-    public GameObject landmarkPrefab;
+    public GameObject[] forestLandmarks; // 숲 지역에 배치할 랜드마크 배열
+    public GameObject[] caveLandmarks; // 동굴 지역에 배치할 랜드마크 배열
     public WorldGenerator worldGenerator;
     public float landmarkThreshold = 0.8f;
 
@@ -26,7 +27,22 @@ public class LandmarkPlacer : MonoBehaviour
                 if (noiseValue > landmarkThreshold)
                 {
                     Vector3 position = new Vector3(x - worldGenerator.mapWidth / 2, 0, y - worldGenerator.mapHeight / 2);
-                    Instantiate(landmarkPrefab, position, Quaternion.identity);
+                    GameObject[] landmarkArray = null;
+
+                    if (worldGenerator.themeMap[x, y] == 0) // 숲 지역
+                    {
+                        landmarkArray = forestLandmarks;
+                    }
+                    else if (worldGenerator.themeMap[x, y] == 1) // 동굴 지역
+                    {
+                        landmarkArray = caveLandmarks;
+                    }
+
+                    if (landmarkArray != null && landmarkArray.Length > 0)
+                    {
+                        GameObject landmarkPrefab = landmarkArray[Random.Range(0, landmarkArray.Length)];
+                        Instantiate(landmarkPrefab, position, Quaternion.identity);
+                    }
                 }
             }
         }
