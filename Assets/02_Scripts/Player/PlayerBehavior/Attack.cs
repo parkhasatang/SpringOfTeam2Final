@@ -28,25 +28,38 @@ public class Attack : MonoBehaviour
 
     private void PlayerAttack()
     {       
-        Quaternion playerRotation = transform.rotation;
-        Vector2 forwardDirection = playerRotation * Vector3.up;
-        Vector2 playerPosition = transform.position;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerPosition + forwardDirection * attackRange, attackRange);
+        Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (Vector3)mousePosition - gameObject.transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 2f, 1<<7);
 
-        foreach (Collider2D collider in colliders)
+        if (hit)
         {
-            if (collider.gameObject.CompareTag("Monster") || collider.gameObject.CompareTag("Boss"))
+            HealthSystem enemyHealth = hit.collider.GetComponent<HealthSystem>();
+            if(enemyHealth != null)
             {
-                HealthSystem enemyHealth = collider.GetComponent<HealthSystem>();
-
-                if (enemyHealth != null)
-                {
-                    enemyHealth.ChangeMHealth(-statsHandler.CurrentStats.attackDamage);
-                    UIManager.Instance.spawnDamageUI.SpawndamageTxt(collider.transform.position, statsHandler.CurrentStats.attackDamage);   
-                    Debug.Log(statsHandler.CurrentStats.attackDamage + " µ•πÃ¡ˆ ¿‘»˚");
-                }
+                enemyHealth.ChangeMHealth(statsHandler.CurrentStats.attackDamage);
+                UIManager.Instance.spawnDamageUI.SpawndamageTxt(hit.collider.transform.position, statsHandler.CurrentStats.attackDamage);
             }
         }
+        //Quaternion playerRotation = transform.rotation;
+        //Vector2 forwardDirection = playerRotation * Vector3.up;
+        //Vector2 playerPosition = transform.position;
+        //Collider2D[] colliders = Physics2D.OverlapCircleAll(playerPosition + forwardDirection * attackRange, attackRange);
+
+        //foreach (Collider2D collider in colliders)
+        //{
+        //    if (collider.gameObject.CompareTag("Monster") || collider.gameObject.CompareTag("Boss"))
+        //    {
+        //        HealthSystem enemyHealth = collider.GetComponent<HealthSystem>();
+
+        //        if (enemyHealth != null)
+        //        {
+        //            enemyHealth.ChangeMHealth(-statsHandler.CurrentStats.attackDamage);
+        //            UIManager.Instance.spawnDamageUI.SpawndamageTxt(collider.transform.position, statsHandler.CurrentStats.attackDamage);   
+        //            Debug.Log(statsHandler.CurrentStats.attackDamage + " µ•πÃ¡ˆ ¿‘»˚");
+        //        }
+        //    }
+        //}
         playerAnimator.SetTrigger("Attack");
     }
 
