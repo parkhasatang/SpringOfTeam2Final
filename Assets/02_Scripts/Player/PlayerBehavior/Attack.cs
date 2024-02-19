@@ -71,7 +71,12 @@ public class Attack : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1.5f, 1 << 6);
         if (hit)
         {
-            Vector3Int cellPosition = TilemapManager.instance.tilemap.WorldToCell(hit.point);
+            float extraDistance = 0.1f;
+            Vector2 innerPoint = hit.point + (direction.normalized * extraDistance);
+            Vector2 middlePoint = (hit.point + innerPoint) / 2;
+
+            Vector3Int cellPosition = TilemapManager.instance.tilemap.WorldToCell(middlePoint);
+            Debug.Log(cellPosition);
             if (cellPosition == null)
             {
                 return;
