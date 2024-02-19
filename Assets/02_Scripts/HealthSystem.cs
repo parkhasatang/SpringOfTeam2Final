@@ -120,7 +120,6 @@ public class HealthSystem : MonoBehaviour
         if (CurrentMHealth <= 0f)
         {
             OnDeath?.Invoke();
-            Destroy(gameObject);
             Debug.Log("ав╬З╢ы.");
         }
         return true;
