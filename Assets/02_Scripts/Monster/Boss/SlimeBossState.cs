@@ -162,14 +162,15 @@ private IEnumerator JumpAttack(float jumpHeight, System.Action onLanded)
         float damageRadius = myCollider.bounds.size.x;
 
         HealthSystem playerHealth = player.GetComponent<HealthSystem>();
-
+        CharacterStatHandler playerStatHandler = player.GetComponent<CharacterStatHandler>();
         if (playerHealth != null)
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
 
             if (distanceToPlayer <= damageRadius)
             {
-                playerHealth.ChangeHealth(-jumpAttackDamage);
+                float realjumpAttackDamage = (100 - playerStatHandler.CurrentStats.defense) / 100 * jumpAttackDamage;
+                playerHealth.ChangeHealth(-realjumpAttackDamage);
                 Debug.Log("점프 데미지 받았다.");
             }
         }

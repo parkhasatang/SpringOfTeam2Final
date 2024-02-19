@@ -7,11 +7,13 @@ using UnityEngine.UIElements;
 
 public class HealthSystem : MonoBehaviour
 {
+    private Animator _animator;
+
     [SerializeField] private float healthChangeDelay = .5f;  
 
     private CharacterStatHandler _statusHandler;
     private float _healthLastChange = float.MaxValue;
-
+    
     public float CurrentHealth { get; private set; }
     public float CurrentMHealth { get; private set; }
     public float CurrentHunger { get; private set; }
@@ -28,6 +30,7 @@ public class HealthSystem : MonoBehaviour
     private void Awake()
     {
         _statusHandler = GetComponent<CharacterStatHandler>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -56,7 +59,10 @@ public class HealthSystem : MonoBehaviour
 
         if (change < 0 && CurrentHealth > 0)
         {
-           
+           if(_animator != null)
+            {
+                _animator.SetTrigger("Hit");
+}
             OnDamage?.Invoke();
         }
         else if (change > 0)
@@ -90,6 +96,7 @@ public class HealthSystem : MonoBehaviour
         {
             yield return new WaitForSeconds(5f);
             ChangeHunger(change);
+            Debug.Log(change);            
         }
     }
     public bool ChangeMHealth(float change)

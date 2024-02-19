@@ -9,9 +9,13 @@ public class BossHPManager : MonoBehaviour
 {
     [SerializeField] private GameObject BossHPUI;
     [SerializeField] private Slider BossHPBar;
+    [SerializeField] private Slider BossEaseBar;
     [SerializeField] private TextMeshProUGUI BossName;
     private GameObject SlimeBoss;
     private HealthSystem bossHealthSystem;
+    private float lerpSpeed = 0.05f;
+    private float CurrentHealth;
+    private float MaxHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +23,19 @@ public class BossHPManager : MonoBehaviour
         bossHealthSystem = SlimeBoss.GetComponent<HealthSystem>();
         BossHPBar.value = bossHealthSystem.MonsterMaxHealth;
         BossName.text = SlimeBoss.name;
-        bossHealthSystem.OnDamage += BossHPChanger;
+        bossHealthSystem.OnDamage += OnDamageBoss;
         bossHealthSystem.OnDeath += BossHPZero;
+
+        float CurrentHealth = bossHealthSystem.CurrentMHealth;
+        float MaxHealth = bossHealthSystem.MonsterMaxHealth;
+        BossEaseBar.value = 1;
+        BossHPBar.value = CurrentHealth / MaxHealth;
     }
 
+    private void Update()
+    {
+        OnChangeBossHP();
+    }
     private void BossHPZero()
     {
         BossHPUI.SetActive(false);
@@ -31,11 +44,20 @@ public class BossHPManager : MonoBehaviour
 
     // Update is called once per frame    
 
-    private void BossHPChanger()
+    private void OnDamageBoss()
     {
-        Debug.Log(BossHPBar.value + "남았습니다 공격을 지속하세요");
         BossHPUI.SetActive(true);
-        BossHPBar.value = bossHealthSystem.CurrentMHealth/bossHealthSystem.MonsterMaxHealth;
     }
+    private void OnChangeBossHP()
+    {
+        float CurrentHealth = bossHealthSystem.CurrentMHealth;
+        float MaxHealth = bossHealthSystem.MonsterMaxHealth;        
+        BossHPBar.value = CurrentHealth / MaxHealth;
+        if (BossEaseBar.value != BossHPBar.value)
+        {
+            BossEaseBar.value = Mathf.Lerp(BossEaseBar.value, CurrentHealth / MaxHealth, lerpSpeed);
+        }
+    }
+
 
 }

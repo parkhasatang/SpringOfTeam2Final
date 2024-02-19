@@ -33,24 +33,19 @@ public class UIManager : MonoBehaviour
     public int takeTemporaryItemStack;
     public int giveTemporaryItemStack;
 
+    //장비창 텍스트
+    public TextMeshProUGUI playerStatHP;
+    public TextMeshProUGUI playerStatATK;
+    public TextMeshProUGUI playerStatDEF;
+    public TextMeshProUGUI playerStatMOV;
+    public TextMeshProUGUI playerStatSight;
+
     private void Awake()
     {
         Instance = this;
 
-        //playerHealthSystem = Player.GetComponent<HealthSystem>();
-        //playerHealthSystem.OnDamage += UpdateUI;
-        //playerHealthSystem.OnHeal += UpdateUI;
-    }
 
-    private void UpdateUI()
-    {
-        HPSlider.value = playerHealthSystem.CurrentHealth / playerHealthSystem.MaxHealth;
-        HpTxt.text = playerHealthSystem.CurrentHealth.ToString() + "/" + playerHealthSystem.MaxHealth.ToString();
-
-        HungerSilder.value = playerHealthSystem.CurrentHunger / playerHealthSystem.MaxHunger;
-        HungerTxt.text = playerHealthSystem.CurrentHunger.ToString() + "/" + playerHealthSystem.MaxHealth.ToString();
-
-    }
+    } 
 
     public void StackUpdate(int indexOfInventory)
     {
@@ -68,5 +63,16 @@ public class UIManager : MonoBehaviour
             playerInventoryData.invenSlot[indexOfInventory].OnOffImage(1f);
         }
         playerInventoryData.invenSlot[indexOfInventory].ItemStackUIRefresh(playerInventoryData.slots[indexOfInventory].stack);
+    }
+
+    public void UpdatePlayerStatTxt()
+    {
+        CharacterStatHandler statHandler = Player.GetComponent<CharacterStatHandler>();
+        playerStatHP.text = statHandler.CurrentStats.maxHP.ToString();
+        playerStatATK.text = statHandler.CurrentStats.attackDamage.ToString();
+        playerStatDEF.text = statHandler.CurrentStats.defense.ToString();
+        playerStatMOV.text = statHandler.CurrentStats.speed.ToString();
+        playerStatSight.text = 1.ToString();
+        
     }
 }

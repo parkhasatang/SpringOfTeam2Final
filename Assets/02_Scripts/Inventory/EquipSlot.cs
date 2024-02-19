@@ -10,7 +10,7 @@ public class EquipSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
     public int equipSlotStack;
     private Item previousItemData;
 
-    internal int receiveItemType;
+    [SerializeField] internal int receiveItemType;
 
     private SlotNum slotNum;
 
@@ -20,6 +20,8 @@ public class EquipSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
     private Transform previousParent;
     private RectTransform uiItemTransform;
     private CanvasGroup itemImg;
+
+    public bool playerIsEquiped;
 
     private void Awake()
     {
@@ -33,6 +35,7 @@ public class EquipSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
     private void Start()
     {
         SetEquipDefaultImg();
+        UIManager.Instance.UpdatePlayerStatTxt();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -49,16 +52,17 @@ public class EquipSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
         equipSlotStack = 0;
 
         itemImg.alpha = 0.6f;
-        itemImg.blocksRaycasts = false;
+        itemImg.blocksRaycasts = false;        
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        uiItemTransform.position = eventData.position;
+        uiItemTransform.position = eventData.position;        
     }
 
     public void OnDrop(PointerEventData eventData)
     {
+        
         if (UIManager.Instance.giveTemporaryItemData.ItemType == receiveItemType)
         {
             // 먼저 데이터 올리고
@@ -75,11 +79,13 @@ public class EquipSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
 
             itemImg.alpha = 1f;
             slotNum.ChangeInventoryImage(equipItemData.ItemCode);
-            slotNum.ItemStackUIRefresh(equipSlotStack);
+            slotNum.ItemStackUIRefresh(equipSlotStack);            
+            EquipManager.Instance.UpdatePlayerStat();           
+            UIManager.Instance.UpdatePlayerStatTxt();
         }
         // 맞는 타입의 아이템을 드롭안한다면.
         else
-        {
+        {            
             // 장비창에 아이템이 있다면
             if (equipSlotStack != 0)
             {
@@ -125,7 +131,7 @@ public class EquipSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
         {
             slotNum.itemImage.sprite = defaultSprite;
             itemImg.alpha = 0.5f;
-        }
+        }        
     }
 
     private void SetEquipDefaultImg()

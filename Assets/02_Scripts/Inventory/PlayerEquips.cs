@@ -10,7 +10,7 @@ public class PlayerEquips : MonoBehaviour
     {
         for (int i = 3; i < equipSlot.Length + 3; i++)
         {
-            equipSlot[i - 3].receiveItemType = i;
+            equipSlot[i - 3].receiveItemType = i;           
         }
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8572028951710485917}
   - component: {fileID: 3449621156543931452}
   - component: {fileID: 606836822901107693}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DamageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8880568647644967718, guid: bc1931720a70aec4b904ec320248582c, type: 2}
+  - {fileID: 4171988628164137382, guid: f8c3ef58974e86344ba9ca08eedab08d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +79,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &3449621156543931452
 MonoBehaviour:
@@ -103,8 +103,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bc1931720a70aec4b904ec320248582c, type: 2}
-  m_sharedMaterial: {fileID: 8880568647644967718, guid: bc1931720a70aec4b904ec320248582c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f8c3ef58974e86344ba9ca08eedab08d, type: 2}
+  m_sharedMaterial: {fileID: 4171988628164137382, guid: f8c3ef58974e86344ba9ca08eedab08d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -112,12 +112,12 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278190330
   m_fontColor: {r: 0.9811321, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
+  m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 0, g: 0, b: 0, a: 1}
+    bottomLeft: {r: 0.31132078, g: 0.21880564, b: 0.21880564, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
