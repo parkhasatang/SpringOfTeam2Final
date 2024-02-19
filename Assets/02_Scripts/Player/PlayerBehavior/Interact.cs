@@ -7,7 +7,7 @@ using UnityEngine;
 public class Interact : MonoBehaviour
 {
     private CharacterController controller;
-    public Collider2D rangebox;
+    public Collider2D player;
     private bool deactiveTabKey;
     /*private Dictionary<string, GameObject> interactiveUIs = new Dictionary<string, GameObject>();*/
 
@@ -42,11 +42,7 @@ public class Interact : MonoBehaviour
         }
     }
 
-    //private void PlayerInteract()
-    //{
-    //    OnTriggerStay2D(rangebox);
-    //}
-
+    
     private void OnTriggerStay2D(Collider2D collision)
     {       
         if (controller.IsInteracting && collision.CompareTag("InteractionObject"))
@@ -65,6 +61,12 @@ public class Interact : MonoBehaviour
                 CookUI.SetActive(true);
                 inventoryObject.SetActive(true);
                 controller.CanControllCharacter = false;
+            }
+
+            else if (ObjectName == "TreasureBox")
+            {
+                TreasureBox box = collision.GetComponent<TreasureBox>();
+                box.OpenTreasureBox();
             }
             /*string Name = collision.gameObject.name;
 
