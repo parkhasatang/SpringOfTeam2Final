@@ -62,6 +62,7 @@ public class HealthSystem : MonoBehaviour
            if(_animator != null)
             {
                 _animator.SetTrigger("Hit");
+                AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerDamage);
 }
             OnDamage?.Invoke();
         }
@@ -110,6 +111,7 @@ public class HealthSystem : MonoBehaviour
         if (change < 0 && CurrentMHealth > 0)
         {
             OnDamage?.Invoke();
+            AudioManager.instance.PlaySffx(AudioManager.Sfx.MonsterDamage);
             Debug.Log("데미지를 입었다");
         }
         else if (change > 0)

@@ -54,6 +54,7 @@ public class SetObject : MonoBehaviour, IUsePotion
                     else if (inventorySlot[i].item.ItemType == 8)
                     {
                         UsePotionForChangeStats(i);
+                        AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerEat);
                     }
                     // ±ªÀÌ¶ó¸é
                     else if (inventorySlot[i].item.ItemType == 13)
@@ -61,11 +62,13 @@ public class SetObject : MonoBehaviour, IUsePotion
                         // ¹çÀ¸ ¼ÒÈ¯ÇÏ´Â ·ÎÁ÷ ÇÊ¿ä
                         Debug.Log("¹ç¼ÒÈ¯");
                         SetField();
+                        AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerHarvest);
                     }
                     // ¹°»Ñ¸®°³
                     else if (inventorySlot[i].item.ItemType == 14)
                     {
                         SetWater();
+                        AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerPulling);
                     }
                     // ¾¾¾ÑÀÌ¶ó¸é
                     else if (inventorySlot[i].item.ItemType == 15)
@@ -168,7 +171,7 @@ public class SetObject : MonoBehaviour, IUsePotion
             {
                 Field field = hit.collider.gameObject.GetComponent<Field>();
                 if (field.isWatering == false)
-                {
+                {                    
                     field.isWatering = true;
                     field.CheckIsSeed();
                 }
@@ -205,7 +208,7 @@ public class SetObject : MonoBehaviour, IUsePotion
         {
             MaxCoolTime = 0;
             healthSystem.ChangeHealth(inventorySlot[i].item.HP);
-            healthSystem.ChangeHunger(inventorySlot[i].item.Hunger);
+            healthSystem.ChangeHunger(inventorySlot[i].item.Hunger);            
             UIManager.Instance.playerInventoryData.slots[i].stack--;
             UIManager.Instance.StackUpdate(i);
         }             

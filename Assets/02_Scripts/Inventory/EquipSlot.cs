@@ -82,6 +82,7 @@ public class EquipSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHa
             slotNum.ItemStackUIRefresh(equipSlotStack);            
             EquipManager.Instance.UpdatePlayerStat();           
             UIManager.Instance.UpdatePlayerStatTxt();
+            AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerEquip);
         }
         // 맞는 타입의 아이템을 드롭안한다면.
         else
