@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class LandmarkPlacer : MonoBehaviour
 {
-    public GameObject landmarkPrefab;
+    public GameObject[] forestLandmarks;
+    public GameObject[] caveLandmarks;
     public WorldGenerator worldGenerator;
-    public float landmarkThreshold = 0.8f;
+    public float landmarkPlacementThreshold = 0.8f; // 랜드마크 배치를 위한 임계값
 
     void Start()
     {
@@ -23,8 +24,12 @@ public class LandmarkPlacer : MonoBehaviour
             for (int y = 0; y < worldGenerator.mapHeight; y++)
             {
                 float noiseValue = Mathf.PerlinNoise(x * worldGenerator.noiseScale * 2, y * worldGenerator.noiseScale * 2);
-                if (noiseValue > landmarkThreshold)
+                if (noiseValue > landmarkPlacementThreshold)
                 {
+                    GameObject[] landmarkArray = worldGenerator.themeMap[x, y] == 0 ? forestLandmarks : caveLandmarks;
+                    if (landmarkArray.Length == 0) continue;
+
+                    GameObject landmarkPrefab = landmarkArray[Random.Range(0, landmarkArray.Length)];
                     Vector3 position = new Vector3(x - worldGenerator.mapWidth / 2, 0, y - worldGenerator.mapHeight / 2);
                     Instantiate(landmarkPrefab, position, Quaternion.identity);
                 }
