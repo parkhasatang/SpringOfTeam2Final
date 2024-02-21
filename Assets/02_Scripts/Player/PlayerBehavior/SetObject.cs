@@ -103,7 +103,7 @@ public class SetObject : MonoBehaviour, IUsePotion
                     HP = 100f
                 };
                 inventorySlot[inventoryIndex].stack--;
-                UIManager.Instance.StackUpdate(inventoryIndex);
+                UIManager.Instance.playerInventoryData.StackUpdate(inventoryIndex);
                 // 들고있는 아이템 null로 만들기.
                 equipObject.heldItem.sprite = null;
                 // 벽의 타입이 바꿔지는 것에 따라 TileInfo를 바꿔주자.
@@ -192,7 +192,7 @@ public class SetObject : MonoBehaviour, IUsePotion
                     field.isSeed = true;
                     field.seedData = inventorySlot[inventoryIndex].item;
                     inventorySlot[inventoryIndex].stack--;
-                    UIManager.Instance.StackUpdate(inventoryIndex);
+                    UIManager.Instance.playerInventoryData.StackUpdate(inventoryIndex);
                     field.CheckIsSeed();
                 }
             }
@@ -207,7 +207,7 @@ public class SetObject : MonoBehaviour, IUsePotion
             healthSystem.ChangeHealth(inventorySlot[i].item.HP);
             healthSystem.ChangeHunger(inventorySlot[i].item.Hunger);
             UIManager.Instance.playerInventoryData.slots[i].stack--;
-            UIManager.Instance.StackUpdate(i);
+            UIManager.Instance.playerInventoryData.StackUpdate(i);
         }             
     }
 }

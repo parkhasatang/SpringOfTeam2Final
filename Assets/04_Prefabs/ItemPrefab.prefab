@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7895359188110827075}
   - component: {fileID: 3379974024668302014}
   - component: {fileID: 4052058512677429471}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ItemPrefab
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -159,6 +159,7 @@ MonoBehaviour:
     Name: 
     Description: 
     IsEquip: 0
+    RightClick: 0
 --- !u!114 &4052058512677429471
 MonoBehaviour:
   m_ObjectHideFlags: 0

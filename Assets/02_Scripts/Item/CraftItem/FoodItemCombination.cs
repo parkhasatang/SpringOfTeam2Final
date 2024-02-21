@@ -25,7 +25,7 @@ public class FoodItemCombination : MonoBehaviour, IBeginDragHandler, IDropHandle
     {
         UIManager.Instance.playerInventoryData.slots[28].item = null;
         UIManager.Instance.playerInventoryData.slots[28].stack = 0;
-        UIManager.Instance.StackUpdate(28);
+        UIManager.Instance.playerInventoryData.StackUpdate(28);
         UIManager.Instance.playerInventoryData.invenSlot[28].GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
     }
     public void OnEndDrag(PointerEventData eventData)
@@ -54,7 +54,7 @@ public class FoodItemCombination : MonoBehaviour, IBeginDragHandler, IDropHandle
                     UIManager.Instance.playerInventoryData.slots[28].isEmpty = false;
                     // 등록된 데이터의 ItemCode로 이미지 불러오기.
                     UIManager.Instance.playerInventoryData.slots[28].stack++;
-                    UIManager.Instance.StackUpdate(28);
+                    UIManager.Instance.playerInventoryData.StackUpdate(28);
 
                     UIManager.Instance.playerInventoryData.invenSlot[28].GetComponentInChildren<CanvasGroup>().blocksRaycasts = true;
                 }
@@ -67,7 +67,7 @@ public class FoodItemCombination : MonoBehaviour, IBeginDragHandler, IDropHandle
             {
                 UIManager.Instance.playerInventoryData.slots[28].item = null;
                 UIManager.Instance.playerInventoryData.slots[28].stack = 0;
-                UIManager.Instance.StackUpdate(28);
+                UIManager.Instance.playerInventoryData.StackUpdate(28);
                 UIManager.Instance.playerInventoryData.invenSlot[28].GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
             }
         }
@@ -75,7 +75,7 @@ public class FoodItemCombination : MonoBehaviour, IBeginDragHandler, IDropHandle
         {            
             UIManager.Instance.playerInventoryData.slots[28].item = null;
             UIManager.Instance.playerInventoryData.slots[28].stack = 0;
-            UIManager.Instance.StackUpdate(28);
+            UIManager.Instance.playerInventoryData.StackUpdate(28);
             UIManager.Instance.playerInventoryData.invenSlot[28].GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
         }
     }

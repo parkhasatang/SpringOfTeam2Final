@@ -3511,6 +3511,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: QuestBoard
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 368
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7ae4ef9e2c5b343a7e5d8b8a616d3e
+      internalID: -1821474198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3523,7 +3544,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       ClearStamp: -802825364
-      UI books & more_0: -1464297146
+      QuestBoard: -1464297146
       UI books & more_1: 1516215290
       UI books & more_10: 691117744
       UI books & more_100: -1375218864

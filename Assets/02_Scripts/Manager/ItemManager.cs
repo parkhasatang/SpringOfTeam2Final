@@ -106,20 +106,32 @@ public class ItemManager : MonoBehaviour
         Debug.Log("이미지 로드 완료");
     }
 
-    
-
-    /*public void SpriteMapping() 리펙토링 전
+    // 램덤으로 요구 아이템 생성
+    public Item CreateRandomItemByType(int itemType)
     {
-        for (int i = 0; i < )
-        spriteDictionary.Add(1001, Resources.Load<Sprite>("ItemSprite/1001"));
-        spriteDictionary.Add(1301, Resources.Load<Sprite>("ItemSprite/1301"));
-        spriteDictionary.Add(2101, Resources.Load<Sprite>("ItemSprite/2101"));
-        spriteDictionary.Add(1703, Resources.Load<Sprite>("ItemSprite/1703"));
-        spriteDictionary.Add(1713, Resources.Load<Sprite>("ItemSprite/1713"));
-        spriteDictionary.Add(1723, Resources.Load<Sprite>("ItemSprite/1723"));
-        spriteDictionary.Add(3101, Resources.Load<Sprite>("ItemSprite/3101"));
-        spriteDictionary.Add(3011, Resources.Load<Sprite>("ItemSprite/3011"));
-        spriteDictionary.Add(3001, Resources.Load<Sprite>("ItemSprite/3001"));
-        Debug.Log("이미지 로드 완료");
-    }*/
+        // 리스트 비워주기.
+        List<Item> requestItemList = new List<Item>();
+
+        // ItemManager에 있는 아이템 중에서 ItemType이 8인 아이템을 List에 넣어주기.
+        foreach (Item item in items.Values)
+        {
+            if (item.ItemType == itemType)
+            {
+                requestItemList.Add(item);
+            }
+        }
+
+        // 후보 아이템 중에서 랜덤하게 선택하여 requestItem에 넣어주기.
+        Item resultItem;
+
+        if (requestItemList.Count > 0)
+        {
+            resultItem = requestItemList[Random.Range(0, requestItemList.Count)];
+        }
+        else
+        {
+            resultItem = null;
+        }
+        return resultItem;
+    }
 }

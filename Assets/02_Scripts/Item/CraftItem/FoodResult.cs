@@ -29,7 +29,7 @@ public class FoodResult : MonoBehaviour
             {
                 UIManager.Instance.playerInventoryData.slots[i].item = UIManager.Instance.giveTemporaryItemData;
                 UIManager.Instance.playerInventoryData.slots[i].stack += UIManager.Instance.giveTemporaryItemStack;
-                UIManager.Instance.StackUpdate(i);
+                UIManager.Instance.playerInventoryData.StackUpdate(i);
 
 
                 UIManager.Instance.giveTemporaryItemData = null;
@@ -43,7 +43,7 @@ public class FoodResult : MonoBehaviour
         {
             itemImg.blocksRaycasts = false;
             UIManager.Instance.playerInventoryData.slots[28].stack = 0;
-            UIManager.Instance.StackUpdate(28);
+            UIManager.Instance.playerInventoryData.StackUpdate(28);
         }
         // 아직 재료들이 남았다면
         else
@@ -74,13 +74,13 @@ public class FoodResult : MonoBehaviour
                 {
                     UIManager.Instance.playerInventoryData.slots[inventoryIndex].item = null;
                     UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack = 0;
-                    UIManager.Instance.StackUpdate(inventoryIndex);
+                    UIManager.playerInventoryData.StackUpdate(inventoryIndex);
                 }
                 // 아직 재료들이 남았다면
                 else
                 {
                     UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack--;
-                    UIManager.Instance.StackUpdate(inventoryIndex);
+                    UIManager.playerInventoryData.StackUpdate(inventoryIndex);
                 }
             }
         }
@@ -91,7 +91,7 @@ public class FoodResult : MonoBehaviour
         UIManager.Instance.playerInventoryData.slots[26].stack--;
         UIManager.Instance.playerInventoryData.slots[27].stack--;
 
-        UIManager.Instance.StackUpdate(26);
-        UIManager.Instance.StackUpdate(27);
+        UIManager.Instance.playerInventoryData.StackUpdate(26);
+        UIManager.Instance.playerInventoryData.StackUpdate(27);
     }
 }
