@@ -79,6 +79,8 @@ public class CraftItemDrag : MonoBehaviour
                     UIManager.Instance.StackUpdate(i);
                     // stuffGather에 들어간 ItemCode지워주기
                     craftItemUI.stuffGather.Remove(itemCode);
+
+                    AudioManager.instance.PlaySffx(AudioManager.Sfx.ItemCrafting);
                 }
                 break;
             }

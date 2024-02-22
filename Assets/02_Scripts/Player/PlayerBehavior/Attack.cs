@@ -61,6 +61,7 @@ public class Attack : MonoBehaviour
         //    }
         //}
         playerAnimator.SetTrigger("Attack");
+        AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerAttack);
     }
 
 
@@ -91,7 +92,7 @@ public class Attack : MonoBehaviour
                     {
                         TilemapManager.instance.wallDictionary[cellPosition].HP -= statsHandler.CurrentStats.miningAttack;
                         Debug.Log(TilemapManager.instance.wallDictionary[cellPosition].HP);
-
+                        AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerMining);
                         // 벽이 부서졌다면
                         if (TilemapManager.instance.wallDictionary[cellPosition].HP <= 0f)
                         {

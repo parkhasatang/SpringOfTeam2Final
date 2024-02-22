@@ -91,6 +91,8 @@ public class FoodResult : MonoBehaviour
         UIManager.Instance.playerInventoryData.slots[26].stack--;
         UIManager.Instance.playerInventoryData.slots[27].stack--;
 
+        AudioManager.instance.PlaySffx(AudioManager.Sfx.MakeFood);
+
         UIManager.Instance.StackUpdate(26);
         UIManager.Instance.StackUpdate(27);
     }
