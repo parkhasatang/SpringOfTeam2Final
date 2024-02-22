@@ -1,22 +1,44 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Quest : MonoBehaviour
+public interface IObservable
 {
+    event Action QuestStateChanged;
+}
+
+public class Quest : MonoBehaviour, IObservable
+{
+    public event Action QuestStateChanged;
+
     private Item requestItem;
     private Item rewardItem;
-    private int requestCount;
-    private int rewardCount;
+    internal int requestCount;
+    internal int rewardCount;
 
     public Image requsetImg;
     public Image rewardImg;
     public TMP_Text requestCountTxt;
     public TMP_Text rewardCountTxt;
+    public TMP_Text questResetTimerTxt;
 
+    internal bool isAccept;
+    private float resetTimer;
+    public float ResetTimer
+    {
+        get { return resetTimer; }
+        set
+        {
+            resetTimer = value;
+            QuestResetTimer();
+        }
+    }
+
+    public Button acceptBtn;
     public Button rewardButton;
     public Sprite activeBtnSprite;
     public Sprite defaultBtnSprite;
@@ -26,24 +48,45 @@ public class Quest : MonoBehaviour
     private Inventory inventory;
     private ItemManager itemManager;
 
-    private void Awake()
+    private void Start()
     {
         inventory = UIManager.Instance.playerInventoryData;
         itemManager = ItemManager.instance;
+
+        acceptBtn.onClick.AddListener(AcceptQuest);
+        rewardButton.onClick.AddListener(GetReward);
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        ResetQuest();
+        if (!isAccept)
+        {
+            ResetTimer -= Time.deltaTime;
+
+            if (ResetTimer <= 0f)
+            {
+                ResetQuest();
+                ResetTimer = 10f;
+            }
+        }
+        else
+        {
+            ResetTimer = 10f;
+        }
+    }
+
+    private void OnQuestStateChanged()
+    {
+        QuestStateChanged?.Invoke();
     }
 
     // 랜덤 퀘스트 주기.
     public void CreateRandomQuest()
     {
         requestItem = itemManager.CreateRandomItemByType(2);
-        requestCount = Random.Range(1, 21);
+        requestCount = UnityEngine.Random.Range(1, 21);
         rewardItem = itemManager.CreateRandomItemByType(8);
-        rewardCount = Random.Range(1, 21);
+        rewardCount = UnityEngine.Random.Range(1, 21);
     }
 
     // 퀘스트 필요 아이템과 보상의 이미지 결정.
@@ -77,7 +120,10 @@ public class Quest : MonoBehaviour
         inventory.RemoveItemFromInventory(requestItem.ItemCode, requestCount);
         inventory.GiveItemToEmptyInv(rewardItem, rewardCount);
 
-        FadeOut();        
+        isAccept = false;
+
+        ResetQuest();
+        OnQuestStateChanged();
     }
 
     public void FadeOut()
@@ -92,8 +138,6 @@ public class Quest : MonoBehaviour
 
     public void FadeIn()
     {
-        ResetQuest();
-
         sequence = DOTween.Sequence();
 
         sequence.Append(canvasGroup.DOFade(1f, 1f));
@@ -104,7 +148,23 @@ public class Quest : MonoBehaviour
     public void ResetQuest()
     {
         CreateRandomQuest();
-        SetQuestImgAndTxt();
+        Invoke("SetQuestImgAndTxt", 1f);
+
+        FadeOut();
+    }
+
+    public void AcceptQuest()
+    {
+        isAccept = true;
+        
+        // 퀘스트 숏컷 상태 바꿔주기. 이벤트로 구현함.
+        OnQuestStateChanged();
+
         CheckRequst();
+    }
+
+    public void QuestResetTimer()
+    {
+        questResetTimerTxt.text = $"{(int)ResetTimer}";
     }
 }

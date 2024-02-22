@@ -1034,7 +1034,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI books & more_88
+      name: QuestAcceptBtn
       rect:
         serializedVersion: 2
         x: 770
@@ -1412,7 +1412,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI books & more_106
+      name: QuestAcceptBtnPress
       rect:
         serializedVersion: 2
         x: 770
@@ -3520,7 +3520,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 4, y: 4, z: 4, w: 4}
       outline: []
       physicsShape: []
@@ -3544,6 +3544,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       ClearStamp: -802825364
+      QuestAcceptBtn: -1084576776
+      QuestAcceptBtnPress: 2112078230
       QuestBoard: -1464297146
       UI books & more_1: 1516215290
       UI books & more_10: 691117744
@@ -3553,7 +3555,6 @@ TextureImporter:
       UI books & more_103: -528579534
       UI books & more_104: 1990283738
       UI books & more_105: 1738137701
-      UI books & more_106: 2112078230
       UI books & more_107: 67010160
       UI books & more_108: 486527248
       UI books & more_109: -922149590
@@ -3767,7 +3768,6 @@ TextureImporter:
       UI books & more_85: -618382086
       UI books & more_86: -81855212
       UI books & more_87: -449287477
-      UI books & more_88: -1084576776
       UI books & more_89: 142240221
       UI books & more_9: 1906935483
       UI books & more_90: 2119061736
