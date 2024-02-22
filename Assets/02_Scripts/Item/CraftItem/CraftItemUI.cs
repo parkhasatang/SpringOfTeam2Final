@@ -10,10 +10,12 @@ public class CraftItemUI : MonoBehaviour
 
     internal List<int> stuffGather;
     internal int inventoryLength;
+    private Inventory inventory;
 
     private void Awake()
     {
-        inventoryLength = UIManager.Instance.playerInventoryData.invenSlot.Length - 3;
+        inventory = UIManager.Instance.playerInventoryData;
+        inventoryLength = inventory.invenSlot.Length - 3;
         // CraftItemDrag.cs에서 인스펙터창에서 정해진 ItemCode를 키값에 저장하고 해당 인덱스의 CanvasGroup을 넣어준다.
         for (int i = 0; i < craftItem.Length; i++)
         {
@@ -53,31 +55,13 @@ public class CraftItemUI : MonoBehaviour
         CraftingRecipe();
     }
 
-
-    // 스택 검사.
-    public bool CheckStackAmount(int itemCode, int requiredStack)
-    {
-        // 인벤토리 스캔
-        for (int i = 0; i < inventoryLength; i++)
-        {
-            if (!UIManager.Instance.playerInventoryData.slots[i].isEmpty && UIManager.Instance.playerInventoryData.slots[i].item.ItemCode == itemCode)
-            {
-                if (UIManager.Instance.playerInventoryData.slots[i].stack >= requiredStack)
-                {
-                    return true;
-                }
-                else return false;
-            }
-        }
-        return false;
-    }
     public void CraftingRecipe()
     {
         Debug.Log("레시피 검토");
         if (stuffGather.Contains(3011) && stuffGather.Contains(3101))
         {
             // 스택 필요도 보다 많을 때, 아이템 활성화
-            if (CheckStackAmount(3011, 1) && CheckStackAmount(3101, 2))
+            if (inventory.CheckStackAmount(3011, 1) && inventory.CheckStackAmount(3101, 2))
             {
                 Debug.Log("검 활성화");
                 SetCraftItemImage(1001);
@@ -85,7 +69,7 @@ public class CraftItemUI : MonoBehaviour
         }
         if (stuffGather.Contains(3011) && stuffGather.Contains(3101) && stuffGather.Contains(3001))
         {
-            if (CheckStackAmount(3011, 1) && CheckStackAmount(3101, 3) && CheckStackAmount(3001, 1))
+            if (inventory.CheckStackAmount(3011, 1) && inventory.CheckStackAmount(3101, 3) && inventory.CheckStackAmount(3001, 1))
             {
                 Debug.Log("곡괭이 활성화");
                 SetCraftItemImage(1301);
@@ -93,17 +77,17 @@ public class CraftItemUI : MonoBehaviour
         }
         if (stuffGather.Contains(3101))
         {
-            if (CheckStackAmount(3101, 4))
+            if (inventory.CheckStackAmount(3101, 4))
             {
                 Debug.Log("구리 투구 활성화");
                 SetCraftItemImage(1401);
             }
-            else if (CheckStackAmount(3101, 5))
+            else if (inventory.CheckStackAmount(3101, 5))
             {
                 Debug.Log("구리 갑옷 활성화");
                 SetCraftItemImage(1501);
             }
-            else if (CheckStackAmount(3101, 3))
+            else if (inventory.CheckStackAmount(3101, 3))
             {
                 Debug.Log("구리 신발 활성화");
                 SetCraftItemImage(1601);
@@ -111,7 +95,7 @@ public class CraftItemUI : MonoBehaviour
         }
         if (stuffGather.Contains(1001) && stuffGather.Contains(3102))
         {
-            if (CheckStackAmount(1001, 1) && CheckStackAmount(3102, 4))
+            if (inventory.CheckStackAmount(1001, 1) && inventory.CheckStackAmount(3102, 4))
             {
                 Debug.Log("철검 활성화");
                 SetCraftItemImage(1002);
@@ -119,7 +103,7 @@ public class CraftItemUI : MonoBehaviour
         }
         if (stuffGather.Contains(1301) && stuffGather.Contains(3102))
         {
-            if (CheckStackAmount(1301, 1) && CheckStackAmount(3102, 5))
+            if (inventory.CheckStackAmount(1301, 1) && inventory.CheckStackAmount(3102, 5))
             {
                 Debug.Log("철곡괭이 활성화");
                 SetCraftItemImage(1302);
@@ -127,17 +111,17 @@ public class CraftItemUI : MonoBehaviour
         }
         if (stuffGather.Contains(3102))
         {
-            if (CheckStackAmount(3102, 4))
+            if (inventory.CheckStackAmount(3102, 4))
             {
                 Debug.Log("철 투구 활성화");
                 SetCraftItemImage(1402);
             }
-            else if (CheckStackAmount(3102, 5))
+            else if (inventory.CheckStackAmount(3102, 5))
             {
                 Debug.Log("철 갑옷 활성화");
                 SetCraftItemImage(1502);
             }
-            else if (CheckStackAmount(3102, 3))
+            else if (inventory.CheckStackAmount(3102, 3))
             {
                 Debug.Log("철 신발 활성화");
                 SetCraftItemImage(1602);

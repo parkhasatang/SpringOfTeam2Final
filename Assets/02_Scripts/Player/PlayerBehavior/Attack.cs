@@ -91,6 +91,7 @@ public class Attack : MonoBehaviour
                     if (TilemapManager.instance.wallDictionary[cellPosition].HP > 0f)
                     {
                         TilemapManager.instance.wallDictionary[cellPosition].HP -= statsHandler.CurrentStats.miningAttack;
+                        EffectManager.instance.effectPool.EffectIndex(EffectManager.EffectType.Mining, hit.point, direction);
                         Debug.Log(TilemapManager.instance.wallDictionary[cellPosition].HP);
                         AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerMining);
                         // 벽이 부서졌다면

@@ -33,6 +33,6 @@ public class DroppableUI : MonoBehaviour, IDropHandler
             UIManager.Instance.UpdatePlayerStatTxt();
         }
         // 이미지 처리
-        UIManager.Instance.StackUpdate(inventoryIndex);
+        UIManager.Instance.playerInventoryData.StackUpdate(inventoryIndex);
     }
 }
