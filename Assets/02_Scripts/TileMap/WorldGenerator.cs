@@ -1,59 +1,108 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System;
+using System.Collections.Generic;
 
 public class WorldGenerator : MonoBehaviour
 {
     public Tilemap terrainTilemap;
-    public Tile[] forestTiles;
-    public Tile[] caveTiles;
-    public int[,] themeMap;
-
+    public Tile caveTile;
+    public Tile forestTile;
+    public Tile dungeonTile;
+    public Tile seaTile;
+    public Tile graveyardTile;
     public int mapWidth = 100;
     public int mapHeight = 100;
-    public float noiseScale = 0.3f;
-    public float themeScale = 0.05f; // 테마 스케일 조정
-    public float forestThemeThreshold = 0.4f; // 숲 테마 임계값 조정
+    public int[,] themeMap;
+    private Dictionary<string, int> directionalThemes;
+    private Vector2Int center;
+
+    public float noiseScale = 0.05f;
+    private float centralCircleRadius = 20f;
 
 
     public event Action OnGenerationComplete;
 
     void Start()
     {
+        themeMap = new int[mapWidth, mapHeight];
+        AssignDirectionalThemes();
         GenerateWorld();
-        OnGenerationComplete?.Invoke();
+    }
+
+    void AssignDirectionalThemes()
+    {
+        List<int> themes = new List<int> { 0, 1, 2, 3 };
+        themes.Shuffle();
+
+        directionalThemes = new Dictionary<string, int>
+        {
+            {"North", themes[0]},
+            {"East", themes[1]},
+            {"South", themes[2]},
+            {"West", themes[3]}
+        };
     }
 
     void GenerateWorld()
     {
-        themeMap = new int[mapWidth, mapHeight];
+        Vector2 forestOffset = new Vector2(10000, 10000);
+        Vector2 seaOffset = new Vector2(30000, 10000);
+        Vector2 dungeonOffset = new Vector2(10000, 30000);
+        Vector2 graveyardOffset = new Vector2(30000, 30000);
 
         for (int x = 0; x < mapWidth; x++)
         {
             for (int y = 0; y < mapHeight; y++)
             {
-                float forestNoise = Mathf.PerlinNoise((x + 10000) * themeScale, (y + 10000) * themeScale);
-                float caveNoise = Mathf.PerlinNoise((x + 30000) * themeScale, (y + 30000) * themeScale);
+                float xCoord = x * noiseScale;
+                float yCoord = y * noiseScale;
 
-                // 숲과 동굴 지역의 분포를 결정하는 병합 로직
-                if (forestNoise > caveNoise && forestNoise > 0.5)
-                {
-                    themeMap[x, y] = 0; // 숲 지역으로 설정
-                }
-                else if (caveNoise > forestNoise && caveNoise > 0.5)
-                {
-                    themeMap[x, y] = 1; // 동굴 지역으로 설정
-                }
-                // 추가 조건 및 테마 설정 가능
+                float forestNoise = Mathf.PerlinNoise(xCoord + forestOffset.x, yCoord + forestOffset.y);
+                float seaNoise = Mathf.PerlinNoise(xCoord + seaOffset.x, yCoord + seaOffset.y);
+                float dungeonNoise = Mathf.PerlinNoise(xCoord + dungeonOffset.x, yCoord + dungeonOffset.y);
+                float graveyardNoise = Mathf.PerlinNoise(xCoord + graveyardOffset.x, yCoord + graveyardOffset.y);
 
-                // 테마에 따라 타일 배치
-                Tile tileToPlace = themeMap[x, y] == 0 ? forestTiles[UnityEngine.Random.Range(0, forestTiles.Length)] :
-                    themeMap[x, y] == 1 ? caveTiles[UnityEngine.Random.Range(0, caveTiles.Length)] : null;
-                if (tileToPlace != null)
+                float maxNoise = Mathf.Max(forestNoise, seaNoise, dungeonNoise, graveyardNoise);
+                Tile tileToPlace;
+
+                if (maxNoise == forestNoise)
                 {
-                    terrainTilemap.SetTile(new Vector3Int(x - mapWidth / 2, y - mapHeight / 2, 0), tileToPlace);
+                    tileToPlace = forestTile;
                 }
+                else if (maxNoise == seaNoise)
+                {
+                    tileToPlace = seaTile;
+                }
+                else if (maxNoise == dungeonNoise)
+                {
+                    tileToPlace = dungeonTile;
+                }
+                else
+                {
+                    tileToPlace = graveyardTile;
+                }
+                terrainTilemap.SetTile(new Vector3Int(x - mapWidth / 2, y - mapHeight / 2, 0), tileToPlace);
             }
+        }
+
+        OnGenerationComplete?.Invoke();
+    }
+}
+
+public static class ListExtensions
+{
+    public static void Shuffle<T>(this IList<T> list)
+    {
+        System.Random random = new System.Random();
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = random.Next(n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
         }
     }
 }
