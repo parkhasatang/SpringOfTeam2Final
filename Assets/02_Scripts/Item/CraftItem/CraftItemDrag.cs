@@ -39,16 +39,13 @@ public class CraftItemDrag : MonoBehaviour
 
         UIManager.Instance.playerInventoryData.GiveItemToEmptyInv(storeItemData, 1);
 
+        AudioManager.instance.PlaySffx(AudioManager.Sfx.ItemCrafting);
+
         itemImg.blocksRaycasts = false;
 
         // 다시 스캔하기.
         craftItemUI.ReFreshCraftingUI();
     }
-
-    
-
-
-    
 
     public void CreateFromStore()
     {
