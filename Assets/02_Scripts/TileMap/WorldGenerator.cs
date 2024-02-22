@@ -5,24 +5,40 @@ using System;
 public class WorldGenerator : MonoBehaviour
 {
     public Tilemap terrainTilemap;
+
     public Tile[] caveTiles;
     public Tile[] forestTiles;
     public Tile[] dungeonTiles;
     public Tile[] seaTiles;
+
     public int mapWidth = 100;
     public int mapHeight = 100;
-    public float noiseScale = 0.05f;
     public int[,] themeMap;
-
     private Vector2Int center;
+
+    public bool[,] landmarkPlaced;
+    public bool[,] wallPlaced;
+
+
+
     private float centralCircleRadius = 20f;
     private float twoThirdsPi = (2f / 3f) * Mathf.PI;
+    public float noiseScale = 0.05f;
 
     public event Action OnGenerationComplete;
+    public bool IsCentralCave(int x, int y)
+    {
+        int offsetX = x - mapWidth / 2;
+        int offsetY = y - mapHeight / 2;
 
+        float distanceFromCenter = Mathf.Sqrt(offsetX * offsetX + offsetY * offsetY);
+        return distanceFromCenter < centralCircleRadius;
+    }
     void Start()
     {
         themeMap = new int[mapWidth, mapHeight];
+        landmarkPlaced = new bool[mapWidth, mapHeight];
+        wallPlaced = new bool[mapWidth, mapHeight];
         center = new Vector2Int(mapWidth / 2, mapHeight / 2);
         GenerateWorld();
     }
