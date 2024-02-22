@@ -2,38 +2,64 @@ using UnityEngine;
 
 public class LandmarkPlacer : MonoBehaviour
 {
-    public GameObject[] forestLandmarks;
-    public GameObject[] caveLandmarks;
     public WorldGenerator worldGenerator;
-    public float landmarkPlacementThreshold = 0.8f; // 랜드마크 배치를 위한 임계값
+    public GameObject forestMaze;
+    public GameObject seaTemple;
+    public GameObject dungeonBossRoom;
 
-    void Start()
+    private void Start()
     {
-        worldGenerator.OnGenerationComplete += PlaceLandmarks;
+        if (worldGenerator != null)
+        {
+            worldGenerator.OnGenerationComplete += PlaceLandmarks;
+        }
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
-        worldGenerator.OnGenerationComplete -= PlaceLandmarks;
+        if (worldGenerator != null)
+        {
+            worldGenerator.OnGenerationComplete -= PlaceLandmarks;
+        }
     }
 
-    void PlaceLandmarks()
+    private void PlaceLandmarks()
     {
+        PlaceLandmark(forestMaze, 0);
+        PlaceLandmark(seaTemple, 1);
+        PlaceLandmark(dungeonBossRoom, 2);
+    }
+
+    private void PlaceLandmark(GameObject landmarkPrefab, int themeIndex)
+    {
+        Vector3 position = CalculateRandomPositionForTheme(themeIndex);
+        if (position != Vector3.zero)
+        {
+            Instantiate(landmarkPrefab, position, Quaternion.identity);
+        }
+    }
+
+    private Vector3 CalculateRandomPositionForTheme(int themeIndex)
+    {
+        var validPositions = new System.Collections.Generic.List<Vector3>();
+
         for (int x = 0; x < worldGenerator.mapWidth; x++)
         {
             for (int y = 0; y < worldGenerator.mapHeight; y++)
             {
-                float noiseValue = Mathf.PerlinNoise(x * worldGenerator.noiseScale * 2, y * worldGenerator.noiseScale * 2);
-                if (noiseValue > landmarkPlacementThreshold)
+                if (worldGenerator.themeMap[x, y] == themeIndex)
                 {
-                    GameObject[] landmarkArray = worldGenerator.themeMap[x, y] == 0 ? forestLandmarks : caveLandmarks;
-                    if (landmarkArray.Length == 0) continue;
-
-                    GameObject landmarkPrefab = landmarkArray[Random.Range(0, landmarkArray.Length)];
-                    Vector3 position = new Vector3(x - worldGenerator.mapWidth / 2, 0, y - worldGenerator.mapHeight / 2);
-                    Instantiate(landmarkPrefab, position, Quaternion.identity);
+                    validPositions.Add(new Vector3(x - worldGenerator.mapWidth / 2, 0, y - worldGenerator.mapHeight / 2));
                 }
             }
         }
+
+        if (validPositions.Count > 0)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, validPositions.Count);
+            return validPositions[randomIndex];
+        }
+
+        return Vector3.zero;
     }
 }

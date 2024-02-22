@@ -20,7 +20,7 @@ public class LavaTrap : MonoBehaviour
         Debug.Log(collision.name);
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("좀 뜨거워해라");
+           
             healthSystem = collision.GetComponent<HealthSystem>();
             healthSystem.ChangeHealth(-damage);
         }
