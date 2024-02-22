@@ -6,7 +6,6 @@ public class LandmarkPlacer : MonoBehaviour
     public GameObject forestMaze;
     public GameObject seaTemple;
     public GameObject dungeonBossRoom;
-    public GameObject graveyard;
 
     private void Start()
     {
@@ -26,29 +25,23 @@ public class LandmarkPlacer : MonoBehaviour
 
     private void PlaceLandmarks()
     {
-        PlaceLandmark(forestMaze, "Forest");
-        PlaceLandmark(seaTemple, "Sea");
-        PlaceLandmark(dungeonBossRoom, "Dungeon");
-        PlaceLandmark(graveyard, "Graveyard");
+        PlaceLandmark(forestMaze, 0);
+        PlaceLandmark(seaTemple, 1);
+        PlaceLandmark(dungeonBossRoom, 2);
     }
 
-    private void PlaceLandmark(GameObject landmarkPrefab, string theme)
+    private void PlaceLandmark(GameObject landmarkPrefab, int themeIndex)
     {
-        Vector3 position = CalculatePositionForLandmark(theme);
+        Vector3 position = CalculateRandomPositionForTheme(themeIndex);
         if (position != Vector3.zero)
         {
             Instantiate(landmarkPrefab, position, Quaternion.identity);
         }
     }
 
-    private Vector3 CalculatePositionForLandmark(string theme)
+    private Vector3 CalculateRandomPositionForTheme(int themeIndex)
     {
-        int themeIndex = GetThemeIndex(theme);
-        if (themeIndex == -1)
-        {
-            Debug.LogError("Unknown theme: " + theme);
-            return Vector3.zero;
-        }
+        var validPositions = new System.Collections.Generic.List<Vector3>();
 
         for (int x = 0; x < worldGenerator.mapWidth; x++)
         {
@@ -56,27 +49,17 @@ public class LandmarkPlacer : MonoBehaviour
             {
                 if (worldGenerator.themeMap[x, y] == themeIndex)
                 {
-                    return new Vector3(x - worldGenerator.mapWidth / 2, 0, y - worldGenerator.mapHeight / 2);
+                    validPositions.Add(new Vector3(x - worldGenerator.mapWidth / 2, 0, y - worldGenerator.mapHeight / 2));
                 }
             }
         }
-        return Vector3.zero;
-    }
 
-    private int GetThemeIndex(string theme)
-    {
-        switch (theme)
+        if (validPositions.Count > 0)
         {
-            case "Forest":
-                return 0;
-            case "Sea":
-                return 1;
-            case "Dungeon":
-                return 2;
-            case "Graveyard":
-                return 3;
-            default:
-                return -1;
+            int randomIndex = UnityEngine.Random.Range(0, validPositions.Count);
+            return validPositions[randomIndex];
         }
+
+        return Vector3.zero;
     }
 }
