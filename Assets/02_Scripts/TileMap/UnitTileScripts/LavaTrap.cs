@@ -29,9 +29,5 @@ public class LavaTrap : MonoBehaviour
             healthSystem = collision.GetComponent<HealthSystem>();
             healthSystem.ChangeMHealth(-damage);
         }
-        else
-        {
-
-        }
     }   
 }
