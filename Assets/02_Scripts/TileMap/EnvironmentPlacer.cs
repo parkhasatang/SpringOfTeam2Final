@@ -1,24 +1,32 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class EnvironmentPlacer : MonoBehaviour
 {
     public WorldGenerator worldGenerator;
     public Transform environmentParent;
 
-    public GameObject wallPrefab;
+    public Tilemap wallTilemap;
+    public RuleTile wallTile;
+    public Tilemap ceilingTilemap;
+    public RuleTile ceilingTile;
+
+    public float perlinNoiseScale = 0.1f;
+    public float naturalObjectNoiseScale = 0.3f;
+    public int perlinNoiseThreshold = 70;
 
     public GameObject[] forestNaturalObjectPrefabs;
     public GameObject[] seaNaturalObjectPrefabs;
     public GameObject[] dungeonNaturalObjectPrefabs;
     public GameObject[] caveNaturalObjectPrefabs;
 
-    public int placementInterval = 2;
+    public int naturalObjectPlacementInterval = 3;
 
-    void Start()
+    void Awake()
     {
         if (worldGenerator != null)
         {
-            worldGenerator.OnGenerationComplete += PlaceWallsAndEnvironment;
+            worldGenerator.OnGenerationComplete += PlaceEnvironment;
         }
     }
 
@@ -26,35 +34,52 @@ public class EnvironmentPlacer : MonoBehaviour
     {
         if (worldGenerator != null)
         {
-            worldGenerator.OnGenerationComplete -= PlaceWallsAndEnvironment;
+            worldGenerator.OnGenerationComplete -= PlaceEnvironment;
         }
     }
 
-    void PlaceWallsAndEnvironment()
+    void PlaceEnvironment()
     {
         for (int x = 0; x < worldGenerator.mapWidth; x++)
         {
             for (int y = 0; y < worldGenerator.mapHeight; y++)
             {
-                Vector3 position = new Vector3(x - worldGenerator.mapWidth / 2, y - worldGenerator.mapHeight / 2, 0);
+                Vector3Int tilePosition = new Vector3Int(x - worldGenerator.mapWidth / 2, y - worldGenerator.mapHeight / 2, 0);
 
-                if (worldGenerator.wallPlaced[x, y])
+                float perlinValue = Mathf.PerlinNoise(x * perlinNoiseScale + worldGenerator.seed, y * perlinNoiseScale + worldGenerator.seed) * 100;
+                bool placeWall = perlinValue > perlinNoiseThreshold && !worldGenerator.landmarkPlaced[x, y];
+                if (placeWall)
                 {
-                    Instantiate(wallPrefab, position, Quaternion.identity, environmentParent);
-                }
-                else if (!worldGenerator.landmarkPlaced[x, y] && Random.Range(0, 100) < 80)
-                {
-                    if (x % placementInterval == 0 && y % placementInterval == 0)
+                    wallTilemap.SetTile(tilePosition, wallTile);
+
+
+                    Vector3Int ceilingPosition = new Vector3Int(tilePosition.x, tilePosition.y + 1, tilePosition.z);
+                    if (!wallTilemap.HasTile(ceilingPosition))
                     {
-                        GameObject[] prefabsToUse = GetPrefabsForTheme(worldGenerator.themeMap[x, y]);
-                        if (prefabsToUse.Length > 0)
-                        {
-                            int randomIndex = Random.Range(0, prefabsToUse.Length);
-                            Instantiate(prefabsToUse[randomIndex], position, Quaternion.identity, environmentParent);
-                        }
+                        ceilingTilemap.SetTile(ceilingPosition, ceilingTile);
+                    }
+                }
+
+                if (!placeWall && !worldGenerator.landmarkPlaced[x, y] && (x % naturalObjectPlacementInterval == 0 && y % naturalObjectPlacementInterval == 0))
+                {
+                    float noiseValue = Mathf.PerlinNoise(x * naturalObjectNoiseScale, y * naturalObjectNoiseScale);
+                    if (noiseValue > 0.5)
+                    {
+                        PlaceNaturalObject(x, y);
                     }
                 }
             }
+        }
+    }
+
+    void PlaceNaturalObject(int x, int y)
+    {
+        Vector3 position = new Vector3(x - worldGenerator.mapWidth / 2, 0, y - worldGenerator.mapHeight / 2);
+        GameObject[] prefabsToUse = GetPrefabsForTheme(worldGenerator.themeMap[x, y]);
+        if (prefabsToUse.Length > 0)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, prefabsToUse.Length);
+            Instantiate(prefabsToUse[randomIndex], position, Quaternion.identity, environmentParent);
         }
     }
 

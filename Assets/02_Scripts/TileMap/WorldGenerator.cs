@@ -18,6 +18,7 @@ public class WorldGenerator : MonoBehaviour
 
     public bool[,] landmarkPlaced;
     public bool[,] wallPlaced;
+    public float seed;
 
 
 
@@ -40,6 +41,7 @@ public class WorldGenerator : MonoBehaviour
         landmarkPlaced = new bool[mapWidth, mapHeight];
         wallPlaced = new bool[mapWidth, mapHeight];
         center = new Vector2Int(mapWidth / 2, mapHeight / 2);
+        seed = UnityEngine.Random.Range(0f, 9999f);
         GenerateWorld();
     }
 
