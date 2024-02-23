@@ -35,7 +35,10 @@ public class LandmarkPlacer : MonoBehaviour
         Vector3 position = CalculateRandomPositionForTheme(themeIndex);
         if (position != Vector3.zero)
         {
-            Instantiate(landmarkPrefab, position, Quaternion.identity);
+            var instantiatedLandmark = Instantiate(landmarkPrefab, position, Quaternion.identity);
+            int x = (int)(position.x + worldGenerator.mapWidth / 2);
+            int y = (int)(position.y + worldGenerator.mapHeight / 2);
+            worldGenerator.landmarkPlaced[x, y] = true;
         }
     }
 
@@ -47,7 +50,7 @@ public class LandmarkPlacer : MonoBehaviour
         {
             for (int y = 0; y < worldGenerator.mapHeight; y++)
             {
-                if (worldGenerator.themeMap[x, y] == themeIndex)
+                if (worldGenerator.themeMap[x, y] == themeIndex && !worldGenerator.landmarkPlaced[x, y])
                 {
                     validPositions.Add(new Vector3(x - worldGenerator.mapWidth / 2, 0, y - worldGenerator.mapHeight / 2));
                 }
