@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemPool : MonoBehaviour
 {
-    public GameObject itemPrefabs;
+    public GameObject itemPrefab;
     private List<GameObject> itemPool;
 
 
@@ -34,7 +34,7 @@ public class ItemPool : MonoBehaviour
 
         if (!selectItemPrefab)
         {
-            selectItemPrefab = Instantiate(itemPrefabs, transform);
+            selectItemPrefab = Instantiate(itemPrefab, transform);
             selectItemPrefab.transform.position = spawnPosition;
             var pickUpComponent = selectItemPrefab.GetComponent<PickUp>();
             pickUpComponent.itemCode = itemCode;

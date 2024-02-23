@@ -3532,6 +3532,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ItemInfoBackGround
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 369
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 7, y: 7, z: 7, w: 7}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1708cc64970c124eb173bf06deff3d7
+      internalID: 1969220893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3544,6 +3565,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       ClearStamp: -802825364
+      ItemInfoBackGround: 1969220893
       QuestAcceptBtn: -1084576776
       QuestAcceptBtnPress: 2112078230
       QuestBoard: -1464297146

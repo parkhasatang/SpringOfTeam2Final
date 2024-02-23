@@ -9,7 +9,7 @@ public class CraftItemDrag : MonoBehaviour
     // 인스펙터 창에서 아이템 코드 적어줘야댐.
     [SerializeField] internal int itemCode;
     // 드래그 했을 때 얘가 무슨 아이템인지 알고 데이터를 전달해줘야해서, Item클래스를 받아옴.
-    private Item storeItemData;
+    internal Item storeItemData;
     private Inventory inventory;
 
     private CanvasGroup itemImg;

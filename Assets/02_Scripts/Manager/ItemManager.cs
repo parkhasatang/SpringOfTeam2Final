@@ -47,6 +47,7 @@ public class ItemManager : MonoBehaviour
     public ItemPool itemPool;
 
     public Dictionary<int, Sprite> spriteDictionary;
+    private Dictionary<int, Dictionary<int, int>> craftingRecipes;
 
     private void Awake()
     {
@@ -57,7 +58,12 @@ public class ItemManager : MonoBehaviour
         _instance = this;
 
         spriteDictionary = new Dictionary<int, Sprite>();
+        craftingRecipes = new Dictionary<int, Dictionary<int, int>>();
+
         SpriteMapping();
+
+        // 무기 제작 레시피 초기화
+        InitializeCraftingRecipes();
     }
 
     void Start()
@@ -133,5 +139,33 @@ public class ItemManager : MonoBehaviour
             resultItem = null;
         }
         return resultItem;
+    }
+
+    
+
+    private void InitializeCraftingRecipes()
+    {
+        // 아이템 코드와 해당하는 아이템 재료 및 필요 갯수 추가
+        AddCraftingRecipe(1001, new Dictionary<int, int> { { 3011, 1 }, { 3101, 2 } });
+        AddCraftingRecipe(1301, new Dictionary<int, int> { { 3011, 1 }, { 3101, 3 } });
+        AddCraftingRecipe(1401, new Dictionary<int, int> { { 3101, 4 } });
+        AddCraftingRecipe(1501, new Dictionary<int, int> { { 3101, 5 } });
+        AddCraftingRecipe(1601, new Dictionary<int, int> { { 3101, 3 } });
+        AddCraftingRecipe(1002, new Dictionary<int, int> { { 1001, 1 }, { 3102, 4 } });
+        AddCraftingRecipe(1302, new Dictionary<int, int> { { 1301, 1 }, { 3102, 5 } });
+        AddCraftingRecipe(1402, new Dictionary<int, int> { { 3102, 4 } });
+        AddCraftingRecipe(1502, new Dictionary<int, int> { { 3102, 5 } });
+        AddCraftingRecipe(1602, new Dictionary<int, int> { { 3102, 3 } });
+    }
+
+    private void AddCraftingRecipe(int itemCode, Dictionary<int, int> materials)
+    {
+        craftingRecipes[itemCode] = materials;
+    }
+
+    public Dictionary<int, int> GetCraftingRecipe(int itemCode)
+    {
+        // 무기 제작 레시피 반환
+        return craftingRecipes.ContainsKey(itemCode) ? craftingRecipes[itemCode] : null;
     }
 }

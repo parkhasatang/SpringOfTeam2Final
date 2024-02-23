@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SetSlotIndex : MonoBehaviour
 {
-    [SerializeField] private DraggableUI InventoryIndex;
+    [SerializeField] private DraggableUI draggableUI;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class SetSlotIndex : MonoBehaviour
         if (int.TryParse(numberString, out int number))
         {
             // InventoryIndex 변수에 할당
-            InventoryIndex.inventoryIndex = number;
+            draggableUI.inventoryIndex = number;
         }
         else
         {
