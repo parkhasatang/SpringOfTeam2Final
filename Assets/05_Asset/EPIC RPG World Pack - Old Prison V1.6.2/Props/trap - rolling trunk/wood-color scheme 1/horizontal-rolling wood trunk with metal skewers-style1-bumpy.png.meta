@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-bumpy_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 31
+        width: 130
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9364b6f8d963d2548b131c9fa6911074
+      internalID: -1285863478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-bumpy_1
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 31
+        width: 130
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7558021d61df0294a9911139f0d097f5
+      internalID: -123488152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-bumpy_2
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 31
+        width: 130
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9133efa96e40a744683e7cefd09255d0
+      internalID: 91384384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-bumpy_3
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 31
+        width: 130
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca33a28a5ccf63e4b8a80d38971e682a
+      internalID: 468700207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-bumpy_4
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 31
+        width: 130
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e748879f4fda9b4ca6f3302fd0a6e1a
+      internalID: -765422985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-bumpy_5
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 31
+        width: 130
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14b6fedf7e5bda43bdb4db2b5c9bc52
+      internalID: -87223892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-bumpy_6
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 31
+        width: 130
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d097a946cb20846960e2f3ace2cb07
+      internalID: -969838618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-bumpy_7
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 31
+        width: 130
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737a9e157ed3c8344befb8353c92276a
+      internalID: -589120341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-bumpy_8
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 31
+        width: 130
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bef2ce901d6eb447bb66d7941e8f436
+      internalID: -1147921380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-bumpy_9
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 31
+        width: 130
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8b76cda0bab4e45bdfc441c01fc4bb
+      internalID: 1506213476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-bumpy_10
+      rect:
+        serializedVersion: 2
+        x: 1951
+        y: 31
+        width: 130
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf12d083ad573a4087d0f7c2625117f
+      internalID: 1795911954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +350,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      horizontal-rolling wood trunk with metal skewers-style1-bumpy_0: -1285863478
+      horizontal-rolling wood trunk with metal skewers-style1-bumpy_1: -123488152
+      horizontal-rolling wood trunk with metal skewers-style1-bumpy_10: 1795911954
+      horizontal-rolling wood trunk with metal skewers-style1-bumpy_2: 91384384
+      horizontal-rolling wood trunk with metal skewers-style1-bumpy_3: 468700207
+      horizontal-rolling wood trunk with metal skewers-style1-bumpy_4: -765422985
+      horizontal-rolling wood trunk with metal skewers-style1-bumpy_5: -87223892
+      horizontal-rolling wood trunk with metal skewers-style1-bumpy_6: -969838618
+      horizontal-rolling wood trunk with metal skewers-style1-bumpy_7: -589120341
+      horizontal-rolling wood trunk with metal skewers-style1-bumpy_8: -1147921380
+      horizontal-rolling wood trunk with metal skewers-style1-bumpy_9: 1506213476
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
