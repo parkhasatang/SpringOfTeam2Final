@@ -14,15 +14,16 @@ public class WorldGenerator : MonoBehaviour
     public int mapWidth = 100;
     public int mapHeight = 100;
     public int[,] themeMap;
-    private Vector2Int center;
+    public Vector2Int center;
 
     public bool[,] landmarkPlaced;
     public bool[,] wallPlaced;
     public float seed;
+    private float themeStartAngle;
 
 
 
-    private float centralCircleRadius = 20f;
+    public float centralCircleRadius = 50f;
     private float twoThirdsPi = (2f / 3f) * Mathf.PI;
     public float noiseScale = 0.05f;
 
@@ -42,7 +43,12 @@ public class WorldGenerator : MonoBehaviour
         wallPlaced = new bool[mapWidth, mapHeight];
         center = new Vector2Int(mapWidth / 2, mapHeight / 2);
         seed = UnityEngine.Random.Range(0f, 9999f);
+        InitializeThemeStartAngle();
         GenerateWorld();
+    }
+    void InitializeThemeStartAngle()
+    {
+        themeStartAngle = UnityEngine.Random.Range(0f, 360f);
     }
 
 
@@ -55,6 +61,8 @@ public class WorldGenerator : MonoBehaviour
                 Tile tileToPlace = ChooseTile(x, y);
                 Vector3Int tilePosition = new Vector3Int(x - center.x, y - center.y, 0);
                 terrainTilemap.SetTile(tilePosition, tileToPlace);
+
+                themeMap[x, y] = GetThemeIndex(tileToPlace);
             }
         }
 
@@ -66,24 +74,43 @@ public class WorldGenerator : MonoBehaviour
         int offsetX = x - center.x;
         int offsetY = y - center.y;
 
-        float distance = Mathf.Sqrt(offsetX * offsetX + offsetY * offsetY);
-        float angle = Mathf.Atan2(offsetY, offsetX) + Mathf.PI;
-        angle = (angle + twoThirdsPi) % (Mathf.PI * 2);
-        if (distance < centralCircleRadius)
+        float distanceFromCenter = Mathf.Sqrt(offsetX * offsetX + offsetY * offsetY);
+        float angleFromCenter = Mathf.Atan2(offsetY, offsetX) * Mathf.Rad2Deg;
+        angleFromCenter = (angleFromCenter + 360f) % 360f;
+        angleFromCenter = (angleFromCenter - themeStartAngle + 360f) % 360f;
+
+        if (distanceFromCenter < centralCircleRadius)
         {
             return caveTiles[UnityEngine.Random.Range(0, caveTiles.Length)];
         }
-        else if (angle < twoThirdsPi)
-        {
-            return forestTiles[UnityEngine.Random.Range(0, forestTiles.Length)];
-        }
-        else if (angle < 2 * twoThirdsPi)
-        {
-            return seaTiles[UnityEngine.Random.Range(0, seaTiles.Length)];
-        }
         else
         {
-            return dungeonTiles[UnityEngine.Random.Range(0, dungeonTiles.Length)];
+            float section = 360f / 3f;
+            if (angleFromCenter < section)
+            {
+                return forestTiles[UnityEngine.Random.Range(0, forestTiles.Length)];
+            }
+            else if (angleFromCenter < section * 2)
+            {
+                return seaTiles[UnityEngine.Random.Range(0, seaTiles.Length)];
+            }
+            else
+            {
+                return dungeonTiles[UnityEngine.Random.Range(0, dungeonTiles.Length)];
+            }
         }
+    }
+    int GetThemeIndex(Tile tile)
+    {
+        if (Array.Exists(caveTiles, element => element == tile))
+            return 0;
+        else if (Array.Exists(forestTiles, element => element == tile))
+            return 1;
+        else if (Array.Exists(seaTiles, element => element == tile))
+            return 2;
+        else if (Array.Exists(dungeonTiles, element => element == tile))
+            return 3;
+
+        return -1;
     }
 }
