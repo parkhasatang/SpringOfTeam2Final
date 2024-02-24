@@ -5,7 +5,7 @@ using UnityEngine;
 public class NeedleTrap : MonoBehaviour
 {
     private bool animationState = false;
-    private float damage = 30f;
+    private float damage = 5f;
     private HealthSystem healthSystem = null;
     private Animator animator;
     private float timer = 0f;
