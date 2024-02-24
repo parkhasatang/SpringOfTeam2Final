@@ -635,13 +635,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI books & more_67
+      name: TutorialBtn
       rect:
         serializedVersion: 2
         x: 464
-        y: 256
-        width: 96
-        height: 32
+        y: 272
+        width: 17
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1055,7 +1055,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI books & more_89
+      name: CloseBtn
       rect:
         serializedVersion: 2
         x: 786
@@ -3344,7 +3344,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI books & more_229
+      name: RightBtn
       rect:
         serializedVersion: 2
         x: 453
@@ -3428,7 +3428,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI books & more_233
+      name: LeftBtn
       rect:
         serializedVersion: 2
         x: 515
@@ -3541,7 +3541,7 @@ TextureImporter:
         width: 46
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 7, y: 7, z: 7, w: 7}
       outline: []
       physicsShape: []
@@ -3549,6 +3549,27 @@ TextureImporter:
       bones: []
       spriteID: d1708cc64970c124eb173bf06deff3d7
       internalID: 1969220893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialBook
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 400
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 11, y: 14, z: 11, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 511b1c694618bd142a13cbaadb7a46b6
+      internalID: 664598794
       vertices: []
       indices: 
       edges: []
@@ -3565,10 +3586,15 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       ClearStamp: -802825364
+      CloseBtn: 142240221
       ItemInfoBackGround: 1969220893
+      LeftBtn: 1852837258
       QuestAcceptBtn: -1084576776
       QuestAcceptBtnPress: 2112078230
       QuestBoard: -1464297146
+      RightBtn: -1981936131
+      TutorialBook: 664598794
+      TutorialBtn: 547673004
       UI books & more_1: 1516215290
       UI books & more_10: 691117744
       UI books & more_100: -1375218864
@@ -3712,12 +3738,10 @@ TextureImporter:
       UI books & more_226: -2015786923
       UI books & more_227: -680463504
       UI books & more_228: -1172867106
-      UI books & more_229: -1981936131
       UI books & more_23: -1411048483
       UI books & more_230: 1563637565
       UI books & more_231: 1993333783
       UI books & more_232: 551675646
-      UI books & more_233: 1852837258
       UI books & more_234: -2116669506
       UI books & more_235: -1299750785
       UI books & more_236: -126073094
@@ -3768,7 +3792,6 @@ TextureImporter:
       UI books & more_64: 1877689386
       UI books & more_65: 589909177
       UI books & more_66: 850098290
-      UI books & more_67: 547673004
       UI books & more_68: -1113775521
       UI books & more_69: 29165202
       UI books & more_7: 721884956
@@ -3790,7 +3813,6 @@ TextureImporter:
       UI books & more_85: -618382086
       UI books & more_86: -81855212
       UI books & more_87: -449287477
-      UI books & more_89: 142240221
       UI books & more_9: 1906935483
       UI books & more_90: 2119061736
       UI books & more_92: -1804901167

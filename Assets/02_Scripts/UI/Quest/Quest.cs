@@ -126,7 +126,7 @@ public class Quest : MonoBehaviour, IObservable
         OnQuestStateChanged();
     }
 
-    public void FadeOut()
+    private void FadeOut()
     {
         sequence = DOTween.Sequence();
 
@@ -136,7 +136,7 @@ public class Quest : MonoBehaviour, IObservable
         sequence.Play();
     }
 
-    public void FadeIn()
+    private void FadeIn()
     {
         sequence = DOTween.Sequence();
 

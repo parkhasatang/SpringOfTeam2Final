@@ -86,6 +86,13 @@ public class CraftItemDrag : MonoBehaviour
             case 1602:
                 inventory.RemoveItemFromInventory(3102, 3);
                 break;
+            case 1201:
+                inventory.RemoveItemFromInventory(3011, 1);
+                inventory.RemoveItemFromInventory(3101, 3);
+                break;
+            case 1251:
+                inventory.RemoveItemFromInventory(3101, 5);
+                break;
         }
     }
 }
