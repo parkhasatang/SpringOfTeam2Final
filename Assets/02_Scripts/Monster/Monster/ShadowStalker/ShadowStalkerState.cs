@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class ShadowStalkerState : MonsterState
 {
     [SerializeField] private float stealthTime = 5.0f;
     [SerializeField] private float unstealthDistance = 2.0f;
     private float stealthTimer;
+    private float attackWaitTime = 2.0f;
 
     protected override void Start()
     {
@@ -64,7 +66,22 @@ public class ShadowStalkerState : MonsterState
     {
         animator.SetTrigger("Attack");
         player.GetComponent<HealthSystem>().ChangeHealth(-statHandler.CurrentMonsterStats.attackDamage);
-        currentState = State.Chase;
+        StartCoroutine(WaitAfterAttack());
+    }
+
+    IEnumerator WaitAfterAttack()   
+    {
+        yield return new WaitForSeconds(attackWaitTime);
+
+        if (Vector2.Distance(transform.position, player.transform.position) > statHandler.CurrentMonsterStats.attackRange)
+        {
+            currentState = State.Chase;
+        }
+        else
+        {
+            currentState = State.Attack;
+            AttackPlayer();
+        }
     }
 
     protected override void OnDeath()
