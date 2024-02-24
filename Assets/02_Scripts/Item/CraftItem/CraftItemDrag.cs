@@ -54,12 +54,37 @@ public class CraftItemDrag : MonoBehaviour
         {
             case 1001:
                 inventory.RemoveItemFromInventory(3011, 1);
-                inventory.RemoveItemFromInventory(3101, 1);
+                inventory.RemoveItemFromInventory(3101, 2);
                 break;
             case 1301:
                 inventory.RemoveItemFromInventory(3011, 1);
-                inventory.RemoveItemFromInventory(3101, 1);
-                inventory.RemoveItemFromInventory(3001, 1);
+                inventory.RemoveItemFromInventory(3101, 3);
+                break;
+            case 1401:
+                inventory.RemoveItemFromInventory(3101, 4);
+                break;
+            case 1501:
+                inventory.RemoveItemFromInventory(3101, 5);
+                break;
+            case 1601:
+                inventory.RemoveItemFromInventory(3101, 3);
+                break;
+            case 1002:
+                inventory.RemoveItemFromInventory(1001, 1);
+                inventory.RemoveItemFromInventory(3102, 4);
+                break;
+            case 1302:
+                inventory.RemoveItemFromInventory(1301, 1);
+                inventory.RemoveItemFromInventory(3102, 5);
+                break;
+            case 1402:
+                inventory.RemoveItemFromInventory(3102, 4);
+                break;
+            case 1502:
+                inventory.RemoveItemFromInventory(3102, 5);
+                break;
+            case 1602:
+                inventory.RemoveItemFromInventory(3102, 3);
                 break;
         }
     }

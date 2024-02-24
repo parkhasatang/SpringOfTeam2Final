@@ -6,7 +6,7 @@ public class EffectPool : MonoBehaviour
 {
     private List<GameObject>[] effectPool;
 
-    private void Awake()
+    private void Start()
     {
         effectPool = new List<GameObject>[EffectManager.instance.effectMappings.Length];
 
