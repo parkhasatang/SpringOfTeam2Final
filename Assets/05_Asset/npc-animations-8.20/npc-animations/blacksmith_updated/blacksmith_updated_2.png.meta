@@ -1,0 +1,2173 @@
+fileFormatVersion: 2
+guid: aef22317b96e50246b116de64c908fac
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blacksmith_updated_2_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 512
+        width: 32
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 362873b13e948de49b30b216e03de49d
+      internalID: 514281799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 512
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08232d6995d45244a98c513e300a2efc
+      internalID: 1307614480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_2
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 512
+        width: 32
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe74299f58d18de4e9caf95e410910a3
+      internalID: 420678564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_3
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 512
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a326298c9794b43be777d0be12d41c
+      internalID: -1747312789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_4
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 512
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223b75f691fd5b84e9f6cbe13a673887
+      internalID: 1312218022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 512
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f470136aca2b45c408c3ad21758177a4
+      internalID: -383265584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_6
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 506
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e390fdf4d502674b8b7ce108c2e05ba
+      internalID: -819332672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_7
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 506
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f83c66798a291e4e94cff530ca0c5f0
+      internalID: 901660404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_8
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 506
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 795e284ae555ac7449b9c8ffdde9cbf6
+      internalID: 1500667388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_9
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 504
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 710fee93f8812df40a4051792d6733d8
+      internalID: 1625045814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_10
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 504
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e47f460b784d18428fe0c28dbc1b7a4
+      internalID: 1542478189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_11
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 504
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672221ed8c779494fa4c9c0b4de7c52f
+      internalID: 1607893641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_12
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 440
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a4cd9cfa45849944a232513b3182187
+      internalID: 1285956144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_13
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 440
+        width: 30
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e2ec18ed6911d54f9245663525992a4
+      internalID: -131127172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_14
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 440
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c414691a5353541b9869ee002c9d12
+      internalID: 1804326786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_15
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 440
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 506c7f73239bfe549bf29e2cba3d8f9f
+      internalID: -149792195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_16
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 440
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010e2cb7ef7b3ba49bc6269315cdd829
+      internalID: 147373298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_17
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 440
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce76483d614e6d541942179a602d7971
+      internalID: -2040005039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_18
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 434
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da095e2edae88d2479b655cd4f991f19
+      internalID: 1260944723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_19
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 434
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc738e1c37ac9ae45a3c48e60bb7ef2c
+      internalID: -1796029663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_20
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 434
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f9b2311534649e42ae8e60316249f89
+      internalID: 1892724198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_21
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 432
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92dd5132e944ab4695e430e383a85f0
+      internalID: 1886215469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_22
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 432
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105e0d3cf53416040bacdff973ce8d33
+      internalID: 710847589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_23
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 432
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bde70a7ff6db4874295b8c0876ad09db
+      internalID: -1937756579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_24
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 368
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244f9a0d23a552b4a8b3ec3c233058fb
+      internalID: 959999464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_25
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 368
+        width: 30
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ab605fe10f05c4fbff6842f8b904d9
+      internalID: 567402031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_26
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 368
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b90ac693c539dce4a95dfc13996e7294
+      internalID: 1520542208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_27
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 368
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 687574ddbad3b824897284780f3b4e85
+      internalID: 779901845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_28
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 368
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1293b5f592fcff428b8fa4fcf0a708d
+      internalID: -700809459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_29
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 368
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36003fac4aa637e40990085f9751a91b
+      internalID: -1528130542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_30
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 362
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48b38bd3cfeb3e4448f7fbfb0fe24a0d
+      internalID: -2004059700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_31
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 362
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef68c4c1e8b4a943a2a6a44b2e95e96
+      internalID: 1746818979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_32
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 362
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86f2291b60cc57e44ae65308d4784524
+      internalID: 110948967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_33
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 360
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdec5afcd284dcf49a099c373b3272a5
+      internalID: -609714896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_34
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 360
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d81633922ccd5fb47a421862155ffa57
+      internalID: 966851321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_35
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 360
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b17ad657be28a2e45b77ae078404ee18
+      internalID: -719941867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_36
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 296
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f860be51c8b75864b82f898533ef7b1e
+      internalID: 1761466971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_37
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 296
+        width: 34
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cab75653e14fb5c4da01a9cd0d345db3
+      internalID: -996876805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_38
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 296
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0e5c55e4b67b64cacf6faa1d4def4e
+      internalID: 1088992001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_39
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 296
+        width: 46
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54072dc9afe7ca8418f1081cee92e0b8
+      internalID: -822238648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_40
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 296
+        width: 46
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eafd08d9a9ef3140b3f175faeadaba4
+      internalID: -2097806037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_41
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 296
+        width: 46
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e56044ae49573d45a97c79a7c030657
+      internalID: 1826956560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_42
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 290
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f78be6638852e4bb25af2fbeaa3d4a
+      internalID: 2035510276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_43
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 290
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f35d514c2ea8bdf45b1420b5097fe898
+      internalID: -1317096040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_44
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 290
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d08e325ec66224d80e9bd0c4c8f3db
+      internalID: 1303293686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_45
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 288
+        width: 30
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9c1486821601a445894adc1a7a480f6
+      internalID: -939400936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_46
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 288
+        width: 30
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10db40450ef42df4c8bb82ec0ce9681f
+      internalID: -953318015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_47
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 288
+        width: 30
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f293b3316f53f674199b6a5eef7c2478
+      internalID: 586525438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_48
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 216
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45a4b0d2b5db6704789fb4346dec2633
+      internalID: -264868014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_49
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 216
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 359a23d0d6a4857418793aacea017f0c
+      internalID: -79430311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_50
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 216
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45743bd6d348f1e4eaec49b8478f3dc4
+      internalID: 718405499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_51
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 216
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ce45b32b4d412a498809e4e74f92e1f
+      internalID: -1514764700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_52
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 216
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d16c3c76d9f47604088f45a6787401bc
+      internalID: -1870000637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_53
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 216
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6ececaea6a57749bda86f3d08fa727
+      internalID: -1354283881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_54
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 216
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c701bcaca4e061448196e7097889cd8
+      internalID: 791834955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_55
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 216
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ca4cfcdbde3edb48983a006ad4cbd56
+      internalID: -1314873233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_56
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 216
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df0b77b688f9acd44a6b567a550fc474
+      internalID: 1271866288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_57
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 145
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d66ec25fd823b540a15d99df24a2868
+      internalID: -734812751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_58
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 144
+        width: 56
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948d5876efcaf28489d9e7277e898fa7
+      internalID: 501410828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_59
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 144
+        width: 56
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3216a3210836b4996547b2d2944b55
+      internalID: -664231310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_60
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 144
+        width: 56
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3228448f7e69c4b4b84895189aa7b8de
+      internalID: -196060794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_61
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 144
+        width: 56
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78d293d9be41584496b62f960940afc
+      internalID: -49479198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_62
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 144
+        width: 56
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2c2604e6a0a30745a7f059d539e0890
+      internalID: -2017931423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_63
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 144
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e9fc76fb5a4f7448473739b157fb03
+      internalID: -2045248881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_64
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 144
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00dd9fb64f858e24c949e539494365d2
+      internalID: 232743692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_65
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 144
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a91fd8e6d3399ad4abd234e64387cdf4
+      internalID: 1579981297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_66
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 144
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a4b923bc17a9cf4d9f8d9ecd6c0999c
+      internalID: -500626907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_67
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 144
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b76b6ecf8fb2e34db0f118afbfdb00d
+      internalID: -1169001974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_68
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 144
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5dfdb25e2d58e468241882c71e61ab
+      internalID: 930938254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_69
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 72
+        width: 56
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7b26ab5aee48104a822684101f9b9a4
+      internalID: -1010120177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_70
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 72
+        width: 56
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8b8f0fcd518814dbd771d3af4528f6
+      internalID: -1399166821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_71
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 72
+        width: 56
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07132c73822827340a94c083655a8a4b
+      internalID: -151113106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_72
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 72
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9b7e0cff645c4542b8c5d39363b28c8
+      internalID: 935285464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_73
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 72
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1851010b2134dec4dbac3bd65e693e96
+      internalID: -284679373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_74
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 72
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c226db1473e8a40a7ae406b79f3c64
+      internalID: 2129569307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_75
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 72
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c47bbaea1dfd3d34e8c15830992b8f32
+      internalID: 271233890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_76
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 72
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b38154951caffb42bac248dcc382cef
+      internalID: -437563992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_77
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 72
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92db3647d9e0893438331f99469e47a2
+      internalID: -1929930741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_78
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 72
+        width: 56
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbbe69935d03bf84c9c1eab7f3e4febd
+      internalID: 1171618485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_79
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 72
+        width: 56
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc551c9f3cd11c745a5cecf997a65b56
+      internalID: 382870300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_80
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 72
+        width: 56
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7da0c0336312b4daab5052423b9f16
+      internalID: -192770837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_81
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 56
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b8c8554b4d39f04289cb40d173cec40
+      internalID: -829058574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_82
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 0
+        width: 56
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0608296609f34d6409019c9f03e96223
+      internalID: -442920048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_83
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 0
+        width: 56
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d09a1744676e542b15bc49eb405be5
+      internalID: 1359927029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_84
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 0
+        width: 56
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c32e5c1a25ff6f14d8edaa70ad07a78a
+      internalID: -1100349547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_85
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 0
+        width: 56
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21dd7f172c674944b9364cd3b2b1c33
+      internalID: 1940516595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_86
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 0
+        width: 56
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fb87db23265d6a48a36ba829cd24507
+      internalID: 506688543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_87
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 0
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdda9bdfab8939249b8d97f10b497e72
+      internalID: 1979389900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_88
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 0
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2685191c51d5ef0458c228719b1c9272
+      internalID: 363522903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_89
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 0
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d329764436b82444baffc421aacebfd5
+      internalID: -1687364753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_90
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 0
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4effc48de1d437f46afb9218feef4530
+      internalID: -1295536965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_91
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 0
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b21199399446ea4898f17a25208407b
+      internalID: -865432024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blacksmith_updated_2_92
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 0
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f62fa84c4054e348a9762c8920d04c0
+      internalID: -1471037000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      blacksmith_updated_2_0: 514281799
+      blacksmith_updated_2_1: 1307614480
+      blacksmith_updated_2_10: 1542478189
+      blacksmith_updated_2_11: 1607893641
+      blacksmith_updated_2_12: 1285956144
+      blacksmith_updated_2_13: -131127172
+      blacksmith_updated_2_14: 1804326786
+      blacksmith_updated_2_15: -149792195
+      blacksmith_updated_2_16: 147373298
+      blacksmith_updated_2_17: -2040005039
+      blacksmith_updated_2_18: 1260944723
+      blacksmith_updated_2_19: -1796029663
+      blacksmith_updated_2_2: 420678564
+      blacksmith_updated_2_20: 1892724198
+      blacksmith_updated_2_21: 1886215469
+      blacksmith_updated_2_22: 710847589
+      blacksmith_updated_2_23: -1937756579
+      blacksmith_updated_2_24: 959999464
+      blacksmith_updated_2_25: 567402031
+      blacksmith_updated_2_26: 1520542208
+      blacksmith_updated_2_27: 779901845
+      blacksmith_updated_2_28: -700809459
+      blacksmith_updated_2_29: -1528130542
+      blacksmith_updated_2_3: -1747312789
+      blacksmith_updated_2_30: -2004059700
+      blacksmith_updated_2_31: 1746818979
+      blacksmith_updated_2_32: 110948967
+      blacksmith_updated_2_33: -609714896
+      blacksmith_updated_2_34: 966851321
+      blacksmith_updated_2_35: -719941867
+      blacksmith_updated_2_36: 1761466971
+      blacksmith_updated_2_37: -996876805
+      blacksmith_updated_2_38: 1088992001
+      blacksmith_updated_2_39: -822238648
+      blacksmith_updated_2_4: 1312218022
+      blacksmith_updated_2_40: -2097806037
+      blacksmith_updated_2_41: 1826956560
+      blacksmith_updated_2_42: 2035510276
+      blacksmith_updated_2_43: -1317096040
+      blacksmith_updated_2_44: 1303293686
+      blacksmith_updated_2_45: -939400936
+      blacksmith_updated_2_46: -953318015
+      blacksmith_updated_2_47: 586525438
+      blacksmith_updated_2_48: -264868014
+      blacksmith_updated_2_49: -79430311
+      blacksmith_updated_2_5: -383265584
+      blacksmith_updated_2_50: 718405499
+      blacksmith_updated_2_51: -1514764700
+      blacksmith_updated_2_52: -1870000637
+      blacksmith_updated_2_53: -1354283881
+      blacksmith_updated_2_54: 791834955
+      blacksmith_updated_2_55: -1314873233
+      blacksmith_updated_2_56: 1271866288
+      blacksmith_updated_2_57: -734812751
+      blacksmith_updated_2_58: 501410828
+      blacksmith_updated_2_59: -664231310
+      blacksmith_updated_2_6: -819332672
+      blacksmith_updated_2_60: -196060794
+      blacksmith_updated_2_61: -49479198
+      blacksmith_updated_2_62: -2017931423
+      blacksmith_updated_2_63: -2045248881
+      blacksmith_updated_2_64: 232743692
+      blacksmith_updated_2_65: 1579981297
+      blacksmith_updated_2_66: -500626907
+      blacksmith_updated_2_67: -1169001974
+      blacksmith_updated_2_68: 930938254
+      blacksmith_updated_2_69: -1010120177
+      blacksmith_updated_2_7: 901660404
+      blacksmith_updated_2_70: -1399166821
+      blacksmith_updated_2_71: -151113106
+      blacksmith_updated_2_72: 935285464
+      blacksmith_updated_2_73: -284679373
+      blacksmith_updated_2_74: 2129569307
+      blacksmith_updated_2_75: 271233890
+      blacksmith_updated_2_76: -437563992
+      blacksmith_updated_2_77: -1929930741
+      blacksmith_updated_2_78: 1171618485
+      blacksmith_updated_2_79: 382870300
+      blacksmith_updated_2_8: 1500667388
+      blacksmith_updated_2_80: -192770837
+      blacksmith_updated_2_81: -829058574
+      blacksmith_updated_2_82: -442920048
+      blacksmith_updated_2_83: 1359927029
+      blacksmith_updated_2_84: -1100349547
+      blacksmith_updated_2_85: 1940516595
+      blacksmith_updated_2_86: 506688543
+      blacksmith_updated_2_87: 1979389900
+      blacksmith_updated_2_88: 363522903
+      blacksmith_updated_2_89: -1687364753
+      blacksmith_updated_2_9: 1625045814
+      blacksmith_updated_2_90: -1295536965
+      blacksmith_updated_2_91: -865432024
+      blacksmith_updated_2_92: -1471037000
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
