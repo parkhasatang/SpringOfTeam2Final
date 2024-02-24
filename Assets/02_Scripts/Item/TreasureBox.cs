@@ -14,7 +14,7 @@ public class TreasureBox : MonoBehaviour
     public void OpenTreasureBox()
     {
         boxAnimator.SetBool("Open", true);
-        ItemManager.instance.itemPool.ItemSpawn(1002, gameObject.transform.position);
+        ItemManager.instance.itemPool.ItemSpawn(3002, gameObject.transform.position);
         // 2ÃÊµÚ¿¡ ÆÄ±«
         Destroy(gameObject, 2f);
     }
