@@ -195,7 +195,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 35
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -522,7 +522,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 31
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -5658,7 +5658,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 28663
+    m_Bits: 61431
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -7493,7 +7493,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -8163,19 +8163,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 530986016035763986, guid: 70ab8c9c8fd44f94d9965a0af84947dc, type: 3}
       propertyPath: m_Size.x
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 530986016035763986, guid: 70ab8c9c8fd44f94d9965a0af84947dc, type: 3}
       propertyPath: m_Size.y
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 530986016035763986, guid: 70ab8c9c8fd44f94d9965a0af84947dc, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9f582daad0f1a774aa55ea09073b80c4, type: 2}
+      objectReference: {fileID: -241981706, guid: c7f4efa7a11bdc54d9f3bd02f15b3755, type: 3}
     - target: {fileID: 530986016035763986, guid: 70ab8c9c8fd44f94d9965a0af84947dc, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3379974024668302014, guid: 70ab8c9c8fd44f94d9965a0af84947dc, type: 3}
       propertyPath: itemCode
@@ -8235,11 +8235,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8865071969347419184, guid: 70ab8c9c8fd44f94d9965a0af84947dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.89
+      value: 5.09
       objectReference: {fileID: 0}
     - target: {fileID: 8865071969347419184, guid: 70ab8c9c8fd44f94d9965a0af84947dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 8865071969347419184, guid: 70ab8c9c8fd44f94d9965a0af84947dc, type: 3}
       propertyPath: m_LocalPosition.z
