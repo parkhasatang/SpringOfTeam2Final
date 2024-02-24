@@ -1,0 +1,1536 @@
+fileFormatVersion: 2
+guid: 524d6258724364f43a71550f28cbb6c0
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Tag
+    second: {fileID: 7400000, guid: 8b98e8a4f9fbcc040a8c601494bf5587, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: down
+    second: {fileID: 7400000, guid: 2c9adccd314beb1479b9381cd9ec99ce, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: side
+    second: {fileID: 7400000, guid: 9185bd633af122744b0eb063ea8c1040, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: up
+    second: {fileID: 7400000, guid: acdb5f79407b71343bfa9ab50f02c7eb, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638444056286220729
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: KingJorg_Frame_47
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 48
+      height: 48
+    spriteID: 7946e836ad944e047bf3a38639f708cf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: KingJorg_Frame_0
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.2580645}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 413
+      width: 32
+      height: 31
+    spriteID: ac75f12435d6844468aaaf5e39cc7dda
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 413}
+  - name: KingJorg_Frame_1
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.2580645}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 452
+      width: 32
+      height: 31
+    spriteID: e3068753693ee584ebfc45ba99eabb31
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 452}
+  - name: KingJorg_Frame_2
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.2758621}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 190
+      y: 193
+      width: 32
+      height: 29
+    spriteID: 7ac00800abf121244afafdbca81445ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 190, y: 193}
+  - name: KingJorg_Frame_3
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.26666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 351
+      width: 32
+      height: 30
+    spriteID: 2ee23237147e0c04e8333bdf57ea19c6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 351}
+  - name: KingJorg_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.2580645}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 190
+      y: 76
+      width: 30
+      height: 31
+    spriteID: 9247bd629db35f24ca3b83f07ffb1114
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 190, y: 76}
+  - name: KingJorg_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.26666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 190
+      y: 267
+      width: 30
+      height: 30
+    spriteID: d21e1f9afa2e6fe4cbb08c20e0244a54
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 190, y: 267}
+  - name: KingJorg_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.2758621}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 190
+      y: 305
+      width: 30
+      height: 29
+    spriteID: c15a6b8ae651cb947953663e3e10a4fd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 190, y: 305}
+  - name: KingJorg_Frame_7
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.26666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 389
+      width: 32
+      height: 30
+    spriteID: bf452831f1c029643aecec94137f8c6f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 389}
+  - name: KingJorg_Frame_8
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.2580645}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 80
+      width: 32
+      height: 31
+    spriteID: a5c7260e02198684b9dc239a041f2c82
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 80}
+  - name: KingJorg_Frame_9
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.2580645}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 119
+      width: 32
+      height: 31
+    spriteID: 2aaf3e5ae15256441bcf909281a0f046
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 119}
+  - name: KingJorg_Frame_10
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.26666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 427
+      width: 32
+      height: 30
+    spriteID: 90eda5b93f9cc2643bb751fbb4d5e917
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 427}
+  - name: KingJorg_Frame_11
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.26666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 465
+      width: 32
+      height: 30
+    spriteID: 233dd4fcc548a51449958021721ee44d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 465}
+  - name: KingJorg_Frame_12
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 333
+      width: 32
+      height: 32
+    spriteID: 1c79e119f05b4de4cad093beaef55210
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 333}
+  - name: KingJorg_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: -0.24242425}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 4
+      width: 36
+      height: 33
+    spriteID: 577d21c44be46f244aa6c08b94ada1e0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 4}
+  - name: KingJorg_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: -0.22222224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 152
+      width: 38
+      height: 36
+    spriteID: 60d924bcfae7c1040807224a46b38de6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 152}
+  - name: KingJorg_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: -0.21052632}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 60
+      width: 38
+      height: 38
+    spriteID: c9ecdb770ba91d648a9f59004431e67a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 60}
+  - name: KingJorg_Frame_16
+    originalName: 
+    pivot: {x: 0.5, y: -0.23333333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 4
+      width: 38
+      height: 30
+    spriteID: 6e078c462e956454580db6b435a9bfaf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 4}
+  - name: KingJorg_Frame_17
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.2413793}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 190
+      y: 230
+      width: 32
+      height: 29
+    spriteID: dfe545553688083469e583c8cc6b9a13
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 190, y: 230}
+  - name: KingJorg_Frame_18
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 373
+      width: 32
+      height: 32
+    spriteID: c6648368383c0b641a047b5eb764eee5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 373}
+  - name: KingJorg_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: -0.24242425}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 45
+      width: 36
+      height: 33
+    spriteID: ca5d83793c3f32842b9f7199c4aa1c66
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 45}
+  - name: KingJorg_Frame_20
+    originalName: 
+    pivot: {x: 0.5, y: -0.22222224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 196
+      width: 38
+      height: 36
+    spriteID: 4e1f5aa79e6ae3e439569cd3a412c8fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 196}
+  - name: KingJorg_Frame_21
+    originalName: 
+    pivot: {x: 0.5, y: -0.21052632}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 106
+      width: 38
+      height: 38
+    spriteID: a46a9cc47169be54491a515193b0d188
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 106}
+  - name: KingJorg_Frame_22
+    originalName: 
+    pivot: {x: 0.5, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 42
+      width: 38
+      height: 30
+    spriteID: e4c320dbeb50a79479cf15a619f82566
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 42}
+  - name: KingJorg_Frame_23
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 150
+      y: 4
+      width: 32
+      height: 30
+    spriteID: 64d3016ac99334043b1722ad3ddaca2c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 150, y: 4}
+  - name: KingJorg_Frame_24
+    originalName: 
+    pivot: {x: 0.5, y: -0.2580645}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 190
+      y: 115
+      width: 30
+      height: 31
+    spriteID: 2aa644023636e1e4f8bc4d2fc8eb20c7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 190, y: 115}
+  - name: KingJorg_Frame_25
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.24242425}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 170
+      width: 34
+      height: 33
+    spriteID: 662ee43a45aee5c4d93dbf4758d712d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 170}
+  - name: KingJorg_Frame_26
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.22857144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 465
+      width: 34
+      height: 35
+    spriteID: 4528613e6b0265f4cb4f81270f47448f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 465}
+  - name: KingJorg_Frame_27
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.21052632}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 240
+      width: 34
+      height: 38
+    spriteID: fd1745007bc7add43a7f2493e7e872ef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 240}
+  - name: KingJorg_Frame_28
+    originalName: 
+    pivot: {x: 0.54545456, y: -0.26666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 275
+      width: 33
+      height: 30
+    spriteID: 7d58c882e56b13248ae480d44af3769f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 275}
+  - name: KingJorg_Frame_29
+    originalName: 
+    pivot: {x: 0.5, y: -0.2758621}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 190
+      y: 342
+      width: 30
+      height: 29
+    spriteID: 818b3ac6b7b5cf24c9e350bf337f7d05
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 190, y: 342}
+  - name: KingJorg_Frame_30
+    originalName: 
+    pivot: {x: 0.5, y: -0.2580645}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 190
+      y: 154
+      width: 30
+      height: 31
+    spriteID: 8eba71d5752147c4daec157a04961f04
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 190, y: 154}
+  - name: KingJorg_Frame_31
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.24242425}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 211
+      width: 34
+      height: 33
+    spriteID: 269bdc5e81f547143bf8c7a900c5b5aa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 211}
+  - name: KingJorg_Frame_32
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.22222224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 421
+      width: 34
+      height: 36
+    spriteID: a2d14e53327fbe346a940fa4ece6d7d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 421}
+  - name: KingJorg_Frame_33
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 286
+      width: 34
+      height: 37
+    spriteID: f3473459ce402eb4da9b7d61b20d5068
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 286}
+  - name: KingJorg_Frame_34
+    originalName: 
+    pivot: {x: 0.54545456, y: -0.26666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 313
+      width: 33
+      height: 30
+    spriteID: 02b41f3caa168e744b4302628e542906
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 313}
+  - name: KingJorg_Frame_35
+    originalName: 
+    pivot: {x: 0.5, y: -0.2758621}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 190
+      y: 379
+      width: 30
+      height: 29
+    spriteID: e91185c03a3a79547b610c56c2504acc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 190, y: 379}
+  - name: KingJorg_Frame_36
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.2580645}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 158
+      width: 32
+      height: 31
+    spriteID: d56a24dafe11e9a4f9385e1328a6c89e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 158}
+  - name: KingJorg_Frame_37
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 293
+      width: 34
+      height: 32
+    spriteID: 1ec55583d3dabaf42a9ea1b0427bcf0f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 293}
+  - name: KingJorg_Frame_38
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.23529413}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 86
+      width: 34
+      height: 34
+    spriteID: fac9f4906cf9e5f4f85df95421c47219
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 86}
+  - name: KingJorg_Frame_39
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 331
+      width: 34
+      height: 37
+    spriteID: 7264488519af69348af1f7dfabc75516
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 331}
+  - name: KingJorg_Frame_40
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.2857143}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 190
+      y: 4
+      width: 34
+      height: 28
+    spriteID: a31f3b7e5aa35914a8060e68419c643d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 190, y: 4}
+  - name: KingJorg_Frame_41
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.2580645}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 197
+      width: 32
+      height: 31
+    spriteID: 43854539c815f2748ae4bc12c612db5b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 197}
+  - name: KingJorg_Frame_42
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.2580645}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 236
+      width: 32
+      height: 31
+    spriteID: 6f9bb11294969a0479946ae007121f23
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 236}
+  - name: KingJorg_Frame_43
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.24242425}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 252
+      width: 34
+      height: 33
+    spriteID: 63b67d2dcec44ae4cadd34e72190d753
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 252}
+  - name: KingJorg_Frame_44
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.23529413}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 128
+      width: 34
+      height: 34
+    spriteID: 2bd519673ffc02c4ba5507c0ec6c1e5d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 128}
+  - name: KingJorg_Frame_45
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 376
+      width: 34
+      height: 37
+    spriteID: 28f053c279323814191424429965e707
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 376}
+  - name: KingJorg_Frame_46
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.2857143}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 190
+      y: 40
+      width: 34
+      height: 28
+    spriteID: ec5ea9f9ac2ed924fa2536a979bd7a40
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 190, y: 40}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 417652027
+    name: KingJorg
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: KingJorg_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      spriteId: 7946e836ad944e047bf3a38639f708cf
+    - name: KingJorg_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 31
+      spriteId: ac75f12435d6844468aaaf5e39cc7dda
+    - name: KingJorg_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 31
+      spriteId: e3068753693ee584ebfc45ba99eabb31
+    - name: KingJorg_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 29
+      spriteId: 7ac00800abf121244afafdbca81445ab
+    - name: KingJorg_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 30
+      spriteId: 2ee23237147e0c04e8333bdf57ea19c6
+    - name: KingJorg_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 9
+        y: 8
+        width: 30
+        height: 31
+      spriteId: 9247bd629db35f24ca3b83f07ffb1114
+    - name: KingJorg_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 9
+        y: 8
+        width: 30
+        height: 30
+      spriteId: d21e1f9afa2e6fe4cbb08c20e0244a54
+    - name: KingJorg_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 9
+        y: 8
+        width: 30
+        height: 29
+      spriteId: c15a6b8ae651cb947953663e3e10a4fd
+    - name: KingJorg_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 30
+      spriteId: bf452831f1c029643aecec94137f8c6f
+    - name: KingJorg_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 31
+      spriteId: a5c7260e02198684b9dc239a041f2c82
+    - name: KingJorg_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 31
+      spriteId: 2aaf3e5ae15256441bcf909281a0f046
+    - name: KingJorg_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 30
+      spriteId: 90eda5b93f9cc2643bb751fbb4d5e917
+    - name: KingJorg_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 30
+      spriteId: 233dd4fcc548a51449958021721ee44d
+    - name: KingJorg_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 32
+      spriteId: 1c79e119f05b4de4cad093beaef55210
+    - name: KingJorg_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 6
+        y: 8
+        width: 36
+        height: 33
+      spriteId: 577d21c44be46f244aa6c08b94ada1e0
+    - name: KingJorg_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 5
+        y: 8
+        width: 38
+        height: 36
+      spriteId: 60d924bcfae7c1040807224a46b38de6
+    - name: KingJorg_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 5
+        y: 8
+        width: 38
+        height: 38
+      spriteId: c9ecdb770ba91d648a9f59004431e67a
+    - name: KingJorg_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 5
+        y: 7
+        width: 38
+        height: 30
+      spriteId: 6e078c462e956454580db6b435a9bfaf
+    - name: KingJorg_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 8
+        y: 7
+        width: 32
+        height: 29
+      spriteId: dfe545553688083469e583c8cc6b9a13
+    - name: KingJorg_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 32
+      spriteId: c6648368383c0b641a047b5eb764eee5
+    - name: KingJorg_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 6
+        y: 8
+        width: 36
+        height: 33
+      spriteId: ca5d83793c3f32842b9f7199c4aa1c66
+    - name: KingJorg_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 5
+        y: 8
+        width: 38
+        height: 36
+      spriteId: 4e1f5aa79e6ae3e439569cd3a412c8fb
+    - name: KingJorg_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 5
+        y: 8
+        width: 38
+        height: 38
+      spriteId: a46a9cc47169be54491a515193b0d188
+    - name: KingJorg_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 5
+        y: 6
+        width: 38
+        height: 30
+      spriteId: e4c320dbeb50a79479cf15a619f82566
+    - name: KingJorg_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 8
+        y: 6
+        width: 32
+        height: 30
+      spriteId: 64d3016ac99334043b1722ad3ddaca2c
+    - name: KingJorg_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 9
+        y: 8
+        width: 30
+        height: 31
+      spriteId: 2aa644023636e1e4f8bc4d2fc8eb20c7
+    - name: KingJorg_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 33
+      spriteId: 662ee43a45aee5c4d93dbf4758d712d3
+    - name: KingJorg_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 35
+      spriteId: 4528613e6b0265f4cb4f81270f47448f
+    - name: KingJorg_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 38
+      spriteId: fd1745007bc7add43a7f2493e7e872ef
+    - name: KingJorg_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 6
+        y: 8
+        width: 33
+        height: 30
+      spriteId: 7d58c882e56b13248ae480d44af3769f
+    - name: KingJorg_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 9
+        y: 8
+        width: 30
+        height: 29
+      spriteId: 818b3ac6b7b5cf24c9e350bf337f7d05
+    - name: KingJorg_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 9
+        y: 8
+        width: 30
+        height: 31
+      spriteId: 8eba71d5752147c4daec157a04961f04
+    - name: KingJorg_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 33
+      spriteId: 269bdc5e81f547143bf8c7a900c5b5aa
+    - name: KingJorg_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 36
+      spriteId: a2d14e53327fbe346a940fa4ece6d7d0
+    - name: KingJorg_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 37
+      spriteId: f3473459ce402eb4da9b7d61b20d5068
+    - name: KingJorg_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 6
+        y: 8
+        width: 33
+        height: 30
+      spriteId: 02b41f3caa168e744b4302628e542906
+    - name: KingJorg_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 9
+        y: 8
+        width: 30
+        height: 29
+      spriteId: e91185c03a3a79547b610c56c2504acc
+    - name: KingJorg_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 31
+      spriteId: d56a24dafe11e9a4f9385e1328a6c89e
+    - name: KingJorg_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 32
+      spriteId: 1ec55583d3dabaf42a9ea1b0427bcf0f
+    - name: KingJorg_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 34
+      spriteId: fac9f4906cf9e5f4f85df95421c47219
+    - name: KingJorg_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 37
+      spriteId: 7264488519af69348af1f7dfabc75516
+    - name: KingJorg_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 28
+      spriteId: a31f3b7e5aa35914a8060e68419c643d
+    - name: KingJorg_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 31
+      spriteId: 43854539c815f2748ae4bc12c612db5b
+    - name: KingJorg_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: 8
+        y: 8
+        width: 32
+        height: 31
+      spriteId: 6f9bb11294969a0479946ae007121f23
+    - name: KingJorg_Frame_43
+      frameIndex: 43
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 33
+      spriteId: 63b67d2dcec44ae4cadd34e72190d753
+    - name: KingJorg_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 34
+      spriteId: 2bd519673ffc02c4ba5507c0ec6c1e5d
+    - name: KingJorg_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 37
+      spriteId: 28f053c279323814191424429965e707
+    - name: KingJorg_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: 7
+        y: 8
+        width: 34
+        height: 28
+      spriteId: ec5ea9f9ac2ed924fa2536a979bd7a40
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 48, y: 48}

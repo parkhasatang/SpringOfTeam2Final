@@ -1,0 +1,1144 @@
+fileFormatVersion: 2
+guid: 092f7d9d0418be04da99d45b09640b0d
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: jorgette_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.055555556}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 66
+      width: 20
+      height: 18
+    spriteID: 0aa246a0ed85db74c8afba88d83c9c7d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 66}
+  - name: jorgette_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.05263158}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 86
+      width: 20
+      height: 19
+    spriteID: 8e194308760df9f4bb821bd80d0d2306
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 86}
+  - name: jorgette_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.055555556}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 92
+      width: 20
+      height: 18
+    spriteID: 6fd205d6a0f374b4182c40dffb6cf73f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 92}
+  - name: jorgette_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.05882353}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 196
+      width: 20
+      height: 17
+    spriteID: 768fd4bdc9ddf6349a2839635cb89505
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 196}
+  - name: jorgette_Frame_4
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.055555556}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 167
+      width: 21
+      height: 18
+    spriteID: d97ad063a8a12eb43bb03aa10ea2e17d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 167}
+  - name: jorgette_Frame_5
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.05263158}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 32
+      width: 21
+      height: 19
+    spriteID: 3204db54a00e9fb49bc2629b0fe7d439
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 32}
+  - name: jorgette_Frame_6
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.055555556}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 193
+      width: 21
+      height: 18
+    spriteID: a84d8621a9802794f98fa161351b1e2f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 193}
+  - name: jorgette_Frame_7
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.05882353}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 118
+      y: 4
+      width: 21
+      height: 17
+    spriteID: bdd1787865f14744e96bf95328b3fd01
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 118, y: 4}
+  - name: jorgette_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: -0.05882353}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 221
+      width: 20
+      height: 17
+    spriteID: df33fb11556941242bd4469c4cc09876
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 221}
+  - name: jorgette_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.055555556}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 118
+      width: 20
+      height: 18
+    spriteID: c573adbc1c233f54c9c03f3ae5b08e82
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 118}
+  - name: jorgette_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.05882353}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 118
+      y: 29
+      width: 20
+      height: 17
+    spriteID: 6c30b2343f9d2d9478e73bfc64ee5b5b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 118, y: 29}
+  - name: jorgette_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.0625}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 118
+      y: 54
+      width: 20
+      height: 16
+    spriteID: 9aa65712704529e4b977041c7148afc7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 118, y: 54}
+  - name: jorgette_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: -0.055555556}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 144
+      width: 20
+      height: 18
+    spriteID: 0a590276c99687048aee4f3599b88ad3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 144}
+  - name: jorgette_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: -0.05263158}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 113
+      width: 20
+      height: 19
+    spriteID: e02c72a092b819042850e13d0f3b7dee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 113}
+  - name: jorgette_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 4
+      width: 20
+      height: 23
+    spriteID: 98470267541c2284eb4001ab1b6cceee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 4}
+  - name: jorgette_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 72
+      width: 20
+      height: 25
+    spriteID: 462d31c5fe079804b92ab3a72551c8f8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 72}
+  - name: jorgette_Frame_16
+    originalName: 
+    pivot: {x: 0.5, y: -0.03846154}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 20
+      height: 26
+    spriteID: 466823f5f86e8df4bb0ee573b786dd76
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: jorgette_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 105
+      width: 20
+      height: 25
+    spriteID: 162f746df0a571c4b85bcd70eb00d29c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 105}
+  - name: jorgette_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: -0.041666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 132
+      width: 20
+      height: 24
+    spriteID: 7bee04474704853488061a895437bf7f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 132}
+  - name: jorgette_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 138
+      width: 20
+      height: 25
+    spriteID: 87a507144b1708a428672ad1e984b9c6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 138}
+  - name: jorgette_Frame_20
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.055555556}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 219
+      width: 21
+      height: 18
+    spriteID: c41bdd303fad9ab4c90bddc17217eb30
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 219}
+  - name: jorgette_Frame_21
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.05263158}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 59
+      width: 21
+      height: 19
+    spriteID: 8846c31f2d64d3249a9bc33f3502af44
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 59}
+  - name: jorgette_Frame_22
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.05}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 4
+      width: 21
+      height: 20
+    spriteID: 0b7c9a66cf6318540b9511f18611f661
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 4}
+  - name: jorgette_Frame_23
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 101
+      width: 21
+      height: 23
+    spriteID: 2f7d13ad702120148a83cccef1084124
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 101}
+  - name: jorgette_Frame_24
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.041666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 4
+      width: 21
+      height: 24
+    spriteID: 4095b64e6cf0d6042a739a1c0401ecd8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 4}
+  - name: jorgette_Frame_25
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.041666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 36
+      width: 21
+      height: 24
+    spriteID: 03d4222dc0fdde346b09d17215bd3d99
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 36}
+  - name: jorgette_Frame_26
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.045454547}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 196
+      width: 21
+      height: 22
+    spriteID: 2b55f3195f00d8a42b979b217466dfa9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 196}
+  - name: jorgette_Frame_27
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.045454547}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 226
+      width: 21
+      height: 22
+    spriteID: 4e4fa0d80e8cdb94ebe10d77a3aa9569
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 226}
+  - name: jorgette_Frame_28
+    originalName: 
+    pivot: {x: 0.5, y: -0.055555556}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 170
+      width: 20
+      height: 18
+    spriteID: f58d3d8792628104aa627b01830bab58
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 170}
+  - name: jorgette_Frame_29
+    originalName: 
+    pivot: {x: 0.5, y: -0.05263158}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 140
+      width: 20
+      height: 19
+    spriteID: 313db79e66884ab48809465ce03ebee9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 140}
+  - name: jorgette_Frame_30
+    originalName: 
+    pivot: {x: 0.5, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 35
+      width: 20
+      height: 23
+    spriteID: 6e4052c00b57dce4f800f85a856e0ff6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 35}
+  - name: jorgette_Frame_31
+    originalName: 
+    pivot: {x: 0.5, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 171
+      width: 20
+      height: 25
+    spriteID: 14d0b3558f08ac747bd1868f88803f43
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 171}
+  - name: jorgette_Frame_32
+    originalName: 
+    pivot: {x: 0.5, y: -0.03846154}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 38
+      width: 20
+      height: 26
+    spriteID: 7ad975cae04a1e14cb759556be2eff74
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 38}
+  - name: jorgette_Frame_33
+    originalName: 
+    pivot: {x: 0.5, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 204
+      width: 20
+      height: 25
+    spriteID: d99288ccebff64741b33c4b69b130b13
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 204}
+  - name: jorgette_Frame_34
+    originalName: 
+    pivot: {x: 0.5, y: -0.041666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 164
+      width: 20
+      height: 24
+    spriteID: 74b3a5438aa852b408e948d84a69a019
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 164}
+  - name: jorgette_Frame_35
+    originalName: 
+    pivot: {x: 0.5, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 68
+      width: 20
+      height: 25
+    spriteID: 6d5e7ecff29e0e041aa924f03396d191
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 68}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1620206600
+    name: jorgette
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: jorgette_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 18
+      spriteId: 0aa246a0ed85db74c8afba88d83c9c7d
+    - name: jorgette_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 19
+      spriteId: 8e194308760df9f4bb821bd80d0d2306
+    - name: jorgette_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 18
+      spriteId: 6fd205d6a0f374b4182c40dffb6cf73f
+    - name: jorgette_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 17
+      spriteId: 768fd4bdc9ddf6349a2839635cb89505
+    - name: jorgette_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 6
+        y: 1
+        width: 21
+        height: 18
+      spriteId: d97ad063a8a12eb43bb03aa10ea2e17d
+    - name: jorgette_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 6
+        y: 1
+        width: 21
+        height: 19
+      spriteId: 3204db54a00e9fb49bc2629b0fe7d439
+    - name: jorgette_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 6
+        y: 1
+        width: 21
+        height: 18
+      spriteId: a84d8621a9802794f98fa161351b1e2f
+    - name: jorgette_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 6
+        y: 1
+        width: 21
+        height: 17
+      spriteId: bdd1787865f14744e96bf95328b3fd01
+    - name: jorgette_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 17
+      spriteId: df33fb11556941242bd4469c4cc09876
+    - name: jorgette_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 18
+      spriteId: c573adbc1c233f54c9c03f3ae5b08e82
+    - name: jorgette_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 17
+      spriteId: 6c30b2343f9d2d9478e73bfc64ee5b5b
+    - name: jorgette_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 16
+      spriteId: 9aa65712704529e4b977041c7148afc7
+    - name: jorgette_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 18
+      spriteId: 0a590276c99687048aee4f3599b88ad3
+    - name: jorgette_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 19
+      spriteId: e02c72a092b819042850e13d0f3b7dee
+    - name: jorgette_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 23
+      spriteId: 98470267541c2284eb4001ab1b6cceee
+    - name: jorgette_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 25
+      spriteId: 462d31c5fe079804b92ab3a72551c8f8
+    - name: jorgette_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 26
+      spriteId: 466823f5f86e8df4bb0ee573b786dd76
+    - name: jorgette_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 25
+      spriteId: 162f746df0a571c4b85bcd70eb00d29c
+    - name: jorgette_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 24
+      spriteId: 7bee04474704853488061a895437bf7f
+    - name: jorgette_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 25
+      spriteId: 87a507144b1708a428672ad1e984b9c6
+    - name: jorgette_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 6
+        y: 1
+        width: 21
+        height: 18
+      spriteId: c41bdd303fad9ab4c90bddc17217eb30
+    - name: jorgette_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 6
+        y: 1
+        width: 21
+        height: 19
+      spriteId: 8846c31f2d64d3249a9bc33f3502af44
+    - name: jorgette_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 6
+        y: 1
+        width: 21
+        height: 20
+      spriteId: 0b7c9a66cf6318540b9511f18611f661
+    - name: jorgette_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 6
+        y: 1
+        width: 21
+        height: 23
+      spriteId: 2f7d13ad702120148a83cccef1084124
+    - name: jorgette_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 6
+        y: 1
+        width: 21
+        height: 24
+      spriteId: 4095b64e6cf0d6042a739a1c0401ecd8
+    - name: jorgette_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 6
+        y: 1
+        width: 21
+        height: 24
+      spriteId: 03d4222dc0fdde346b09d17215bd3d99
+    - name: jorgette_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 6
+        y: 1
+        width: 21
+        height: 22
+      spriteId: 2b55f3195f00d8a42b979b217466dfa9
+    - name: jorgette_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 6
+        y: 1
+        width: 21
+        height: 22
+      spriteId: 4e4fa0d80e8cdb94ebe10d77a3aa9569
+    - name: jorgette_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 18
+      spriteId: f58d3d8792628104aa627b01830bab58
+    - name: jorgette_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 19
+      spriteId: 313db79e66884ab48809465ce03ebee9
+    - name: jorgette_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 23
+      spriteId: 6e4052c00b57dce4f800f85a856e0ff6
+    - name: jorgette_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 25
+      spriteId: 14d0b3558f08ac747bd1868f88803f43
+    - name: jorgette_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 26
+      spriteId: 7ad975cae04a1e14cb759556be2eff74
+    - name: jorgette_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 25
+      spriteId: d99288ccebff64741b33c4b69b130b13
+    - name: jorgette_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 24
+      spriteId: 74b3a5438aa852b408e948d84a69a019
+    - name: jorgette_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 6
+        y: 1
+        width: 20
+        height: 25
+      spriteId: 6d5e7ecff29e0e041aa924f03396d191
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 32, y: 32}

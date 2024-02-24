@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1833109089433254392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3988311015167771604}
+  - component: {fileID: 2719715300386406119}
+  - component: {fileID: 8721488046161980013}
+  m_Layer: 0
+  m_Name: MapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3988311015167771604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833109089433254392}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.961111, y: -10.357477, z: 0.026863419}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2719715300386406119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833109089433254392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b81a058d98e3cf4eae8448f5380bbec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldGenerator: {fileID: 8721488046161980013}
+  environmentParent: {fileID: 0}
+  wallTilemap: {fileID: 0}
+  wallTile: {fileID: 11400000, guid: 65cb63700f9037d4ab46122764e10859, type: 2}
+  ceilingTilemap: {fileID: 0}
+  ceilingTile: {fileID: 11400000, guid: b211cbc4f34d78449ad2557175fef44b, type: 2}
+  perlinNoiseScale: 0.1
+  naturalObjectNoiseScale: 0.3
+  perlinNoiseThreshold: 70
+  forestNaturalObjectPrefabs:
+  - {fileID: 1237648635277186213, guid: c87b1097aefd8aa4ca5ab2efc1d86a52, type: 3}
+  seaNaturalObjectPrefabs:
+  - {fileID: 8619666560527075267, guid: 2b5e6b9c73448e141803b804654b200e, type: 3}
+  dungeonNaturalObjectPrefabs:
+  - {fileID: 4358295520105203407, guid: 0fd026d0b0a66604ba4d6e71397a7a55, type: 3}
+  caveNaturalObjectPrefabs:
+  - {fileID: 943434547491896878, guid: b68fe24a6401dfa4a906fb90040fc64b, type: 3}
+  naturalObjectPlacementInterval: 3
+--- !u!114 &8721488046161980013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833109089433254392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3925a7dcaeb5e12439f380c8b1818bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrainTilemap: {fileID: 0}
+  caveTiles:
+  - {fileID: 11400000, guid: 853aecb228e5fe74db3f93859cf333c5, type: 2}
+  forestTiles:
+  - {fileID: 11400000, guid: 80fd6bd53db74fa428c057102122f0cb, type: 2}
+  dungeonTiles:
+  - {fileID: 11400000, guid: c12653677a6f2ae46a58b298d1301734, type: 2}
+  - {fileID: 11400000, guid: 177a3e2b621cc334ca360d08fb8b606d, type: 2}
+  - {fileID: 0}
+  seaTiles:
+  - {fileID: 11400000, guid: 46a934e8f4d4b4c49856b509b0531299, type: 2}
+  mapWidth: 100
+  mapHeight: 100
+  seed: 0
+  noiseScale: 0.05
