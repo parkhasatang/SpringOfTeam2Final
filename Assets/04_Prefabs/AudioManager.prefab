@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3805664042589918175
 MonoBehaviour:
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e81cbde0633fc469048e2057c76d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGMclip: {fileID: 8300000, guid: 30e47af9144827748af1272287f16058, type: 3}
-  bgmVolume: 0.1
+  BGMclip: {fileID: 8300000, guid: 6adb74ecd508bcf4cbf2303af506796c, type: 3}
+  bgmVolume: 0.05
   sfxClips:
   - {fileID: 8300000, guid: 7d8c753b6419fe64dae59b5b30b4e227, type: 3}
   - {fileID: 8300000, guid: 347241903c49fd147b77733f17249284, type: 3}

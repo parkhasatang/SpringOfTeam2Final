@@ -11,8 +11,7 @@ public class ItemPool : MonoBehaviour
     private void Awake()
     {
         itemPool = new List<GameObject>();
-    }
-
+    }    
 
     public void ItemSpawn(int itemCode, Vector3 spawnPosition)
     {
