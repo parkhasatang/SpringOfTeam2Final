@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 6254472163602695715}
   - component: {fileID: 4069360144827868385}
   - component: {fileID: 373469008735244425}
-  - component: {fileID: 3468723882127415355}
   - component: {fileID: 5253677374758859589}
   - component: {fileID: 6287588909859867085}
   - component: {fileID: 1882476711554277642}
   - component: {fileID: 8333603240852369870}
+  - component: {fileID: 2876854197797648722}
   m_Layer: 7
-  m_Name: blackMinion
+  m_Name: KingJorg
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: -123726580, guid: 54f4aaa4054fd184eaf66d208189cc38, type: 3}
+  m_Sprite: {fileID: -4015230138846333976, guid: 524d6258724364f43a71550f28cbb6c0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,20 +103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
---- !u!114 &3468723882127415355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707245910782648791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b222cef7ddb244e45ad15529481e97e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemDetectionRange: 5
-  fleeDistance: 5
 --- !u!114 &5253677374758859589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,8 +130,8 @@ MonoBehaviour:
   monsterStats:
     name: 
     speed: 1
-    maxHP: 50
-    HP: 50
+    maxHP: 1000
+    HP: 1000
     followDistance: 0
     attackRange: 0
     attackDamage: 0
@@ -238,8 +224,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.49999997, y: -0.2580645}
+    oldSize: {x: 0.32, y: 0.31}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -258,7 +244,7 @@ Animator:
   m_GameObject: {fileID: 1707245910782648791}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 13608b3170bd6464a9b8349d682de4f2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2f7c8fda3e0e17741ab112bcd52312bd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -269,3 +255,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2876854197797648722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707245910782648791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d75e906a2a4934bb5610bb0c737d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeSpeed: 5
+  chargeCount: 3
+  wanderRadius: 5
+  attackCooldown: 3

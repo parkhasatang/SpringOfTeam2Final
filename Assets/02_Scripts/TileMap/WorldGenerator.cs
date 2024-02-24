@@ -67,6 +67,7 @@ public class WorldGenerator : MonoBehaviour
         }
 
         OnGenerationComplete?.Invoke();
+        Debug.Log("생성완료");
     }
 
     Tile ChooseTile(int x, int y)

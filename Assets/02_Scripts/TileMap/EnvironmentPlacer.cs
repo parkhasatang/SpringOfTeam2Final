@@ -6,6 +6,7 @@ public class EnvironmentPlacer : MonoBehaviour
     public WorldGenerator worldGenerator;
     public Transform environmentParent;
     public LandmarkPlacer landmarkPlacer;
+    public Vector3 playerPosition;
 
     public Tilemap wallTilemap;
     public RuleTile wallTile;
@@ -87,10 +88,19 @@ public class EnvironmentPlacer : MonoBehaviour
 
     bool ShouldPlaceWall(int x, int y)
     {
-        float[] outerRadii = { worldGenerator.centralCircleRadius + 50, worldGenerator.centralCircleRadius + 60 };
-        float[] innerRadii = { worldGenerator.centralCircleRadius - 2, worldGenerator.centralCircleRadius - 12 };
         float distanceFromCenter = Mathf.Sqrt((x - worldGenerator.center.x) * (x - worldGenerator.center.x) +
                                               (y - worldGenerator.center.y) * (y - worldGenerator.center.y));
+
+        float distanceFromPlayer = Vector3.Distance(new Vector3(x - worldGenerator.mapWidth / 2,
+                                                                y - worldGenerator.mapHeight / 2, 0),
+                                                    playerPosition);
+        if (distanceFromPlayer <= 50f)
+        {
+            return false;
+        }
+
+        float[] outerRadii = { worldGenerator.centralCircleRadius + 50, worldGenerator.centralCircleRadius + 60 };
+        float[] innerRadii = { worldGenerator.centralCircleRadius - 2, worldGenerator.centralCircleRadius - 12 };
 
         for (int i = 0; i < outerRadii.Length; i++)
         {
@@ -99,7 +109,7 @@ public class EnvironmentPlacer : MonoBehaviour
                 return true;
             }
         }
-
         return false;
     }
+
 }

@@ -89,7 +89,6 @@ public class KingJorgState : BossState
     IEnumerator PerformGroundSlamCharges()
     {
         Collider2D collider = GetComponent<Collider2D>();
-        collider.isTrigger = true;
 
 
         while (chargesLeft > 0)
@@ -108,7 +107,6 @@ public class KingJorgState : BossState
             yield return new WaitForSeconds(2.0f);
         }
 
-        collider.isTrigger = false;
 
         yield return new WaitForSeconds(3.0f);
         chargesLeft = chargeCount;
@@ -122,6 +120,7 @@ public class KingJorgState : BossState
         if (other.gameObject.CompareTag("Player"))
         {
             float damageAmount = 30f;
+            Debug.Log("¹âÇû´Ù");
             other.gameObject.GetComponent<HealthSystem>().ChangeHealth(-damageAmount);
         }
     }
@@ -135,7 +134,8 @@ public class KingJorgState : BossState
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<HealthSystem>().ChangeHealth(-statHandler.CurrentMonsterStats.attackDamage);
+            float damageAmount = 30f;
+            collision.gameObject.GetComponent<HealthSystem>().ChangeHealth(-damageAmount);
         }
     }
 
