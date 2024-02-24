@@ -88,7 +88,7 @@ public class ShadowStalkerState : MonsterState
     {
         ExitStealthMode();
         animator.SetTrigger("Death");
-
+        ItemManager.instance.itemPool.ItemSpawn(3102, transform.position);
     }
 
     private void OnDestroy()

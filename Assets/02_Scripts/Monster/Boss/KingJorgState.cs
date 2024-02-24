@@ -128,6 +128,9 @@ public class KingJorgState : BossState
     protected override void OnDeath()
     {
         base.OnDeath();
+        
+        ItemManager.instance.itemPool.ItemSpawn(1802, transform.position);
+        ItemManager.instance.itemPool.ItemSpawn(1902, transform.position);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

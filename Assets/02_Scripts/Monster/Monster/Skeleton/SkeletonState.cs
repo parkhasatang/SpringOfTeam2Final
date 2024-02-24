@@ -76,5 +76,6 @@ public class SkeletonWarriorState : MonsterState
     protected override void OnDeath()
     {
         base.OnDeath();
+        ItemManager.instance.itemPool.ItemSpawn(3102, transform.position);
     }
 }

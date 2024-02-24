@@ -101,8 +101,34 @@ public class OnionState : MonsterState
         Vector3 originalPosition = transform.position;
         if (ItemManager.instance != null && ItemManager.instance.itemPool != null)
         {
-            ItemManager.instance.itemPool.ItemSpawn(1713, originalPosition);
-            ItemManager.instance.itemPool.ItemSpawn(1703, originalPosition);
+            int RandomNum = Random.Range(0, 8);
+            switch (RandomNum)
+            {
+                case 0:
+                    ItemManager.instance.itemPool.ItemSpawn(1752, originalPosition);
+                        break;
+                case 1:
+                    ItemManager.instance.itemPool.ItemSpawn(1753, originalPosition);
+                        break;
+                case 2:
+                    ItemManager.instance.itemPool.ItemSpawn(1754, originalPosition);
+                        break;
+                case 3:
+                    ItemManager.instance.itemPool.ItemSpawn(1755, originalPosition);
+                        break;
+                case 4:
+                    ItemManager.instance.itemPool.ItemSpawn(1712, originalPosition);
+                        break;
+                case 5:
+                    ItemManager.instance.itemPool.ItemSpawn(1713, originalPosition);
+                        break;
+                case 6:
+                    ItemManager.instance.itemPool.ItemSpawn(1714, originalPosition);
+                        break;
+                case 7:
+                    ItemManager.instance.itemPool.ItemSpawn(1715, originalPosition);
+                        break;
+            }            
         }
         else
         {
