@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using System.Collections;
-
 
 public class MonsterSpawner : MonoBehaviour
 {
-    public GameObject monsterPrefab;
+    public GameObject[] monsterPrefabs;
+    public Tilemap wallTilemap;
     private bool playerEnteredZone = false;
     private int maxMonsters = 5;
     private int currentMonsterCount = 0;
@@ -38,18 +39,43 @@ public class MonsterSpawner : MonoBehaviour
         while (playerEnteredZone && currentMonsterCount < maxMonsters)
         {
             Vector3 spawnPoint = GetRandomSpawnPoint();
-            Instantiate(monsterPrefab, spawnPoint, Quaternion.identity);
-            currentMonsterCount++;
+            if (spawnPoint != Vector3.zero)
+            {
+                InstantiateRandomMonster(spawnPoint);
+                currentMonsterCount++;
+            }
             yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
         }
     }
 
+    private void InstantiateRandomMonster(Vector3 spawnPoint)
+    {
+
+        int randomIndex = Random.Range(0, monsterPrefabs.Length);
+
+        GameObject selectedPrefab = monsterPrefabs[randomIndex];
+        Instantiate(selectedPrefab, spawnPoint, Quaternion.identity);
+    }
+
     private Vector3 GetRandomSpawnPoint()
     {
-        Vector3 spawnDirection = Random.onUnitSphere;
-        spawnDirection.y = 0;
-        Vector3 spawnPoint = transform.position + spawnDirection * spawnRadius;
-        return spawnPoint;
+        Vector3 spawnPoint = Vector3.zero;
+        int attempts = 10;
+        while (attempts > 0)
+        {
+            attempts--;
+            Vector3 spawnDirection = Random.insideUnitCircle.normalized;
+            spawnDirection.z = spawnDirection.y;
+            spawnDirection.y = 0;
+            spawnPoint = transform.position + spawnDirection * spawnRadius;
+
+            Vector3Int tilePosition = wallTilemap.WorldToCell(spawnPoint);
+            if (!wallTilemap.HasTile(tilePosition))
+            {
+                return spawnPoint;
+            }
+        }
+        return Vector3.zero;
     }
 
     public void MonsterRemoved(GameObject monster)

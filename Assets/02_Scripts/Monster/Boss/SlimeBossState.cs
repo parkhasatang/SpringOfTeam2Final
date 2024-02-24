@@ -14,12 +14,13 @@ public class SlimeBossState : BossState
     private float jumpAttackCooldown = 5f;
     private float jumpDuration = 1.0f;
     private bool canJumpAttack = true;
-    
-
+    private Vector3 spawnPoint; // 스폰 포인트 위치를 저장할 변수
+    private float maxDistanceFromSpawn = 15f; // 스폰 포인트로부터 최대 거리
 
     protected override void Start()
     {
         base.Start();
+        spawnPoint = transform.position;
         myCollider = GetComponent<Collider2D>();
         stathandler = GetComponent<CharacterStatHandler>();
         healthSystem.OnDeath += HandleMonsterDeath;
@@ -36,6 +37,12 @@ public class SlimeBossState : BossState
     protected override void Update()
     {
         base.Update();
+
+        if (Vector2.Distance(transform.position, spawnPoint) > maxDistanceFromSpawn)
+        {
+            Debug.Log("스폰 포인트로부터 너무 멀어짐, 돌아감");
+            currentState = State.Idle;
+        }
     }
 
     protected override void IdleBehavior()
@@ -57,10 +64,13 @@ public class SlimeBossState : BossState
 
     protected override void MoveBehavior()
     {
-        if (currentDirection == Vector2.zero)
+        if (Vector2.Distance(transform.position, spawnPoint) > maxDistanceFromSpawn)
+        {
+            currentDirection = (spawnPoint - transform.position).normalized;
+        }
+        else if (currentDirection == Vector2.zero || Vector2.Distance(transform.position, spawnPoint) > maxDistanceFromSpawn)
         {
             currentDirection = Random.insideUnitCircle.normalized;
-            moveTimer = 0f;
         }
 
         transform.position += (Vector3)currentDirection * stathandler.CurrentMonsterStats.speed * Time.deltaTime;
