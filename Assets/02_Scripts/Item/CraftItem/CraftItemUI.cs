@@ -16,6 +16,10 @@ public class CraftItemUI : MonoBehaviour
     {
         inventory = UIManager.Instance.playerInventoryData;
         inventoryLength = inventory.invenSlot.Length - 3;
+    }
+
+    private void Start()
+    {
         // CraftItemDrag.cs에서 인스펙터창에서 정해진 ItemCode를 키값에 저장하고 해당 인덱스의 CanvasGroup을 넣어준다.
         for (int i = 0; i < craftItem.Length; i++)
         {
