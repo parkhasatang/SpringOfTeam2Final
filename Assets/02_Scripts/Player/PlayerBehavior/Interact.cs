@@ -62,7 +62,7 @@ public class Interact : MonoBehaviour
                 inventoryObject.SetActive(true);
                 controller.CanControllCharacter = false;
             }
-            else if(ObjectName== "Quest")
+            else if(ObjectName== "QuestNpc")
             {
                 questUI.SetActive(true);
                 controller.CanControllCharacter = false;
