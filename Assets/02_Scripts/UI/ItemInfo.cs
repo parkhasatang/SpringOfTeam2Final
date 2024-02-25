@@ -32,8 +32,13 @@ public class ItemInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         int inventoryIndex = draggableUI.inventoryIndex;
         Item item = UIManager.Instance.playerInventoryData.slots[inventoryIndex].item;
-        SetItemInfo(item);
-        itemInfo.SetActive(true);
+
+        if (item != null)
+        {
+            SetItemInfo(item);
+            itemInfo.SetActive(true);
+        }
+        else return;
     }
 
     public void OnPointerExit(PointerEventData eventData)
