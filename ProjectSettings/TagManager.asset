@@ -9,6 +9,7 @@ TagManager:
   - Monster
   - Item
   - Boss
+  - Ground
   layers:
   - Default
   - TransparentFX
