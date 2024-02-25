@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6982121687006475029}
   - component: {fileID: 2303385977629024060}
   - component: {fileID: 5941585617210551670}
+  - component: {fileID: 2956022290483844567}
   m_Layer: 11
   m_Name: Seed
   m_TagString: Untagged
@@ -106,6 +107,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2956022290483844567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538067451205280084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a2b3d3ac0b1f64bab2e1ac89581ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6623533314590408527
 GameObject:
   m_ObjectHideFlags: 0
