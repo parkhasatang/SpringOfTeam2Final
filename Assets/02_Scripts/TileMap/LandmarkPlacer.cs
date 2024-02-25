@@ -42,26 +42,47 @@ public class LandmarkPlacer : MonoBehaviour
         if (position != Vector3.zero)
         {
             position.z = 0f;
-            Instantiate(landmarkPrefab, position, Quaternion.identity);
-            int x = (int)(position.x + worldGenerator.mapWidth / 2);
-            int y = (int)(position.y + worldGenerator.mapHeight / 2);
+            GameObject landmarkInstance = Instantiate(landmarkPrefab, position, Quaternion.identity);
+            Bounds totalBounds = CalculateTotalBounds(landmarkInstance);
 
-            worldGenerator.landmarkPlaced[x, y] = true;
+            int minX = Mathf.FloorToInt(totalBounds.min.x + worldGenerator.mapWidth / 2);
+            int maxX = Mathf.CeilToInt(totalBounds.max.x + worldGenerator.mapWidth / 2);
+            int minY = Mathf.FloorToInt(totalBounds.min.y + worldGenerator.mapHeight / 2);
+            int maxY = Mathf.CeilToInt(totalBounds.max.y + worldGenerator.mapHeight / 2);
+
+            for (int x = minX; x <= maxX; x++)
+            {
+                for (int y = minY; y <= maxY; y++)
+                {
+                    if (x >= 0 && x < worldGenerator.mapWidth && y >= 0 && y < worldGenerator.mapHeight)
+                    {
+                        worldGenerator.landmarkPlaced[x, y] = true;
+                    }
+                }
+            }
         }
     }
 
+
     private Vector3 CalculateRandomPositionForTheme(int themeIndex)
     {
-        var validPositions = new System.Collections.Generic.List<Vector3>();
+        List<Vector3> validPositions = new List<Vector3>();
+        float minDistanceFromCenter = 5f;
+
+        Vector2 centerTilePosition = new Vector2(worldGenerator.center.x, worldGenerator.center.y);
 
         for (int x = 0; x < worldGenerator.mapWidth; x++)
         {
             for (int y = 0; y < worldGenerator.mapHeight; y++)
             {
+                Vector3 position = new Vector3(x - worldGenerator.mapWidth / 2, y - worldGenerator.mapHeight / 2, 0);
+                Vector2 tilePosition = new Vector2(x, y);
 
-                if (worldGenerator.themeMap[x, y] == themeIndex && !worldGenerator.landmarkPlaced[x, y])
+                float distanceFromCenter = Vector2.Distance(tilePosition, centerTilePosition);
+
+                if (worldGenerator.themeMap[x, y] == themeIndex && !worldGenerator.landmarkPlaced[x, y] && distanceFromCenter > minDistanceFromCenter + worldGenerator.centralCircleRadius)
                 {
-                    validPositions.Add(new Vector3(x - worldGenerator.mapWidth / 2, 0, y - worldGenerator.mapHeight / 2));
+                    validPositions.Add(position);
                 }
             }
         }
@@ -73,5 +94,17 @@ public class LandmarkPlacer : MonoBehaviour
         }
 
         return Vector3.zero;
+    }
+    private Bounds CalculateTotalBounds(GameObject landmarkInstance)
+    {
+        Renderer[] renderers = landmarkInstance.GetComponentsInChildren<Renderer>();
+        if (renderers.Length == 0) return new Bounds(Vector3.zero, Vector3.zero);
+
+        Bounds totalBounds = renderers[0].bounds;
+        foreach (Renderer renderer in renderers)
+        {
+            totalBounds.Encapsulate(renderer.bounds);
+        }
+        return totalBounds;
     }
 }

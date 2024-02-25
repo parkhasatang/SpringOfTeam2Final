@@ -6,7 +6,7 @@ public class EnvironmentPlacer : MonoBehaviour
     public WorldGenerator worldGenerator;
     public Transform environmentParent;
     public LandmarkPlacer landmarkPlacer;
-    public Vector3 playerPosition;
+    public Vector3 playerPosition; // 플레이어의 위치
 
     public Tilemap wallTilemap;
     public RuleTile wallTile;
@@ -34,36 +34,47 @@ public class EnvironmentPlacer : MonoBehaviour
         }
     }
 
-
     void PlaceEnvironment()
     {
+        // Convert player position to Tilemap grid coordinates
+        Vector3Int playerTilemapPosition = wallTilemap.WorldToCell(playerPosition);
+
         for (int x = 0; x < worldGenerator.mapWidth; x++)
         {
             for (int y = 0; y < worldGenerator.mapHeight; y++)
             {
                 Vector3Int tilePosition = new Vector3Int(x - worldGenerator.mapWidth / 2, y - worldGenerator.mapHeight / 2, 0);
-                float perlinValue = Mathf.PerlinNoise((x + worldGenerator.seed) * perlinNoiseScale,
-                                                      (y + worldGenerator.seed) * perlinNoiseScale) * 100;
-
-                if (perlinValue > perlinNoiseThreshold && !worldGenerator.landmarkPlaced[x, y])
+                // Check the distance from the player in Tilemap grid coordinates
+                if (Vector3Int.Distance(playerTilemapPosition, tilePosition) <= 5f)
                 {
-                    wallTilemap.SetTile(tilePosition, wallTile);
+                    continue; // Skip if within 5 units of the player
+                }
 
-                    Vector3Int ceilingPosition = new Vector3Int(tilePosition.x, tilePosition.y + 1, tilePosition.z);
-                    if (!wallTilemap.HasTile(ceilingPosition))
+                if (!worldGenerator.landmarkPlaced[x, y])
+                {
+                    float perlinValue = Mathf.PerlinNoise((x + worldGenerator.seed) * perlinNoiseScale, (y + worldGenerator.seed) * perlinNoiseScale) * 100;
+
+                    if (perlinValue > perlinNoiseThreshold)
                     {
-                        ceilingTilemap.SetTile(ceilingPosition, ceilingTile);
+                        wallTilemap.SetTile(tilePosition, wallTile);
+                        Vector3Int ceilingPosition = new Vector3Int(tilePosition.x, tilePosition.y + 1, tilePosition.z);
+                        if (!wallTilemap.HasTile(ceilingPosition))
+                        {
+                            ceilingTilemap.SetTile(ceilingPosition, ceilingTile);
+                        }
                     }
                 }
 
                 if (worldGenerator.IsCentralCave(x, y) && ShouldPlaceWall(x, y))
                 {
-                    wallTilemap.SetTile(tilePosition, centralCaveWallTile);
-
-                    Vector3Int ceilingPosition = new Vector3Int(tilePosition.x, tilePosition.y + 1, tilePosition.z);
-                    if (!wallTilemap.HasTile(ceilingPosition))
+                    if (!worldGenerator.landmarkPlaced[x, y])
                     {
-                        ceilingTilemap.SetTile(ceilingPosition, centralCaveCeilingTile);
+                        wallTilemap.SetTile(tilePosition, centralCaveWallTile);
+                        Vector3Int ceilingPosition = new Vector3Int(tilePosition.x, tilePosition.y + 1, tilePosition.z);
+                        if (!wallTilemap.HasTile(ceilingPosition))
+                        {
+                            ceilingTilemap.SetTile(ceilingPosition, centralCaveCeilingTile);
+                        }
                     }
                 }
             }
@@ -73,28 +84,23 @@ public class EnvironmentPlacer : MonoBehaviour
             for (int y = 0; y < worldGenerator.mapHeight; y++)
             {
                 Vector3Int position = new Vector3Int(x - worldGenerator.mapWidth / 2, y - worldGenerator.mapHeight / 2, 0);
-                if (wallTilemap.HasTile(position))
+                if (wallTilemap.HasTile(position) && ceilingTilemap.HasTile(position))
                 {
-                    if (ceilingTilemap.HasTile(position))
-                    {
-                        ceilingTilemap.SetTile(position, null);
-                    }
+                    ceilingTilemap.SetTile(position, null);
                 }
             }
         }
     }
 
-
-
     bool ShouldPlaceWall(int x, int y)
     {
-        float distanceFromCenter = Mathf.Sqrt((x - worldGenerator.center.x) * (x - worldGenerator.center.x) +
-                                              (y - worldGenerator.center.y) * (y - worldGenerator.center.y));
+        float distanceFromCenter = Mathf.Sqrt((x - worldGenerator.center.x) * (x - worldGenerator.center.x) + (y - worldGenerator.center.y) * (y - worldGenerator.center.y));
 
-        float distanceFromPlayer = Vector3.Distance(new Vector3(x - worldGenerator.mapWidth / 2,
-                                                                y - worldGenerator.mapHeight / 2, 0),
-                                                    playerPosition);
-        if (distanceFromPlayer <= 50f)
+        Vector2 playerTilePosition = new Vector2(playerPosition.x + worldGenerator.mapWidth / 2, playerPosition.y + worldGenerator.mapHeight / 2);
+
+        float distanceFromPlayer = Vector2.Distance(new Vector2(x, y), playerTilePosition);
+
+        if (distanceFromPlayer <= 5f)
         {
             return false;
         }
@@ -111,5 +117,4 @@ public class EnvironmentPlacer : MonoBehaviour
         }
         return false;
     }
-
 }

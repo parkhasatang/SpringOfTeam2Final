@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5987327565059522428}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.419998, y: 7.81, z: 0}
+  m_LocalPosition: {x: -1.64, y: -4.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -667,7 +667,7 @@ Tilemap:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: -27, z: 0}
   m_Size: {x: 30, y: 27, z: 1}
-  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileAnchor: {x: -14.83, y: 12.72, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 1
@@ -847,7 +847,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8687266309081502867}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -43.3, y: 7, z: 0}
+  m_LocalPosition: {x: -2.69, y: 7.09, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3415,7 +3415,7 @@ Tilemap:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: -13, z: 0}
   m_Size: {x: 28, y: 15, z: 1}
-  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileAnchor: {x: -19.47, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 1
@@ -3509,7 +3509,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8715308415981422649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.329998, y: 7.81, z: 0}
+  m_LocalPosition: {x: -1.2, y: -14.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3735,7 +3735,7 @@ Tilemap:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: -27, z: 0}
   m_Size: {x: 18, y: 27, z: 1}
-  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileAnchor: {x: -15.15, y: 23.8, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 1
@@ -3831,7 +3831,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8768070607749206376}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.749998, y: 7.81, z: 0}
+  m_LocalPosition: {x: -1.25, y: -9.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6641,7 +6641,7 @@ Tilemap:
   m_Color: {r: 1, g: 1, b: 1, a: 0.54509807}
   m_Origin: {x: 0, y: -26, z: 0}
   m_Size: {x: 29, y: 26, z: 1}
-  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileAnchor: {x: -15.75, y: 18.57, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 1
@@ -6785,7 +6785,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8840123170217221607}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.319998, y: 8.09, z: 0}
+  m_LocalPosition: {x: 0.76, y: -3.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11037,7 +11037,7 @@ Tilemap:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: -28, z: 0}
   m_Size: {x: 31, y: 28, z: 1}
-  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileAnchor: {x: -17.3, y: 12.65, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 1
@@ -11168,11 +11168,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2495573063094303009, guid: 7be90fb5d9e263d40b34b18b87d35f10, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.600002
+      value: 8.39
       objectReference: {fileID: 0}
     - target: {fileID: 2495573063094303009, guid: 7be90fb5d9e263d40b34b18b87d35f10, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.9399996
+      value: -6.22
       objectReference: {fileID: 0}
     - target: {fileID: 2495573063094303009, guid: 7be90fb5d9e263d40b34b18b87d35f10, type: 3}
       propertyPath: m_LocalPosition.z
