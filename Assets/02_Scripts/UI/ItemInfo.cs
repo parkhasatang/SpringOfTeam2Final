@@ -31,11 +31,11 @@ public class ItemInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         itemInfo.transform.SetAsLastSibling();
 
         int inventoryIndex = draggableUI.inventoryIndex;
-        Item item = UIManager.Instance.playerInventoryData.slots[inventoryIndex].item;
+        SlotData slots = UIManager.Instance.playerInventoryData.slots[inventoryIndex];
 
-        if (item != null)
+        if (!slots.isEmpty)
         {
-            SetItemInfo(item);
+            SetItemInfo(slots.item);
             itemInfo.SetActive(true);
         }
         else return;

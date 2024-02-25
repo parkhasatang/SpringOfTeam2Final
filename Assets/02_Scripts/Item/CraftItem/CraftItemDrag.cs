@@ -11,6 +11,7 @@ public class CraftItemDrag : MonoBehaviour
     // 드래그 했을 때 얘가 무슨 아이템인지 알고 데이터를 전달해줘야해서, Item클래스를 받아옴.
     internal Item storeItemData;
     private Inventory inventory;
+    internal bool isActive;
 
     private CanvasGroup itemImg;
 
@@ -34,17 +35,20 @@ public class CraftItemDrag : MonoBehaviour
 
     public void ClickButtonOnStore()
     {
-        // 아이템 제작
-        CreateFromStore();
+        if (isActive)
+        {
+            // 아이템 제작
+            CreateFromStore();
 
-        UIManager.Instance.playerInventoryData.GiveItemToEmptyInv(storeItemData, 1);
+            UIManager.Instance.playerInventoryData.GiveItemToEmptyInv(storeItemData, 1);
 
-        AudioManager.instance.PlaySffx(AudioManager.Sfx.ItemCrafting);
+            AudioManager.instance.PlaySffx(AudioManager.Sfx.ItemCrafting);
 
-        itemImg.blocksRaycasts = false;
+            itemImg.blocksRaycasts = false;
 
-        // 다시 스캔하기.
-        craftItemUI.ReFreshCraftingUI();
+            // 다시 스캔하기.
+            craftItemUI.ReFreshCraftingUI();
+        }
     }
 
     public void CreateFromStore()

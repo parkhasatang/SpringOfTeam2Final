@@ -10,7 +10,6 @@ public class SetObject : MonoBehaviour, IUsePotion
     [SerializeField] private Camera mainCamera;
     [SerializeField] private TileMapControl tileMapControl;
     private EquipObject equipObject;
-    private List<SlotData> inventorySlot;
     private HealthSystem healthSystem;
 
     float PotionCoolTime = 2f;
@@ -20,7 +19,6 @@ public class SetObject : MonoBehaviour, IUsePotion
     {
         controller = GetComponent<CharacterController>();
         equipObject = GetComponent<EquipObject>();
-        inventorySlot = UIManager.Instance.playerInventoryData.slots;
         healthSystem = GetComponent<HealthSystem>();
     }
     // Start is called before the first frame update
@@ -39,25 +37,25 @@ public class SetObject : MonoBehaviour, IUsePotion
         for (int i = 0; i < 8; i++)
         {
             // 퀵슬롯이 선택되었으면 안으로 진입, 우클릭을 사용할 수 있는 아이템인가
-            if ((inventorySlot[i].isChoose == true) && (inventorySlot[i].item != null) && (inventorySlot[i].item.RightClick == true))
+            if ((UIManager.Instance.playerInventoryData.slots[i].isChoose == true) && (UIManager.Instance.playerInventoryData.slots[i].item != null) && (UIManager.Instance.playerInventoryData.slots[i].item.RightClick == true))
             {
                 // 갯수가 0이상이면.
-                if (inventorySlot[i].stack > 0)
+                if (UIManager.Instance.playerInventoryData.slots[i].stack > 0)
                 {
                     // 아이템 타입이 벽이라면
-                    if (inventorySlot[i].item.ItemType == 1)
+                    if (UIManager.Instance.playerInventoryData.slots[i].item.ItemType == 1)
                     {
                         // TODO 나중에 벽마다 들어가는 타입을 다르게 설정.
                         SetWall(i);
                     }
                     // 먹을 수 있는 것이라면
-                    else if (inventorySlot[i].item.ItemType == 8)
+                    else if (UIManager.Instance.playerInventoryData.slots[i].item.ItemType == 8)
                     {
                         UsePotionForChangeStats(i);
                         AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerEat);
                     }
                     // 괭이라면
-                    else if (inventorySlot[i].item.ItemType == 13)
+                    else if (UIManager.Instance.playerInventoryData.slots[i].item.ItemType == 13)
                     {
                         // 밭으 소환하는 로직 필요
                         Debug.Log("밭소환");
@@ -65,13 +63,13 @@ public class SetObject : MonoBehaviour, IUsePotion
                         AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerHarvest);
                     }
                     // 물뿌리개
-                    else if (inventorySlot[i].item.ItemType == 14)
+                    else if (UIManager.Instance.playerInventoryData.slots[i].item.ItemType == 14)
                     {
                         SetWater();
                         AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerPulling);
                     }
                     // 씨앗이라면
-                    else if (inventorySlot[i].item.ItemType == 15)
+                    else if (UIManager.Instance.playerInventoryData.slots[i].item.ItemType == 15)
                     {
                         SetSeed(i);
                     }
@@ -105,7 +103,7 @@ public class SetObject : MonoBehaviour, IUsePotion
                     tile = tileMapControl.wallTile,
                     HP = 100f
                 };
-                inventorySlot[inventoryIndex].stack--;
+                UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack--;
                 UIManager.Instance.playerInventoryData.StackUpdate(inventoryIndex);
                 // 들고있는 아이템 null로 만들기.
                 equipObject.heldItem.sprite = null;
@@ -193,8 +191,8 @@ public class SetObject : MonoBehaviour, IUsePotion
                 if (field.isSeed == false)
                 {
                     field.isSeed = true;
-                    field.seedData = inventorySlot[inventoryIndex].item;
-                    inventorySlot[inventoryIndex].stack--;
+                    field.seedData = UIManager.Instance.playerInventoryData.slots[inventoryIndex].item;
+                    UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack--;
                     UIManager.Instance.playerInventoryData.StackUpdate(inventoryIndex);
                     field.CheckIsSeed();
                 }
@@ -207,8 +205,8 @@ public class SetObject : MonoBehaviour, IUsePotion
         if(PotionCoolTime < MaxCoolTime)
         {
             MaxCoolTime = 0;
-            healthSystem.ChangeHealth(inventorySlot[i].item.HP);
-            healthSystem.ChangeHunger(inventorySlot[i].item.Hunger);            
+            healthSystem.ChangeHealth(UIManager.Instance.playerInventoryData.slots[i].item.HP);
+            healthSystem.ChangeHunger(UIManager.Instance.playerInventoryData.slots[i].item.Hunger);            
             UIManager.Instance.playerInventoryData.slots[i].stack--;
             UIManager.Instance.playerInventoryData.StackUpdate(i);
         }             

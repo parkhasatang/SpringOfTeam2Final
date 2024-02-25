@@ -50,7 +50,7 @@ public class CraftItemUI : MonoBehaviour
         for (int j = 0; j < craftItem.Length; j++)
         {
             craftItem[j].alpha = 0.2f;
-            craftItem[j].blocksRaycasts = false;
+            craftItem[j].GetComponent<CraftItemDrag>().isActive = false;
         }
         // 조건에 맞으면 제작대에 있는 아이템 켜주기.
         Debug.Log("초기화 완료");
@@ -145,7 +145,7 @@ public class CraftItemUI : MonoBehaviour
         if (craftItemOrder.ContainsKey(itemCode))
         {
             craftItemOrder[itemCode].alpha = 1f;
-            craftItemOrder[itemCode].blocksRaycasts = true;
+            craftItemOrder[itemCode].GetComponent<CraftItemDrag>().isActive = true;
         }
         else Debug.Log("지원스승님 만세");
     }

@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
     public List<SlotData> slots = new();// SlotData를 리스트로 만들어주자.
     public SlotNum[] invenSlot;
 
-    public void Start()
+    public void Awake()
     {
         for(int i = 0; i < invenSlot.Length; i++)
         {
