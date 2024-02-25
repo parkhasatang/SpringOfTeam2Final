@@ -102,7 +102,7 @@ public class Interact : MonoBehaviour
    
     public void CancelUI()
     {
-        if (MakeUI.activeSelf || CookUI.activeSelf)
+        if (MakeUI.activeSelf || CookUI.activeSelf || questUI.activeSelf)
         {
             questUI.SetActive(false);
             MakeUI.SetActive(false);
