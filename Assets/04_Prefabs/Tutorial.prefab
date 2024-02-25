@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: db703e2d91a0b4042954d7bb1e05b963, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1351,8 +1351,8 @@ MonoBehaviour:
     \uB9CC\uB4E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\n\uAD2D\uC774\uB97C \uC0AC\uC6A9\uD558\uC5EC
     \uBC2D\uC744 \uB9CC\uB4E4\uACE0, \uBB3C \uBFCC\uB9AC\uAC1C\uB85C \uBB3C\uC744
     \uBFCC\uB824 \uB18D\uC791\uBB3C\uC744 \uD0A4\uC6B8 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\n\n\uB2E4
-    \uC790\uB77C\uBA74 \uACF5\uACA9\uD0A4\uB85C \uB18D\uC791\uBB3C\uC744 \uC5BB\uC744
-    \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    \uC790\uB77C\uBA74 \uAD2D\uC774 \uC6B0\uD074\uB9AD\uC73C\uB85C \uB18D\uC791\uBB3C\uC744
+    \uC5BB\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc1931720a70aec4b904ec320248582c, type: 2}
   m_sharedMaterial: {fileID: 8880568647644967718, guid: bc1931720a70aec4b904ec320248582c, type: 2}
