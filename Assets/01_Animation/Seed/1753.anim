@@ -83,7 +83,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 60
-    functionName: ReadyHarvest
+    functionName: GrowFinish
     data: 
     objectReferenceParameter: {fileID: 6623533314590408527, guid: 329d67d9c06669c41b4e80369c85488a, type: 3}
     floatParameter: 0
