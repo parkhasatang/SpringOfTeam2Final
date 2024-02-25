@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Harvest : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Field field;
+
+    private void Awake()
     {
-        
+        field = GetComponentInParent<Field>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // 이 메서드는 애니메이션에 연결.
+    public void GrowFinish()
     {
-        
+        field.isGrowFinish = true;
     }
 }
