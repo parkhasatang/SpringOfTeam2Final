@@ -15,7 +15,7 @@ public class Interact : MonoBehaviour
     public GameObject MakeUI;
     public GameObject CookUI;
     public GameObject equipUI;
-
+    public GameObject questUI;
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -62,6 +62,11 @@ public class Interact : MonoBehaviour
                 inventoryObject.SetActive(true);
                 controller.CanControllCharacter = false;
             }
+            else if(ObjectName== "Quest")
+            {
+                questUI.SetActive(true);
+                controller.CanControllCharacter = false;
+            }
 
             else if (ObjectName == "TreasureBox")
             {
@@ -99,6 +104,7 @@ public class Interact : MonoBehaviour
     {
         if (MakeUI.activeSelf || CookUI.activeSelf)
         {
+            questUI.SetActive(false);
             MakeUI.SetActive(false);
             CookUI.SetActive(false);
             inventoryObject.SetActive(false);
@@ -117,5 +123,13 @@ public class Interact : MonoBehaviour
         // 인벤토리 오브젝트를 켜거나 끔
         inventoryObject.SetActive(!inventoryObject.activeSelf);
         equipUI.SetActive(!equipUI.activeSelf);
+        if (inventoryObject.activeSelf)
+        {
+            controller.CanControllCharacter = false;
+        }
+        else
+        {
+            controller.CanControllCharacter = true;
+        }
     }
 }

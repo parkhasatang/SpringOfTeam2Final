@@ -19,9 +19,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI HungerTxt;
 
     // 보스 상태 UI
-    [SerializeField] private GameObject BossHPUI;
-    [SerializeField] private Slider BossHPBar;
-    [SerializeField] private TextMeshProUGUI BossName;
+    //[SerializeField] private GameObject BossHPUI;
+    //[SerializeField] private Slider BossHPBar;
+    //[SerializeField] private TextMeshProUGUI BossName;
 
     private HealthSystem playerHealthSystem;
     public SpawnDamageUI spawnDamageUI;
