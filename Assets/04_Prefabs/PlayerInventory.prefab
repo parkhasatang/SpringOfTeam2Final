@@ -36,7 +36,7 @@ RectTransform:
   - {fileID: 6037021424106943146}
   - {fileID: 6983996969817152604}
   - {fileID: 1235043701230440329}
-  - {fileID: 588422634634117055}
+  - {fileID: 6218737929283679742}
   - {fileID: 3980842373015065063}
   - {fileID: 8398367085665508767}
   - {fileID: 2027161538695819496}
@@ -44,11 +44,11 @@ RectTransform:
   - {fileID: 2271009990089992700}
   - {fileID: 5450896500846514021}
   - {fileID: 4144805498099673128}
-  - {fileID: 9112998222043633553}
+  - {fileID: 2310564242059992528}
   - {fileID: 2320171465884458883}
   - {fileID: 6783221835335058115}
   - {fileID: 745296141157749976}
-  - {fileID: 8982091352349187036}
+  - {fileID: 2504518201501045147}
   m_Father: {fileID: 9065660108032428623}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -496,7 +496,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd2f35deae6897a439e89aed864bba60, type: 3}
---- !u!224 &588422634634117055 stripped
+--- !u!224 &6218737929283679742 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6802434856427571776, guid: cd2f35deae6897a439e89aed864bba60, type: 3}
   m_PrefabInstance: {fileID: 588422634634117054}
@@ -2372,7 +2372,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd2f35deae6897a439e89aed864bba60, type: 3}
---- !u!224 &8982091352349187036 stripped
+--- !u!224 &2504518201501045147 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6802434856427571776, guid: cd2f35deae6897a439e89aed864bba60, type: 3}
   m_PrefabInstance: {fileID: 8982091352349187035}
@@ -2640,7 +2640,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd2f35deae6897a439e89aed864bba60, type: 3}
---- !u!224 &9112998222043633553 stripped
+--- !u!224 &2310564242059992528 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6802434856427571776, guid: cd2f35deae6897a439e89aed864bba60, type: 3}
   m_PrefabInstance: {fileID: 9112998222043633552}
