@@ -28,8 +28,6 @@ public class TilemapManager : MonoBehaviour
     }
     public void Start()
     {
-        // Bounds는 구조체
-        // 해당 Tile의 크기만큼 싹 for문을 돌린다. tile이 있으면 Dictionary에 추가. 각각 TileInfo의 값을 받는다.
         BoundsInt bounds = tilemap.cellBounds;
         for (int x = bounds.x; x < bounds.x + bounds.size.x; x++)
         {
