@@ -13,8 +13,8 @@ public class EquipObject : MonoBehaviour, IEquipedItem
     public Transform SpawnTrans;
     private CharacterStatHandler statHandler;
 
+    private Item previousEquipItemData;
     private Inventory inventory;
-    private int selectedIndexNum = 20;
 
     private void Awake()
     {        
@@ -32,48 +32,63 @@ public class EquipObject : MonoBehaviour, IEquipedItem
     {
         for (int i = 0; i < 8; i++)
         {
-            if (i == selectedIndexNum && inventory.slots[selectedIndexNum].isChoose == true)
-            {
-                UnEquipItemForChangeStats(selectedIndexNum);
-            }
+            // UI꺼주기
             inventory.invenSlot[i].QuickSlotItemChoose(false);
             inventory.slots[i].isChoose = false;
-        }                  
+        }
+        if (previousEquipItemData != null)
+        {
+            UnEquipItemForChangeStats(previousEquipItemData.ItemCode);
+        }
+
         for (int i = 1; i <= 8; i++)
         {
             KeyCode key = KeyCode.Alpha0 + i;            
             if (Input.GetKeyDown(key))
             {
-                if (inventory.slots[i - 1].isChoose == false) // isChoose로 두번 눌러도 안에 있는 메서드는 실행안댐.
+                inventory.slots[i - 1].isChoose = true;
+
+                if (inventory.slots[i - 1].isChoose) 
                 {
-                    EquipItem(i - 1); // 아이템 들기
-                    if (inventory.slots[i-1].item != null)
+                    // 기존에 들었던 아이템이랑 같다면
+                    if (previousEquipItemData.ItemCode == inventory.slots[i - 1].item.ItemCode)
                     {
+                        inventory.invenSlot[i - 1].QuickSlotItemChoose(true);
+                        inventory.slots[i - 1].isChoose = true;
                         EquipItemForChangeStats(i - 1);
-                        selectedIndexNum = i - 1;
+                        break;
                     }
-                    break;
+                    // 다르다면
+                    else
+                    {
+                        EquipItem(i - 1); // 아이템 들기
+
+                        if (inventory.slots[i-1].item != null)
+                        {
+                            // 장착 가능한 아이템이면은 스탯을 올려주면 안됀다.
+                            if (!inventory.slots[i - 1].item.IsEquip)
+                            {
+                                EquipItemForChangeStats(i - 1);
+                            }
+                            previousEquipItemData = inventory.slots[i - 1].item;
+                        }
+                        break;
+
+                    }
                 }
-                // 여기 else를 써주면 같은 키를 두번 눌렀을 때 실행됌.
             }
-            /*else
-            {
-                inventory.slots[i - 1].isChoose = false;
-                inventory.invenSlot[i - 1].QuickSlotItemChoose(false);
-            }*/
         }
     }
 
     private void EquipItem(int slotIndex)
     {
         heldItem.sprite = quitSlots[slotIndex].sprite;
-        inventory.slots[slotIndex].isChoose = true;
         inventory.invenSlot[slotIndex].QuickSlotItemChoose(true);
     }
 
     public void EquipItemForChangeStats(int itemIndex)
     {
-        if (inventory.slots[itemIndex] == null)
+        if (inventory.slots[itemIndex].item == null)
         {
             return;            
         }
@@ -96,27 +111,20 @@ public class EquipObject : MonoBehaviour, IEquipedItem
         }
     }
 
-    public void UnEquipItemForChangeStats(int itemIndex)
+    public void UnEquipItemForChangeStats(int itemCode)
     {
-        if (inventory.slots[itemIndex] == null)
+        if (previousEquipItemData.ItemType == 10)
         {
-            return;
+            statHandler.CurrentStats.attackDamage -= previousEquipItemData.AttackDamage;
+        }
+        else if (previousEquipItemData.ItemType == 12)
+        {
+            statHandler.CurrentStats.miningAttack -= previousEquipItemData.AttackDamage;
         }
         else
-        {            
-            if (inventory.slots[itemIndex].item.ItemType == 10)
-            {
-                statHandler.CurrentStats.attackDamage -= inventory.slots[itemIndex].item.AttackDamage;
-            }
-            else if (inventory.slots[itemIndex].item.ItemType == 12)
-            {
-                statHandler.CurrentStats.miningAttack -= inventory.slots[itemIndex].item.AttackDamage;
-            }
-            else
-            {
-                return;
-            }                     
-        }
+        {
+            return;
+        }                  
         UIManager.Instance.UpdatePlayerStatTxt();
     }
 

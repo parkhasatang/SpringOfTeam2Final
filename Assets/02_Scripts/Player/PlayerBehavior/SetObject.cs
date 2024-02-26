@@ -120,39 +120,45 @@ public class SetObject : MonoBehaviour, IUsePotion
 
         if (distance < 2)
         {
-            RaycastHit2D hit = Physics2D.Raycast(mousPosition, Vector2.zero, 0.1f, 1 << LayerMask.NameToLayer("Field") | 1 << LayerMask.NameToLayer("Ground"));
-            int layer = hit.collider.gameObject.layer;
-            if (layer == LayerMask.NameToLayer("Field"))
-            {
-                Field field = hit.collider.gameObject.GetComponent<Field>();
-                // 나중에 작물이 자라고 있지 않다면. = 자식오브젝트가 꺼져있다면으로 if문 조건 걸어주기.
-                // 자라고 있다면
-                if (field.isGrowing == true)
-                {
-                    // 다 자랐다면
-                    if (field.isGrowFinish)
-                    {
-                        ItemManager.instance.itemPool.ItemSpawn(field.seedData.ItemCode - 40 , hit.point);
-                        field.ReadyHarvest();
-                    }
-                }
-                // 안자라고 있다면.
-                else
-                {
-                    //씨앗이 있다면
-                    if (field.isSeed)
-                    {
-                        ItemManager.instance.itemPool.ItemSpawn(field.seedData.ItemCode, hit.point);
-                    }
-                    // 밭 오브젝트 꺼주기.
-                    hit.collider.gameObject.SetActive(false);
-                }
-            }
-            else if (layer == LayerMask.NameToLayer("Ground"))
+            RaycastHit2D hit = Physics2D.Raycast(mousPosition, Vector2.zero, 0.1f, 1 << LayerMask.NameToLayer("Field"));
+            
+            if (!hit)
             {
                 Debug.Log("생성완료");
                 Vector3 spawnPosition = new Vector3(Mathf.FloorToInt(mousPosition.x) + 0.5f, Mathf.FloorToInt(mousPosition.y) + 0.5f);
                 FarmManager.instance.FieldSpawn(spawnPosition);
+            }
+            else
+            {
+                int layer = hit.collider.gameObject.layer;
+
+                if (layer == LayerMask.NameToLayer("Field"))
+                {
+                    Field field = hit.collider.gameObject.GetComponent<Field>();
+                    // 나중에 작물이 자라고 있지 않다면. = 자식오브젝트가 꺼져있다면으로 if문 조건 걸어주기.
+                    // 자라고 있다면
+                    if (field.isGrowing == true)
+                    {
+                        // 다 자랐다면
+                        if (field.isGrowFinish)
+                        {
+                            ItemManager.instance.itemPool.ItemSpawn(field.seedData.ItemCode - 40, hit.point);
+                            field.ReadyHarvest();
+                        }
+                    }
+                    // 안자라고 있다면.
+                    else
+                    {
+                        //씨앗이 있다면
+                        if (field.isSeed)
+                        {
+                            ItemManager.instance.itemPool.ItemSpawn(field.seedData.ItemCode, hit.point);
+                        }
+                        // 밭 오브젝트 꺼주기.
+                        hit.collider.gameObject.SetActive(false);
+                    }
+                }
+                
             }
         }
     }

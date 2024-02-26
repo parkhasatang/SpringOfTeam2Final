@@ -15,13 +15,11 @@ public class MonsterSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("들어왔다");
         MonsterState.OnMonsterDeath += MonsterRemoved;
     }
 
     private void OnDisable()
     {
-        Debug.Log("나갔다");
         MonsterState.OnMonsterDeath -= MonsterRemoved;
     }
 

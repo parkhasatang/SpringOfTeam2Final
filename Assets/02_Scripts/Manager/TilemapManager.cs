@@ -46,7 +46,6 @@ public class TilemapManager : MonoBehaviour
                         HP = tileHP,
                         minMiningAttack = tileMinDamage
                     };
-                    Debug.Log(wallDictionary[cellPosition].HP);
                 }
             }
         }
