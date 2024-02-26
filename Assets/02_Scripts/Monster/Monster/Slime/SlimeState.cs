@@ -33,7 +33,6 @@ public class SlimeState : MonsterState
     protected override void Update()
     {
         base.Update();
-        DetectAndSwallowItems();
 
         switch (currentState)
         {
@@ -128,52 +127,57 @@ public class SlimeState : MonsterState
     }
     protected override void OnDeath()
     {
-        currentState = State.Death;
-        HandleMonsterDeath();
         base.OnDeath();
-        RaiseOnMonsterDeath();
-    }
-
-    private void OnDestroy()
-    {
-        healthSystem.OnDeath -= HandleMonsterDeath;
-    }
-    private void DetectAndSwallowItems()
-    {
-        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(transform.position, itemDetectionRange);
-        foreach (Collider2D detectedObject in detectedObjects)
-        {
-            if (detectedObject == myCollider || !detectedObject.CompareTag("Item"))
-                continue;
-
-            SwallowItem(detectedObject.gameObject);
-        }
-    }
-
-    private void SwallowItem(GameObject item)
-    {
-        PickUp pickUp = item.GetComponent<PickUp>();
-        if (pickUp != null)
-        {
-            swallowedItems.Add(pickUp.itemCode);
-            Destroy(item);
-        }
+        HandleMonsterDeath();
     }
 
     private void HandleMonsterDeath()
     {
-        if (ItemManager.instance == null || ItemManager.instance.itemPool == null)
+        // 사망 처리 전에 게임 오브젝트의 파괴 여부를 체크합니다.
+        if (gameObject == null || !gameObject.activeInHierarchy)
         {
-            Debug.LogWarning("Null Null해요");
+            Debug.LogWarning("GameObject is already destroyed or inactive.");
             return;
         }
-            
-        Vector3 originalPosition = transform.position;
-        ItemManager.instance.itemPool.ItemSpawn(3101, originalPosition);
-        ItemManager.instance.itemPool.ItemSpawn(3011, originalPosition);
+
+        DropRandomItem();
+        DropSwallowedItems();
+    }
+
+    private void DropRandomItem()
+    {
+        // ItemManager 및 itemPool의 존재 여부 체크를 강화합니다.
+        if (ItemManager.instance == null || ItemManager.instance.itemPool == null)
+        {
+            Debug.LogWarning("ItemManager or itemPool is null.");
+            return;
+        }
+
+        int[] itemCodes = new int[] { 3101, 3011 };
+        int selectedItemCode = itemCodes[Random.Range(0, itemCodes.Length)];
+        ItemManager.instance.itemPool.ItemSpawn(selectedItemCode, transform.position);
+    }
+
+    private void DropSwallowedItems()
+    {
+        if (ItemManager.instance == null || ItemManager.instance.itemPool == null)
+        {
+            Debug.LogWarning("ItemManager or itemPool is null, cannot drop swallowed items.");
+            return;
+        }
+
         foreach (int itemCode in swallowedItems)
         {
-            ItemManager.instance.itemPool.ItemSpawn(itemCode, originalPosition);
+            ItemManager.instance.itemPool.ItemSpawn(itemCode, transform.position);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // 이벤트 구독 해제를 보장합니다.
+        if (healthSystem != null)
+        {
+            healthSystem.OnDeath -= HandleMonsterDeath;
         }
     }
 }

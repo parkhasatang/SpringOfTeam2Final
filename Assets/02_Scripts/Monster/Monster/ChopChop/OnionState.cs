@@ -93,7 +93,6 @@ public class OnionState : MonsterState
     {
         base.OnDeath();
         HandleMonsterDeath();
-        Destroy(gameObject);
     }
 
     private void HandleMonsterDeath()

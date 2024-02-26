@@ -50,9 +50,13 @@ public class MonsterSpawner : MonoBehaviour
 
     private void InstantiateRandomMonster(Vector3 spawnPoint)
     {
+        if (monsterPrefabs == null || monsterPrefabs.Length == 0)
+        {
+            Debug.LogWarning("Monster prefabs are not assigned.");
+            return;
+        }
 
         int randomIndex = Random.Range(0, monsterPrefabs.Length);
-
         GameObject selectedPrefab = monsterPrefabs[randomIndex];
         Instantiate(selectedPrefab, spawnPoint, Quaternion.identity);
     }

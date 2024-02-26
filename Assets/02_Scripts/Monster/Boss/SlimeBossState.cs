@@ -53,13 +53,6 @@ public class SlimeBossState : BossState
             Debug.Log("현재상태: " + currentState);
             return;
         }
-
-        if (!PlayerInDetectionRange())
-        {
-            currentState = State.Move;
-            Debug.Log("현재상태: " + currentState);
-            return;
-        }
     }
 
     protected override void MoveBehavior()
