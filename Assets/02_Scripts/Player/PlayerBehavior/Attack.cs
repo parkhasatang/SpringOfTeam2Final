@@ -102,9 +102,14 @@ public class Attack : MonoBehaviour
                             ItemManager.instance.itemPool.ItemSpawn(2101, cellPosition);
                             // 타일의 지붕 없애기.
                             Vector3Int ceilingPosition = new Vector3Int(cellPosition.x, cellPosition.y + 1, 0);
+                            Vector3Int downCeilingPosition = new Vector3Int(cellPosition.x, cellPosition.y - 1, 0);
                             if (TilemapManager.instance.ceilingTile.GetTile(ceilingPosition))
                             {
                                 TilemapManager.instance.ceilingTile.SetTile(ceilingPosition, null);
+                            }
+                            if (TilemapManager.instance.tilemap.GetTile(downCeilingPosition))
+                            {
+                                TilemapManager.instance.ceilingTile.SetTile(cellPosition, TilemapManager.instance.tileMapControl.ceilingTile);
                             }
                         }
                     }

@@ -21,6 +21,7 @@ public class TilemapManager : MonoBehaviour
     public Tilemap tilemap;
     public Tilemap ceilingTile;
     public Dictionary<Vector3Int, TileInfo> wallDictionary = new();
+    public TileMapControl tileMapControl;
 
     public void Awake()
     {
