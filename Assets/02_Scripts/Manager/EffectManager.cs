@@ -13,8 +13,7 @@ public class EffectManager : MonoBehaviour
     public enum EffectType
     {
         Attack,
-        Mining,
-        BossSlimeAttack
+        Mining
     }
     public static EffectManager instance;
     public EffectPool effectPool;

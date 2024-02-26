@@ -34,7 +34,8 @@ Transform:
   m_LocalPosition: {x: 16.276, y: -1.129, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1563237484446334847}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -102,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cec86860c66eaf42b5957ed64f6167e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slimeBossAttackEffect: {fileID: 1731544820523823277}
 --- !u!95 &7634657314168444484
 Animator:
   serializedVersion: 5
@@ -267,3 +269,78 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22414494, y: 0.14640601}
   m_EdgeRadius: 0
+--- !u!1001 &7301833519551731531
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2249093732586977038}
+    m_Modifications:
+    - target: {fileID: 8134889419528497204, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134889419528497204, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134889419528497204, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.034
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134889419528497204, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134889419528497204, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134889419528497204, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134889419528497204, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134889419528497204, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134889419528497204, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134889419528497204, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134889419528497204, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9030557490853881830, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+      propertyPath: m_Name
+      value: Effect_BossSlimeAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 9030557490853881830, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+--- !u!4 &1563237484446334847 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8134889419528497204, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+  m_PrefabInstance: {fileID: 7301833519551731531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1731544820523823277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9030557490853881830, guid: eadf2affe77ae0741ac9a25bfca3ad8d, type: 3}
+  m_PrefabInstance: {fileID: 7301833519551731531}
+  m_PrefabAsset: {fileID: 0}

@@ -16,6 +16,7 @@ public class SlimeBossState : BossState
     private bool canJumpAttack = true;
     private Vector3 spawnPoint; // 스폰 포인트 위치를 저장할 변수
     private float maxDistanceFromSpawn = 15f; // 스폰 포인트로부터 최대 거리
+    public GameObject slimeBossAttackEffect;
 
     protected override void Start()
     {
@@ -189,7 +190,6 @@ private IEnumerator JumpAttack(float jumpHeight, System.Action onLanded)
 
     public void JumpAttackEffect()
     {
-        GameObject BossSlimeEffect = EffectManager.instance.GetEffectPrefab(EffectManager.EffectType.BossSlimeAttack);
-        BossSlimeEffect.SetActive(true);
+        slimeBossAttackEffect.SetActive(true);
     }
 }
