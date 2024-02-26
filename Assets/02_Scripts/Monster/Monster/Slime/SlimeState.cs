@@ -133,7 +133,6 @@ public class SlimeState : MonsterState
 
     private void HandleMonsterDeath()
     {
-        // 사망 처리 전에 게임 오브젝트의 파괴 여부를 체크합니다.
         if (gameObject == null || !gameObject.activeInHierarchy)
         {
             Debug.LogWarning("GameObject is already destroyed or inactive.");
@@ -146,7 +145,6 @@ public class SlimeState : MonsterState
 
     private void DropRandomItem()
     {
-        // ItemManager 및 itemPool의 존재 여부 체크를 강화합니다.
         if (ItemManager.instance == null || ItemManager.instance.itemPool == null)
         {
             Debug.LogWarning("ItemManager or itemPool is null.");
@@ -174,7 +172,6 @@ public class SlimeState : MonsterState
 
     private void OnDestroy()
     {
-        // 이벤트 구독 해제를 보장합니다.
         if (healthSystem != null)
         {
             healthSystem.OnDeath -= HandleMonsterDeath;

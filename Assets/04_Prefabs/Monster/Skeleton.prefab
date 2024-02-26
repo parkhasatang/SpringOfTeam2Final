@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1911476867794432041}
   - component: {fileID: 2812304551025304035}
   - component: {fileID: 238034926547157626}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Skeleton
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7531050614921671528
 SpriteRenderer:
