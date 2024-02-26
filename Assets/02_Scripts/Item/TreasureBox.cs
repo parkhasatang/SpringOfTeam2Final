@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TreasureBox : MonoBehaviour
 {
     private Animator boxAnimator;
-    // Start is called before the first frame update
+    private bool isOpened = false;
+
     void Start()
     {
         boxAnimator = GetComponent<Animator>();
@@ -13,10 +12,12 @@ public class TreasureBox : MonoBehaviour
 
     public void OpenTreasureBox()
     {
-        boxAnimator.SetBool("Open", true);
-        ItemManager.instance.itemPool.ItemSpawn(3002, gameObject.transform.position);
-        // 2ÃÊµÚ¿¡ ÆÄ±«
-        Destroy(gameObject, 2f);
+        if (!isOpened)
+        {
+            isOpened = true;
+            boxAnimator.SetBool("Open", true);
+            ItemManager.instance.itemPool.ItemSpawn(3002, gameObject.transform.position);
+            Destroy(gameObject, 2f);
+        }
     }
-    
 }
