@@ -35,5 +35,5 @@ public class RotateAim : MonoBehaviour
         
         playerAnimator.SetFloat("X",value.x);
         playerAnimator.SetFloat ("Y",value.y);
-    }  
+    }             
 }

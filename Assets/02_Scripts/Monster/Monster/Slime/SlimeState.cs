@@ -130,8 +130,7 @@ public class SlimeState : MonsterState
     {
         currentState = State.Death;
         HandleMonsterDeath();
-        base.OnDeath();
-        RaiseOnMonsterDeath();
+        base.OnDeath();        
     }
 
     private void OnDestroy()

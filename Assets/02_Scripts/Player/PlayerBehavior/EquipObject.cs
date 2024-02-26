@@ -14,7 +14,7 @@ public class EquipObject : MonoBehaviour, IEquipedItem
     private CharacterStatHandler statHandler;
 
     private Inventory inventory;
-    private int selectedIndexNum = 1;
+    private int selectedIndexNum = 20;
 
     private void Awake()
     {        
@@ -33,13 +33,14 @@ public class EquipObject : MonoBehaviour, IEquipedItem
         for (int i = 0; i < 8; i++)
         {
             inventory.invenSlot[i].QuickSlotItemChoose(false);
-            inventory.slots[i].isChoose = false;
-            if (inventory.slots[selectedIndexNum].item != null && inventory.slots[selectedIndexNum].item.IsEquip == true)
+            inventory.slots[i].isChoose = false;    
+            
+            if(i == selectedIndexNum)
             {
-                UnEquipItemForChangeStats(i);
+                UnEquipItemForChangeStats(selectedIndexNum);
+                Debug.Log("아이템 추가 스탯 삭제");
             }
-        }
-
+        }              
         for (int i = 1; i <= 8; i++)
         {
             KeyCode key = KeyCode.Alpha0 + i;            
@@ -79,23 +80,21 @@ public class EquipObject : MonoBehaviour, IEquipedItem
             return;            
         }
         else
-        {
-            if (inventory.slots[itemIndex].isChoose == true)
-            {
-                if (inventory.slots[itemIndex].item.ItemType == 10 || inventory.slots[itemIndex].item.ItemType == 11)
-                {
-                    statHandler.CurrentStats.attackDamage += inventory.slots[itemIndex].item.AttackDamage;
-                }
+        {            
+             if (inventory.slots[itemIndex].item.ItemType == 10 || inventory.slots[itemIndex].item.ItemType == 11)
+             {
+                statHandler.CurrentStats.attackDamage += inventory.slots[itemIndex].item.AttackDamage;
+             }
 
-                else if (inventory.slots[itemIndex].item.ItemType == 12)
-                {
-                    statHandler.CurrentStats.miningAttack += inventory.slots[itemIndex].item.AttackDamage;
-                }
-                else
-                {
-                    return;
-                }
-            }
+             else if (inventory.slots[itemIndex].item.ItemType == 12)
+             {
+                statHandler.CurrentStats.miningAttack += inventory.slots[itemIndex].item.AttackDamage;
+             }
+             else
+             {
+                return;
+             }
+            UIManager.Instance.UpdatePlayerStatTxt();
         }
     }
 
@@ -106,23 +105,21 @@ public class EquipObject : MonoBehaviour, IEquipedItem
             return;
         }
         else
-        {
-            if (inventory.slots[itemIndex].isChoose == true)
+        {            
+            if (inventory.slots[itemIndex].item.ItemType == 10)
             {
-                if (inventory.slots[itemIndex].item.ItemType == 10)
-                {
-                    statHandler.CurrentStats.attackDamage -= inventory.slots[itemIndex].item.AttackDamage;
-                }
-                else if (inventory.slots[itemIndex].item.ItemType == 12)
-                {
-                    statHandler.CurrentStats.miningAttack -= inventory.slots[itemIndex].item.AttackDamage;
-                }
-                else
-                {
-                    return;
-                }
-            }          
-        }              
+                statHandler.CurrentStats.attackDamage -= inventory.slots[itemIndex].item.AttackDamage;
+            }
+            else if (inventory.slots[itemIndex].item.ItemType == 12)
+            {
+                statHandler.CurrentStats.miningAttack -= inventory.slots[itemIndex].item.AttackDamage;
+            }
+            else
+            {
+                return;
+            }                     
+        }
+        UIManager.Instance.UpdatePlayerStatTxt();
     }
 
     /*private void UnEquipItem(int slotIndex)// todo 기존에 있던 아이템 정보를 빼고넣기.
