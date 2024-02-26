@@ -85,7 +85,7 @@ public class Attack : MonoBehaviour
             }
             else
             {
-                if (TilemapManager.instance.wallDictionary[cellPosition].minMiningAttack < statsHandler.CurrentStats.miningAttack)
+                if (TilemapManager.instance.wallDictionary[cellPosition].minMiningAttack <= statsHandler.CurrentStats.miningAttack)
                 {
 
 

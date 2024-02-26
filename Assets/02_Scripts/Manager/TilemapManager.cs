@@ -35,49 +35,59 @@ public class TilemapManager : MonoBehaviour
             {
                 Vector3Int cellPosition = new(x, y, 0);
                 TileBase tile = tilemap.GetTile(cellPosition);
-                
                 if (tile != null)
                 {
-                    float tileHP = GetTileHp(cellPosition);
-                    float tileMinDamage = GetTileMinDamage(cellPosition);
+                    float tileHP = GetTileHp(cellPosition, tile);
+                    float tileMinDamage = GetTileMinDamage(cellPosition, tile);
                     wallDictionary[cellPosition] = new TileInfo
                     {
                         tile = tile,
                         HP = tileHP,
                         minMiningAttack = tileMinDamage
                     };
+                    Debug.Log(wallDictionary[cellPosition].HP);
                 }
             }
         }
     }
 
 
-    private float GetTileHp(Vector3Int position)
+    private float GetTileHp(Vector3Int position, TileBase tile)
     {
-        int tileHP = 150;
-        int Level2Point = 70;
-        if (Mathf.Abs(position.x) > Level2Point || Mathf.Abs(position.y) > Level2Point)
+        string wallname = tile.name;
+
+        if (wallname == "WallRuleTile")
         {
-            tileHP = 150;
+            return 100f;
+        }
+        else if (wallname == "Wall2RuleTile")
+        {
+            return 150f;
         }
         else
-            tileHP = 100;
-
-        return tileHP;
-        
+        {
+            Debug.LogError("으아아아아 타일이 없는곳에 벽의 체력값이 들어갔어요 주인님!");
+            return 0f;
+        }
     }
 
-    private float GetTileMinDamage(Vector3Int position)
+    private float GetTileMinDamage(Vector3Int position, TileBase tile)
     {
-        int minDamage = 25;
-        int Level2Point = 70;
-        if (Mathf.Abs(position.x) > Level2Point || Mathf.Abs(position.y) > Level2Point)
+        string wallname = tile.name;
+
+        if (wallname == "WallRuleTile")
         {
-            minDamage = 25;
+            return 20f;
+        }
+        else if (wallname == "Wall2RuleTile")
+        {
+            return 70f;
         }
         else
-            minDamage = 0;
-        return minDamage;
+        {
+            Debug.LogError("으아아아아 타일이 없는곳에 채굴피해 최소값이 들어갔어요 주인님!");
+            return 0f;
+        }
     }
     /*private void OnDrawGizmos()
     {
