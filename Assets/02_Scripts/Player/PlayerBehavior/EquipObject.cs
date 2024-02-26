@@ -32,15 +32,13 @@ public class EquipObject : MonoBehaviour, IEquipedItem
     {
         for (int i = 0; i < 8; i++)
         {
-            inventory.invenSlot[i].QuickSlotItemChoose(false);
-            inventory.slots[i].isChoose = false;    
-            
-            if(i == selectedIndexNum)
+            if (i == selectedIndexNum && inventory.slots[selectedIndexNum].isChoose == true)
             {
                 UnEquipItemForChangeStats(selectedIndexNum);
-                Debug.Log("아이템 추가 스탯 삭제");
             }
-        }              
+            inventory.invenSlot[i].QuickSlotItemChoose(false);
+            inventory.slots[i].isChoose = false;
+        }                  
         for (int i = 1; i <= 8; i++)
         {
             KeyCode key = KeyCode.Alpha0 + i;            
