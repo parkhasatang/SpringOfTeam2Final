@@ -34,6 +34,7 @@ public class Attack : MonoBehaviour
 
         if (hit)
         {
+            EffectManager.instance.effectPool.EffectIndex(EffectManager.EffectType.Attack, hit.point, direction);
             HealthSystem enemyHealth = hit.collider.GetComponent<HealthSystem>();
             if(enemyHealth != null)
             {

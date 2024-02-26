@@ -15,16 +15,19 @@ public class LogTrap : MonoBehaviour
     {
                
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        if (gameObject.activeSelf&&!isRolling)
-        {
-            
-            StartCoroutine(PlayAnimation());
-        }
+        StartCoroutine(PlayAnimation());
     }
+    // Update is called once per frame
+    //void Update()
+    //{
+    //    if (gameObject.activeSelf&&!isRolling)
+    //    {
+            
+    //        StartCoroutine(PlayAnimation());
+    //    }
+    //}
 
     IEnumerator PlayAnimation()
     {

@@ -173,6 +173,7 @@ private IEnumerator JumpAttack(float jumpHeight, System.Action onLanded)
 
         HealthSystem playerHealth = player.GetComponent<HealthSystem>();
         CharacterStatHandler playerStatHandler = player.GetComponent<CharacterStatHandler>();
+        
         if (playerHealth != null)
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
@@ -184,5 +185,11 @@ private IEnumerator JumpAttack(float jumpHeight, System.Action onLanded)
                 Debug.Log("점프 데미지 받았다.");
             }
         }
+    }
+
+    public void JumpAttackEffect()
+    {
+        GameObject BossSlimeEffect = EffectManager.instance.GetEffectPrefab(EffectManager.EffectType.BossSlimeAttack);
+        BossSlimeEffect.SetActive(true);
     }
 }
