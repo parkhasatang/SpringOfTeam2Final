@@ -105,7 +105,15 @@ public class MonsterState : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.attackRange)
             {
-                player.GetComponent<HealthSystem>().ChangeHealth(-statHandler.CurrentMonsterStats.attackDamage);
+                HealthSystem playerHealth = player.GetComponent<HealthSystem>();
+                if (playerHealth != null)
+                {
+                    playerHealth.ChangeHealth(-statHandler.CurrentMonsterStats.attackDamage);
+                }
+                else
+                {
+                    Debug.LogError("Player does not have a HealthSystem component.");
+                }
             }
         }
     }

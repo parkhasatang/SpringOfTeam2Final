@@ -103,12 +103,15 @@ public class SlimeState : MonsterState
         {
             Debug.Log("Attacking player");
             lastAttackTime = Time.time;
+            OnAttackHit();
         }
+
         if (!PlayerInAttackRange())
         {
             currentState = PlayerInDetectionRange() ? State.Chase : State.Idle;
         }
     }
+
 
     private bool PlayerInDetectionRange()
     {
