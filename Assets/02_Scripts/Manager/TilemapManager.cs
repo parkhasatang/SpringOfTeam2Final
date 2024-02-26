@@ -58,7 +58,7 @@ public class TilemapManager : MonoBehaviour
 
         if (wallname == "WallRuleTile")
         {
-            return 100f;
+            return 50f;
         }
         else if (wallname == "Wall2RuleTile")
         {

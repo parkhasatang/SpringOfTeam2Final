@@ -110,7 +110,11 @@ public class Attack : MonoBehaviour
                     }
                 }
                 else
+                {
+                    // 여기에 벽 튕겨지는 사운드 넣기.
                     return;
+
+                }
             }
         }
     }
