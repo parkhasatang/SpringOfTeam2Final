@@ -12,14 +12,16 @@ public class AudioManager : MonoBehaviour
     [Header("#BGM")]
     public  AudioClip BGMclip;
     public float bgmVolume;
-    AudioSource bgmSource;
+    public AudioSource bgmSource;
+    public float bgmChangeVolume;
 
     [Header("#SFX")]
     public AudioClip[] sfxClips;
     public float sfxVolume;
+    public float sfxChangerVolume;
     public int channels;
     private int channelIndex;
-    AudioSource[] sfxPlayers;
+    public AudioSource[] sfxPlayers;
 
     public enum Sfx
     {
@@ -46,6 +48,7 @@ public class AudioManager : MonoBehaviour
         bgmSource.playOnAwake = true;
         bgmSource.loop = true;
         bgmSource.volume = bgmVolume;
+        bgmChangeVolume = bgmSource.volume;
         bgmSource.clip = BGMclip;
 
         //효과음 플레이어 초기화
@@ -60,6 +63,7 @@ public class AudioManager : MonoBehaviour
             sfxPlayers[i].playOnAwake = false;
             sfxPlayers[i].loop = false;
             sfxPlayers[i].volume = sfxVolume;
+            sfxChangerVolume = sfxPlayers[i].volume;
         }
     }
     public void PlayBgm()
