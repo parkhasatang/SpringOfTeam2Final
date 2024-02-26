@@ -408,7 +408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\uD50C\uB808\uC774\uC5B4 \uC870\uC885\uC758 \uBE44\uBC95 \uC81C 1\uC7A5\n\n\uCE90\uB9AD\uD130
+  m_text: "\n\uD50C\uB808\uC774\uC5B4 \uC870\uC885\uC758 \uBE44\uBC95 \n\uC81C 1\uC7A5\n\n\uCE90\uB9AD\uD130
     \uC774\uB3D9 : W,A,S,D\nNPC \uC0C1\uD638\uC791\uC6A9 : F\n\uC778\uBCA4\uD1A0\uB9AC
     : Tab\n\uCC3D \uB2EB\uAE30 : Esc\n\n\uACF5\uACA9 : \uC88C\uD074\uB9AD\n\uC544\uC774\uD15C
     \uC0AC\uC6A9 : \uC6B0\uD074\uB9AD\n\uC544\uC774\uD15C \uC62E\uAE30\uAE30 : \uB4DC\uB798\uADF8"
@@ -420,8 +420,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -764,7 +764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8449887876701483231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -946,7 +946,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\uB358\uC804 \uD0D0\uC0AC\uC758 \uBE44\uBC95 \uC81C 1\uC7A5\n\n\uB358\uC804\uC5D0\uB294
+  m_text: "\n\uB358\uC804 \uD0D0\uC0AC\uC758 \uBE44\uBC95 \n\uC81C 1\uC7A5\n\n\uB358\uC804\uC5D0\uB294
     \uC6D0\uD615 \uB9F5 \uBC16\uC73C\uB85C \uB098\uAC00\uBA74 3\uAC00\uC9C0\uC758
     \uAD6C\uC5ED\uC73C\uB85C \uB098\uB204\uC5B4\uC838 \uC788\uC2B5\uB2C8\uB2E4.\n\uAC01\uAC01
     \uB098\uC624\uB294 \uBAAC\uC2A4\uD130\uAC00 \uB2E4\uB974\uACE0, \uB358\uC804\uB3C4
@@ -960,8 +960,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1346,7 +1346,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\uB18D\uC0AC \uBE44\uBC95 \uC81C 1\uC7A5\n\n\uC7A5\uBE44\uC81C\uC791
+  m_text: "\n\uB18D\uC0AC \uBE44\uBC95 \n\uC81C 1\uC7A5\n\n\uC7A5\uBE44\uC81C\uC791
     NPC\uC5D0\uAC8C \uAD6C\uB9AC\uAD2D\uC774\uC640 \uBB3C \uBFCC\uB9AC\uAC1C\uB97C
     \uB9CC\uB4E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\n\uAD2D\uC774\uB97C \uC0AC\uC6A9\uD558\uC5EC
     \uBC2D\uC744 \uB9CC\uB4E4\uACE0, \uBB3C \uBFCC\uB9AC\uAC1C\uB85C \uBB3C\uC744
@@ -1361,8 +1361,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
