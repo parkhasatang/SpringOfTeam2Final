@@ -41316,7 +41316,7 @@ GameObject:
   - component: {fileID: 869132882}
   - component: {fileID: 869132884}
   - component: {fileID: 869132883}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42395,6 +42395,10 @@ PrefabInstance:
     - target: {fileID: 5551714827706916362, guid: 8fe92a20848174e43bdbae05bb65b114, type: 3}
       propertyPath: m_Name
       value: Spawner(circle) (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551714827706916362, guid: 8fe92a20848174e43bdbae05bb65b114, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5678899006639834498, guid: 8fe92a20848174e43bdbae05bb65b114, type: 3}
       propertyPath: spawnRadius

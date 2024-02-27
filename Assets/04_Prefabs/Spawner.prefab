@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4282712529316128461}
   - component: {fileID: 3076099792113311672}
   - component: {fileID: 5364342905466184335}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a9e2702dddde14099eef9bbebb9659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterPrefab: {fileID: 3806593396950787163, guid: 443643100b9193646acb5507cb7179f7, type: 3}
-  bossMonsterPrefab: {fileID: 3806593396950787163, guid: 7c0a75574b1d1a9489bd5e9c5fdbc289, type: 3}
+  monsterPrefabs: []
+  wallTilemap: {fileID: 0}
   spawnRadius: 4
   minSpawnInterval: 10
   maxSpawnInterval: 20

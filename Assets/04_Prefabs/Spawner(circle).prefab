@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8712949759235899711}
   - component: {fileID: 5678899006639834498}
   - component: {fileID: 1400798515539189193}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spawner(circle)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a9e2702dddde14099eef9bbebb9659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterPrefab: {fileID: 3806593396950787163, guid: 443643100b9193646acb5507cb7179f7, type: 3}
+  monsterPrefabs: []
   wallTilemap: {fileID: 0}
   spawnRadius: 4
   minSpawnInterval: 10

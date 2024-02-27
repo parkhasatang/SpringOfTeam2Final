@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Tilemaps;
+using UnityEngine.WSA;
 
 
 [System.Serializable]
@@ -38,21 +39,14 @@ public class TilemapManager : MonoBehaviour
                 TileBase tile = tilemap.GetTile(cellPosition);
                 if (tile != null)
                 {
-                    float tileHP = GetTileHp(cellPosition, tile);
-                    float tileMinDamage = GetTileMinDamage(cellPosition, tile);
-                    wallDictionary[cellPosition] = new TileInfo
-                    {
-                        tile = tile,
-                        HP = tileHP,
-                        minMiningAttack = tileMinDamage
-                    };
+                    SetWallInfo(cellPosition, tile);
                 }
             }
         }
     }
 
 
-    private float GetTileHp(Vector3Int position, TileBase tile)
+    public float GetTileHp(TileBase tile)
     {
         string wallname = tile.name;
 
@@ -71,7 +65,7 @@ public class TilemapManager : MonoBehaviour
         }
     }
 
-    private float GetTileMinDamage(Vector3Int position, TileBase tile)
+    public float GetTileMinDamage(TileBase tile)
     {
         string wallname = tile.name;
 
@@ -88,6 +82,18 @@ public class TilemapManager : MonoBehaviour
             Debug.LogError("으아아아아 타일이 없는곳에 채굴피해 최소값이 들어갔어요 주인님!");
             return 0f;
         }
+    }
+
+    public void SetWallInfo(Vector3Int cellPosition, TileBase tile)
+    {
+        float tileHP = GetTileHp(tile);
+        float tileMinDamage = GetTileMinDamage(tile);
+        wallDictionary[cellPosition] = new TileInfo
+        {
+            tile = tile,
+            HP = tileHP,
+            minMiningAttack = tileMinDamage
+        };
     }
     /*private void OnDrawGizmos()
     {

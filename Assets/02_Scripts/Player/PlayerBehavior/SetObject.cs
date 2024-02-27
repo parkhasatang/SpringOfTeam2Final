@@ -73,6 +73,12 @@ public class SetObject : MonoBehaviour, IUsePotion
                     {
                         SetSeed(i);
                     }
+                    UIManager.Instance.playerInventoryData.StackUpdate(i);
+                    if (UIManager.Instance.playerInventoryData.slots[i].item == null)
+                    {
+                        equipObject.heldItem.sprite = null;
+                    }
+                    else equipObject.heldItem.sprite = ItemManager.instance.GetSpriteByItemCode(UIManager.Instance.playerInventoryData.slots[i].item.ItemCode);
                 }
                 break;
             }
@@ -90,25 +96,24 @@ public class SetObject : MonoBehaviour, IUsePotion
         float distance = Vector2.Distance(mousPosition, transform.position);
         if (distance < 2)
         {
-            if (TilemapManager.instance.wallDictionary.ContainsKey(new Vector3Int(Mathf.FloorToInt(mousPosition.x), Mathf.FloorToInt(mousPosition.y), 0)))
+            // Ground에 Collider가 없어서 Layer예외처리를 다 해줘야댐.
+            RaycastHit2D hit = Physics2D.Raycast(mousPosition, Vector2.zero, 0.1f, 1 << LayerMask.NameToLayer("Wall") | 1 << LayerMask.NameToLayer("Monster") | 1 << LayerMask.NameToLayer("Field") | 1 << LayerMask.NameToLayer("Box") | 1 << LayerMask.NameToLayer("Item") | 1 << LayerMask.NameToLayer("Pyramid") | 1 << LayerMask.NameToLayer("Default"));
+
+            // Ray가 맞았으면, 그곳에는 무언가 있다는 거니 설치 X
+            if (hit)
             {
+                Debug.Log(hit.transform.name);
                 return;
             }
+            // 아무것도 맞지 않았다면.
             else
             {
-                tileMapControl.CreateTile(Mathf.FloorToInt(mousPosition.x), Mathf.FloorToInt(mousPosition.y));
-                // 새롭게 생성해준 Tile을 Dictionary에 추가.
-                TilemapManager.instance.wallDictionary[new Vector3Int(Mathf.FloorToInt(mousPosition.x), Mathf.FloorToInt(mousPosition.y), 0)] = new TileInfo
-                {
-                    tile = tileMapControl.wallTile,
-                    HP = 100f
-                };
+                Vector3Int cellPosition = new Vector3Int(Mathf.FloorToInt(mousPosition.x), Mathf.FloorToInt(mousPosition.y), 0);
+
+                TilemapManager.instance.SetWallInfo(cellPosition, tileMapControl.wallTile);
+                tileMapControl.CreateTile(cellPosition.x, cellPosition.y);
+
                 UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack--;
-                UIManager.Instance.playerInventoryData.StackUpdate(inventoryIndex);
-                // 들고있는 아이템 null로 만들기.
-                equipObject.heldItem.sprite = null;
-                // 벽의 타입이 바꿔지는 것에 따라 TileInfo를 바꿔주자.
-                Debug.Log("딕셔너리에 추가");
             }
         }
     }
@@ -199,7 +204,6 @@ public class SetObject : MonoBehaviour, IUsePotion
                     field.isSeed = true;
                     field.seedData = UIManager.Instance.playerInventoryData.slots[inventoryIndex].item;
                     UIManager.Instance.playerInventoryData.slots[inventoryIndex].stack--;
-                    UIManager.Instance.playerInventoryData.StackUpdate(inventoryIndex);
                     field.CheckIsSeed();
                 }
             }
@@ -214,7 +218,6 @@ public class SetObject : MonoBehaviour, IUsePotion
             healthSystem.ChangeHealth(UIManager.Instance.playerInventoryData.slots[i].item.HP);
             healthSystem.ChangeHunger(UIManager.Instance.playerInventoryData.slots[i].item.Hunger);            
             UIManager.Instance.playerInventoryData.slots[i].stack--;
-            UIManager.Instance.playerInventoryData.StackUpdate(i);
         }             
     }
 }

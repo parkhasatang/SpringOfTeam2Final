@@ -50,9 +50,20 @@ public class EquipObject : MonoBehaviour, IEquipedItem
 
                 if (inventory.slots[i - 1].isChoose) 
                 {
-                    // 기존에 들었던 아이템이랑 같다면
-                    if (previousEquipItemData.ItemCode == inventory.slots[i - 1].item.ItemCode)
+                    // 플레이어가 아무것도 선택하지않은 상태에서 아이템이 들어온걸 처음 선택했을 때
+                    if (previousEquipItemData == null)
                     {
+                        previousEquipItemData = inventory.slots[i - 1].item;
+                    }
+                    // 퀵슬롯에서 선택한 아이템의 옮겨진 자리를 다시 선택할 떄.
+                    if (inventory.slots[i - 1].item == null)
+                    {
+                        previousEquipItemData = null;
+                    }
+                    // 기존에 들었던 아이템이랑 같다면
+                    if (previousEquipItemData == inventory.slots[i - 1].item)
+                    {
+                        EquipItem(i - 1);
                         inventory.invenSlot[i - 1].QuickSlotItemChoose(true);
                         inventory.slots[i - 1].isChoose = true;
                         EquipItemForChangeStats(i - 1);

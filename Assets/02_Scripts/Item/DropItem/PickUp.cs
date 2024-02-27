@@ -22,10 +22,14 @@ public class PickUp : MonoBehaviour
                 {
                     inven.slots[i].stack++;
                     inven.invenSlot[i].ItemStackUIRefresh(inven.slots[i].stack);
+                    inven.StackUpdate(i);
                     gameObject.SetActive(false);
-                    break;
+                    return;
                 }
-                else if (inven.slots[i].isEmpty)
+            }
+            for (int i = 0; i < inven.invenSlot.Length - 3; i++)
+            {
+                if (inven.slots[i].isEmpty)
                 {
                     inven.invenSlot[i].ChangeInventoryImage(itemCode);
                     inven.invenSlot[i].OnOffImage(1f);
@@ -33,16 +37,14 @@ public class PickUp : MonoBehaviour
                     inven.slots[i].item = item; // 정해준 아이템의 데이터를 넣어준다.
                     inven.slots[i].stack = 1;
                     inven.invenSlot[i].ItemStackUIRefresh(inven.slots[i].stack);
-
+                    inven.StackUpdate(i);
                     if (inven.slots[i].isChoose)
                     {
-                        // 빈 곳으로 아이템이 들어가면 이미지 나타나게 해줌.
+                        // 빈 곳으로 아이템이 들어가면 손에 이미지 나타나게 해줌.
                         collision.GetComponent<EquipObject>().heldItem.sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
-                        // 퀵슬롯에서 아이템 선택했을 때 플레이어한테 데이터 넣어주는 작업을 시작하면 여기에서는 바로 플레이어에게 아이템 데이터 더해주기.
-                        // 작업 아직 시작안함.
                     }
                     gameObject.SetActive(false);
-                    break;
+                    return;
                 }
             }
         }
