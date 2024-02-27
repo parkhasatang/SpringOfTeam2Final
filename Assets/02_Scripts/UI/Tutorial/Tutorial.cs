@@ -10,9 +10,11 @@ public class Tutorial : MonoBehaviour
     private CanvasGroup[] pageCanvasGroup;
     public GameObject tutorialBook;
     private int currentPage;
-    
+    public GameObject player;
     public GameObject rightBtn;
     public GameObject leftBtn;
+
+    private bool firstReward = false;
 
     private void Awake()
     {
@@ -99,5 +101,26 @@ public class Tutorial : MonoBehaviour
     {
         rightBtn.GetComponent<Image>().raycastTarget = OnOff;
         leftBtn.GetComponent<Image>().raycastTarget = OnOff;
+    }
+
+    public void GiveReward()
+    {
+        if (firstReward == false)
+        {
+            ItemManager.instance.itemPool.ItemSpawn(1201, player.transform.position);
+            ItemManager.instance.itemPool.ItemSpawn(1251, player.transform.position);
+            ItemManager.instance.itemPool.ItemSpawn(3101, player.transform.position);
+            ItemManager.instance.itemPool.ItemSpawn(3101, player.transform.position);
+            ItemManager.instance.itemPool.ItemSpawn(3101, player.transform.position);
+            ItemManager.instance.itemPool.ItemSpawn(3101, player.transform.position);
+            ItemManager.instance.itemPool.ItemSpawn(3101, player.transform.position);
+            ItemManager.instance.itemPool.ItemSpawn(3011, player.transform.position);
+            ItemManager.instance.itemPool.ItemSpawn(3011, player.transform.position);
+            ItemManager.instance.itemPool.ItemSpawn(1712, player.transform.position);
+            ItemManager.instance.itemPool.ItemSpawn(1712, player.transform.position);
+            ItemManager.instance.itemPool.ItemSpawn(1712, player.transform.position);
+
+        }
+        firstReward = true;
     }
 }
