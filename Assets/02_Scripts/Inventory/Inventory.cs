@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviour
 {
     public List<SlotData> slots = new();// SlotData를 리스트로 만들어주자.
     public SlotNum[] invenSlot;
+    private EquipObject equipObject;
 
     public void Awake()
     {
@@ -20,6 +22,8 @@ public class Inventory : MonoBehaviour
             };
             slots.Add(slot);
         }
+
+        equipObject = GetComponent<EquipObject>();
     }
 
     // 인벤토리 아이템의 스택검사.
@@ -28,16 +32,35 @@ public class Inventory : MonoBehaviour
         // 인벤토리 스캔
         for (int i = 0; i < invenSlot.Length - 3; i++)
         {
-            if (!slots[i].isEmpty && slots[i].item.ItemCode == itemCode)
+            if (!slots[i].isEmpty && slots[i].item != null)
             {
-                if (slots[i].stack >= requiredStack)
+                if (slots[i].item.ItemCode == itemCode)
                 {
-                    return true;
+                    if (slots[i].stack >= requiredStack)
+                    {
+                        return true;
+                    }
+                    else return false;
                 }
-                else return false;
             }
         }
         return false;
+    }
+
+    public int ReturnStackInInventory(int itemCode)
+    {
+        for (int i = 0; i < invenSlot.Length - 3; i++)
+        {
+            if (!slots[i].isEmpty && slots[i].item != null)
+            {
+                if (slots[i].item.ItemCode == itemCode)
+                {
+                    return slots[i].stack;
+                }
+            }
+        }
+        Debug.Log("인벤토리에 요구조건에 충족하는 아이템의 양이 부족합니다.");
+        return 0;
     }
 
     // 인벤토리 스택 검사.
@@ -77,32 +100,42 @@ public class Inventory : MonoBehaviour
 
     public void GiveItemToEmptyInv(Item itemData, int stack)
     {
-        // 데이터 임시보관소에 보내주기.
-        UIManager.Instance.giveTemporaryItemData = itemData;
-        UIManager.Instance.giveTemporaryItemStack = stack;
-
+        // 인벤토리에 겹치는 아이템이 있는지.
+        for (int i = 0; i < invenSlot.Length - 3; i++)
+        {
+            // 인벤토리가 비어있는지, 받을려는 아이템이랑 일치하는지, 최대갯수보다 적게 들어있는지.
+            if (!slots[i].isEmpty && slots[i].item.ItemCode == itemData.ItemCode && slots[i].stack < slots[i].item.StackNumber)
+            {
+                slots[i].stack += stack;
+                // 스택을 더했을 때, 최대갯수를 넘으면.
+                if (slots[i].stack > slots[i].item.StackNumber)
+                {
+                    int remainStack = slots[i].stack - slots[i].item.StackNumber;
+                    slots[i].stack = slots[i].item.StackNumber;
+                    // 스택 갯수가 넘쳐서 아래 for문으로 들어감.
+                    GiveItemToEmptyInv(itemData, remainStack);
+                }
+                StackUpdate(i);
+                return;
+            }
+        }
+        // 겹치는 아이템이 없으면.
         for (int i = 0; i < invenSlot.Length - 3; i++)
         {
             if (slots[i].isEmpty)
             {
-                slots[i].item = UIManager.Instance.giveTemporaryItemData;
-                slots[i].stack = UIManager.Instance.giveTemporaryItemStack;
+                invenSlot[i].ChangeInventoryImage(itemData.ItemCode);
+                invenSlot[i].OnOffImage(1f);
+                slots[i].isEmpty = false;
+                slots[i].item = itemData; // 정해준 아이템의 데이터를 넣어준다.
+                slots[i].stack = stack;
                 StackUpdate(i);
-
-
-                UIManager.Instance.giveTemporaryItemData = null;
-                UIManager.Instance.giveTemporaryItemStack = 0;
-                break;
-            }
-            else
-            {
-                if (slots[i].item.ItemCode == itemData.ItemCode)
+                if (slots[i].isChoose)
                 {
-                    slots[i].stack += stack;
-                    StackUpdate(i);
-                    break;
+                    // 빈 곳으로 아이템이 들어가면 손에 이미지 나타나게 해줌.
+                    equipObject.heldItem.sprite = ItemManager.instance.GetSpriteByItemCode(itemData.ItemCode);
                 }
-                continue;
+                return;
             }
         }
     }

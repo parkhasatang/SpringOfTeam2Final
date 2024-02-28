@@ -8,7 +8,7 @@ public class Interact : MonoBehaviour
 {
     private CharacterController controller;
     public Collider2D player;
-    private bool deactiveTabKey;
+    private bool deactiveOtherUIKey;
     /*private Dictionary<string, GameObject> interactiveUIs = new Dictionary<string, GameObject>();*/
 
     public GameObject inventoryObject;
@@ -16,6 +16,7 @@ public class Interact : MonoBehaviour
     public GameObject CookUI;
     public GameObject equipUI;
     public GameObject questUI;
+    public GameObject questShortCutUI;
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -35,9 +36,16 @@ public class Interact : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (!deactiveTabKey)
+            if (!deactiveOtherUIKey)
             {
                 ToggleInventory();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (!deactiveOtherUIKey)
+            {
+                ToggleQuestShortCutUI();
             }
         }
     }
@@ -48,7 +56,7 @@ public class Interact : MonoBehaviour
         if (controller.IsInteracting && collision.CompareTag("InteractionObject"))
         {
             string ObjectName = collision.gameObject.name;
-            deactiveTabKey = true;
+            deactiveOtherUIKey = true;
 
             if (ObjectName == "Make")
             {
@@ -109,7 +117,7 @@ public class Interact : MonoBehaviour
             CookUI.SetActive(false);
             inventoryObject.SetActive(false);
             controller.CanControllCharacter = true;
-            deactiveTabKey = false;
+            deactiveOtherUIKey = false;
         }
        /*foreach(var ui in  interactiveUIs)
         {
@@ -131,5 +139,10 @@ public class Interact : MonoBehaviour
         {
             controller.CanControllCharacter = true;
         }
+    }
+
+    private void ToggleQuestShortCutUI()
+    {
+        questShortCutUI.SetActive(!questShortCutUI.activeSelf);
     }
 }

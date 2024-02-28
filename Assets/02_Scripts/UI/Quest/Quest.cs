@@ -6,12 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public interface IObservable
-{
-    event Action QuestStateChanged;
-}
-
-public class Quest : MonoBehaviour, IObservable
+public class Quest : MonoBehaviour
 {
     public event Action QuestStateChanged;
 
@@ -24,60 +19,19 @@ public class Quest : MonoBehaviour, IObservable
     public Image rewardImg;
     public TMP_Text requestCountTxt;
     public TMP_Text rewardCountTxt;
-    public TMP_Text questResetTimerTxt;
-
-    internal bool isAccept;
-    private float resetTimer;
-    public float ResetTimer
-    {
-        get { return resetTimer; }
-        set
-        {
-            resetTimer = value;
-            QuestResetTimer();
-        }
-    }
 
     public Button acceptBtn;
-    public Button rewardButton;
-    public Sprite activeBtnSprite;
-    public Sprite defaultBtnSprite;
+    public Button resetBtn;
     public CanvasGroup canvasGroup;
     private Sequence sequence;
 
-    private Inventory inventory;
     private ItemManager itemManager;
 
     private void Start()
     {
-        inventory = UIManager.Instance.playerInventoryData;
         itemManager = ItemManager.instance;
 
-        acceptBtn.onClick.AddListener(AcceptQuest);
-        rewardButton.onClick.AddListener(GetReward);
-    }
-
-    private void Update()
-    {
-        if (!isAccept)
-        {
-            ResetTimer -= Time.deltaTime;
-
-            if (ResetTimer <= 0f)
-            {
-                ResetQuest();
-                ResetTimer = 10f;
-            }
-        }
-        else
-        {
-            ResetTimer = 10f;
-        }
-    }
-
-    private void OnQuestStateChanged()
-    {
-        QuestStateChanged?.Invoke();
+        acceptBtn.onClick.AddListener(PressAcceptBtn);
     }
 
     // 랜덤 퀘스트 주기.
@@ -96,34 +50,6 @@ public class Quest : MonoBehaviour, IObservable
         requestCountTxt.text = $"{requestCount}";
         rewardImg.sprite = itemManager.GetSpriteByItemCode(rewardItem.ItemCode);
         rewardCountTxt.text = $"{rewardCount}";
-    }
-
-    // 퀘스트 조건을 충족했는지 확인
-    public void CheckRequst()
-    {
-        if (inventory.CheckStackAmount(requestItem.ItemCode, requestCount))
-        {
-            // 버튼 이미지 바꾸고 눌리게 해주기.
-            rewardButton.interactable = true;
-            rewardButton.image.sprite = activeBtnSprite;
-        }
-        else
-        {
-            rewardButton.interactable = false;
-            rewardButton.image.sprite = defaultBtnSprite;
-        }
-    }
-
-    // 보상 버튼을 누르면.
-    public void GetReward()
-    {
-        inventory.RemoveItemFromInventory(requestItem.ItemCode, requestCount);
-        inventory.GiveItemToEmptyInv(rewardItem, rewardCount);
-
-        isAccept = false;
-
-        ResetQuest();
-        OnQuestStateChanged();
     }
 
     private void FadeOut()
@@ -153,18 +79,26 @@ public class Quest : MonoBehaviour, IObservable
         FadeOut();
     }
 
-    public void AcceptQuest()
+    public void PressAcceptBtn()
     {
-        isAccept = true;
-        
-        // 퀘스트 숏컷 상태 바꿔주기. 이벤트로 구현함.
-        OnQuestStateChanged();
+        SetQuestInfo();
 
-        CheckRequst();
+        ResetQuest();
     }
 
-    public void QuestResetTimer()
+    public void PressResetBtn()
     {
-        questResetTimerTxt.text = $"{(int)ResetTimer}";
+        ResetQuest();
+    }
+
+    private void SetQuestInfo()
+    {
+        QuestManager.instance.questInfo = new QuestInfo();
+
+        QuestManager.instance.questInfo.requestItem = requestItem;
+        QuestManager.instance.questInfo.requestCount = requestCount;
+
+        QuestManager.instance.questInfo.rewardItem = rewardItem;
+        QuestManager.instance.questInfo.rewardCount = rewardCount;
     }
 }
