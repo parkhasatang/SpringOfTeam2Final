@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -81,12 +82,13 @@ public class Attack : MonoBehaviour
 
             Vector3Int cellPosition = TilemapManager.instance.tilemap.WorldToCell(middlePoint);
             Debug.Log(cellPosition);
-            if (cellPosition == null || playerEquip.usedPreviousEquipItemData.ItemType == 10)
+            
+            if (cellPosition == null || playerEquip.usedPreviousEquipItemData?.ItemType == 10)
             {
                 return;
             }
             else
-            {
+            {                                 
                 if (TilemapManager.instance.wallDictionary[cellPosition].minMiningAttack <= statsHandler.CurrentStats.miningAttack)
                 {
 
