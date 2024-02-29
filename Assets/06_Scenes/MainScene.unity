@@ -42378,21 +42378,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2254008403460011427, guid: 7c0a75574b1d1a9489bd5e9c5fdbc289, type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3806593396950787163, guid: 7c0a75574b1d1a9489bd5e9c5fdbc289, type: 3}
       propertyPath: m_Name
       value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 3806593396950787163, guid: 7c0a75574b1d1a9489bd5e9c5fdbc289, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3806593396950787163, guid: 7c0a75574b1d1a9489bd5e9c5fdbc289, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -47499,8 +47487,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8866142093101756456, guid: e7f0e8f410568b749a6e7920f37cc19b, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 77888
+      propertyPath: orthographic size
+      value: 110
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
