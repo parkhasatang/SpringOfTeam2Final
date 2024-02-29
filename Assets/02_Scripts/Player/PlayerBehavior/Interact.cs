@@ -108,12 +108,14 @@ public class Interact : MonoBehaviour
    
     public void CancelUI()
     {
-        if (MakeUI.activeSelf || CookUI.activeSelf || questUI.activeSelf)
+        if (MakeUI.activeSelf || CookUI.activeSelf || questUI.activeSelf ||inventoryObject.activeSelf || worldMap.activeSelf)
         {
             questUI.SetActive(false);
             MakeUI.SetActive(false);
             CookUI.SetActive(false);
+            worldMap.SetActive(false);
             inventoryObject.SetActive(false);
+            equipUI.SetActive(false);
             controller.CanControllCharacter = true;
             deactiveTabKey = false;
         }
