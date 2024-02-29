@@ -16,6 +16,8 @@ public class Interact : MonoBehaviour
     public GameObject CookUI;
     public GameObject equipUI;
     public GameObject questUI;
+    public GameObject worldMap;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -39,6 +41,10 @@ public class Interact : MonoBehaviour
             {
                 ToggleInventory();
             }
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            ToggleWorldMap();
         }
     }
 
@@ -124,6 +130,32 @@ public class Interact : MonoBehaviour
         inventoryObject.SetActive(!inventoryObject.activeSelf);
         equipUI.SetActive(!equipUI.activeSelf);
         if (inventoryObject.activeSelf)
+        {
+            controller.CanControllCharacter = false;
+        }
+        else
+        {
+            controller.CanControllCharacter = true;
+        }
+    }
+    
+    private void ToggleWorldMap()
+    {
+        worldMap.SetActive(!worldMap.activeSelf);
+        if (worldMap.activeSelf)
+        {
+            controller.CanControllCharacter = false;
+        }
+        else
+        {
+            controller.CanControllCharacter = true;
+        }
+    }
+
+    public void ButtonWorldMap()
+    {
+        worldMap.SetActive(!worldMap.activeSelf);
+        if (worldMap.activeSelf)
         {
             controller.CanControllCharacter = false;
         }
