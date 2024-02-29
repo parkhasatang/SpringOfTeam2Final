@@ -14,19 +14,15 @@ public class QuestBoard : MonoBehaviour
     public CanvasGroup questShortCutAlpha;
 
     internal QuestInfo questInfo;
-    private Inventory inventory;
-    private ItemManager itemManager;
 
     private void Awake()
     {
         QuestManager.instance.OnCheckQuestRequest += CheckRequst;
-        QuestManager.instance.OnQuestAccepted += OnQuestAccepted;
     }
 
-    private void Start()
+    public void OnEnable()
     {
-        inventory = UIManager.Instance.playerInventoryData;
-        itemManager = ItemManager.instance;
+        transform.SetAsLastSibling();
     }
 
     public void ShortCutFadeOut()
@@ -48,11 +44,10 @@ public class QuestBoard : MonoBehaviour
         sequence.Play();
     }
 
-    private void OnQuestAccepted()
+    public void ShowQuestOnShortCut()
     {
         if (questInfo != null)
         {
-            gameObject.SetActive(true);
             CheckRequst();
             ShortCutFadeIn();
         }
@@ -63,10 +58,13 @@ public class QuestBoard : MonoBehaviour
     {
         if (questInfo != null)
         {
-            questShortCutTxt.text = $"{inventory.ReturnStackInInventory(questInfo.requestItem.ItemCode)}/{questInfo.requestCount}";
-            questShortCutImg.sprite = itemManager.GetSpriteByItemCode(questInfo.requestItem.ItemCode);
+            Debug.Log(questInfo.requestItem);
+            Debug.Log(questInfo.requestItem.ItemCode);
+            Debug.Log(questInfo.requestCount);
+            questShortCutTxt.text = $"{UIManager.Instance.playerInventoryData.ReturnStackInInventory(questInfo.requestItem.ItemCode)}/{questInfo.requestCount}";
+            questShortCutImg.sprite = ItemManager.instance.GetSpriteByItemCode(questInfo.requestItem.ItemCode);
 
-            if (inventory.CheckStackAmount(questInfo.requestItem.ItemCode, questInfo.requestCount))
+            if (UIManager.Instance.playerInventoryData.CheckStackAmount(questInfo.requestItem.ItemCode, questInfo.requestCount))
             {
                 // 버튼 이미지 바꾸고 눌리게 해주기.
                 clearBtn.interactable = true;
@@ -84,17 +82,40 @@ public class QuestBoard : MonoBehaviour
                 clearBtn.colors = colors;
             }
         }
-        else Debug.LogError("QuestBoard에 저장된 퀘스트 정보가 없습니다.");
+        else
+        {
+            questShortCutTxt.text = $"0/0";
+            questShortCutImg.sprite = null;
+
+            clearBtn.interactable = false;
+
+            ColorBlock colors = clearBtn.colors;
+            colors.colorMultiplier = 1f;
+            clearBtn.colors = colors;
+
+            Debug.Log("QuestBoard에 저장된 퀘스트 정보가 없습니다.");
+        }
     }
 
     // ClearBtn에 연결.
     public void GetReward()
     {
-        inventory.RemoveItemFromInventory(questInfo.requestItem.ItemCode, questInfo.requestCount);
-        inventory.GiveItemToEmptyInv(questInfo.rewardItem, questInfo.rewardCount);
+        UIManager.Instance.playerInventoryData.RemoveItemFromInventory(questInfo.requestItem.ItemCode, questInfo.requestCount);
+        UIManager.Instance.playerInventoryData.GiveItemToEmptyInv(questInfo.rewardItem, questInfo.rewardCount);
+        questInfo = null;
+
 
         QuestManager.instance.CheckAllQuestRequest();
-        ShortCutFadeOut();
+        DeactiveThis();
+    }
+
+    // CancelBtn에 연결.
+    public void CancelQuest()
+    {
+        questInfo = null;
+        CheckRequst();
+        questInfo = new QuestInfo();
+        DeactiveThis();
     }
 
     private void DeactiveThis()

@@ -97,7 +97,6 @@ public class HealthSystem : MonoBehaviour
         {
             yield return new WaitForSeconds(5f);
             ChangeHunger(change);
-            Debug.Log(change);            
         }
     }
     public bool ChangeMHealth(float change)

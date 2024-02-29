@@ -64,7 +64,6 @@ public class CharacterController : MonoBehaviour
     {
         if (IsInteracting)
         {
-            Debug.Log(IsInteracting);
             CallInteractEvent();
         }
     }

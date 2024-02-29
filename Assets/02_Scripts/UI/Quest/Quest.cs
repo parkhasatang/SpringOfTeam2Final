@@ -30,8 +30,6 @@ public class Quest : MonoBehaviour
     private void Start()
     {
         itemManager = ItemManager.instance;
-
-        acceptBtn.onClick.AddListener(PressAcceptBtn);
     }
 
     // ·£´ý Äù½ºÆ® ÁÖ±â.
@@ -82,6 +80,8 @@ public class Quest : MonoBehaviour
     public void PressAcceptBtn()
     {
         SetQuestInfo();
+
+        QuestManager.instance.SetQuestOnQuestBoard();
 
         ResetQuest();
     }

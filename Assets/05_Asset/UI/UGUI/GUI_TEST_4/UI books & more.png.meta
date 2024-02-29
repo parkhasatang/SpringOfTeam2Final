@@ -1433,7 +1433,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI books & more_107
+      name: CloseBtnPress
       rect:
         serializedVersion: 2
         x: 786
@@ -3587,6 +3587,7 @@ TextureImporter:
     nameFileIdTable:
       ClearStamp: -802825364
       CloseBtn: 142240221
+      CloseBtnPress: 67010160
       ItemInfoBackGround: 1969220893
       LeftBtn: 1852837258
       QuestAcceptBtn: -1084576776
@@ -3603,7 +3604,6 @@ TextureImporter:
       UI books & more_103: -528579534
       UI books & more_104: 1990283738
       UI books & more_105: 1738137701
-      UI books & more_107: 67010160
       UI books & more_108: 486527248
       UI books & more_109: -922149590
       UI books & more_11: -659664706

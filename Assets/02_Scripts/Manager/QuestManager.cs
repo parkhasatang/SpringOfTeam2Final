@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class QuestInfo
@@ -16,7 +17,7 @@ public class QuestInfo
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
-    public QuestShortCut questShortCut;
+    internal QuestShortCut questShortCut;
     internal int questSlotCount;
     internal QuestInfo questInfo;
 
@@ -33,19 +34,32 @@ public class QuestManager : MonoBehaviour
         {
             questSlotCount = questShortCut.questBoards.Length;
         }
+        else
+        {
+            Debug.LogError("퀘스트 숏컷을 못찾았습니다.");
+        }
+
+        for (int i = 0; i < questSlotCount; i++)
+        {
+            questShortCut.questBoards[i].questInfo = new QuestInfo();
+        }
     }
 
     public void SetQuestOnQuestBoard()
     {
         for (int i = 0; i < questSlotCount; i++)
         {
-            if (questShortCut.questBoards[i].questInfo == null)
+            if (questShortCut.questBoards[i].questInfo.requestItem == null)
             {
                 if (questInfo != null)
                 {
+                    questShortCut.questBoards[i].questInfo = new QuestInfo();
                     questShortCut.questBoards[i].questInfo = questInfo;
                     questInfo = null;
-                    AcceptQuest();
+
+                    questShortCut.questBoards[i].ShowQuestOnShortCut();
+
+                    questShortCut.questBoards[i].transform.gameObject.SetActive(true);
                     break;
                 }
                 else
@@ -54,12 +68,6 @@ public class QuestManager : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void AcceptQuest()
-    {
-        // 퀘스트를 받았을 때 이벤트 호출
-        OnQuestAccepted?.Invoke();
     }
 
     public void CheckAllQuestRequest()
