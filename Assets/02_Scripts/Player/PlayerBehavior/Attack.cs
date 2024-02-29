@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -11,12 +12,14 @@ public class Attack : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private float attackRange = 5.0f;
     private Animator playerAnimator;
+    private EquipObject playerEquip;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         statsHandler = GetComponent<CharacterStatHandler>();
         playerAnimator = GetComponentInChildren<Animator>();
+        playerEquip = GetComponent<EquipObject>();
     }
 
     // Start is called before the first frame update
@@ -79,12 +82,13 @@ public class Attack : MonoBehaviour
 
             Vector3Int cellPosition = TilemapManager.instance.tilemap.WorldToCell(middlePoint);
             Debug.Log(cellPosition);
-            if (cellPosition == null)
+            
+            if (cellPosition == null || playerEquip.usedPreviousEquipItemData?.ItemType == 10)
             {
                 return;
             }
             else
-            {
+            {                                 
                 if (TilemapManager.instance.wallDictionary[cellPosition].minMiningAttack <= statsHandler.CurrentStats.miningAttack)
                 {
 

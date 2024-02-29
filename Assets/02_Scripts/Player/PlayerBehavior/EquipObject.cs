@@ -14,6 +14,7 @@ public class EquipObject : MonoBehaviour, IEquipedItem
     private CharacterStatHandler statHandler;
 
     private Item previousEquipItemData;
+    public Item usedPreviousEquipItemData { get { return previousEquipItemData; } private set { previousEquipItemData = value; } }
     private Inventory inventory;
 
     private void Awake()
