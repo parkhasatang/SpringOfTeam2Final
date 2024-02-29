@@ -6,6 +6,8 @@ public class MonsterSpawner : MonoBehaviour
 {
     public GameObject[] monsterPrefabs;
     public Tilemap wallTilemap;
+    public Tilemap groundTilemap;
+
     private bool playerEnteredZone = false;
     private int maxMonsters = 5;
     private int currentMonsterCount = 0;
@@ -62,19 +64,19 @@ public class MonsterSpawner : MonoBehaviour
     private Vector3 GetRandomSpawnPoint()
     {
         Vector3 spawnPoint = Vector3.zero;
-        int attempts = 10;
+        int attempts = 100;
         while (attempts > 0)
         {
             attempts--;
-            Vector3 spawnDirection = Random.insideUnitCircle.normalized;
-            spawnDirection.z = spawnDirection.y;
-            spawnDirection.y = 0;
-            spawnPoint = transform.position + spawnDirection * spawnRadius;
+            Vector3 spawnDirection = Random.insideUnitCircle.normalized * spawnRadius;
+            Vector3 potentialSpawnPoint = transform.position + new Vector3(spawnDirection.x, 0, spawnDirection.y);
 
-            Vector3Int tilePosition = wallTilemap.WorldToCell(spawnPoint);
-            if (!wallTilemap.HasTile(tilePosition))
+            Vector3Int groundTilePosition = groundTilemap.WorldToCell(potentialSpawnPoint);
+            Vector3Int wallTilePosition = wallTilemap.WorldToCell(potentialSpawnPoint);
+
+            if (groundTilemap.HasTile(groundTilePosition) && !wallTilemap.HasTile(wallTilePosition))
             {
-                return spawnPoint;
+                return groundTilemap.CellToWorld(groundTilePosition) + new Vector3(0.5f, 0.5f, 0);
             }
         }
         return Vector3.zero;
