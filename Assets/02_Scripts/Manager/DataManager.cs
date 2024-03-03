@@ -49,11 +49,11 @@ public class DataManager : MonoBehaviour
     string path;
     string fileName = "SaveFile";
         
-    GameData newGameData = new GameData(26);
+    
 
     
     private void Awake()
-    {
+    {        
         instance = this;
         DontDestroyOnLoad(this.gameObject);
         path = Application.persistentDataPath + "/";
@@ -61,15 +61,11 @@ public class DataManager : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start()
-    {
-        LoadData();
-        player.transform.position = newGameData.playerPosition;
-
-        for (int i = 0; i < inventory.invenSlot.Length; i++)
+    {   
+        if(File.Exists(path + fileName))
         {
-            inventory.invenSlot[i] = newGameData._slotNum[i];
-            inventory.slots[i] = newGameData._slots[i];
-        }
+            LoadData();
+        }            
     }   
     // Update is called once per frame
     void Update()
@@ -79,9 +75,10 @@ public class DataManager : MonoBehaviour
 
     public void SaveData()
     {
+        GameData newGameData = new GameData(26);        
         newGameData.playerPosition = player.transform.position;
-        newGameData._slotNum = new SlotNum[inventory.invenSlot.Length];
-        for (int i = 0; i < inventory.invenSlot.Length; i++)
+        
+        for (int i = 0; i < 26; i++)
         {
             newGameData._slotNum[i] = inventory.invenSlot[i];
             newGameData._slots[i] = inventory.slots[i];
@@ -93,6 +90,15 @@ public class DataManager : MonoBehaviour
     public void LoadData()
     {
         string data = File.ReadAllText(path + fileName);
-        newGameData = JsonUtility.FromJson<GameData>(data);
+        GameData loadGameData = JsonUtility.FromJson<GameData>(data);
+
+        player.transform.position = loadGameData.playerPosition;
+
+        for (int i = 0; i < 26; i++)
+        {
+            inventory.invenSlot[i] = loadGameData._slotNum[i];
+            inventory.slots[i] = loadGameData._slots[i];
+            inventory.StackUpdate(i);
+        }
     }
 }
