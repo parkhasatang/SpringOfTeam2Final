@@ -23,8 +23,7 @@ public class GameData
     public Vector3 playerPosition;
     public SlotNum[] _slotNum;
     public List<SlotData> _slots;
-
-    public Dictionary<Vector3Int, TileInfo> saveWallDictionary;
+    
     public Tilemap tilemap;
     public Tilemap ceilingTile;
     
@@ -51,8 +50,12 @@ public class DataManager : MonoBehaviour
     public static DataManager instance;
     public GameObject player;
     private Inventory inventory;
+    
     string path;
     string fileName = "SaveFile";
+
+    public Tilemap _tilemap;
+    public Tilemap _ceilingtile;
         
     
 
@@ -80,26 +83,54 @@ public class DataManager : MonoBehaviour
 
     public void SaveData()
     {
-        GameData newGameData = new GameData(26);        
+        // 저장할 데이터 객체화
+        GameData newGameData = new GameData(26); 
+        
+        // 플레이어 위치 저장
         newGameData.playerPosition = player.transform.position;
-        newGameData.saveWallDictionary = TilemapManager.instance.wallDictionary;
-        BoundsInt bounds = newGameData.tilemap.cellBounds;
+
+        // 맵 저장
+        BoundsInt boundsWall = _tilemap.cellBounds;
+        TileBase[] allWallTiles = _tilemap.GetTilesBlock(boundsWall);
+        Tilemap newWallTilemap = _tilemap;
+        newWallTilemap.ClearAllTiles();
+        newWallTilemap.SetTilesBlock(boundsWall, allWallTiles);
+        newGameData.tilemap = newWallTilemap;
+
+        BoundsInt boundscell = _ceilingtile.cellBounds;
+        TileBase[] allCellTiles = _ceilingtile.GetTilesBlock(boundscell);
+        Tilemap newCellTilemap = _ceilingtile;
+        newCellTilemap.ClearAllTiles();
+        newCellTilemap.SetTilesBlock(boundscell, allCellTiles);
+        newGameData.ceilingTile = newCellTilemap;
+        
+
+        // 아이템 정보 저장
         for (int i = 0; i < 26; i++)
         {
             newGameData._slotNum[i] = inventory.invenSlot[i];
             newGameData._slots[i] = inventory.slots[i];
         }
+
+        // 제이슨 데이터로 변환
         string data = JsonUtility.ToJson(newGameData);
         File.WriteAllText(path + fileName, data);
     }
 
     public void LoadData()
     {
+        // 제이슨 데이터 코드로 변환 
         string data = File.ReadAllText(path + fileName);
         GameData loadGameData = JsonUtility.FromJson<GameData>(data);
 
+        // 플레이어 위치 설정
         player.transform.position = loadGameData.playerPosition;
-        TilemapManager.instance.wallDictionary = loadGameData.saveWallDictionary;
+
+        // 맵 정보 설정
+        TilemapManager.instance.tilemap = loadGameData.tilemap;
+        TilemapManager.instance.ceilingTile = loadGameData.ceilingTile;                    
+        
+        // 아이템 정보 설정
         for (int i = 0; i < 26; i++)
         {
             inventory.invenSlot[i] = loadGameData._slotNum[i];
