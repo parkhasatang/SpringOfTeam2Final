@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Enumeration;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 
 // 저장하는 방법
@@ -21,7 +22,11 @@ public class GameData
     // 이름, 레벨, 코인, 착용중인 무기    
     public Vector3 playerPosition;
     public SlotNum[] _slotNum;
-    public List<SlotData> _slots;   
+    public List<SlotData> _slots;
+
+    public Dictionary<Vector3Int, TileInfo> saveWallDictionary;
+    public Tilemap tilemap;
+    public Tilemap ceilingTile;
     
     public GameData(int num)
     {
@@ -57,7 +62,7 @@ public class DataManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this.gameObject);
         path = Application.persistentDataPath + "/";
-        inventory = player.GetComponent<Inventory>();                
+        inventory = player.GetComponent<Inventory>();        
     }
     // Start is called before the first frame update
     void Start()
@@ -77,7 +82,8 @@ public class DataManager : MonoBehaviour
     {
         GameData newGameData = new GameData(26);        
         newGameData.playerPosition = player.transform.position;
-        
+        newGameData.saveWallDictionary = TilemapManager.instance.wallDictionary;
+        BoundsInt bounds = newGameData.tilemap.cellBounds;
         for (int i = 0; i < 26; i++)
         {
             newGameData._slotNum[i] = inventory.invenSlot[i];
@@ -93,7 +99,7 @@ public class DataManager : MonoBehaviour
         GameData loadGameData = JsonUtility.FromJson<GameData>(data);
 
         player.transform.position = loadGameData.playerPosition;
-
+        TilemapManager.instance.wallDictionary = loadGameData.saveWallDictionary;
         for (int i = 0; i < 26; i++)
         {
             inventory.invenSlot[i] = loadGameData._slotNum[i];
