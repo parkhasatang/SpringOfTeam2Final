@@ -584,6 +584,7 @@ MonoBehaviour:
   CookUI: {fileID: 1838932308}
   equipUI: {fileID: 1553535347}
   questUI: {fileID: 14937739}
+  questShortCutUI: {fileID: 0}
   worldMap: {fileID: 279058076}
 --- !u!114 &126779614
 MonoBehaviour:
@@ -1424,11 +1425,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1403189573771570476, guid: 7ea9d5487ff40ea4f9375ba0d4483900, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 382.3279
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1403189573771570476, guid: 7ea9d5487ff40ea4f9375ba0d4483900, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 157.09
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1403189573771570476, guid: 7ea9d5487ff40ea4f9375ba0d4483900, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1481,6 +1482,22 @@ PrefabInstance:
     - target: {fileID: 3253479280455810152, guid: 7ea9d5487ff40ea4f9375ba0d4483900, type: 3}
       propertyPath: m_Name
       value: QuestShortCut
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116531591405938412, guid: 7ea9d5487ff40ea4f9375ba0d4483900, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116531591405938412, guid: 7ea9d5487ff40ea4f9375ba0d4483900, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116531591405938412, guid: 7ea9d5487ff40ea4f9375ba0d4483900, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116531591405938412, guid: 7ea9d5487ff40ea4f9375ba0d4483900, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1614,6 +1631,10 @@ PrefabInstance:
       propertyPath: wallTilemap
       value: 
       objectReference: {fileID: 1224510177}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
@@ -2130,6 +2151,10 @@ PrefabInstance:
       propertyPath: wallTilemap
       value: 
       objectReference: {fileID: 1224510177}
+    - target: {fileID: 5678899006639834498, guid: 8fe92a20848174e43bdbae05bb65b114, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
     - target: {fileID: 5678899006639834498, guid: 8fe92a20848174e43bdbae05bb65b114, type: 3}
       propertyPath: maxSpawnInterval
       value: 8
@@ -2835,6 +2860,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453241587}
   m_CullTransparentMesh: 1
+--- !u!1839735485 &468752951 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 7900666647222212449, guid: 1a996dd474624944eb964e10a1ec7911, type: 3}
+  m_PrefabInstance: {fileID: 571259267}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &469018205 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8818285081124550854, guid: b9b1aa241e0b9c147bde9f3d52ec1deb, type: 3}
@@ -3027,6 +3057,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1224510177}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
       objectReference: {fileID: 1707245910782648791, guid: f676da42b66850d4d865cae5fa627091, type: 3}
@@ -3128,6 +3162,10 @@ PrefabInstance:
       propertyPath: wallTilemap
       value: 
       objectReference: {fileID: 1224510177}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
@@ -41305,6 +41343,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1224510177}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
       objectReference: {fileID: 1707245910782648791, guid: f676da42b66850d4d865cae5fa627091, type: 3}
@@ -41499,6 +41541,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1224510177}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
       objectReference: {fileID: 1707245910782648791, guid: f676da42b66850d4d865cae5fa627091, type: 3}
@@ -41627,6 +41673,10 @@ PrefabInstance:
       propertyPath: wallTilemap
       value: 
       objectReference: {fileID: 1224510177}
+    - target: {fileID: 5678899006639834498, guid: 8fe92a20848174e43bdbae05bb65b114, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
     - target: {fileID: 5678899006639834498, guid: 8fe92a20848174e43bdbae05bb65b114, type: 3}
       propertyPath: maxSpawnInterval
       value: 8
@@ -42520,6 +42570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 126779606}
+  _tilemap: {fileID: 0}
+  _ceilingtile: {fileID: 0}
 --- !u!4 &999725249
 Transform:
   m_ObjectHideFlags: 0
@@ -42788,6 +42840,10 @@ PrefabInstance:
       propertyPath: wallTilemap
       value: 
       objectReference: {fileID: 1224510177}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
@@ -43214,6 +43270,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1224510177}
     - target: {fileID: 5678899006639834498, guid: 8fe92a20848174e43bdbae05bb65b114, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
+    - target: {fileID: 5678899006639834498, guid: 8fe92a20848174e43bdbae05bb65b114, type: 3}
       propertyPath: maxSpawnInterval
       value: 8
       objectReference: {fileID: 0}
@@ -43315,6 +43375,10 @@ PrefabInstance:
       propertyPath: wallTilemap
       value: 
       objectReference: {fileID: 1224510177}
+    - target: {fileID: 5678899006639834498, guid: 8fe92a20848174e43bdbae05bb65b114, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
     - target: {fileID: 5678899006639834498, guid: 8fe92a20848174e43bdbae05bb65b114, type: 3}
       propertyPath: maxSpawnInterval
       value: 8
@@ -43467,6 +43531,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1224510177}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
       objectReference: {fileID: 1707245910782648791, guid: f676da42b66850d4d865cae5fa627091, type: 3}
@@ -43580,6 +43648,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1224510177}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
       objectReference: {fileID: 1707245910782648791, guid: f676da42b66850d4d865cae5fa627091, type: 3}
@@ -43689,6 +43761,10 @@ PrefabInstance:
       propertyPath: wallTilemap
       value: 
       objectReference: {fileID: 1224510177}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
@@ -43973,6 +44049,10 @@ PrefabInstance:
       propertyPath: wallTilemap
       value: 
       objectReference: {fileID: 1224510177}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
@@ -44903,6 +44983,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1224510177}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
       objectReference: {fileID: 1707245910782648791, guid: f676da42b66850d4d865cae5fa627091, type: 3}
@@ -45082,6 +45166,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1224510177}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
       objectReference: {fileID: 1707245910782648791, guid: f676da42b66850d4d865cae5fa627091, type: 3}
@@ -45236,6 +45324,10 @@ PrefabInstance:
       propertyPath: wallTilemap
       value: 
       objectReference: {fileID: 1224510177}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
@@ -45521,6 +45613,10 @@ PrefabInstance:
       propertyPath: wallTilemap
       value: 
       objectReference: {fileID: 1224510177}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
@@ -45829,6 +45925,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1224510177}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
       objectReference: {fileID: 1707245910782648791, guid: f676da42b66850d4d865cae5fa627091, type: 3}
@@ -46006,6 +46106,10 @@ PrefabInstance:
       propertyPath: wallTilemap
       value: 
       objectReference: {fileID: 1224510177}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
@@ -47439,6 +47543,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1224510177}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
       objectReference: {fileID: 1707245910782648791, guid: f676da42b66850d4d865cae5fa627091, type: 3}
@@ -47540,6 +47648,10 @@ PrefabInstance:
       propertyPath: wallTilemap
       value: 
       objectReference: {fileID: 1224510177}
+    - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 468752951}
     - target: {fileID: 3076099792113311672, guid: f275be8cabb7e9443a5ba9287f13d097, type: 3}
       propertyPath: monsterPrefab
       value: 
