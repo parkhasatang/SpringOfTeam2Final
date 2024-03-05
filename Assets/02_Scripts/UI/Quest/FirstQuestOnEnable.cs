@@ -12,7 +12,7 @@ public class FirstQuestOnEnable : MonoBehaviour
 
     private void Start()
     {
-        quest.CreateRandomQuest();
+        quest.SetMainQuest(0);
         quest.SetQuestImgAndTxt();
     }
 }

@@ -3574,6 +3574,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: MainQuest
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 400
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 10, z: 10, w: 10}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c057ba1c3453a524588b9bd3b5ab2339
+      internalID: 1263784453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3590,6 +3611,7 @@ TextureImporter:
       CloseBtnPress: 67010160
       ItemInfoBackGround: 1969220893
       LeftBtn: 1852837258
+      MainQuest: 1263784453
       QuestAcceptBtn: -1084576776
       QuestAcceptBtnPress: 2112078230
       QuestBoard: -1464297146

@@ -15,6 +15,7 @@ public class PickUp : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             UIManager.Instance.playerInventoryData.GiveItemToEmptyInv(item, 1);
+            QuestManager.instance.CheckAllQuestRequest();
             gameObject.SetActive(false);
         }
     }

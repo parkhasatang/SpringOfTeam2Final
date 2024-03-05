@@ -12,6 +12,10 @@ public class QuestInfo
 
     public Item rewardItem;
     public int rewardCount;
+
+    public string questDescription;
+
+    public bool isMainQuest;
 }
 
 public class QuestManager : MonoBehaviour
@@ -20,6 +24,10 @@ public class QuestManager : MonoBehaviour
     internal QuestShortCut questShortCut;
     internal int questSlotCount;
     internal QuestInfo questInfo;
+
+    internal bool isMainQuestDoing;
+    internal bool isLastMainQuest;
+    internal int mainQuestProgressIndex;
 
     public event Action OnQuestAccepted;
     public event Action OnCheckQuestRequest;

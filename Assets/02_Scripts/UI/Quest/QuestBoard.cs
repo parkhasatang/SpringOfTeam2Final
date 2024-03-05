@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -48,6 +49,11 @@ public class QuestBoard : MonoBehaviour
     {
         if (questInfo != null)
         {
+            if (questInfo.isMainQuest)
+            {
+                cancelBtn.gameObject.SetActive(false);
+            }
+            else cancelBtn.gameObject.SetActive(true);
             CheckRequst();
             ShortCutFadeIn();
         }
@@ -58,9 +64,6 @@ public class QuestBoard : MonoBehaviour
     {
         if (questInfo != null)
         {
-            Debug.Log(questInfo.requestItem);
-            Debug.Log(questInfo.requestItem.ItemCode);
-            Debug.Log(questInfo.requestCount);
             questShortCutTxt.text = $"{UIManager.Instance.playerInventoryData.ReturnStackInInventory(questInfo.requestItem.ItemCode)}/{questInfo.requestCount}";
             questShortCutImg.sprite = ItemManager.instance.GetSpriteByItemCode(questInfo.requestItem.ItemCode);
 
@@ -104,8 +107,13 @@ public class QuestBoard : MonoBehaviour
         UIManager.Instance.playerInventoryData.GiveItemToEmptyInv(questInfo.rewardItem, questInfo.rewardCount);
         questInfo = null;
 
+        if (QuestManager.instance.isMainQuestDoing)
+        {
+            QuestManager.instance.isMainQuestDoing = false;
+        }
 
         QuestManager.instance.CheckAllQuestRequest();
+        questInfo = new QuestInfo();
         DeactiveThis();
     }
 

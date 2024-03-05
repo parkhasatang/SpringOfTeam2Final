@@ -1,0 +1,46 @@
+{
+    "mainQuestdata": [
+        {
+            "requestItemCode": 1001,
+            "requestCount": 1,
+            "rewardItemCode": 1001,
+            "rewardCount": 1,
+            "questDescription": "튜토리얼 북을 다 읽고 얻은 구리로 검을 만들어보세요! 몬스터를 잡기 좀 더 수월해 질거에요."
+        },
+        {
+            "requestItemCode": 1301,
+            "requestCount": 1,
+            "rewardItemCode": 1301,
+            "rewardCount": 1,
+            "questDescription": "동굴을 돌아다니다 보면 벽을 부수기 힘들지 않나요? 곡괭이를 만들면 벽을 부수기 좀 더 수월해져요."
+        },
+        {
+            "requestItemCode": 1201,
+            "requestCount": 1,
+            "rewardItemCode": 1201,
+            "rewardCount": 1,
+            "questDescription": "동굴에서 농사를 할 수 있는걸 아나요? 곡괭이를 먼저 만들어 보세요."
+        },
+        {
+            "requestItemCode": 1251,
+            "requestCount": 1,
+            "rewardItemCode": 1251,
+            "rewardCount": 1,
+            "questDescription": "농사에는 물이 필수죠! 물을 줄 수 있는 물뿌리개를 만들어 보세요."
+        },
+        {
+            "requestItemCode": 1712,
+            "requestCount": 1,
+            "rewardItemCode": 3710,
+            "rewardCount": 1,
+            "questDescription": "몬스터를 잡아 얻은 씨앗을 심어, 감자를 가져다 주세요."
+        },
+        {
+            "requestItemCode": 3709,
+            "requestCount": 1,
+            "rewardItemCode": 1901,
+            "rewardCount": 1,
+            "questDescription": "감자와 양파를 조리하여 음식을 만들어 보세요. 요리NPC를 통해 할 수 있어요"
+        }
+    ]
+}

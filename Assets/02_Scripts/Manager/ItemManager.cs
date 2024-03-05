@@ -60,24 +60,24 @@ public class ItemManager : MonoBehaviour
         spriteDictionary = new Dictionary<int, Sprite>();
         craftingRecipes = new Dictionary<int, Dictionary<int, int>>();
 
+        ItemMapping();
+
         SpriteMapping();
 
         // 무기 제작 레시피 초기화
         InitializeCraftingRecipes();
     }
 
-    void Start()
+    private void ItemMapping()
     {
         string[] line = ItemDatas.text.Substring(0, ItemDatas.text.Length - 1).Split('\n');
         for (int i = 0; i < line.Length; i++)
         {
-            string[] row = line[i].Split('\t');           
+            string[] row = line[i].Split('\t');
             items.Add(int.Parse(row[0]), new Item(int.Parse(row[0]), int.Parse(row[1]), row[2], row[3], float.Parse(row[4]), float.Parse(row[5]), float.Parse(row[6]),
                 float.Parse(row[7]), float.Parse(row[8]), float.Parse(row[9]), float.Parse(row[10]), int.Parse(row[11]), bool.Parse(row[12]), bool.Parse(row[13])));
         }
     }
-
-
 
 
     public Sprite GetSpriteByItemCode(int itemCode)
