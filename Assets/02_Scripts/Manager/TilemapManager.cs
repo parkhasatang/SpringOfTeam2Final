@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Tilemaps;
@@ -19,16 +20,19 @@ public class TilemapManager : MonoBehaviour
     public static TilemapManager instance;
 
     public Tilemap tilemap;
-    public Tilemap ceilingTile;
+    public Tilemap ceilingTile;    
     public Dictionary<Vector3Int, TileInfo> wallDictionary = new();
     public TileMapControl tileMapControl;
 
+    string path;
+    string fileName;
+
     public void Awake()
     {
-        instance = this;
+        instance = this;       
     }
     public void Start()
-    {
+    {                
         BoundsInt bounds = tilemap.cellBounds;
         for (int x = bounds.x; x < bounds.x + bounds.size.x; x++)
         {
@@ -41,7 +45,7 @@ public class TilemapManager : MonoBehaviour
                     SetWallInfo(cellPosition, tile);
                 }
             }
-        }
+        }        
     }
 
 

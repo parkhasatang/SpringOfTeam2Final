@@ -17,34 +17,7 @@ using UnityEngine.Tilemaps;
 // 2. 제이슨을 데이터 형태로 변환
 // 3. 불러온 데이터를 사용
 
-public class GameData
-{
-    // 이름, 레벨, 코인, 착용중인 무기    
-    public Vector3 playerPosition;
-    public SlotNum[] _slotNum;
-    public List<SlotData> _slots;
-    
-    public Tilemap tilemap;
-    public Tilemap ceilingTile;
-    
-    public GameData(int num)
-    {
-        _slotNum = new SlotNum[num];
-        _slots = new List<SlotData>();
-        for (int i = 0; i < num; i++)
-        {
-            _slotNum[i] = new SlotNum();
-            SlotData slot = new SlotData()
-            {
-                isEmpty = true,
-                isChoose = false,
-                item = null,
-                stack = 0
-            };
-            _slots.Add(slot);
-        }
-    }
-}
+
 public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
@@ -69,11 +42,12 @@ public class DataManager : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start()
-    {   
-        if(File.Exists(path + fileName))
+    {
+        Debug.Log(path);
+        if (File.Exists(path + fileName))
         {
             LoadData();
-        }            
+        }
     }   
     // Update is called once per frame
     void Update()
@@ -84,27 +58,58 @@ public class DataManager : MonoBehaviour
     public void SaveData()
     {
         // 저장할 데이터 객체화
-        GameData newGameData = new GameData(26); 
-        
-        // 플레이어 위치 저장
-        newGameData.playerPosition = player.transform.position;
+        GameData newGameData = new GameData();
+        newGameData._slotNum = new SlotNum[26];
+        newGameData._slots = new List<SlotData>();
+        for (int i = 0; i < 26; i++)
+        {
+            newGameData._slotNum[i] = new SlotNum();
+            SlotData slot = new SlotData()
+            {
+                isEmpty = true,
+                isChoose = false,
+                item = null,
+                stack = 0
+            };
+            newGameData._slots.Add(slot);
+        }
+             //플레이어 위치 저장
+            newGameData.playerPosition = player.transform.position;
 
         // 맵 저장
-        BoundsInt boundsWall = _tilemap.cellBounds;
-        TileBase[] allWallTiles = _tilemap.GetTilesBlock(boundsWall);
-        Tilemap newWallTilemap = _tilemap;
-        newWallTilemap.ClearAllTiles();
-        newWallTilemap.SetTilesBlock(boundsWall, allWallTiles);
-        newGameData.tilemap = newWallTilemap;
 
-        BoundsInt boundscell = _ceilingtile.cellBounds;
-        TileBase[] allCellTiles = _ceilingtile.GetTilesBlock(boundscell);
-        Tilemap newCellTilemap = _ceilingtile;
-        newCellTilemap.ClearAllTiles();
-        newCellTilemap.SetTilesBlock(boundscell, allCellTiles);
-        newGameData.ceilingTile = newCellTilemap;
+        List<Vector3Int> changedTiles = new List<Vector3Int>();
+        BoundsInt bounds = _tilemap.cellBounds;
+        for(int x = bounds.xMin; x < bounds.xMax; x++)
+        {
+            for(int y = bounds.yMin; y< bounds.yMax; y++)
+            {
+                Vector3Int tilePosition = new Vector3Int(x, y, 0);
+                TileBase tile = _tilemap.GetTile(tilePosition);
+                if(tile == null)
+                {
+                    changedTiles.Add(tilePosition); 
+                }
+            }
+        }
         
+        List<Vector3Int> changedCeilingTiles = new List<Vector3Int>();
+        BoundsInt ceilingBounds = _ceilingtile.cellBounds;
+        for (int x = ceilingBounds.xMin; x < ceilingBounds.xMax; x++)
+        {
+            for(int y = ceilingBounds.yMin; y < ceilingBounds.yMax; y++)
+            {
+                Vector3Int tilePosition = new Vector3Int(x, y, 0);
+                TileBase tile = _ceilingtile.GetTile(tilePosition);
+                if(tile == null)
+                {
+                    changedCeilingTiles.Add(tilePosition);
+                }
+            }
+        }
 
+        newGameData.changedTiles = changedTiles.ToArray();              
+        newGameData.changedCeilingTiles = changedCeilingTiles.ToArray();
         // 아이템 정보 저장
         for (int i = 0; i < 26; i++)
         {
@@ -127,15 +132,24 @@ public class DataManager : MonoBehaviour
         player.transform.position = loadGameData.playerPosition;
 
         // 맵 정보 설정
-        TilemapManager.instance.tilemap = loadGameData.tilemap;
-        TilemapManager.instance.ceilingTile = loadGameData.ceilingTile;                    
-        
+        foreach (Vector3Int tilePosition in loadGameData.changedTiles)
+        {
+            _tilemap.SetTile(tilePosition, null);
+        }
+
+        foreach(Vector3Int tilePosition in loadGameData.changedCeilingTiles)
+        {
+            _ceilingtile.SetTile(tilePosition, null);
+        }
+
+        TilemapManager.instance.tilemap = _tilemap;
+        TilemapManager.instance.ceilingTile = _ceilingtile;
         // 아이템 정보 설정
         for (int i = 0; i < 26; i++)
         {
             inventory.invenSlot[i] = loadGameData._slotNum[i];
             inventory.slots[i] = loadGameData._slots[i];
             inventory.StackUpdate(i);
-        }
+        }        
     }
 }

@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
-
 public class Inventory : MonoBehaviour
 {
     public List<SlotData> slots = new();// SlotData를 리스트로 만들어주자.
