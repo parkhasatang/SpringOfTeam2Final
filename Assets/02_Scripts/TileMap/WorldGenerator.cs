@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System;
-using System.Collections.Generic;
 
 public class WorldGenerator : MonoBehaviour
 {
@@ -24,7 +23,6 @@ public class WorldGenerator : MonoBehaviour
 
 
     public float centralCircleRadius = 50f;
-    private float twoThirdsPi = (2f / 3f) * Mathf.PI;
     public float noiseScale = 0.05f;
 
     public event Action OnGenerationComplete;

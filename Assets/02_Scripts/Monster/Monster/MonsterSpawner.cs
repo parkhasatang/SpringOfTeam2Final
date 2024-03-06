@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MonsterSpawner : MonoBehaviour
 {
     public GameObject[] monsterPrefabs;
-    public Tilemap wallTilemap;
+    public List<Tilemap> wallTilemaps;
     public Tilemap groundTilemap;
 
     private bool playerEnteredZone = false;
@@ -72,15 +73,26 @@ public class MonsterSpawner : MonoBehaviour
             Vector3 potentialSpawnPoint = transform.position + new Vector3(spawnDirection.x, 0, spawnDirection.y);
 
             Vector3Int groundTilePosition = groundTilemap.WorldToCell(potentialSpawnPoint);
-            Vector3Int wallTilePosition = wallTilemap.WorldToCell(potentialSpawnPoint);
-
-            if (groundTilemap.HasTile(groundTilePosition) && !wallTilemap.HasTile(wallTilePosition))
+            if (groundTilemap.HasTile(groundTilePosition) && !IsWallTile(potentialSpawnPoint))
             {
                 return groundTilemap.CellToWorld(groundTilePosition) + new Vector3(0.5f, 0.5f, 0);
             }
         }
         return Vector3.zero;
     }
+    private bool IsWallTile(Vector3 position)
+    {
+        foreach (var wallTilemap in wallTilemaps)
+        {
+            Vector3Int tilePosition = wallTilemap.WorldToCell(position);
+            if (wallTilemap.HasTile(tilePosition))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public void MonsterRemoved(GameObject monster)
     {

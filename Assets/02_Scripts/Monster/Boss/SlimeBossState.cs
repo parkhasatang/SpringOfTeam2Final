@@ -162,7 +162,7 @@ private IEnumerator JumpAttack(float jumpHeight, System.Action onLanded)
 
     private void OnJumpAttackLanded()
     {
-        float jumpAttackDamage = 50f;
+        float jumpAttackDamage = 30f;
         float damageRadius = myCollider.bounds.size.x;
 
         HealthSystem playerHealth = player.GetComponent<HealthSystem>();

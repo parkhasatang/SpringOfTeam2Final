@@ -240,7 +240,7 @@ MonoBehaviour:
     HP: 100
     followDistance: 5
     attackRange: 1
-    attackDamage: 1
+    attackDamage: 5
     defense: 0
     attackDelay: 5
     specificSO: {fileID: 11400000, guid: 7d0d7d030938a4044af2a05e26a86803, type: 2}

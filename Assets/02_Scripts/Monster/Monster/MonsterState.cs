@@ -1,139 +1,139 @@
-using System;
-using UnityEngine;
+    using System;
+    using UnityEngine;
 
-public class MonsterState : MonoBehaviour
-{
-    protected GameObject player;
-    protected Animator animator;
-    protected CharacterStatHandler statHandler;
-    protected HealthSystem healthSystem;
-
-    public static event Action<GameObject> OnMonsterDeath;
-
-    protected enum State
+    public class MonsterState : MonoBehaviour
     {
-        Idle,
-        Move,
-        Chase,
-        Attack,
-        Death
-    }
+        protected GameObject player;
+        protected Animator animator;
+        protected CharacterStatHandler statHandler;
+        protected HealthSystem healthSystem;
 
-    protected State currentState;
+        public static event Action<GameObject> OnMonsterDeath;
 
-    protected virtual void Start()
-    {
-        animator = GetComponent<Animator>();
-        currentState = State.Idle;
-        player = GameObject.FindGameObjectWithTag("Player");
-        healthSystem = GetComponent<HealthSystem>();
-        statHandler = GetComponent<CharacterStatHandler>();
-        if (statHandler == null)
+        protected enum State
         {
-            Debug.LogError("StatHandler component is missing.");
+            Idle,
+            Move,
+            Chase,
+            Attack,
+            Death
         }
-        else
+
+        protected State currentState;
+
+        protected virtual void Start()
         {
-            statHandler.UpdateCharacterStats();
+            animator = GetComponent<Animator>();
+            currentState = State.Idle;
+            player = GameObject.FindGameObjectWithTag("Player");
+            healthSystem = GetComponent<HealthSystem>();
+            statHandler = GetComponent<CharacterStatHandler>();
+            if (statHandler == null)
+            {
+                Debug.LogError("StatHandler component is missing.");
+            }
+            else
+            {
+                statHandler.UpdateCharacterStats();
+            }
         }
-    }
 
-    protected virtual void Update()
-    {
-        switch (currentState)
+        protected virtual void Update()
         {
-            case State.Idle:
-                IdleBehavior();
-                break;
-            case State.Move:
-                MoveBehavior();
-                break;
-            case State.Chase:
-                ChasePlayer();
-                break;
-            case State.Attack:
-                AttackPlayer();
-                break;
-            case State.Death:
-                break;
+            switch (currentState)
+            {
+                case State.Idle:
+                    IdleBehavior();
+                    break;
+                case State.Move:
+                    MoveBehavior();
+                    break;
+                case State.Chase:
+                    ChasePlayer();
+                    break;
+                case State.Attack:
+                    AttackPlayer();
+                    break;
+                case State.Death:
+                    break;
+            }
         }
-    }
 
-    protected virtual void IdleBehavior()
-    {
+        protected virtual void IdleBehavior()
+        {
 
-    }
+        }
 
-    protected virtual void MoveBehavior()
-    {
+        protected virtual void MoveBehavior()
+        {
         
-    }
-    protected virtual void ChasePlayer()
-    {
-        if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.followDistance)
+        }
+        protected virtual void ChasePlayer()
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, statHandler.CurrentMonsterStats.speed * Time.deltaTime);
-
-            if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.attackRange)
+            if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.followDistance)
             {
-                currentState = State.Attack;
-            }
-        }
-        else
-        {
-            currentState = State.Idle;
-        }
-    }
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, statHandler.CurrentMonsterStats.speed * Time.deltaTime);
 
-    protected virtual void AttackPlayer()
-    {
-        if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.followDistance)
-        {
-            currentState = State.Chase;
-        }
-        else
-        {
-            currentState = State.Idle;
-        }
-
-        OnAttackHit();
-    }
-
-    protected virtual void OnAttackHit()
-    {
-        if (player != null)
-        {
-            if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.attackRange)
-            {
-                HealthSystem playerHealth = player.GetComponent<HealthSystem>();
-                if (playerHealth != null)
+                if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.attackRange)
                 {
-                    playerHealth.ChangeHealth(-statHandler.CurrentMonsterStats.attackDamage);
-                }
-                else
-                {
-                    Debug.LogError("Player does not have a HealthSystem component.");
+                    currentState = State.Attack;
                 }
             }
+            else
+            {
+                currentState = State.Idle;
+            }
         }
-    }
 
-    protected virtual void TakeDamage(float damage)
-    {
-        statHandler.CurrentMonsterStats.HP -= damage;
-        if (statHandler.CurrentMonsterStats.HP <= 0)
+        protected virtual void AttackPlayer()
         {
-            OnDeath();
+            if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.followDistance)
+            {
+                currentState = State.Chase;
+            }
+            else
+            {
+                currentState = State.Idle;
+            }
+
+            OnAttackHit();
+        }
+
+        protected virtual void OnAttackHit()
+        {
+            if (player != null)
+            {
+                if (Vector2.Distance(transform.position, player.transform.position) <= statHandler.CurrentMonsterStats.attackRange)
+                {
+                    HealthSystem playerHealth = player.GetComponent<HealthSystem>();
+                    if (playerHealth != null)
+                    {
+                        playerHealth.ChangeHealth(-statHandler.CurrentMonsterStats.attackDamage);
+                    }
+                    else
+                    {
+                        Debug.LogError("Player does not have a HealthSystem component.");
+                    }
+                }
+            }
+        }
+
+        protected virtual void TakeDamage(float damage)
+        {
+            statHandler.CurrentMonsterStats.HP -= damage;
+            if (statHandler.CurrentMonsterStats.HP <= 0)
+            {
+                OnDeath();
+            }
+        }
+        protected void RaiseOnMonsterDeath()
+        {
+            OnMonsterDeath?.Invoke(this.gameObject);
+        }
+        protected virtual void OnDeath()
+        {
+            currentState = State.Death;
+            animator.SetTrigger("Die");
+            OnMonsterDeath?.Invoke(gameObject);
         }
     }
-    protected void RaiseOnMonsterDeath()
-    {
-        OnMonsterDeath?.Invoke(this.gameObject);
-    }
-    protected virtual void OnDeath()
-    {
-        currentState = State.Death;
-        animator.SetTrigger("Die");
-        OnMonsterDeath?.Invoke(gameObject);
-    }
-}
