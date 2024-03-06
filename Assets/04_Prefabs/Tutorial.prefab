@@ -1158,8 +1158,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\n\uD50C\uB808\uC774\uC5B4 \uC870\uC885\uC758 \uBE44\uBC95 \n\uC81C 1\uC7A5\n\n\uCE90\uB9AD\uD130
     \uC774\uB3D9 : W,A,S,D\nNPC \uC0C1\uD638\uC791\uC6A9 : F\n\uC778\uBCA4\uD1A0\uB9AC
-    : Tab\n\uC6D4\uB4DC\uB9F5: M\n\uCC3D \uB2EB\uAE30 : Esc\n\n\uACF5\uACA9 : \uC88C\uD074\uB9AD\n\uC544\uC774\uD15C
-    \uC0AC\uC6A9 : \uC6B0\uD074\uB9AD\n\uC544\uC774\uD15C \uC62E\uAE30\uAE30 : \uB4DC\uB798\uADF8"
+    : Tab\n\uD018\uC2A4\uD2B8 \uC20F\uCEF7 : Q\n\uC6D4\uB4DC\uB9F5: M\n\uCC3D \uB2EB\uAE30
+    : Esc\n\n\uACF5\uACA9 : \uC88C\uD074\uB9AD\n\uC544\uC774\uD15C \uC0AC\uC6A9 :
+    \uC6B0\uD074\uB9AD\n\uC544\uC774\uD15C \uC62E\uAE30\uAE30 : \uB4DC\uB798\uADF8"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd5650e1d159b0643898a8a8b456ac00, type: 2}
   m_sharedMaterial: {fileID: -4596670659146374151, guid: bd5650e1d159b0643898a8a8b456ac00, type: 2}

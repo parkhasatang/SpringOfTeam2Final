@@ -476,7 +476,7 @@ TextureImporter:
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 4, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1626,39 +1626,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 224
-        width: 32
-        height: 32
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 12, y: 12, z: 12, w: 12}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 81371b63ebe555343bd862394964dd57
       internalID: -49368243
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GUI_4x_122
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de8244673d869f44db8d3e64737ef43a
-      internalID: 780546516
       vertices: []
       indices: 
       edges: []
@@ -1701,48 +1680,6 @@ TextureImporter:
       bones: []
       spriteID: 8aab369dec5e5214c95fe39d262385e1
       internalID: 807897992
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GUI_4x_135
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a4758eb1c2813234ca9b8971479259fa
-      internalID: -1518418426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GUI_4x_136
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0605f055889dbe748980633554a2d46f
-      internalID: 175056597
       vertices: []
       indices: 
       edges: []

@@ -60,13 +60,11 @@ public class SetObject : MonoBehaviour, IUsePotion
                         // ¹çÀ¸ ¼ÒÈ¯ÇÏ´Â ·ÎÁ÷ ÇÊ¿ä
                         Debug.Log("¹ç¼ÒÈ¯");
                         SetField();
-                        AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerHarvest);
                     }
                     // ¹°»Ñ¸®°³
                     else if (UIManager.Instance.playerInventoryData.slots[i].item.ItemType == 14)
                     {
                         SetWater();
-                        AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerPulling);
                     }
                     // ¾¾¾ÑÀÌ¶ó¸é
                     else if (UIManager.Instance.playerInventoryData.slots[i].item.ItemType == 15)
@@ -125,13 +123,14 @@ public class SetObject : MonoBehaviour, IUsePotion
 
         if (distance < 2)
         {
-            RaycastHit2D hit = Physics2D.Raycast(mousPosition, Vector2.zero, 0.1f, 1 << LayerMask.NameToLayer("Field"));
+            RaycastHit2D hit = Physics2D.Raycast(mousPosition, Vector2.zero, 0.1f, 1 << LayerMask.NameToLayer("Field") | 1 << LayerMask.NameToLayer("Wall") | 1 << LayerMask.NameToLayer("Pyramid") | 1 << LayerMask.NameToLayer("Default") | 1 << LayerMask.NameToLayer("Box"));
             
             if (!hit)
             {
                 Debug.Log("»ý¼º¿Ï·á");
                 Vector3 spawnPosition = new Vector3(Mathf.FloorToInt(mousPosition.x) + 0.5f, Mathf.FloorToInt(mousPosition.y) + 0.5f);
                 FarmManager.instance.FieldSpawn(spawnPosition);
+                AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerHarvest);
             }
             else
             {
@@ -159,6 +158,7 @@ public class SetObject : MonoBehaviour, IUsePotion
                         {
                             ItemManager.instance.itemPool.ItemSpawn(field.seedData.ItemCode, hit.point);
                         }
+                        AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerHarvest);
                         // ¹ç ¿ÀºêÁ§Æ® ²¨ÁÖ±â.
                         hit.collider.gameObject.SetActive(false);
                     }
@@ -180,7 +180,8 @@ public class SetObject : MonoBehaviour, IUsePotion
             {
                 Field field = hit.collider.gameObject.GetComponent<Field>();
                 if (field.isWatering == false)
-                {                    
+                {
+                    AudioManager.instance.PlaySffx(AudioManager.Sfx.PlayerPulling);
                     field.isWatering = true;
                     field.CheckIsSeed();
                 }
